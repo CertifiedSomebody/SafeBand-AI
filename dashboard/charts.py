@@ -1,41 +1,138 @@
 """
 SAFEBAND AI - Dashboard Charts Module
 
-Provides reusable Plotly chart functions for:
-- Heart-rate monitoring
-- SpO2 monitoring
-- Temperature monitoring
-- Risk-score trends
-- Sensor activity
+Reusable Plotly visualizations for the SAFEBAND AI dashboard.
+
+Supported visualizations:
+    - Heart-rate monitoring
+    - SpO2 monitoring
+    - Environmental temperature
+    - Body temperature
+    - Risk-score trends
+    - Motion intensity
+    - Combined safety overview
+    - Activity distribution
+
+Design goals:
+    - Consistent dashboard appearance
+    - Dark/light theme compatibility
+    - Predictable chart dimensions
+    - Safe handling of empty or invalid data
+    - No Streamlit dependency
+
+The chart layer is presentation-only. It does not perform
+sensor processing, AI inference, or risk calculation.
 """
 
-from typing import List, Dict, Any
+
+from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import plotly.graph_objects as go
 
 
 # ============================================================
-# COMMON CHART CONFIGURATION
+# CHART CONFIGURATION
 # ============================================================
 
 CHART_HEIGHT = 300
 
-COMMON_LAYOUT = {
+CHART_MARGIN = {
+    "l": 45,
+    "r": 25,
+    "t": 50,
+    "b": 45,
+}
+
+TRANSPARENT = "rgba(0,0,0,0)"
+
+GRID_COLOR = "rgba(128,128,128,0.15)"
+
+DEFAULT_FONT = "Arial"
+
+DEFAULT_FONT_SIZE = 12
+
+
+# ============================================================
+# COMMON LAYOUT
+# ============================================================
+
+COMMON_LAYOUT: Dict[str, Any] = {
     "height": CHART_HEIGHT,
-    "margin": {
-        "l": 40,
-        "r": 20,
-        "t": 45,
-        "b": 40,
-    },
-    "paper_bgcolor": "rgba(0,0,0,0)",
-    "plot_bgcolor": "rgba(0,0,0,0)",
+    "margin": CHART_MARGIN,
+    "paper_bgcolor": TRANSPARENT,
+    "plot_bgcolor": TRANSPARENT,
     "font": {
-        "family": "Arial",
-        "size": 12,
+        "family": DEFAULT_FONT,
+        "size": DEFAULT_FONT_SIZE,
     },
     "hovermode": "x unified",
+    "autosize": True,
 }
+
+
+# ============================================================
+# DATA HELPERS
+# ============================================================
+
+def _safe_float(
+    value: Any,
+) -> Optional[float]:
+    """Convert a value to float when possible."""
+
+    try:
+        return float(value)
+
+    except (TypeError, ValueError):
+        return None
+
+
+def _clean_series(
+    x_values: Sequence[Any],
+    y_values: Sequence[Any],
+) -> Tuple[List[Any], List[float]]:
+    """
+    Remove invalid Y values while keeping X/Y alignment.
+
+    This prevents malformed sensor readings from breaking
+    dashboard charts.
+    """
+
+    timestamps: List[Any] = []
+    values: List[float] = []
+
+    for x_value, y_value in zip(
+        x_values,
+        y_values,
+    ):
+
+        numeric_value = _safe_float(
+            y_value
+        )
+
+        if numeric_value is None:
+            continue
+
+        timestamps.append(
+            x_value
+        )
+
+        values.append(
+            numeric_value
+        )
+
+    return timestamps, values
+
+
+def _base_figure() -> go.Figure:
+    """Create an empty Plotly figure with common configuration."""
+
+    fig = go.Figure()
+
+    fig.update_layout(
+        **COMMON_LAYOUT
+    )
+
+    return fig
 
 
 # ============================================================
@@ -43,39 +140,29 @@ COMMON_LAYOUT = {
 # ============================================================
 
 def create_line_chart(
-    x_values: List[Any],
-    y_values: List[float],
+    x_values: Sequence[Any],
+    y_values: Sequence[Any],
     title: str,
     y_axis_title: str,
     color: str = "#00C896",
 ) -> go.Figure:
     """
-    Create a reusable line chart.
+    Create a reusable sensor line chart.
 
-    Parameters
-    ----------
-    x_values : list
-        X-axis values.
-
-    y_values : list
-        Y-axis values.
-
-    title : str
-        Chart title.
-
-    y_axis_title : str
-        Y-axis label.
-
-    color : str
-        Line color.
+    Invalid numeric readings are ignored safely.
     """
 
-    fig = go.Figure()
+    x_clean, y_clean = _clean_series(
+        x_values,
+        y_values,
+    )
+
+    fig = _base_figure()
 
     fig.add_trace(
         go.Scatter(
-            x=x_values,
-            y=y_values,
+            x=x_clean,
+            y=y_clean,
             mode="lines+markers",
             line={
                 "color": color,
@@ -85,26 +172,28 @@ def create_line_chart(
                 "size": 6,
             },
             hovertemplate=(
-                f"{y_axis_title}: %{{y}}"
+                f"{y_axis_title}: "
+                "%{y}"
                 "<extra></extra>"
             ),
         )
     )
 
     fig.update_layout(
-        **COMMON_LAYOUT,
         title={
             "text": title,
             "x": 0.02,
         },
         xaxis={
-            "showgrid": False,
             "title": "Time",
+            "showgrid": False,
+            "automargin": True,
         },
         yaxis={
             "title": y_axis_title,
             "showgrid": True,
-            "gridcolor": "rgba(128,128,128,0.15)",
+            "gridcolor": GRID_COLOR,
+            "automargin": True,
         },
     )
 
@@ -112,12 +201,12 @@ def create_line_chart(
 
 
 # ============================================================
-# HEART RATE CHART
+# HEART RATE
 # ============================================================
 
 def create_heart_rate_chart(
-    timestamps: List[Any],
-    heart_rates: List[float],
+    timestamps: Sequence[Any],
+    heart_rates: Sequence[Any],
 ) -> go.Figure:
     """Create heart-rate monitoring chart."""
 
@@ -131,14 +220,14 @@ def create_heart_rate_chart(
 
 
 # ============================================================
-# SPO2 CHART
+# SPO2
 # ============================================================
 
 def create_spo2_chart(
-    timestamps: List[Any],
-    spo2_values: List[float],
+    timestamps: Sequence[Any],
+    spo2_values: Sequence[Any],
 ) -> go.Figure:
-    """Create SpO2 monitoring chart."""
+    """Create blood-oxygen monitoring chart."""
 
     fig = create_line_chart(
         x_values=timestamps,
@@ -156,14 +245,19 @@ def create_spo2_chart(
 
 
 # ============================================================
-# TEMPERATURE CHART
+# ENVIRONMENTAL TEMPERATURE
 # ============================================================
 
 def create_temperature_chart(
-    timestamps: List[Any],
-    temperatures: List[float],
+    timestamps: Sequence[Any],
+    temperatures: Sequence[Any],
 ) -> go.Figure:
-    """Create environmental temperature chart."""
+    """
+    Create environmental-temperature chart.
+
+    This represents the BME680 environmental sensor and should
+    not be confused with MAX30208 body temperature.
+    """
 
     return create_line_chart(
         x_values=timestamps,
@@ -175,21 +269,49 @@ def create_temperature_chart(
 
 
 # ============================================================
-# RISK SCORE CHART
+# BODY TEMPERATURE
+# ============================================================
+
+def create_body_temperature_chart(
+    timestamps: Sequence[Any],
+    body_temperatures: Sequence[Any],
+) -> go.Figure:
+    """
+    Create body-temperature monitoring chart.
+
+    Source:
+        MAX30208
+
+    Body temperature is intentionally kept separate from
+    environmental temperature.
+    """
+
+    return create_line_chart(
+        x_values=timestamps,
+        y_values=body_temperatures,
+        title="Body Temperature",
+        y_axis_title="Body Temperature (°C)",
+        color="#EF4444",
+    )
+
+
+# ============================================================
+# RISK SCORE
 # ============================================================
 
 def create_risk_chart(
-    timestamps: List[Any],
-    risk_scores: List[float],
+    timestamps: Sequence[Any],
+    risk_scores: Sequence[Any],
 ) -> go.Figure:
     """
-    Create risk-score monitoring chart.
+    Create safety risk-score monitoring chart.
 
-    Risk score:
-        0-29   Low
-        30-59  Moderate
-        60-79  High
-        80-100 Critical
+    Risk levels:
+
+        0-29    LOW
+        30-59   MODERATE
+        60-79   HIGH
+        80-100  CRITICAL
     """
 
     fig = create_line_chart(
@@ -204,7 +326,10 @@ def create_risk_chart(
         range=[0, 100]
     )
 
-    # Moderate-risk boundary
+    # --------------------------------------------------------
+    # RISK BOUNDARIES
+    # --------------------------------------------------------
+
     fig.add_hline(
         y=30,
         line_dash="dash",
@@ -213,7 +338,6 @@ def create_risk_chart(
         annotation_position="top left",
     )
 
-    # High-risk boundary
     fig.add_hline(
         y=60,
         line_dash="dash",
@@ -222,7 +346,6 @@ def create_risk_chart(
         annotation_position="top left",
     )
 
-    # Critical-risk boundary
     fig.add_hline(
         y=80,
         line_dash="dash",
@@ -235,12 +358,12 @@ def create_risk_chart(
 
 
 # ============================================================
-# MOTION CHART
+# MOTION
 # ============================================================
 
 def create_motion_chart(
-    timestamps: List[Any],
-    motion_values: List[float],
+    timestamps: Sequence[Any],
+    motion_values: Sequence[Any],
 ) -> go.Figure:
     """Create motion-intensity monitoring chart."""
 
@@ -254,26 +377,41 @@ def create_motion_chart(
 
 
 # ============================================================
-# MULTI-SENSOR CHART
+# MULTI-SENSOR OVERVIEW
 # ============================================================
 
 def create_sensor_overview_chart(
-    timestamps: List[Any],
-    heart_rates: List[float],
-    risk_scores: List[float],
+    timestamps: Sequence[Any],
+    heart_rates: Sequence[Any],
+    risk_scores: Sequence[Any],
 ) -> go.Figure:
     """
     Create combined heart-rate and risk-score visualization.
 
-    Uses two Y axes because BPM and risk score have different units.
+    Two Y axes are used because BPM and risk score represent
+    different units and ranges.
     """
 
-    fig = go.Figure()
+    hr_x, hr_y = _clean_series(
+        timestamps,
+        heart_rates,
+    )
+
+    risk_x, risk_y = _clean_series(
+        timestamps,
+        risk_scores,
+    )
+
+    fig = _base_figure()
+
+    # --------------------------------------------------------
+    # HEART RATE
+    # --------------------------------------------------------
 
     fig.add_trace(
         go.Scatter(
-            x=timestamps,
-            y=heart_rates,
+            x=hr_x,
+            y=hr_y,
             name="Heart Rate",
             mode="lines+markers",
             line={
@@ -283,13 +421,21 @@ def create_sensor_overview_chart(
             marker={
                 "size": 5,
             },
+            hovertemplate=(
+                "Heart Rate: %{y} BPM"
+                "<extra></extra>"
+            ),
         )
     )
 
+    # --------------------------------------------------------
+    # RISK SCORE
+    # --------------------------------------------------------
+
     fig.add_trace(
         go.Scatter(
-            x=timestamps,
-            y=risk_scores,
+            x=risk_x,
+            y=risk_y,
             name="Risk Score",
             mode="lines+markers",
             yaxis="y2",
@@ -300,30 +446,44 @@ def create_sensor_overview_chart(
             marker={
                 "size": 5,
             },
+            hovertemplate=(
+                "Risk Score: %{y}"
+                "<extra></extra>"
+            ),
         )
     )
 
+    # --------------------------------------------------------
+    # LAYOUT
+    # --------------------------------------------------------
+
     fig.update_layout(
-        **COMMON_LAYOUT,
         title={
             "text": "Safety Monitoring Overview",
             "x": 0.02,
         },
+
         xaxis={
             "title": "Time",
             "showgrid": False,
+            "automargin": True,
         },
+
         yaxis={
             "title": "Heart Rate (BPM)",
             "showgrid": True,
-            "gridcolor": "rgba(128,128,128,0.15)",
+            "gridcolor": GRID_COLOR,
+            "automargin": True,
         },
+
         yaxis2={
             "title": "Risk Score",
             "overlaying": "y",
             "side": "right",
             "range": [0, 100],
+            "automargin": True,
         },
+
         legend={
             "orientation": "h",
             "yanchor": "bottom",
@@ -341,54 +501,78 @@ def create_sensor_overview_chart(
 # ============================================================
 
 def create_activity_distribution_chart(
-    activities: List[str],
+    activities: Sequence[str],
 ) -> go.Figure:
     """
     Create activity-distribution bar chart.
 
-    Parameters
-    ----------
-    activities : list
-        Activity labels collected during monitoring.
+    Activities are counted exactly as provided after
+    normalization to uppercase.
     """
 
     counts: Dict[str, int] = {}
 
     for activity in activities:
-        activity = str(activity).upper()
-        counts[activity] = counts.get(activity, 0) + 1
 
-    labels = list(counts.keys())
-    values = list(counts.values())
+        normalized = str(
+            activity
+        ).strip().upper()
 
-    fig = go.Figure(
-        data=[
-            go.Bar(
-                x=labels,
-                y=values,
-                text=values,
-                textposition="auto",
-                marker={
-                    "color": "#00C896",
-                },
+        if not normalized:
+            continue
+
+        counts[normalized] = (
+            counts.get(
+                normalized,
+                0,
             )
-        ]
+            + 1
+        )
+
+    labels = list(
+        counts.keys()
+    )
+
+    values = list(
+        counts.values()
+    )
+
+    fig = _base_figure()
+
+    fig.add_trace(
+        go.Bar(
+            x=labels,
+            y=values,
+            text=values,
+            textposition="auto",
+            marker={
+                "color": "#00C896",
+            },
+            hovertemplate=(
+                "Activity: %{x}"
+                "<br>Occurrences: %{y}"
+                "<extra></extra>"
+            ),
+        )
     )
 
     fig.update_layout(
-        **COMMON_LAYOUT,
         title={
             "text": "Activity Distribution",
             "x": 0.02,
         },
+
         xaxis={
             "title": "Activity",
             "showgrid": False,
+            "automargin": True,
         },
+
         yaxis={
             "title": "Occurrences",
             "showgrid": True,
-            "gridcolor": "rgba(128,128,128,0.15)",
+            "gridcolor": GRID_COLOR,
+            "automargin": True,
         },
     )
 
@@ -400,40 +584,53 @@ def create_activity_distribution_chart(
 # ============================================================
 
 def extract_sensor_history(
-    history: List[Dict[str, Any]],
+    history: Sequence[Dict[str, Any]],
     key: str,
-) -> tuple:
+) -> Tuple[List[Any], List[float]]:
     """
-    Extract timestamps and values from sensor history.
+    Extract timestamps and numeric values from sensor history.
 
-    Expected history format:
+    Expected record format:
 
-    [
         {
             "timestamp": "...",
             "heart_rate": 80
-        },
-        ...
-    ]
+        }
+
+    Invalid or missing values are ignored.
     """
 
-    timestamps = []
-    values = []
+    timestamps: List[Any] = []
+    values: List[float] = []
 
     for record in history:
+
+        if not isinstance(
+            record,
+            dict,
+        ):
+            continue
+
         if key not in record:
             continue
 
-        timestamps.append(
-            record.get("timestamp", "")
+        numeric_value = _safe_float(
+            record.get(key)
         )
 
-        try:
-            values.append(
-                float(record[key])
-            )
-        except (TypeError, ValueError):
+        if numeric_value is None:
             continue
+
+        timestamps.append(
+            record.get(
+                "timestamp",
+                "",
+            )
+        )
+
+        values.append(
+            numeric_value
+        )
 
     return timestamps, values
 
@@ -442,12 +639,49 @@ def extract_sensor_history(
 # CHART EXPORT
 # ============================================================
 
-def chart_to_dict(fig: go.Figure) -> Dict[str, Any]:
+def chart_to_dict(
+    fig: go.Figure,
+) -> Dict[str, Any]:
     """
     Convert a Plotly figure into a dictionary.
 
-    Useful if the dashboard needs to inspect or serialize
-    chart configuration.
+    Useful for debugging, testing, or future serialization.
     """
 
+    if not isinstance(
+        fig,
+        go.Figure,
+    ):
+        raise TypeError(
+            "Expected a Plotly Figure."
+        )
+
     return fig.to_dict()
+
+
+# ============================================================
+# CHART VALIDATION
+# ============================================================
+
+def validate_chart(
+    fig: go.Figure,
+) -> bool:
+    """
+    Perform a lightweight validation of a Plotly figure.
+
+    Returns True when the supplied object is a valid Plotly
+    Figure instance.
+    """
+
+    if not isinstance(
+        fig,
+        go.Figure,
+    ):
+        return False
+
+    try:
+        fig.to_dict()
+        return True
+
+    except Exception:
+        return False

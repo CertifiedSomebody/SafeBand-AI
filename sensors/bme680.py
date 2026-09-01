@@ -1,29 +1,63 @@
 """
 SAFEBAND AI - BME680 Environmental Sensor Interface
 
-Prototype interface for the BME680 environmental sensor.
+Interface for the Bosch BME680 environmental sensor.
 
-Measures:
-- Temperature
-- Humidity
-- Atmospheric pressure
+Measurements:
+    - Environmental temperature
+    - Relative humidity
+    - Atmospheric pressure
 
-Current version:
-    Uses simulated values for the software demonstration.
+Current implementation:
+    Simulated sensor readings.
 
-Future version:
-    Replace the simulation methods with the actual BME680
-    I2C sensor driver without changing the rest of the application.
+Future implementation:
+    Replace the simulation section with the real BME680
+    I2C driver without changing the application-level API.
+
+IMPORTANT
+---------
+BME680 measures environmental conditions.
+
+Body temperature is NOT provided by this module.
+Body temperature is handled separately by MAX30208.
 """
 
+
 from dataclasses import dataclass
-from typing import Dict, Any, Optional
+from typing import Any, Dict
+
 import random
 
 
+# ============================================================
+# CONSTANTS
+# ============================================================
+
+SENSOR_NAME = "BME680"
+SENSOR_TYPE = "Environmental"
+
+DEFAULT_TEMPERATURE = 27.0
+DEFAULT_HUMIDITY = 58.0
+DEFAULT_PRESSURE = 1012.0
+
+MIN_TEMPERATURE = -40.0
+MAX_TEMPERATURE = 85.0
+
+MIN_HUMIDITY = 0.0
+MAX_HUMIDITY = 100.0
+
+MIN_PRESSURE = 300.0
+MAX_PRESSURE = 1100.0
+
+
+# ============================================================
+# DATA MODEL
+# ============================================================
+
 @dataclass
 class BME680Reading:
-    """Represents one BME680 sensor reading."""
+    """Represents one complete BME680 reading."""
 
     temperature: float
     humidity: float
@@ -31,31 +65,49 @@ class BME680Reading:
     simulated: bool = True
 
 
+# ============================================================
+# SENSOR CLASS
+# ============================================================
+
 class BME680Sensor:
     """
     BME680 environmental sensor interface.
 
-    Prototype operation:
-        Generates realistic environmental readings.
+    Responsibilities:
+        - Environmental temperature
+        - Relative humidity
+        - Atmospheric pressure
 
-    Hardware operation:
-        Can later be connected to a real BME680 through I2C.
+    The class supports simulated operation now and provides a
+    stable interface for future I2C hardware integration.
     """
 
     def __init__(
         self,
-        simulation: bool = True
-    ):
-        self.simulation = simulation
+        simulation: bool = True,
+    ) -> None:
+
+        self.simulation = bool(
+            simulation
+        )
+
         self.connected = False
 
-        self.temperature = 27.0
-        self.humidity = 58.0
-        self.pressure = 1012.0
+        self.temperature = (
+            DEFAULT_TEMPERATURE
+        )
 
-    # =========================================================
+        self.humidity = (
+            DEFAULT_HUMIDITY
+        )
+
+        self.pressure = (
+            DEFAULT_PRESSURE
+        )
+
+    # ========================================================
     # CONNECTION
-    # =========================================================
+    # ========================================================
 
     def connect(self) -> bool:
         """
@@ -64,15 +116,26 @@ class BME680Sensor:
         Returns
         -------
         bool
-            True if the sensor is available.
+            True when the sensor is available.
         """
 
         if self.simulation:
+
             self.connected = True
+
             return True
 
-        # Real hardware initialization will be implemented here.
+        # ----------------------------------------------------
+        # Future hardware implementation:
+        #
+        #   I2C initialization
+        #   BME680 address detection
+        #   Sensor configuration
+        #   Calibration
+        # ----------------------------------------------------
+
         self.connected = False
+
         return False
 
     def disconnect(self) -> None:
@@ -80,146 +143,236 @@ class BME680Sensor:
 
         self.connected = False
 
-    # =========================================================
-    # TEMPERATURE
-    # =========================================================
+    # ========================================================
+    # CONNECTION SAFETY
+    # ========================================================
 
-    def read_temperature(self) -> float:
-        """Return temperature in degrees Celsius."""
+    def _ensure_connected(self) -> None:
+        """Ensure the sensor is initialized before reading."""
 
         if not self.connected:
+
             self.connect()
 
+    # ========================================================
+    # ENVIRONMENTAL TEMPERATURE
+    # ========================================================
+
+    def read_temperature(self) -> float:
+        """
+        Read environmental temperature.
+
+        Returns
+        -------
+        float
+            Temperature in degrees Celsius.
+        """
+
+        self._ensure_connected()
+
         if self.simulation:
+
             self.temperature += random.uniform(
                 -0.25,
-                0.25
+                0.25,
             )
+
+        self.temperature = max(
+            MIN_TEMPERATURE,
+            min(
+                MAX_TEMPERATURE,
+                self.temperature,
+            ),
+        )
 
         return round(
             self.temperature,
-            1
+            1,
         )
 
-    # =========================================================
+    # ========================================================
     # HUMIDITY
-    # =========================================================
+    # ========================================================
 
     def read_humidity(self) -> float:
-        """Return relative humidity percentage."""
+        """
+        Read relative humidity.
 
-        if not self.connected:
-            self.connect()
+        Returns
+        -------
+        float
+            Relative humidity in percent.
+        """
+
+        self._ensure_connected()
 
         if self.simulation:
+
             self.humidity += random.uniform(
                 -0.8,
-                0.8
+                0.8,
             )
 
         self.humidity = max(
-            0.0,
+            MIN_HUMIDITY,
             min(
-                100.0,
-                self.humidity
-            )
+                MAX_HUMIDITY,
+                self.humidity,
+            ),
         )
 
         return round(
             self.humidity,
-            1
+            1,
         )
 
-    # =========================================================
-    # PRESSURE
-    # =========================================================
+    # ========================================================
+    # ATMOSPHERIC PRESSURE
+    # ========================================================
 
     def read_pressure(self) -> float:
-        """Return atmospheric pressure in hPa."""
+        """
+        Read atmospheric pressure.
 
-        if not self.connected:
-            self.connect()
+        Returns
+        -------
+        float
+            Atmospheric pressure in hPa.
+        """
+
+        self._ensure_connected()
 
         if self.simulation:
+
             self.pressure += random.uniform(
                 -1.0,
-                1.0
+                1.0,
             )
+
+        self.pressure = max(
+            MIN_PRESSURE,
+            min(
+                MAX_PRESSURE,
+                self.pressure,
+            ),
+        )
 
         return round(
             self.pressure,
-            1
+            1,
         )
 
-    # =========================================================
+    # ========================================================
     # COMPLETE READING
-    # =========================================================
+    # ========================================================
 
     def read(self) -> BME680Reading:
         """
-        Acquire a complete environmental reading.
+        Acquire one complete environmental reading.
         """
+
+        self._ensure_connected()
 
         return BME680Reading(
             temperature=self.read_temperature(),
             humidity=self.read_humidity(),
             pressure=self.read_pressure(),
-            simulated=self.simulation
+            simulated=self.simulation,
         )
 
-    # =========================================================
+    # ========================================================
     # DICTIONARY OUTPUT
-    # =========================================================
+    # ========================================================
 
     def read_dict(self) -> Dict[str, Any]:
         """
-        Return the sensor reading as a dictionary.
+        Return the complete BME680 reading as a dictionary.
 
-        This format is used by the SAFEBAND AI processing pipeline.
+        This format is consumed by the SAFEBAND sensor pipeline.
         """
 
         reading = self.read()
 
         return {
-            "temperature": reading.temperature,
-            "humidity": reading.humidity,
-            "pressure": reading.pressure,
-            "simulated": reading.simulated,
+            "temperature": (
+                reading.temperature
+            ),
+
+            "humidity": (
+                reading.humidity
+            ),
+
+            "pressure": (
+                reading.pressure
+            ),
+
+            "simulated": (
+                reading.simulated
+            ),
         }
 
-    # =========================================================
+    # ========================================================
     # STATUS
-    # =========================================================
+    # ========================================================
 
     def get_status(self) -> Dict[str, Any]:
-        """Return current BME680 sensor status."""
+        """Return current BME680 status."""
 
         return {
-            "sensor": "BME680",
-            "name": "Environmental Sensor",
-            "connected": self.connected,
-            "simulation": self.simulation,
-            "temperature": self.temperature,
-            "humidity": self.humidity,
-            "pressure": self.pressure,
+            "sensor": SENSOR_NAME,
+
+            "name": (
+                "Environmental Sensor"
+            ),
+
+            "type": SENSOR_TYPE,
+
+            "connected": (
+                self.connected
+            ),
+
+            "simulation": (
+                self.simulation
+            ),
+
+            "temperature": (
+                round(
+                    self.temperature,
+                    1,
+                )
+            ),
+
+            "humidity": (
+                round(
+                    self.humidity,
+                    1,
+                )
+            ),
+
+            "pressure": (
+                round(
+                    self.pressure,
+                    1,
+                )
+            ),
         }
 
 
-# =============================================================
+# ============================================================
 # GLOBAL SENSOR INSTANCE
-# =============================================================
+# ============================================================
 
 _bme680 = BME680Sensor(
     simulation=True
 )
 
 
-# =============================================================
+# ============================================================
 # CONVENIENCE FUNCTIONS
-# =============================================================
+# ============================================================
 
 def initialize_bme680() -> bool:
-    """Initialize the BME680 sensor."""
+    """Initialize the global BME680 sensor."""
 
     return _bme680.connect()
 
@@ -231,6 +384,19 @@ def read_bme680() -> Dict[str, Any]:
 
 
 def get_bme680_status() -> Dict[str, Any]:
-    """Return BME680 status."""
+    """Return the current BME680 status."""
 
     return _bme680.get_status()
+
+
+# ============================================================
+# MODULE EXPORTS
+# ============================================================
+
+__all__ = [
+    "BME680Reading",
+    "BME680Sensor",
+    "initialize_bme680",
+    "read_bme680",
+    "get_bme680_status",
+]
