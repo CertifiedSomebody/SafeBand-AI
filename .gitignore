@@ -1,26 +1,41 @@
-# Virtual environment
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
 venv/
 .venv/
-
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Logs
-logs/
-*.log
-
-# Environment / secrets
-.env
-.env.*
-.streamlit/secrets.toml
+env/
+ENV/
 
 # IDE
 .vscode/
 .idea/
 
-# OS files
+# Python tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Datasets - DO NOT COMMIT
+datasets/raw/
+datasets/processed/
+
+# ML artifacts
+models/*.joblib
+models/*.pkl
+models/*.pickle
+
+# Logs
+*.log
+logs/
+
+# OS
 .DS_Store
 Thumbs.db

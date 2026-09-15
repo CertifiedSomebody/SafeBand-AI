@@ -1,4 +1,7 @@
 streamlit
 plotly
 pandas
+numpy
+scikit-learn
+joblib
 smbus2

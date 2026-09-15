@@ -100,6 +100,21 @@ REAL_HARDWARE_ENABLED = False
 # Future trained model switch.
 AI_MODEL_ENABLED = False
 
+# AI inference is deliberately disabled by default until a trained
+# model has been validated against real SafeBand hardware data.
+# When enabled, activity_recognition.py attempts ML inference and
+# falls back to the existing rule-based recognizer if the model is
+# unavailable or the input window is insufficient.
+AI_MODEL_PATH = BASE_DIR / "models" / "activity_model.joblib"
+AI_MODEL_NAME = "SafeBand Activity Model"
+AI_MODEL_VERSION = "untrained"
+AI_MODEL_TYPE = "sklearn"
+AI_ACTIVITY_CONFIDENCE_THRESHOLD = 0.60
+AI_FALL_EMERGENCY_CONFIDENCE_THRESHOLD = 0.90
+AI_WINDOW_SECONDS = 5.0
+AI_TRAINING_SAMPLE_RATE_HZ = 25.0
+AI_MIN_WINDOW_SAMPLES = 25
+
 
 # ------------------------------------------------------------
 # Communication
@@ -333,6 +348,18 @@ SUPPORTED_ACTIVITIES = [
     "RUNNING",
     "FALL",
     "UNKNOWN",
+]
+
+# These are the initial ML target labels. They are intentionally
+# limited to observable states; SOS, GPS and caregiver actions are
+# not ML classes. The final label set will be frozen after dataset
+# compatibility analysis.
+AI_ACTIVITY_LABELS = [
+    "SITTING",
+    "STANDING",
+    "WALKING",
+    "RUNNING",
+    "FALL",
 ]
 
 
@@ -827,11 +854,21 @@ __all__ = [
     "SIMULATION_MODE_TOGGLE",
     "REAL_HARDWARE_ENABLED",
     "AI_MODEL_ENABLED",
+    "AI_MODEL_PATH",
+    "AI_MODEL_NAME",
+    "AI_MODEL_VERSION",
+    "AI_MODEL_TYPE",
+    "AI_ACTIVITY_CONFIDENCE_THRESHOLD",
+    "AI_FALL_EMERGENCY_CONFIDENCE_THRESHOLD",
+    "AI_WINDOW_SECONDS",
+    "AI_TRAINING_SAMPLE_RATE_HZ",
+    "AI_MIN_WINDOW_SAMPLES",
 
     # Sensors
     "SENSOR_CONFIG",
     "DEFAULT_SENSOR_VALUES",
     "SUPPORTED_ACTIVITIES",
+    "AI_ACTIVITY_LABELS",
 
     # Safety
     "SAFETY_THRESHOLDS",

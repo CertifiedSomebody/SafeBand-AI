@@ -51,7 +51,18 @@ Activities:
 
 from dataclasses import dataclass
 import math
-from typing import Any, Dict
+from typing import Any, Dict, List, Optional
+
+from ai.ml_activity_model import MLActivityModel
+from config.settings import (
+    AI_ACTIVITY_CONFIDENCE_THRESHOLD,
+    AI_ACTIVITY_LABELS,
+    AI_FALL_EMERGENCY_CONFIDENCE_THRESHOLD,
+    AI_MIN_WINDOW_SAMPLES,
+    AI_MODEL_ENABLED,
+    AI_MODEL_NAME,
+    AI_MODEL_VERSION,
+)
 
 
 # ============================================================
@@ -143,6 +154,10 @@ class ActivityResult:
     confidence: float
     description: str
     emergency: bool = False
+    source: str = "RULE"
+    model_name: str = "Rule-Based Prototype"
+    model_version: str = "prototype"
+    window_samples: int = 1
 
     def as_dict(self) -> Dict[str, Any]:
         """Return the result as a dictionary."""
@@ -155,6 +170,10 @@ class ActivityResult:
             ),
             "description": self.description,
             "emergency": self.emergency,
+            "source": self.source,
+            "model_name": self.model_name,
+            "model_version": self.model_version,
+            "window_samples": self.window_samples,
         }
 
 
@@ -222,11 +241,17 @@ class ActivityRecognizer:
     def __init__(self) -> None:
         """Initialize the activity recognizer."""
 
+        self.ml_model = MLActivityModel()
+
         self.last_result = ActivityResult(
             activity="UNKNOWN",
             confidence=0.0,
             description=self.ACTIVITIES["UNKNOWN"],
             emergency=False,
+            source="RULE",
+            model_name="Rule-Based Prototype",
+            model_version="prototype",
+            window_samples=0,
         )
 
     # ========================================================
@@ -304,6 +329,10 @@ class ActivityRecognizer:
         activity: str,
         confidence: float,
         emergency: bool = False,
+        source: str = "RULE",
+        model_name: str = "Rule-Based Prototype",
+        model_version: str = "prototype",
+        window_samples: int = 1,
     ) -> ActivityResult:
         """Create a normalized activity result."""
 
@@ -323,6 +352,10 @@ class ActivityRecognizer:
                 cls.ACTIVITIES["UNKNOWN"],
             ),
             emergency=emergency,
+            source=source,
+            model_name=model_name,
+            model_version=model_version,
+            window_samples=max(0, int(window_samples)),
         )
 
     # ========================================================
@@ -645,46 +678,72 @@ class ActivityRecognizer:
     def recognize(
         self,
         sensor_data: Dict[str, Any],
+        sensor_window: Optional[List[Dict[str, Any]]] = None,
     ) -> ActivityResult:
-        """
-        Classify the current sensor state.
+        """Classify the current state using ML when ready, else rules.
 
-        Parameters
-        ----------
-        sensor_data:
-            Dictionary containing current sensor readings.
-
-        Returns
-        -------
-        ActivityResult:
-            Current activity, confidence, description and
-            emergency status.
+        ML inference is intentionally opt-in. Until a validated model
+        exists, the existing rule-based classifier remains the safe
+        development fallback. The simulation scenario is never used
+        as an input to either classifier.
         """
 
-        if not isinstance(
-            sensor_data,
-            dict,
-        ):
-
+        if not isinstance(sensor_data, dict):
             result = self._result(
                 activity="UNKNOWN",
                 confidence=0.0,
+                window_samples=0,
             )
-
-            self._store_result(
-                result
-            )
-
+            self._store_result(result)
             return result
 
-        result = self._classify(
-            sensor_data
-        )
+        window = sensor_window or [sensor_data]
 
-        self._store_result(
-            result
-        )
+        # ----------------------------------------------------
+        # TRAINED ML PATH
+        # ----------------------------------------------------
+        if (
+            AI_MODEL_ENABLED
+            and len(window) >= AI_MIN_WINDOW_SAMPLES
+            and self.ml_model.available
+        ):
+            try:
+                activity, confidence, _ = self.ml_model.predict(window)
 
+                if (
+                    activity in AI_ACTIVITY_LABELS
+                    and confidence >= AI_ACTIVITY_CONFIDENCE_THRESHOLD
+                ):
+                    emergency = (
+                        activity == "FALL"
+                        and confidence
+                        >= AI_FALL_EMERGENCY_CONFIDENCE_THRESHOLD
+                    )
+
+                    result = self._result(
+                        activity=activity,
+                        confidence=confidence,
+                        emergency=emergency,
+                        source="ML",
+                        model_name=self.ml_model.model_name or AI_MODEL_NAME,
+                        model_version=self.ml_model.model_version or AI_MODEL_VERSION,
+                        window_samples=len(window),
+                    )
+
+                    self._store_result(result)
+                    return result
+
+            except Exception:
+                # A failed/unvalidated model must never break the safety
+                # pipeline. Fall back to the existing deterministic path.
+                pass
+
+        # ----------------------------------------------------
+        # RULE-BASED DEVELOPMENT FALLBACK
+        # ----------------------------------------------------
+        result = self._classify(sensor_data)
+        result.window_samples = len(window)
+        self._store_result(result)
         return result
 
     # ========================================================
@@ -714,6 +773,7 @@ class ActivityRecognizer:
         self.last_result = self._result(
             activity="UNKNOWN",
             confidence=0.0,
+            window_samples=0,
         )
 
 
@@ -730,6 +790,7 @@ _activity_recognizer = ActivityRecognizer()
 
 def recognize_activity(
     sensor_data: Dict[str, Any],
+    sensor_window: Optional[List[Dict[str, Any]]] = None,
 ) -> Dict[str, Any]:
     """
     Recognize activity using the shared SAFEBAND recognizer.
@@ -752,7 +813,8 @@ def recognize_activity(
     """
 
     result = _activity_recognizer.recognize(
-        sensor_data
+        sensor_data,
+        sensor_window=sensor_window,
     )
 
     return result.as_dict()

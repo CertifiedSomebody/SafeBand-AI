@@ -85,6 +85,14 @@ from ai.risk_engine import (
     assess_risk,
 )
 
+from ai.window_buffer import (
+    SensorWindowBuffer,
+)
+
+from config.settings import (
+    AI_MIN_WINDOW_SAMPLES,
+)
+
 
 # ============================================================
 # COMMUNICATION
@@ -199,6 +207,14 @@ def initialize_session_state() -> None:
     if "last_emergency_signature" not in st.session_state:
         st.session_state.last_emergency_signature = None
 
+    if "sensor_window" not in st.session_state:
+        st.session_state.sensor_window = SensorWindowBuffer(
+            max_samples=max(
+                AI_MIN_WINDOW_SAMPLES * 2,
+                AI_MIN_WINDOW_SAMPLES,
+            )
+        )
+
 
 initialize_session_state()
 
@@ -273,6 +289,11 @@ if selected_scenario != st.session_state.last_scenario:
         st.session_state.last_alert_signature = None
         st.session_state.last_emergency_signature = None
 
+        # ML windows must never span two different demonstration
+        # scenarios. The same rule will apply to real hardware
+        # sessions/events later.
+        st.session_state.sensor_window.clear()
+
         if selected_scenario == "NORMAL":
             clear_alert()
 
@@ -345,6 +366,18 @@ if "body_temperature" not in sensor_data:
 
 
 # ============================================================
+# UPDATE ML SENSOR WINDOW
+# ============================================================
+
+# The current simulator produces one sample per dashboard refresh.
+# Real hardware can later feed samples at its native sampling rate
+# into the same buffer without changing the AI API.
+st.session_state.sensor_window.append(
+    sensor_data
+)
+
+
+# ============================================================
 # APPLY EXPLICIT MANUAL SOS
 # ============================================================
 
@@ -371,7 +404,8 @@ manual_sos = (
 try:
 
     activity_result = recognize_activity(
-        sensor_data
+        sensor_data,
+        sensor_window=st.session_state.sensor_window.get(),
     )
 
     activity_name = str(
@@ -396,7 +430,9 @@ try:
         "Activity Recognition",
         (
             f"Activity={activity_name} | "
-            f"Confidence={activity_confidence:.2f}"
+            f"Confidence={activity_confidence:.2f} | "
+            f"Source={activity_result.get('source', 'RULE')} | "
+            f"Window={activity_result.get('window_samples', 1)}"
         ),
     )
 
