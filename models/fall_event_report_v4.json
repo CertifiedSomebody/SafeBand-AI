@@ -1,0 +1,513 @@
+{
+  "window_input": "datasets/processed/bits2/fall_windows_v3.csv",
+  "model": "models/fall_detector_v3.joblib",
+  "max_gap_samples": 30,
+  "operating_points": [
+    {
+      "threshold": 0.35,
+      "min_hits": 1,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 1.0,
+      "fall_precision": 0.6190476190476191,
+      "fall_f1": 0.7647058823529411,
+      "false_positive_rate": 0.49504950495049505,
+      "false_alarms": 200,
+      "missed_falls": 0,
+      "confusion_matrix": [
+        [
+          204,
+          200
+        ],
+        [
+          0,
+          325
+        ]
+      ]
+    },
+    {
+      "threshold": 0.35,
+      "min_hits": 2,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9907692307692307,
+      "fall_precision": 0.7523364485981309,
+      "fall_f1": 0.8552456839309429,
+      "false_positive_rate": 0.2623762376237624,
+      "false_alarms": 106,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          298,
+          106
+        ],
+        [
+          3,
+          322
+        ]
+      ]
+    },
+    {
+      "threshold": 0.35,
+      "min_hits": 3,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9815384615384616,
+      "fall_precision": 0.8179487179487179,
+      "fall_f1": 0.8923076923076924,
+      "false_positive_rate": 0.17574257425742573,
+      "false_alarms": 71,
+      "missed_falls": 6,
+      "confusion_matrix": [
+        [
+          333,
+          71
+        ],
+        [
+          6,
+          319
+        ]
+      ]
+    },
+    {
+      "threshold": 0.4,
+      "min_hits": 1,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9969230769230769,
+      "fall_precision": 0.7152317880794702,
+      "fall_f1": 0.8329048843187661,
+      "false_positive_rate": 0.3193069306930693,
+      "false_alarms": 129,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          275,
+          129
+        ],
+        [
+          1,
+          324
+        ]
+      ]
+    },
+    {
+      "threshold": 0.4,
+      "min_hits": 2,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9907692307692307,
+      "fall_precision": 0.8214285714285714,
+      "fall_f1": 0.898186889818689,
+      "false_positive_rate": 0.17326732673267325,
+      "false_alarms": 70,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          334,
+          70
+        ],
+        [
+          3,
+          322
+        ]
+      ]
+    },
+    {
+      "threshold": 0.4,
+      "min_hits": 3,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9753846153846154,
+      "fall_precision": 0.8521505376344086,
+      "fall_f1": 0.9096126255380201,
+      "false_positive_rate": 0.13613861386138615,
+      "false_alarms": 55,
+      "missed_falls": 8,
+      "confusion_matrix": [
+        [
+          349,
+          55
+        ],
+        [
+          8,
+          317
+        ]
+      ]
+    },
+    {
+      "threshold": 0.45,
+      "min_hits": 1,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9969230769230769,
+      "fall_precision": 0.7751196172248804,
+      "fall_f1": 0.8721399730820996,
+      "false_positive_rate": 0.23267326732673269,
+      "false_alarms": 94,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          310,
+          94
+        ],
+        [
+          1,
+          324
+        ]
+      ]
+    },
+    {
+      "threshold": 0.45,
+      "min_hits": 2,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9876923076923076,
+      "fall_precision": 0.8381201044386423,
+      "fall_f1": 0.9067796610169492,
+      "false_positive_rate": 0.15346534653465346,
+      "false_alarms": 62,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          342,
+          62
+        ],
+        [
+          4,
+          321
+        ]
+      ]
+    },
+    {
+      "threshold": 0.45,
+      "min_hits": 3,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9661538461538461,
+      "fall_precision": 0.8626373626373627,
+      "fall_f1": 0.9114658925979681,
+      "false_positive_rate": 0.12376237623762376,
+      "false_alarms": 50,
+      "missed_falls": 11,
+      "confusion_matrix": [
+        [
+          354,
+          50
+        ],
+        [
+          11,
+          314
+        ]
+      ]
+    },
+    {
+      "threshold": 0.5,
+      "min_hits": 1,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9969230769230769,
+      "fall_precision": 0.8120300751879699,
+      "fall_f1": 0.8950276243093923,
+      "false_positive_rate": 0.18564356435643564,
+      "false_alarms": 75,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          329,
+          75
+        ],
+        [
+          1,
+          324
+        ]
+      ]
+    },
+    {
+      "threshold": 0.5,
+      "min_hits": 2,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9846153846153847,
+      "fall_precision": 0.8648648648648649,
+      "fall_f1": 0.920863309352518,
+      "false_positive_rate": 0.12376237623762376,
+      "false_alarms": 50,
+      "missed_falls": 5,
+      "confusion_matrix": [
+        [
+          354,
+          50
+        ],
+        [
+          5,
+          320
+        ]
+      ]
+    },
+    {
+      "threshold": 0.5,
+      "min_hits": 3,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9661538461538461,
+      "fall_precision": 0.8770949720670391,
+      "fall_f1": 0.9194729136163983,
+      "false_positive_rate": 0.10891089108910891,
+      "false_alarms": 44,
+      "missed_falls": 11,
+      "confusion_matrix": [
+        [
+          360,
+          44
+        ],
+        [
+          11,
+          314
+        ]
+      ]
+    },
+    {
+      "threshold": 0.55,
+      "min_hits": 1,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9969230769230769,
+      "fall_precision": 0.8372093023255814,
+      "fall_f1": 0.9101123595505618,
+      "false_positive_rate": 0.15594059405940594,
+      "false_alarms": 63,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          341,
+          63
+        ],
+        [
+          1,
+          324
+        ]
+      ]
+    },
+    {
+      "threshold": 0.55,
+      "min_hits": 2,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9784615384615385,
+      "fall_precision": 0.8712328767123287,
+      "fall_f1": 0.9217391304347826,
+      "false_positive_rate": 0.11633663366336634,
+      "false_alarms": 47,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          357,
+          47
+        ],
+        [
+          7,
+          318
+        ]
+      ]
+    },
+    {
+      "threshold": 0.55,
+      "min_hits": 3,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.96,
+      "fall_precision": 0.8914285714285715,
+      "fall_f1": 0.9244444444444444,
+      "false_positive_rate": 0.09405940594059406,
+      "false_alarms": 38,
+      "missed_falls": 13,
+      "confusion_matrix": [
+        [
+          366,
+          38
+        ],
+        [
+          13,
+          312
+        ]
+      ]
+    },
+    {
+      "threshold": 0.6,
+      "min_hits": 1,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9969230769230769,
+      "fall_precision": 0.8526315789473684,
+      "fall_f1": 0.9191489361702128,
+      "false_positive_rate": 0.13861386138613863,
+      "false_alarms": 56,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          348,
+          56
+        ],
+        [
+          1,
+          324
+        ]
+      ]
+    },
+    {
+      "threshold": 0.6,
+      "min_hits": 2,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9723076923076923,
+      "fall_precision": 0.8876404494382022,
+      "fall_f1": 0.9280469897209985,
+      "false_positive_rate": 0.09900990099009901,
+      "false_alarms": 40,
+      "missed_falls": 9,
+      "confusion_matrix": [
+        [
+          364,
+          40
+        ],
+        [
+          9,
+          316
+        ]
+      ]
+    },
+    {
+      "threshold": 0.6,
+      "min_hits": 3,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9476923076923077,
+      "fall_precision": 0.913946587537092,
+      "fall_f1": 0.9305135951661632,
+      "false_positive_rate": 0.07178217821782178,
+      "false_alarms": 29,
+      "missed_falls": 17,
+      "confusion_matrix": [
+        [
+          375,
+          29
+        ],
+        [
+          17,
+          308
+        ]
+      ]
+    },
+    {
+      "threshold": 0.65,
+      "min_hits": 1,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9938461538461538,
+      "fall_precision": 0.8613333333333333,
+      "fall_f1": 0.9228571428571428,
+      "false_positive_rate": 0.12871287128712872,
+      "false_alarms": 52,
+      "missed_falls": 2,
+      "confusion_matrix": [
+        [
+          352,
+          52
+        ],
+        [
+          2,
+          323
+        ]
+      ]
+    },
+    {
+      "threshold": 0.65,
+      "min_hits": 2,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.96,
+      "fall_precision": 0.9043478260869565,
+      "fall_f1": 0.9313432835820895,
+      "false_positive_rate": 0.08168316831683169,
+      "false_alarms": 33,
+      "missed_falls": 13,
+      "confusion_matrix": [
+        [
+          371,
+          33
+        ],
+        [
+          13,
+          312
+        ]
+      ]
+    },
+    {
+      "threshold": 0.65,
+      "min_hits": 3,
+      "recordings": 729,
+      "fall_events": 325,
+      "nonfall_recordings": 404,
+      "fall_recall": 0.9353846153846154,
+      "fall_precision": 0.9353846153846154,
+      "fall_f1": 0.9353846153846154,
+      "false_positive_rate": 0.05198019801980198,
+      "false_alarms": 21,
+      "missed_falls": 21,
+      "confusion_matrix": [
+        [
+          383,
+          21
+        ],
+        [
+          21,
+          304
+        ]
+      ]
+    }
+  ],
+  "selected_operating_point": {
+    "threshold": 0.65,
+    "min_hits": 3,
+    "recordings": 729,
+    "fall_events": 325,
+    "nonfall_recordings": 404,
+    "fall_recall": 0.9353846153846154,
+    "fall_precision": 0.9353846153846154,
+    "fall_f1": 0.9353846153846154,
+    "false_positive_rate": 0.05198019801980198,
+    "false_alarms": 21,
+    "missed_falls": 21,
+    "confusion_matrix": [
+      [
+        383,
+        21
+      ],
+      [
+        21,
+        304
+      ]
+    ]
+  }
+}

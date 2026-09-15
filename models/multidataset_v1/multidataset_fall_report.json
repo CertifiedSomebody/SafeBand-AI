@@ -1,0 +1,472 @@
+{
+  "schema": {
+    "feature_count": 84,
+    "features": [
+      "ax_mean",
+      "ax_std",
+      "ax_min",
+      "ax_max",
+      "ax_rms",
+      "ay_mean",
+      "ay_std",
+      "ay_min",
+      "ay_max",
+      "ay_rms",
+      "az_mean",
+      "az_std",
+      "az_min",
+      "az_max",
+      "az_rms",
+      "mag_mean",
+      "mag_std",
+      "mag_min",
+      "mag_max",
+      "mag_rms",
+      "mag_p10",
+      "mag_p25",
+      "mag_p50",
+      "mag_p75",
+      "mag_p90",
+      "mag_sma",
+      "mag_range",
+      "jerk_mean",
+      "jerk_std",
+      "jerk_max",
+      "diff_energy",
+      "mag_zero_crossings",
+      "xy_corr",
+      "xz_corr",
+      "yz_corr",
+      "fft_low",
+      "fft_mid",
+      "fft_high",
+      "pre_peak_mean",
+      "peak_magnitude",
+      "post_peak_mean",
+      "peak_to_baseline",
+      "peak_index_ratio",
+      "pre_post_change",
+      "post_peak_std",
+      "peak_width",
+      "high_energy_fraction",
+      "recovery_ratio",
+      "v6_mag_mean",
+      "v6_mag_std",
+      "v6_mag_min",
+      "v6_mag_max",
+      "v6_mag_rms",
+      "v6_mag_p10",
+      "v6_mag_p25",
+      "v6_mag_p50",
+      "v6_mag_p75",
+      "v6_mag_p90",
+      "v6_peak_prominence",
+      "v6_peak_to_rms",
+      "v6_peak_to_median",
+      "v6_peak_index_ratio",
+      "v6_peak_width_half",
+      "v6_high_fraction",
+      "v6_pre_mean",
+      "v6_post_mean",
+      "v6_pre_std",
+      "v6_post_std",
+      "v6_pre_post_ratio",
+      "v6_pre_post_delta",
+      "v6_post_quiet_ratio",
+      "v6_pre_energy",
+      "v6_post_energy",
+      "v6_post_energy_ratio",
+      "v6_jerk_abs_mean",
+      "v6_jerk_abs_max",
+      "v6_jerk_std",
+      "v6_jerk_sign_changes",
+      "v6_diff_energy",
+      "v6_impulse_area",
+      "v6_axis_peak_ratio",
+      "v6_axis_std_ratio",
+      "v6_tilt_change",
+      "v6_spectral_entropy"
+    ],
+    "window_contract": "60 samples @ 20Hz, step 30",
+    "split_unit": "subject",
+    "seed": 42
+  },
+  "datasets": {
+    "BITS2": {
+      "rows": 14688,
+      "subjects": 41,
+      "falls": 6877
+    },
+    "SisFall": {
+      "rows": 47683,
+      "subjects": 38,
+      "falls": 16060
+    }
+  },
+  "splits": {
+    "BITS2": {
+      "train": {
+        "subjects": [
+          "1",
+          "10",
+          "11",
+          "12",
+          "14",
+          "16",
+          "19",
+          "2",
+          "22",
+          "24",
+          "26",
+          "28",
+          "29",
+          "3",
+          "30",
+          "34",
+          "35",
+          "37",
+          "38",
+          "4",
+          "40",
+          "41",
+          "5",
+          "6",
+          "7"
+        ],
+        "rows": 9613,
+        "falls": 4336,
+        "nonfalls": 5277
+      },
+      "val": {
+        "subjects": [
+          "15",
+          "18",
+          "20",
+          "23",
+          "25",
+          "33",
+          "36",
+          "39"
+        ],
+        "rows": 2162,
+        "falls": 1054,
+        "nonfalls": 1108
+      },
+      "test": {
+        "subjects": [
+          "13",
+          "17",
+          "21",
+          "27",
+          "31",
+          "32",
+          "8",
+          "9"
+        ],
+        "rows": 2913,
+        "falls": 1487,
+        "nonfalls": 1426
+      }
+    },
+    "SisFall": {
+      "train": {
+        "subjects": [
+          "SA03",
+          "SA04",
+          "SA05",
+          "SA07",
+          "SA08",
+          "SA11",
+          "SA13",
+          "SA15",
+          "SA16",
+          "SA18",
+          "SA20",
+          "SA21",
+          "SA23",
+          "SE01",
+          "SE03",
+          "SE04",
+          "SE06",
+          "SE07",
+          "SE08",
+          "SE10",
+          "SE11",
+          "SE13"
+        ],
+        "rows": 27843,
+        "falls": 9375,
+        "nonfalls": 18468
+      },
+      "val": {
+        "subjects": [
+          "SA02",
+          "SA06",
+          "SA10",
+          "SA14",
+          "SA22",
+          "SE09",
+          "SE12",
+          "SE14"
+        ],
+        "rows": 10008,
+        "falls": 3342,
+        "nonfalls": 6666
+      },
+      "test": {
+        "subjects": [
+          "SA01",
+          "SA09",
+          "SA12",
+          "SA17",
+          "SA19",
+          "SE02",
+          "SE05",
+          "SE15"
+        ],
+        "rows": 9832,
+        "falls": 3343,
+        "nonfalls": 6489
+      }
+    }
+  },
+  "models": {
+    "candidates": {
+      "logistic": {
+        "validation": {
+          "threshold": 0.5,
+          "accuracy": 0.795152013147083,
+          "balanced_accuracy": 0.7865283136223427,
+          "precision": 0.7007807554336358,
+          "recall": 0.7554595086442221,
+          "f1": 0.7270935960591133,
+          "confusion_matrix": [
+            [
+              6356,
+              1418
+            ],
+            [
+              1075,
+              3321
+            ]
+          ],
+          "n": 12170,
+          "positives": 4396,
+          "predicted_positives": 4739,
+          "roc_auc": 0.8594769363733853
+        },
+        "fit_seconds": 2.036096499999985
+      },
+      "rf": {
+        "validation": {
+          "threshold": 0.5,
+          "accuracy": 0.8702547247329498,
+          "balanced_accuracy": 0.8584110540419255,
+          "precision": 0.8234213547646383,
+          "recall": 0.8157415832575068,
+          "f1": 0.8195634784596046,
+          "confusion_matrix": [
+            [
+              7005,
+              769
+            ],
+            [
+              810,
+              3586
+            ]
+          ],
+          "n": 12170,
+          "positives": 4396,
+          "predicted_positives": 4355,
+          "roc_auc": 0.9411040757167976
+        },
+        "fit_seconds": 14.693279500002973
+      },
+      "et": {
+        "validation": {
+          "threshold": 0.5,
+          "accuracy": 0.8699260476581758,
+          "balanced_accuracy": 0.8500484454726833,
+          "precision": 0.8489208633093526,
+          "recall": 0.778434940855323,
+          "f1": 0.8121514180609944,
+          "confusion_matrix": [
+            [
+              7165,
+              609
+            ],
+            [
+              974,
+              3422
+            ]
+          ],
+          "n": 12170,
+          "positives": 4396,
+          "predicted_positives": 4031,
+          "roc_auc": 0.9397027386264333
+        },
+        "fit_seconds": 5.371922999998787
+      },
+      "hgb": {
+        "validation": {
+          "threshold": 0.5,
+          "accuracy": 0.8676253081347576,
+          "balanced_accuracy": 0.8492854497610265,
+          "precision": 0.83955132894416,
+          "recall": 0.7832120109190173,
+          "f1": 0.8104036718841944,
+          "confusion_matrix": [
+            [
+              7116,
+              658
+            ],
+            [
+              953,
+              3443
+            ]
+          ],
+          "n": 12170,
+          "positives": 4396,
+          "predicted_positives": 4101,
+          "roc_auc": 0.9409823475418984
+        },
+        "fit_seconds": 2.931295600006706
+      }
+    },
+    "selected": "rf",
+    "selected_test": {
+      "threshold": 0.5,
+      "accuracy": 0.8588466065123578,
+      "balanced_accuracy": 0.8469345622288575,
+      "precision": 0.8241711229946524,
+      "recall": 0.7977225672877847,
+      "f1": 0.810731194108364,
+      "confusion_matrix": [
+        [
+          7093,
+          822
+        ],
+        [
+          977,
+          3853
+        ]
+      ],
+      "n": 12745,
+      "positives": 4830,
+      "predicted_positives": 4675,
+      "roc_auc": 0.9260662395090695
+    },
+    "selected_test_bits2": {
+      "threshold": 0.5,
+      "accuracy": 0.752832131822863,
+      "balanced_accuracy": 0.7515298552862537,
+      "precision": 0.7320024198427102,
+      "recall": 0.8137188971082717,
+      "f1": 0.7707006369426752,
+      "confusion_matrix": [
+        [
+          983,
+          443
+        ],
+        [
+          277,
+          1210
+        ]
+      ],
+      "n": 2913,
+      "positives": 1487,
+      "predicted_positives": 1653,
+      "roc_auc": 0.8325393239775105
+    },
+    "selected_test_sisfall": {
+      "threshold": 0.5,
+      "accuracy": 0.8902563059397884,
+      "balanced_accuracy": 0.8661003524360953,
+      "precision": 0.8745863666446062,
+      "recall": 0.79060723900688,
+      "f1": 0.8304791830322074,
+      "confusion_matrix": [
+        [
+          6110,
+          379
+        ],
+        [
+          700,
+          2643
+        ]
+      ],
+      "n": 9832,
+      "positives": 3343,
+      "predicted_positives": 3022,
+      "roc_auc": 0.9437477132312595
+    },
+    "selected_test_pooled": {
+      "threshold": 0.5,
+      "accuracy": 0.8588466065123578,
+      "balanced_accuracy": 0.8469345622288575,
+      "precision": 0.8241711229946524,
+      "recall": 0.7977225672877847,
+      "f1": 0.810731194108364,
+      "confusion_matrix": [
+        [
+          7093,
+          822
+        ],
+        [
+          977,
+          3853
+        ]
+      ],
+      "n": 12745,
+      "positives": 4830,
+      "predicted_positives": 4675,
+      "roc_auc": 0.9260662395090695
+    }
+  },
+  "transfer_diagnostics": {
+    "BITS2_to_SisFall": {
+      "threshold": 0.5,
+      "accuracy": 0.6598860862489829,
+      "balanced_accuracy": 0.5007205871350338,
+      "precision": 0.4782608695652174,
+      "recall": 0.003290457672749028,
+      "f1": 0.006535947712418301,
+      "confusion_matrix": [
+        [
+          6477,
+          12
+        ],
+        [
+          3332,
+          11
+        ]
+      ],
+      "n": 9832,
+      "positives": 3343,
+      "predicted_positives": 23,
+      "roc_auc": 0.3765654497933801
+    },
+    "SisFall_to_BITS2": {
+      "threshold": 0.5,
+      "accuracy": 0.46790250600755234,
+      "balanced_accuracy": 0.4655690599501429,
+      "precision": 0.4822934232715008,
+      "recall": 0.5770006724949562,
+      "f1": 0.5254133496631965,
+      "confusion_matrix": [
+        [
+          505,
+          921
+        ],
+        [
+          629,
+          858
+        ]
+      ],
+      "n": 2913,
+      "positives": 1487,
+      "predicted_positives": 1779,
+      "roc_auc": 0.43517544761471794
+    }
+  }
+}

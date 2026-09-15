@@ -1,0 +1,262 @@
+{
+  "version": "v6",
+  "method": "validation_locked_temporal_event_rule_with_v6_features",
+  "seed": 42,
+  "input": "datasets/processed/bits2/fall_windows_v6.csv",
+  "feature_count": 84,
+  "features": [
+    "ax_mean",
+    "ax_std",
+    "ax_min",
+    "ax_max",
+    "ax_rms",
+    "ay_mean",
+    "ay_std",
+    "ay_min",
+    "ay_max",
+    "ay_rms",
+    "az_mean",
+    "az_std",
+    "az_min",
+    "az_max",
+    "az_rms",
+    "mag_mean",
+    "mag_std",
+    "mag_min",
+    "mag_max",
+    "mag_rms",
+    "mag_p10",
+    "mag_p25",
+    "mag_p50",
+    "mag_p75",
+    "mag_p90",
+    "mag_sma",
+    "mag_range",
+    "jerk_mean",
+    "jerk_std",
+    "jerk_max",
+    "diff_energy",
+    "mag_zero_crossings",
+    "xy_corr",
+    "xz_corr",
+    "yz_corr",
+    "fft_low",
+    "fft_mid",
+    "fft_high",
+    "pre_peak_mean",
+    "peak_magnitude",
+    "post_peak_mean",
+    "peak_to_baseline",
+    "peak_index_ratio",
+    "pre_post_change",
+    "post_peak_std",
+    "peak_width",
+    "high_energy_fraction",
+    "recovery_ratio",
+    "v6_mag_mean",
+    "v6_mag_std",
+    "v6_mag_min",
+    "v6_mag_max",
+    "v6_mag_rms",
+    "v6_mag_p10",
+    "v6_mag_p25",
+    "v6_mag_p50",
+    "v6_mag_p75",
+    "v6_mag_p90",
+    "v6_peak_prominence",
+    "v6_peak_to_rms",
+    "v6_peak_to_median",
+    "v6_peak_index_ratio",
+    "v6_peak_width_half",
+    "v6_high_fraction",
+    "v6_pre_mean",
+    "v6_post_mean",
+    "v6_pre_std",
+    "v6_post_std",
+    "v6_pre_post_ratio",
+    "v6_pre_post_delta",
+    "v6_post_quiet_ratio",
+    "v6_pre_energy",
+    "v6_post_energy",
+    "v6_post_energy_ratio",
+    "v6_jerk_abs_mean",
+    "v6_jerk_abs_max",
+    "v6_jerk_std",
+    "v6_jerk_sign_changes",
+    "v6_diff_energy",
+    "v6_impulse_area",
+    "v6_axis_peak_ratio",
+    "v6_axis_std_ratio",
+    "v6_tilt_change",
+    "v6_spectral_entropy"
+  ],
+  "subjects": {
+    "train": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "7",
+      "9",
+      "10",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "18",
+      "20",
+      "23",
+      "24",
+      "27",
+      "30",
+      "31",
+      "32",
+      "34",
+      "35",
+      "37",
+      "38",
+      "40"
+    ],
+    "validation": [
+      "11",
+      "21",
+      "22",
+      "25",
+      "26",
+      "28",
+      "29",
+      "36"
+    ],
+    "test": [
+      "5",
+      "6",
+      "8",
+      "17",
+      "19",
+      "33",
+      "39",
+      "41"
+    ]
+  },
+  "dataset_windows": {
+    "total": 14688,
+    "train": 8641,
+    "validation": 2722,
+    "test": 3325
+  },
+  "targets": {
+    "fall_recall": 0.95,
+    "false_positive_rate": 0.05
+  },
+  "models_compared": [
+    "extra_trees",
+    "random_forest",
+    "hist_gradient_boosting"
+  ],
+  "validation_model_scores": {
+    "extra_trees": {
+      "best_validation_f1": 0.8617886178861789,
+      "best_validation_recall": 0.828125,
+      "best_validation_fpr": 0.075
+    },
+    "random_forest": {
+      "best_validation_f1": 0.8615384615384615,
+      "best_validation_recall": 0.875,
+      "best_validation_fpr": 0.125
+    },
+    "hist_gradient_boosting": {
+      "best_validation_f1": 0.8992248062015504,
+      "best_validation_recall": 0.90625,
+      "best_validation_fpr": 0.0875
+    }
+  },
+  "selected_model": "hist_gradient_boosting",
+  "selection_reason": "no_rule_meets_both_targets; recall_target_met",
+  "selected_operating_point": {
+    "hit_threshold": 0.5,
+    "peak_threshold": 0.75,
+    "min_hits": 2,
+    "max_gap_samples": 60,
+    "fall_recall": 0.984375,
+    "fall_precision": 0.6363636363636364,
+    "fall_f1": 0.7730061349693252,
+    "false_positive_rate": 0.45,
+    "false_alarms": 36,
+    "missed_falls": 1,
+    "confusion_matrix": [
+      [
+        63,
+        1
+      ],
+      [
+        36,
+        44
+      ]
+    ]
+  },
+  "validation_selected_rule_performance": {
+    "hit_threshold": 0.5,
+    "peak_threshold": 0.75,
+    "min_hits": 2,
+    "max_gap_samples": 60,
+    "fall_recall": 0.984375,
+    "fall_precision": 0.6363636363636364,
+    "fall_f1": 0.7730061349693252,
+    "false_positive_rate": 0.45,
+    "false_alarms": 36,
+    "missed_falls": 1,
+    "confusion_matrix": [
+      [
+        63,
+        1
+      ],
+      [
+        36,
+        44
+      ]
+    ]
+  },
+  "test": {
+    "hit_threshold": 0.5,
+    "peak_threshold": 0.75,
+    "min_hits": 2,
+    "max_gap_samples": 60,
+    "fall_recall": 0.90625,
+    "fall_precision": 0.6304347826086957,
+    "fall_f1": 0.7435897435897436,
+    "false_positive_rate": 0.425,
+    "false_alarms": 34,
+    "missed_falls": 6,
+    "confusion_matrix": [
+      [
+        58,
+        6
+      ],
+      [
+        34,
+        46
+      ]
+    ],
+    "roc_auc_max_window_probability": 0.9228515625,
+    "recordings": 144,
+    "fall_events": 64,
+    "nonfall_recordings": 80
+  },
+  "validation_search_space": {
+    "hit_thresholds": "0.40..0.85 step 0.025",
+    "peak_thresholds": "0.55..0.90 step 0.05",
+    "min_hits": [
+      2,
+      3,
+      4
+    ],
+    "max_gaps_samples": [
+      15,
+      30,
+      45,
+      60
+    ]
+  },
+  "training_seconds": 17.59
+}

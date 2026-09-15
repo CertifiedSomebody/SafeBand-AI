@@ -1,0 +1,353 @@
+{
+  "version": "v8",
+  "method": "validation_locked_final_event_benchmark_on_v6_probability_trajectories",
+  "seed": 42,
+  "input": "datasets/processed/bits2/fall_windows_v6.csv",
+  "base_model": "models/fall_detector_v6.joblib",
+  "feature_count": 30,
+  "features": [
+    "p_max",
+    "p_mean",
+    "p_std",
+    "p_median",
+    "p_p90",
+    "p_top3_mean",
+    "p_top5_mean",
+    "p_above_50",
+    "p_above_60",
+    "p_above_70",
+    "max_run_50",
+    "max_run_60",
+    "max_run_70",
+    "evidence_sum_50",
+    "evidence_sum_60",
+    "evidence_sum_70",
+    "trajectory_range",
+    "rise_to_peak",
+    "fall_from_peak",
+    "peak_index_ratio",
+    "pre_peak_mean",
+    "post_peak_mean",
+    "pre_post_delta",
+    "peak_width_50",
+    "peak_width_70",
+    "active_span_samples",
+    "num_candidate_runs_50",
+    "num_candidate_runs_70",
+    "trajectory_slope",
+    "trajectory_abs_change_mean"
+  ],
+  "subjects": {
+    "train": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "7",
+      "9",
+      "10",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "18",
+      "20",
+      "23",
+      "24",
+      "27",
+      "30",
+      "31",
+      "32",
+      "34",
+      "35",
+      "37",
+      "38",
+      "40"
+    ],
+    "validation": [
+      "11",
+      "21",
+      "22",
+      "25",
+      "26",
+      "28",
+      "29",
+      "36"
+    ],
+    "test": [
+      "5",
+      "6",
+      "8",
+      "17",
+      "19",
+      "33",
+      "39",
+      "41"
+    ]
+  },
+  "recordings": {
+    "train": 441,
+    "validation": 144,
+    "test": 144
+  },
+  "fall_recordings": {
+    "train": 197,
+    "validation": 64,
+    "test": 64
+  },
+  "models_compared": [
+    "logistic_regression",
+    "extra_trees",
+    "random_forest",
+    "hist_gradient_boosting_fn_weight_1",
+    "hist_gradient_boosting_fn_weight_1.5",
+    "hist_gradient_boosting_fn_weight_2",
+    "hist_gradient_boosting_fn_weight_3"
+  ],
+  "validation_model_scores": {
+    "logistic_regression": {
+      "best_validation": {
+        "fall_recall": 0.984375,
+        "fall_precision": 0.7241379310344828,
+        "fall_f1": 0.8344370860927153,
+        "false_positive_rate": 0.3,
+        "false_alarms": 24,
+        "missed_falls": 1,
+        "confusion_matrix": [
+          [
+            63,
+            1
+          ],
+          [
+            24,
+            56
+          ]
+        ],
+        "roc_auc": 0.955078125,
+        "threshold": 0.26,
+        "pmax_floor": 0.0
+      },
+      "selection_reason": "no_rule_meets_both_targets; recall_target_met",
+      "fn_weight": null,
+      "roc_auc": 0.955078125
+    },
+    "extra_trees": {
+      "best_validation": {
+        "fall_recall": 0.984375,
+        "fall_precision": 0.6847826086956522,
+        "fall_f1": 0.8076923076923077,
+        "false_positive_rate": 0.3625,
+        "false_alarms": 29,
+        "missed_falls": 1,
+        "confusion_matrix": [
+          [
+            63,
+            1
+          ],
+          [
+            29,
+            51
+          ]
+        ],
+        "roc_auc": 0.9650390625,
+        "threshold": 0.13,
+        "pmax_floor": 0.7
+      },
+      "selection_reason": "no_rule_meets_both_targets; recall_target_met",
+      "fn_weight": null,
+      "roc_auc": 0.9650390625
+    },
+    "random_forest": {
+      "best_validation": {
+        "fall_recall": 0.984375,
+        "fall_precision": 0.65625,
+        "fall_f1": 0.7875,
+        "false_positive_rate": 0.4125,
+        "false_alarms": 33,
+        "missed_falls": 1,
+        "confusion_matrix": [
+          [
+            63,
+            1
+          ],
+          [
+            33,
+            47
+          ]
+        ],
+        "roc_auc": 0.96162109375,
+        "threshold": 0.1,
+        "pmax_floor": 0.7
+      },
+      "selection_reason": "no_rule_meets_both_targets; recall_target_met",
+      "fn_weight": null,
+      "roc_auc": 0.96162109375
+    },
+    "hist_gradient_boosting_fn_weight_1": {
+      "best_validation": {
+        "fall_recall": 0.953125,
+        "fall_precision": 0.7625,
+        "fall_f1": 0.8472222222222222,
+        "false_positive_rate": 0.2375,
+        "false_alarms": 19,
+        "missed_falls": 3,
+        "confusion_matrix": [
+          [
+            61,
+            3
+          ],
+          [
+            19,
+            61
+          ]
+        ],
+        "roc_auc": 0.9619140625,
+        "threshold": 0.12,
+        "pmax_floor": 0.675
+      },
+      "selection_reason": "no_rule_meets_both_targets; recall_target_met",
+      "fn_weight": 1.0,
+      "roc_auc": 0.9619140625
+    },
+    "hist_gradient_boosting_fn_weight_1.5": {
+      "best_validation": {
+        "fall_recall": 0.953125,
+        "fall_precision": 0.7625,
+        "fall_f1": 0.8472222222222222,
+        "false_positive_rate": 0.2375,
+        "false_alarms": 19,
+        "missed_falls": 3,
+        "confusion_matrix": [
+          [
+            61,
+            3
+          ],
+          [
+            19,
+            61
+          ]
+        ],
+        "roc_auc": 0.960546875,
+        "threshold": 0.13,
+        "pmax_floor": 0.675
+      },
+      "selection_reason": "no_rule_meets_both_targets; recall_target_met",
+      "fn_weight": 1.5,
+      "roc_auc": 0.960546875
+    },
+    "hist_gradient_boosting_fn_weight_2": {
+      "best_validation": {
+        "fall_recall": 0.953125,
+        "fall_precision": 0.7349397590361446,
+        "fall_f1": 0.8299319727891157,
+        "false_positive_rate": 0.275,
+        "false_alarms": 22,
+        "missed_falls": 3,
+        "confusion_matrix": [
+          [
+            61,
+            3
+          ],
+          [
+            22,
+            58
+          ]
+        ],
+        "roc_auc": 0.9615234375,
+        "threshold": 0.11,
+        "pmax_floor": 0.675
+      },
+      "selection_reason": "no_rule_meets_both_targets; recall_target_met",
+      "fn_weight": 2.0,
+      "roc_auc": 0.9615234375
+    },
+    "hist_gradient_boosting_fn_weight_3": {
+      "best_validation": {
+        "fall_recall": 0.96875,
+        "fall_precision": 0.7294117647058823,
+        "fall_f1": 0.8322147651006712,
+        "false_positive_rate": 0.2875,
+        "false_alarms": 23,
+        "missed_falls": 2,
+        "confusion_matrix": [
+          [
+            62,
+            2
+          ],
+          [
+            23,
+            57
+          ]
+        ],
+        "roc_auc": 0.958984375,
+        "threshold": 0.1,
+        "pmax_floor": 0.7
+      },
+      "selection_reason": "no_rule_meets_both_targets; recall_target_met",
+      "fn_weight": 3.0,
+      "roc_auc": 0.958984375
+    }
+  },
+  "selected_model": "hist_gradient_boosting_fn_weight_1",
+  "selected_operating_point": {
+    "fall_recall": 0.953125,
+    "fall_precision": 0.7625,
+    "fall_f1": 0.8472222222222222,
+    "false_positive_rate": 0.2375,
+    "false_alarms": 19,
+    "missed_falls": 3,
+    "confusion_matrix": [
+      [
+        61,
+        3
+      ],
+      [
+        19,
+        61
+      ]
+    ],
+    "roc_auc": 0.9619140625,
+    "threshold": 0.12,
+    "pmax_floor": 0.675
+  },
+  "selection_reason": "no_rule_meets_both_targets; recall_target_met",
+  "targets": {
+    "fall_recall": 0.95,
+    "false_positive_rate": 0.05
+  },
+  "controlled_fpr_reference": 0.1,
+  "test": {
+    "fall_recall": 0.90625,
+    "fall_precision": 0.7733333333333333,
+    "fall_f1": 0.8345323741007195,
+    "false_positive_rate": 0.2125,
+    "false_alarms": 17,
+    "missed_falls": 6,
+    "confusion_matrix": [
+      [
+        58,
+        6
+      ],
+      [
+        17,
+        63
+      ]
+    ],
+    "roc_auc": 0.9357421875
+  },
+  "test_predictions": {
+    "positive_events": 75,
+    "total_events": 144
+  },
+  "training_seconds": 77.48,
+  "leakage_controls": [
+    "Fixed 25/8/8 subject split retained from prior stages.",
+    "Validation/test base probabilities come from a TRAIN-only V6 base model.",
+    "Event-model training uses subject-grouped 5-fold OOF base probabilities from training subjects.",
+    "Operating point (event threshold and optional pmax evidence floor) is selected on validation only.",
+    "Selected event model is refit on non-test training + validation event features after the rule is locked.",
+    "Test subjects are never used for model or operating-point selection."
+  ],
+  "final_stage_note": "This is the final BITS-2-only algorithmic benchmark. If the safety targets remain unmet, move to SafeBand hardware data rather than continuing dataset-specific tuning."
+}

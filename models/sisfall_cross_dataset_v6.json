@@ -1,0 +1,237 @@
+{
+  "model": "models/fall_detector_v6.joblib",
+  "input": "datasets/processed/sisfall_windows.csv",
+  "feature_count": 84,
+  "threshold": 0.5,
+  "windows": 47683,
+  "recordings": 4505,
+  "window_metrics": {
+    "accuracy": 0.33697544198141893,
+    "balanced_accuracy": 0.49592826941659224,
+    "precision": 0.3349672162454644,
+    "recall": 0.9829389788293897,
+    "f1": 0.49965974013642045,
+    "roc_auc": 0.38727296788767135,
+    "confusion_matrix": [
+      [
+        282,
+        31341
+      ],
+      [
+        274,
+        15786
+      ]
+    ]
+  },
+  "recording_metrics": {
+    "accuracy": 0.39911209766925637,
+    "balanced_accuracy": 0.5,
+    "precision": 0.39911209766925637,
+    "recall": 1.0,
+    "f1": 0.5705219736633349,
+    "roc_auc": 0.4227530034808614,
+    "confusion_matrix": [
+      [
+        0,
+        2707
+      ],
+      [
+        0,
+        1798
+      ]
+    ]
+  },
+  "inference_seconds": 0.10400009155273438,
+  "by_subject": {
+    "SA01": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.23544303797468355
+    },
+    "SA02": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.3871729957805908
+    },
+    "SA03": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.46632911392405063
+    },
+    "SA04": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.35561181434599154
+    },
+    "SA05": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.470210970464135
+    },
+    "SA06": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.4150210970464135
+    },
+    "SA07": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.28675105485232066
+    },
+    "SA08": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.340084388185654
+    },
+    "SA09": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.1723206751054852
+    },
+    "SA10": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.4415189873417722
+    },
+    "SA11": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.3326582278481013
+    },
+    "SA12": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.47172995780590715
+    },
+    "SA13": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.4386497890295359
+    },
+    "SA14": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.359831223628692
+    },
+    "SA15": {
+      "recordings": 149,
+      "falls": 75,
+      "roc_auc": 0.41225225225225226
+    },
+    "SA16": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.340590717299578
+    },
+    "SA17": {
+      "recordings": 153,
+      "falls": 75,
+      "roc_auc": 0.3417094017094017
+    },
+    "SA18": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.25468354430379747
+    },
+    "SA19": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.5812658227848101
+    },
+    "SA20": {
+      "recordings": 150,
+      "falls": 73,
+      "roc_auc": 0.5892190001779043
+    },
+    "SA21": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.3674261603375527
+    },
+    "SA22": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.6391561181434599
+    },
+    "SA23": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.46464135021097047
+    },
+    "SE01": {
+      "recordings": 59,
+      "falls": 0,
+      "roc_auc": null
+    },
+    "SE02": {
+      "recordings": 48,
+      "falls": 0,
+      "roc_auc": null
+    },
+    "SE03": {
+      "recordings": 59,
+      "falls": 0,
+      "roc_auc": null
+    },
+    "SE04": {
+      "recordings": 59,
+      "falls": 0,
+      "roc_auc": null
+    },
+    "SE05": {
+      "recordings": 59,
+      "falls": 0,
+      "roc_auc": null
+    },
+    "SE06": {
+      "recordings": 154,
+      "falls": 75,
+      "roc_auc": 0.45063291139240497
+    },
+    "SE07": {
+      "recordings": 59,
+      "falls": 0,
+      "roc_auc": null
+    },
+    "SE08": {
+      "recordings": 59,
+      "falls": 0,
+      "roc_auc": null
+    },
+    "SE09": {
+      "recordings": 59,
+      "falls": 0,
+      "roc_auc": null
+    },
+    "SE10": {
+      "recordings": 59,
+      "falls": 0,
+      "roc_auc": null
+    },
+    "SE11": {
+      "recordings": 59,
+      "falls": 0,
+      "roc_auc": null
+    },
+    "SE12": {
+      "recordings": 59,
+      "falls": 0,
+      "roc_auc": null
+    },
+    "SE13": {
+      "recordings": 59,
+      "falls": 0,
+      "roc_auc": null
+    },
+    "SE14": {
+      "recordings": 59,
+      "falls": 0,
+      "roc_auc": null
+    },
+    "SE15": {
+      "recordings": 63,
+      "falls": 0,
+      "roc_auc": null
+    }
+  }
+}

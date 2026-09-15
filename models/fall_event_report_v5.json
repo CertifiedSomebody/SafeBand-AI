@@ -1,0 +1,4636 @@
+{
+  "version": "v5",
+  "method": "validation_locked_temporal_event_rule",
+  "model": "models/fall_detector_v3.joblib",
+  "window_input": "datasets/processed/bits2/fall_windows_v3.csv",
+  "training_report": "models/bits2_training_report_v3.json",
+  "feature_count": 48,
+  "subjects": {
+    "train": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "7",
+      "9",
+      "10",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "18",
+      "20",
+      "23",
+      "24",
+      "27",
+      "30",
+      "31",
+      "32",
+      "34",
+      "35",
+      "37",
+      "38",
+      "40"
+    ],
+    "validation": [
+      "11",
+      "21",
+      "22",
+      "25",
+      "26",
+      "28",
+      "29",
+      "36"
+    ],
+    "test": [
+      "5",
+      "6",
+      "8",
+      "17",
+      "19",
+      "33",
+      "39",
+      "41"
+    ]
+  },
+  "search_space": {
+    "hit_thresholds": [
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65
+    ],
+    "peak_thresholds": [
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8
+    ],
+    "min_hits": [
+      2,
+      3,
+      4
+    ],
+    "max_gaps": [
+      30,
+      60
+    ]
+  },
+  "targets": {
+    "fall_recall": 0.95,
+    "false_positive_rate": 0.05
+  },
+  "selection_reason": "no_rule_meets_both_targets; recall_target_met",
+  "selected_operating_point": {
+    "hit_threshold": 0.55,
+    "peak_threshold": 0.7,
+    "min_hits": 3,
+    "max_gap_samples": 60,
+    "recordings": 144,
+    "fall_events": 64,
+    "nonfall_recordings": 80,
+    "fall_recall": 0.953125,
+    "fall_precision": 0.6777777777777778,
+    "fall_f1": 0.7922077922077922,
+    "false_positive_rate": 0.3625,
+    "false_alarms": 29,
+    "missed_falls": 3,
+    "confusion_matrix": [
+      [
+        51,
+        29
+      ],
+      [
+        3,
+        61
+      ]
+    ]
+  },
+  "test": {
+    "recordings": 144,
+    "fall_events": 64,
+    "nonfall_recordings": 80,
+    "fall_recall": 0.859375,
+    "fall_precision": 0.625,
+    "fall_f1": 0.7236842105263158,
+    "false_positive_rate": 0.4125,
+    "false_alarms": 33,
+    "missed_falls": 9,
+    "confusion_matrix": [
+      [
+        47,
+        33
+      ],
+      [
+        9,
+        55
+      ]
+    ]
+  },
+  "validation_operating_points": [
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.55,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.984375,
+      "fall_precision": 0.5431034482758621,
+      "fall_f1": 0.7,
+      "false_positive_rate": 0.6625,
+      "false_alarms": 53,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          27,
+          53
+        ],
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.55,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.984375,
+      "fall_precision": 0.5338983050847458,
+      "fall_f1": 0.6923076923076923,
+      "false_positive_rate": 0.6875,
+      "false_alarms": 55,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          25,
+          55
+        ],
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.55,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5648148148148148,
+      "fall_f1": 0.7093023255813954,
+      "false_positive_rate": 0.5875,
+      "false_alarms": 47,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          33,
+          47
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.55,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5596330275229358,
+      "fall_f1": 0.7052023121387283,
+      "false_positive_rate": 0.6,
+      "false_alarms": 48,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          32,
+          48
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.55,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.625,
+      "fall_f1": 0.75,
+      "false_positive_rate": 0.45,
+      "false_alarms": 36,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          44,
+          36
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.55,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6060606060606061,
+      "fall_f1": 0.7361963190184049,
+      "false_positive_rate": 0.4875,
+      "false_alarms": 39,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          41,
+          39
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.6,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.984375,
+      "fall_precision": 0.5526315789473685,
+      "fall_f1": 0.7078651685393258,
+      "false_positive_rate": 0.6375,
+      "false_alarms": 51,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          29,
+          51
+        ],
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.6,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.984375,
+      "fall_precision": 0.5478260869565217,
+      "fall_f1": 0.7039106145251397,
+      "false_positive_rate": 0.65,
+      "false_alarms": 52,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          28,
+          52
+        ],
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.6,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5700934579439252,
+      "fall_f1": 0.7134502923976608,
+      "false_positive_rate": 0.575,
+      "false_alarms": 46,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          34,
+          46
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.6,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5596330275229358,
+      "fall_f1": 0.7052023121387283,
+      "false_positive_rate": 0.6,
+      "false_alarms": 48,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          32,
+          48
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.6,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.631578947368421,
+      "fall_f1": 0.7547169811320755,
+      "false_positive_rate": 0.4375,
+      "false_alarms": 35,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          45,
+          35
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.6,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6060606060606061,
+      "fall_f1": 0.7361963190184049,
+      "false_positive_rate": 0.4875,
+      "false_alarms": 39,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          41,
+          39
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.65,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.984375,
+      "fall_precision": 0.5625,
+      "fall_f1": 0.7159090909090909,
+      "false_positive_rate": 0.6125,
+      "false_alarms": 49,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          31,
+          49
+        ],
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.65,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.984375,
+      "fall_precision": 0.5625,
+      "fall_f1": 0.7159090909090909,
+      "false_positive_rate": 0.6125,
+      "false_alarms": 49,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          31,
+          49
+        ],
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.65,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5865384615384616,
+      "fall_f1": 0.7261904761904762,
+      "false_positive_rate": 0.5375,
+      "false_alarms": 43,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          37,
+          43
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.65,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.580952380952381,
+      "fall_f1": 0.7218934911242604,
+      "false_positive_rate": 0.55,
+      "false_alarms": 44,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          36,
+          44
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.65,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6382978723404256,
+      "fall_f1": 0.759493670886076,
+      "false_positive_rate": 0.425,
+      "false_alarms": 34,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          46,
+          34
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.65,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6185567010309279,
+      "fall_f1": 0.7453416149068323,
+      "false_positive_rate": 0.4625,
+      "false_alarms": 37,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          43,
+          37
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.7,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.984375,
+      "fall_precision": 0.6363636363636364,
+      "fall_f1": 0.7730061349693251,
+      "false_positive_rate": 0.45,
+      "false_alarms": 36,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          44,
+          36
+        ],
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.7,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.984375,
+      "fall_precision": 0.6363636363636364,
+      "fall_f1": 0.7730061349693251,
+      "false_positive_rate": 0.45,
+      "false_alarms": 36,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          44,
+          36
+        ],
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.7,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6521739130434783,
+      "fall_f1": 0.7692307692307693,
+      "false_positive_rate": 0.4,
+      "false_alarms": 32,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          48,
+          32
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.7,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.6421052631578947,
+      "fall_f1": 0.7672955974842768,
+      "false_positive_rate": 0.425,
+      "false_alarms": 34,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          46,
+          34
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.7,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.921875,
+      "fall_precision": 0.7023809523809523,
+      "fall_f1": 0.7972972972972973,
+      "false_positive_rate": 0.3125,
+      "false_alarms": 25,
+      "missed_falls": 5,
+      "confusion_matrix": [
+        [
+          55,
+          25
+        ],
+        [
+          5,
+          59
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.7,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6818181818181818,
+      "fall_f1": 0.7894736842105263,
+      "false_positive_rate": 0.35,
+      "false_alarms": 28,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          52,
+          28
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.75,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6382978723404256,
+      "fall_f1": 0.759493670886076,
+      "false_positive_rate": 0.425,
+      "false_alarms": 34,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          46,
+          34
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.75,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.6421052631578947,
+      "fall_f1": 0.7672955974842768,
+      "false_positive_rate": 0.425,
+      "false_alarms": 34,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          46,
+          34
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.75,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.90625,
+      "fall_precision": 0.6666666666666666,
+      "fall_f1": 0.7682119205298014,
+      "false_positive_rate": 0.3625,
+      "false_alarms": 29,
+      "missed_falls": 6,
+      "confusion_matrix": [
+        [
+          51,
+          29
+        ],
+        [
+          6,
+          58
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.75,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6666666666666666,
+      "fall_f1": 0.7792207792207793,
+      "false_positive_rate": 0.375,
+      "false_alarms": 30,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          50,
+          30
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.75,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.7215189873417721,
+      "fall_f1": 0.7972027972027972,
+      "false_positive_rate": 0.275,
+      "false_alarms": 22,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          58,
+          22
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.75,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.921875,
+      "fall_precision": 0.7108433734939759,
+      "fall_f1": 0.8027210884353742,
+      "false_positive_rate": 0.3,
+      "false_alarms": 24,
+      "missed_falls": 5,
+      "confusion_matrix": [
+        [
+          56,
+          24
+        ],
+        [
+          5,
+          59
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.8,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.6867469879518072,
+      "fall_f1": 0.7755102040816326,
+      "false_positive_rate": 0.325,
+      "false_alarms": 26,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          54,
+          26
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.8,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.6867469879518072,
+      "fall_f1": 0.7755102040816326,
+      "false_positive_rate": 0.325,
+      "false_alarms": 26,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          54,
+          26
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.8,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.875,
+      "fall_precision": 0.7,
+      "fall_f1": 0.7777777777777778,
+      "false_positive_rate": 0.3,
+      "false_alarms": 24,
+      "missed_falls": 8,
+      "confusion_matrix": [
+        [
+          56,
+          24
+        ],
+        [
+          8,
+          56
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.8,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.6951219512195121,
+      "fall_f1": 0.7808219178082192,
+      "false_positive_rate": 0.3125,
+      "false_alarms": 25,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          55,
+          25
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.8,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.859375,
+      "fall_precision": 0.7638888888888888,
+      "fall_f1": 0.8088235294117647,
+      "false_positive_rate": 0.2125,
+      "false_alarms": 17,
+      "missed_falls": 9,
+      "confusion_matrix": [
+        [
+          63,
+          17
+        ],
+        [
+          9,
+          55
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.45,
+      "peak_threshold": 0.8,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.875,
+      "fall_precision": 0.7466666666666667,
+      "fall_f1": 0.8057553956834532,
+      "false_positive_rate": 0.2375,
+      "false_alarms": 19,
+      "missed_falls": 8,
+      "confusion_matrix": [
+        [
+          61,
+          19
+        ],
+        [
+          8,
+          56
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.55,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.984375,
+      "fall_precision": 0.5625,
+      "fall_f1": 0.7159090909090909,
+      "false_positive_rate": 0.6125,
+      "false_alarms": 49,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          31,
+          49
+        ],
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.55,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.984375,
+      "fall_precision": 0.5575221238938053,
+      "fall_f1": 0.711864406779661,
+      "false_positive_rate": 0.625,
+      "false_alarms": 50,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          30,
+          50
+        ],
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.55,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.580952380952381,
+      "fall_f1": 0.7218934911242604,
+      "false_positive_rate": 0.55,
+      "false_alarms": 44,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          36,
+          44
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.55,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5648148148148148,
+      "fall_f1": 0.7093023255813954,
+      "false_positive_rate": 0.5875,
+      "false_alarms": 47,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          33,
+          47
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.55,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6593406593406593,
+      "fall_f1": 0.7741935483870968,
+      "false_positive_rate": 0.3875,
+      "false_alarms": 31,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          49,
+          31
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.55,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6382978723404256,
+      "fall_f1": 0.759493670886076,
+      "false_positive_rate": 0.425,
+      "false_alarms": 34,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          46,
+          34
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.6,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.984375,
+      "fall_precision": 0.5675675675675675,
+      "fall_f1": 0.72,
+      "false_positive_rate": 0.6,
+      "false_alarms": 48,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          32,
+          48
+        ],
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.6,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.984375,
+      "fall_precision": 0.5625,
+      "fall_f1": 0.7159090909090909,
+      "false_positive_rate": 0.6125,
+      "false_alarms": 49,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          31,
+          49
+        ],
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.6,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.580952380952381,
+      "fall_f1": 0.7218934911242604,
+      "false_positive_rate": 0.55,
+      "false_alarms": 44,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          36,
+          44
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.6,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5648148148148148,
+      "fall_f1": 0.7093023255813954,
+      "false_positive_rate": 0.5875,
+      "false_alarms": 47,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          33,
+          47
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.6,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6593406593406593,
+      "fall_f1": 0.7741935483870968,
+      "false_positive_rate": 0.3875,
+      "false_alarms": 31,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          49,
+          31
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.6,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6382978723404256,
+      "fall_f1": 0.759493670886076,
+      "false_positive_rate": 0.425,
+      "false_alarms": 34,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          46,
+          34
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.65,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.984375,
+      "fall_precision": 0.5779816513761468,
+      "fall_f1": 0.7283236994219653,
+      "false_positive_rate": 0.575,
+      "false_alarms": 46,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          34,
+          46
+        ],
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.65,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.984375,
+      "fall_precision": 0.5779816513761468,
+      "fall_f1": 0.7283236994219653,
+      "false_positive_rate": 0.575,
+      "false_alarms": 46,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          34,
+          46
+        ],
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.65,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5980392156862745,
+      "fall_f1": 0.7349397590361446,
+      "false_positive_rate": 0.5125,
+      "false_alarms": 41,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          39,
+          41
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.65,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5865384615384616,
+      "fall_f1": 0.7261904761904762,
+      "false_positive_rate": 0.5375,
+      "false_alarms": 43,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          37,
+          43
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.65,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6666666666666666,
+      "fall_f1": 0.7792207792207793,
+      "false_positive_rate": 0.375,
+      "false_alarms": 30,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          50,
+          30
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.65,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6521739130434783,
+      "fall_f1": 0.7692307692307693,
+      "false_positive_rate": 0.4,
+      "false_alarms": 32,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          48,
+          32
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.7,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.984375,
+      "fall_precision": 0.6494845360824743,
+      "fall_f1": 0.782608695652174,
+      "false_positive_rate": 0.425,
+      "false_alarms": 34,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          46,
+          34
+        ],
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.7,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.984375,
+      "fall_precision": 0.6428571428571429,
+      "fall_f1": 0.7777777777777778,
+      "false_positive_rate": 0.4375,
+      "false_alarms": 35,
+      "missed_falls": 1,
+      "confusion_matrix": [
+        [
+          45,
+          35
+        ],
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.7,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6593406593406593,
+      "fall_f1": 0.7741935483870968,
+      "false_positive_rate": 0.3875,
+      "false_alarms": 31,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          49,
+          31
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.7,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.648936170212766,
+      "fall_f1": 0.7721518987341772,
+      "false_positive_rate": 0.4125,
+      "false_alarms": 33,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          47,
+          33
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.7,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.90625,
+      "fall_precision": 0.7073170731707317,
+      "fall_f1": 0.7945205479452054,
+      "false_positive_rate": 0.3,
+      "false_alarms": 24,
+      "missed_falls": 6,
+      "confusion_matrix": [
+        [
+          56,
+          24
+        ],
+        [
+          6,
+          58
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.7,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.921875,
+      "fall_precision": 0.6941176470588235,
+      "fall_f1": 0.7919463087248322,
+      "false_positive_rate": 0.325,
+      "false_alarms": 26,
+      "missed_falls": 5,
+      "confusion_matrix": [
+        [
+          54,
+          26
+        ],
+        [
+          5,
+          59
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.75,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6521739130434783,
+      "fall_f1": 0.7692307692307693,
+      "false_positive_rate": 0.4,
+      "false_alarms": 32,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          48,
+          32
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.75,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.6559139784946236,
+      "fall_f1": 0.7770700636942676,
+      "false_positive_rate": 0.4,
+      "false_alarms": 32,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          48,
+          32
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.75,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.90625,
+      "fall_precision": 0.6744186046511628,
+      "fall_f1": 0.7733333333333333,
+      "false_positive_rate": 0.35,
+      "false_alarms": 28,
+      "missed_falls": 6,
+      "confusion_matrix": [
+        [
+          52,
+          28
+        ],
+        [
+          6,
+          58
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.75,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6741573033707865,
+      "fall_f1": 0.7843137254901961,
+      "false_positive_rate": 0.3625,
+      "false_alarms": 29,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          51,
+          29
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.75,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.875,
+      "fall_precision": 0.717948717948718,
+      "fall_f1": 0.7887323943661971,
+      "false_positive_rate": 0.275,
+      "false_alarms": 22,
+      "missed_falls": 8,
+      "confusion_matrix": [
+        [
+          58,
+          22
+        ],
+        [
+          8,
+          56
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.75,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.90625,
+      "fall_precision": 0.7160493827160493,
+      "fall_f1": 0.8,
+      "false_positive_rate": 0.2875,
+      "false_alarms": 23,
+      "missed_falls": 6,
+      "confusion_matrix": [
+        [
+          57,
+          23
+        ],
+        [
+          6,
+          58
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.8,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.6951219512195121,
+      "fall_f1": 0.7808219178082192,
+      "false_positive_rate": 0.3125,
+      "false_alarms": 25,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          55,
+          25
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.8,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.6867469879518072,
+      "fall_f1": 0.7755102040816326,
+      "false_positive_rate": 0.325,
+      "false_alarms": 26,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          54,
+          26
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.8,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.875,
+      "fall_precision": 0.717948717948718,
+      "fall_f1": 0.7887323943661971,
+      "false_positive_rate": 0.275,
+      "false_alarms": 22,
+      "missed_falls": 8,
+      "confusion_matrix": [
+        [
+          58,
+          22
+        ],
+        [
+          8,
+          56
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.8,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.7037037037037037,
+      "fall_f1": 0.7862068965517242,
+      "false_positive_rate": 0.3,
+      "false_alarms": 24,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          56,
+          24
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.8,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.84375,
+      "fall_precision": 0.7714285714285715,
+      "fall_f1": 0.8059701492537313,
+      "false_positive_rate": 0.2,
+      "false_alarms": 16,
+      "missed_falls": 10,
+      "confusion_matrix": [
+        [
+          64,
+          16
+        ],
+        [
+          10,
+          54
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.5,
+      "peak_threshold": 0.8,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.859375,
+      "fall_precision": 0.7534246575342466,
+      "fall_f1": 0.8029197080291971,
+      "false_positive_rate": 0.225,
+      "false_alarms": 18,
+      "missed_falls": 9,
+      "confusion_matrix": [
+        [
+          62,
+          18
+        ],
+        [
+          9,
+          55
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.55,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5700934579439252,
+      "fall_f1": 0.7134502923976608,
+      "false_positive_rate": 0.575,
+      "false_alarms": 46,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          34,
+          46
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.55,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5648148148148148,
+      "fall_f1": 0.7093023255813954,
+      "false_positive_rate": 0.5875,
+      "false_alarms": 47,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          33,
+          47
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.55,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.6354166666666666,
+      "fall_f1": 0.7625,
+      "false_positive_rate": 0.4375,
+      "false_alarms": 35,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          45,
+          35
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.55,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.61,
+      "fall_f1": 0.7439024390243902,
+      "false_positive_rate": 0.4875,
+      "false_alarms": 39,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          41,
+          39
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.55,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.90625,
+      "fall_precision": 0.6987951807228916,
+      "fall_f1": 0.7891156462585034,
+      "false_positive_rate": 0.3125,
+      "false_alarms": 25,
+      "missed_falls": 6,
+      "confusion_matrix": [
+        [
+          55,
+          25
+        ],
+        [
+          6,
+          58
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.55,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6976744186046512,
+      "fall_f1": 0.8,
+      "false_positive_rate": 0.325,
+      "false_alarms": 26,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          54,
+          26
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.6,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5700934579439252,
+      "fall_f1": 0.7134502923976608,
+      "false_positive_rate": 0.575,
+      "false_alarms": 46,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          34,
+          46
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.6,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5648148148148148,
+      "fall_f1": 0.7093023255813954,
+      "false_positive_rate": 0.5875,
+      "false_alarms": 47,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          33,
+          47
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.6,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.6354166666666666,
+      "fall_f1": 0.7625,
+      "false_positive_rate": 0.4375,
+      "false_alarms": 35,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          45,
+          35
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.6,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.61,
+      "fall_f1": 0.7439024390243902,
+      "false_positive_rate": 0.4875,
+      "false_alarms": 39,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          41,
+          39
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.6,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.90625,
+      "fall_precision": 0.6987951807228916,
+      "fall_f1": 0.7891156462585034,
+      "false_positive_rate": 0.3125,
+      "false_alarms": 25,
+      "missed_falls": 6,
+      "confusion_matrix": [
+        [
+          55,
+          25
+        ],
+        [
+          6,
+          58
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.6,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6976744186046512,
+      "fall_f1": 0.8,
+      "false_positive_rate": 0.325,
+      "false_alarms": 26,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          54,
+          26
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.65,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5865384615384616,
+      "fall_f1": 0.7261904761904762,
+      "false_positive_rate": 0.5375,
+      "false_alarms": 43,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          37,
+          43
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.65,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5754716981132075,
+      "fall_f1": 0.7176470588235294,
+      "false_positive_rate": 0.5625,
+      "false_alarms": 45,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          35,
+          45
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.65,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6521739130434783,
+      "fall_f1": 0.7692307692307693,
+      "false_positive_rate": 0.4,
+      "false_alarms": 32,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          48,
+          32
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.65,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.6288659793814433,
+      "fall_f1": 0.7577639751552795,
+      "false_positive_rate": 0.45,
+      "false_alarms": 36,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          44,
+          36
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.65,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.90625,
+      "fall_precision": 0.6987951807228916,
+      "fall_f1": 0.7891156462585034,
+      "false_positive_rate": 0.3125,
+      "false_alarms": 25,
+      "missed_falls": 6,
+      "confusion_matrix": [
+        [
+          55,
+          25
+        ],
+        [
+          6,
+          58
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.65,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6976744186046512,
+      "fall_f1": 0.8,
+      "false_positive_rate": 0.325,
+      "false_alarms": 26,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          54,
+          26
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.7,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.648936170212766,
+      "fall_f1": 0.7721518987341772,
+      "false_positive_rate": 0.4125,
+      "false_alarms": 33,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          47,
+          33
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.7,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.6354166666666666,
+      "fall_f1": 0.7625,
+      "false_positive_rate": 0.4375,
+      "false_alarms": 35,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          45,
+          35
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.7,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.921875,
+      "fall_precision": 0.686046511627907,
+      "fall_f1": 0.7866666666666666,
+      "false_positive_rate": 0.3375,
+      "false_alarms": 27,
+      "missed_falls": 5,
+      "confusion_matrix": [
+        [
+          53,
+          27
+        ],
+        [
+          5,
+          59
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.7,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.6777777777777778,
+      "fall_f1": 0.7922077922077922,
+      "false_positive_rate": 0.3625,
+      "false_alarms": 29,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          51,
+          29
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.7,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.7215189873417721,
+      "fall_f1": 0.7972027972027972,
+      "false_positive_rate": 0.275,
+      "false_alarms": 22,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          58,
+          22
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.7,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.921875,
+      "fall_precision": 0.7195121951219512,
+      "fall_f1": 0.8082191780821918,
+      "false_positive_rate": 0.2875,
+      "false_alarms": 23,
+      "missed_falls": 5,
+      "confusion_matrix": [
+        [
+          57,
+          23
+        ],
+        [
+          5,
+          59
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.75,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.921875,
+      "fall_precision": 0.6629213483146067,
+      "fall_f1": 0.7712418300653595,
+      "false_positive_rate": 0.375,
+      "false_alarms": 30,
+      "missed_falls": 5,
+      "confusion_matrix": [
+        [
+          50,
+          30
+        ],
+        [
+          5,
+          59
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.75,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6593406593406593,
+      "fall_f1": 0.7741935483870968,
+      "false_positive_rate": 0.3875,
+      "false_alarms": 31,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          49,
+          31
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.75,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.90625,
+      "fall_precision": 0.6987951807228916,
+      "fall_f1": 0.7891156462585034,
+      "false_positive_rate": 0.3125,
+      "false_alarms": 25,
+      "missed_falls": 6,
+      "confusion_matrix": [
+        [
+          55,
+          25
+        ],
+        [
+          6,
+          58
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.75,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6896551724137931,
+      "fall_f1": 0.7947019867549668,
+      "false_positive_rate": 0.3375,
+      "false_alarms": 27,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          53,
+          27
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.75,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.875,
+      "fall_precision": 0.7368421052631579,
+      "fall_f1": 0.8,
+      "false_positive_rate": 0.25,
+      "false_alarms": 20,
+      "missed_falls": 8,
+      "confusion_matrix": [
+        [
+          60,
+          20
+        ],
+        [
+          8,
+          56
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.75,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.90625,
+      "fall_precision": 0.7341772151898734,
+      "fall_f1": 0.8111888111888111,
+      "false_positive_rate": 0.2625,
+      "false_alarms": 21,
+      "missed_falls": 6,
+      "confusion_matrix": [
+        [
+          59,
+          21
+        ],
+        [
+          6,
+          58
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.8,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.6951219512195121,
+      "fall_f1": 0.7808219178082192,
+      "false_positive_rate": 0.3125,
+      "false_alarms": 25,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          55,
+          25
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.8,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.6867469879518072,
+      "fall_f1": 0.7755102040816326,
+      "false_positive_rate": 0.325,
+      "false_alarms": 26,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          54,
+          26
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.8,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.875,
+      "fall_precision": 0.7466666666666667,
+      "fall_f1": 0.8057553956834532,
+      "false_positive_rate": 0.2375,
+      "false_alarms": 19,
+      "missed_falls": 8,
+      "confusion_matrix": [
+        [
+          61,
+          19
+        ],
+        [
+          8,
+          56
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.8,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.7307692307692307,
+      "fall_f1": 0.8028169014084507,
+      "false_positive_rate": 0.2625,
+      "false_alarms": 21,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          59,
+          21
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.8,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.84375,
+      "fall_precision": 0.7714285714285715,
+      "fall_f1": 0.8059701492537313,
+      "false_positive_rate": 0.2,
+      "false_alarms": 16,
+      "missed_falls": 10,
+      "confusion_matrix": [
+        [
+          64,
+          16
+        ],
+        [
+          10,
+          54
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.55,
+      "peak_threshold": 0.8,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.859375,
+      "fall_precision": 0.7638888888888888,
+      "fall_f1": 0.8088235294117647,
+      "false_positive_rate": 0.2125,
+      "false_alarms": 17,
+      "missed_falls": 9,
+      "confusion_matrix": [
+        [
+          63,
+          17
+        ],
+        [
+          9,
+          55
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.55,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.61,
+      "fall_f1": 0.7439024390243902,
+      "false_positive_rate": 0.4875,
+      "false_alarms": 39,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          41,
+          39
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.55,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5865384615384616,
+      "fall_f1": 0.7261904761904762,
+      "false_positive_rate": 0.5375,
+      "false_alarms": 43,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          37,
+          43
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.55,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.921875,
+      "fall_precision": 0.6781609195402298,
+      "fall_f1": 0.7814569536423841,
+      "false_positive_rate": 0.35,
+      "false_alarms": 28,
+      "missed_falls": 5,
+      "confusion_matrix": [
+        [
+          52,
+          28
+        ],
+        [
+          5,
+          59
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.55,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6741573033707865,
+      "fall_f1": 0.7843137254901961,
+      "false_positive_rate": 0.3625,
+      "false_alarms": 29,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          51,
+          29
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.55,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.78125,
+      "fall_precision": 0.7246376811594203,
+      "fall_f1": 0.7518796992481203,
+      "false_positive_rate": 0.2375,
+      "false_alarms": 19,
+      "missed_falls": 14,
+      "confusion_matrix": [
+        [
+          61,
+          19
+        ],
+        [
+          14,
+          50
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.55,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.7402597402597403,
+      "fall_f1": 0.8085106382978723,
+      "false_positive_rate": 0.25,
+      "false_alarms": 20,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          60,
+          20
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.6,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.61,
+      "fall_f1": 0.7439024390243902,
+      "false_positive_rate": 0.4875,
+      "false_alarms": 39,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          41,
+          39
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.6,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.953125,
+      "fall_precision": 0.5865384615384616,
+      "fall_f1": 0.7261904761904762,
+      "false_positive_rate": 0.5375,
+      "false_alarms": 43,
+      "missed_falls": 3,
+      "confusion_matrix": [
+        [
+          37,
+          43
+        ],
+        [
+          3,
+          61
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.6,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.921875,
+      "fall_precision": 0.6781609195402298,
+      "fall_f1": 0.7814569536423841,
+      "false_positive_rate": 0.35,
+      "false_alarms": 28,
+      "missed_falls": 5,
+      "confusion_matrix": [
+        [
+          52,
+          28
+        ],
+        [
+          5,
+          59
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.6,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6741573033707865,
+      "fall_f1": 0.7843137254901961,
+      "false_positive_rate": 0.3625,
+      "false_alarms": 29,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          51,
+          29
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.6,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.78125,
+      "fall_precision": 0.7246376811594203,
+      "fall_f1": 0.7518796992481203,
+      "false_positive_rate": 0.2375,
+      "false_alarms": 19,
+      "missed_falls": 14,
+      "confusion_matrix": [
+        [
+          61,
+          19
+        ],
+        [
+          14,
+          50
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.6,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.7402597402597403,
+      "fall_f1": 0.8085106382978723,
+      "false_positive_rate": 0.25,
+      "false_alarms": 20,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          60,
+          20
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.65,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6122448979591837,
+      "fall_f1": 0.7407407407407407,
+      "false_positive_rate": 0.475,
+      "false_alarms": 38,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          42,
+          38
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.65,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6,
+      "fall_f1": 0.7317073170731707,
+      "false_positive_rate": 0.5,
+      "false_alarms": 40,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          40,
+          40
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.65,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.921875,
+      "fall_precision": 0.6781609195402298,
+      "fall_f1": 0.7814569536423841,
+      "false_positive_rate": 0.35,
+      "false_alarms": 28,
+      "missed_falls": 5,
+      "confusion_matrix": [
+        [
+          52,
+          28
+        ],
+        [
+          5,
+          59
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.65,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6741573033707865,
+      "fall_f1": 0.7843137254901961,
+      "false_positive_rate": 0.3625,
+      "false_alarms": 29,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          51,
+          29
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.65,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.78125,
+      "fall_precision": 0.7246376811594203,
+      "fall_f1": 0.7518796992481203,
+      "false_positive_rate": 0.2375,
+      "false_alarms": 19,
+      "missed_falls": 14,
+      "confusion_matrix": [
+        [
+          61,
+          19
+        ],
+        [
+          14,
+          50
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.65,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.7402597402597403,
+      "fall_f1": 0.8085106382978723,
+      "false_positive_rate": 0.25,
+      "false_alarms": 20,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          60,
+          20
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.7,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6521739130434783,
+      "fall_f1": 0.7692307692307693,
+      "false_positive_rate": 0.4,
+      "false_alarms": 32,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          48,
+          32
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.7,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6382978723404256,
+      "fall_f1": 0.759493670886076,
+      "false_positive_rate": 0.425,
+      "false_alarms": 34,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          46,
+          34
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.7,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.90625,
+      "fall_precision": 0.6823529411764706,
+      "fall_f1": 0.7785234899328859,
+      "false_positive_rate": 0.3375,
+      "false_alarms": 27,
+      "missed_falls": 6,
+      "confusion_matrix": [
+        [
+          53,
+          27
+        ],
+        [
+          6,
+          58
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.7,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6896551724137931,
+      "fall_f1": 0.7947019867549668,
+      "false_positive_rate": 0.3375,
+      "false_alarms": 27,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          53,
+          27
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.7,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.765625,
+      "fall_precision": 0.7424242424242424,
+      "fall_f1": 0.7538461538461538,
+      "false_positive_rate": 0.2125,
+      "false_alarms": 17,
+      "missed_falls": 15,
+      "confusion_matrix": [
+        [
+          63,
+          17
+        ],
+        [
+          15,
+          49
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.7,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.875,
+      "fall_precision": 0.7567567567567568,
+      "fall_f1": 0.8115942028985508,
+      "false_positive_rate": 0.225,
+      "false_alarms": 18,
+      "missed_falls": 8,
+      "confusion_matrix": [
+        [
+          62,
+          18
+        ],
+        [
+          8,
+          56
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.75,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.921875,
+      "fall_precision": 0.6704545454545454,
+      "fall_f1": 0.7763157894736842,
+      "false_positive_rate": 0.3625,
+      "false_alarms": 29,
+      "missed_falls": 5,
+      "confusion_matrix": [
+        [
+          51,
+          29
+        ],
+        [
+          5,
+          59
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.75,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6666666666666666,
+      "fall_f1": 0.7792207792207793,
+      "false_positive_rate": 0.375,
+      "false_alarms": 30,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          50,
+          30
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.75,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.90625,
+      "fall_precision": 0.6987951807228916,
+      "fall_f1": 0.7891156462585034,
+      "false_positive_rate": 0.3125,
+      "false_alarms": 25,
+      "missed_falls": 6,
+      "confusion_matrix": [
+        [
+          55,
+          25
+        ],
+        [
+          6,
+          58
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.75,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.7058823529411765,
+      "fall_f1": 0.8053691275167785,
+      "false_positive_rate": 0.3125,
+      "false_alarms": 25,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          55,
+          25
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.75,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.765625,
+      "fall_precision": 0.7538461538461538,
+      "fall_f1": 0.7596899224806202,
+      "false_positive_rate": 0.2,
+      "false_alarms": 16,
+      "missed_falls": 15,
+      "confusion_matrix": [
+        [
+          64,
+          16
+        ],
+        [
+          15,
+          49
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.75,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.875,
+      "fall_precision": 0.7671232876712328,
+      "fall_f1": 0.8175182481751825,
+      "false_positive_rate": 0.2125,
+      "false_alarms": 17,
+      "missed_falls": 8,
+      "confusion_matrix": [
+        [
+          63,
+          17
+        ],
+        [
+          8,
+          56
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.8,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.7125,
+      "fall_f1": 0.7916666666666666,
+      "false_positive_rate": 0.2875,
+      "false_alarms": 23,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          57,
+          23
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.8,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.6951219512195121,
+      "fall_f1": 0.7808219178082192,
+      "false_positive_rate": 0.3125,
+      "false_alarms": 25,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          55,
+          25
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.8,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.875,
+      "fall_precision": 0.7567567567567568,
+      "fall_f1": 0.8115942028985508,
+      "false_positive_rate": 0.225,
+      "false_alarms": 18,
+      "missed_falls": 8,
+      "confusion_matrix": [
+        [
+          62,
+          18
+        ],
+        [
+          8,
+          56
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.8,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.75,
+      "fall_f1": 0.8142857142857143,
+      "false_positive_rate": 0.2375,
+      "false_alarms": 19,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          61,
+          19
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.8,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.734375,
+      "fall_precision": 0.7833333333333333,
+      "fall_f1": 0.7580645161290323,
+      "false_positive_rate": 0.1625,
+      "false_alarms": 13,
+      "missed_falls": 17,
+      "confusion_matrix": [
+        [
+          67,
+          13
+        ],
+        [
+          17,
+          47
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.6,
+      "peak_threshold": 0.8,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.796875,
+      "fall_precision": 0.7846153846153846,
+      "fall_f1": 0.7906976744186046,
+      "false_positive_rate": 0.175,
+      "false_alarms": 14,
+      "missed_falls": 13,
+      "confusion_matrix": [
+        [
+          66,
+          14
+        ],
+        [
+          13,
+          51
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.55,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6666666666666666,
+      "fall_f1": 0.7792207792207793,
+      "false_positive_rate": 0.375,
+      "false_alarms": 30,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          50,
+          30
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.55,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6521739130434783,
+      "fall_f1": 0.7692307692307693,
+      "false_positive_rate": 0.4,
+      "false_alarms": 32,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          48,
+          32
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.55,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.859375,
+      "fall_precision": 0.7534246575342466,
+      "fall_f1": 0.8029197080291971,
+      "false_positive_rate": 0.225,
+      "false_alarms": 18,
+      "missed_falls": 9,
+      "confusion_matrix": [
+        [
+          62,
+          18
+        ],
+        [
+          9,
+          55
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.55,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.921875,
+      "fall_precision": 0.7468354430379747,
+      "fall_f1": 0.8251748251748252,
+      "false_positive_rate": 0.25,
+      "false_alarms": 20,
+      "missed_falls": 5,
+      "confusion_matrix": [
+        [
+          60,
+          20
+        ],
+        [
+          5,
+          59
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.55,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.71875,
+      "fall_precision": 0.8214285714285714,
+      "fall_f1": 0.7666666666666667,
+      "false_positive_rate": 0.125,
+      "false_alarms": 10,
+      "missed_falls": 18,
+      "confusion_matrix": [
+        [
+          70,
+          10
+        ],
+        [
+          18,
+          46
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.55,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.8125,
+      "fall_precision": 0.8,
+      "fall_f1": 0.8062015503875969,
+      "false_positive_rate": 0.1625,
+      "false_alarms": 13,
+      "missed_falls": 12,
+      "confusion_matrix": [
+        [
+          67,
+          13
+        ],
+        [
+          12,
+          52
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.6,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6666666666666666,
+      "fall_f1": 0.7792207792207793,
+      "false_positive_rate": 0.375,
+      "false_alarms": 30,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          50,
+          30
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.6,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6521739130434783,
+      "fall_f1": 0.7692307692307693,
+      "false_positive_rate": 0.4,
+      "false_alarms": 32,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          48,
+          32
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.6,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.859375,
+      "fall_precision": 0.7534246575342466,
+      "fall_f1": 0.8029197080291971,
+      "false_positive_rate": 0.225,
+      "false_alarms": 18,
+      "missed_falls": 9,
+      "confusion_matrix": [
+        [
+          62,
+          18
+        ],
+        [
+          9,
+          55
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.6,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.921875,
+      "fall_precision": 0.7468354430379747,
+      "fall_f1": 0.8251748251748252,
+      "false_positive_rate": 0.25,
+      "false_alarms": 20,
+      "missed_falls": 5,
+      "confusion_matrix": [
+        [
+          60,
+          20
+        ],
+        [
+          5,
+          59
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.6,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.71875,
+      "fall_precision": 0.8214285714285714,
+      "fall_f1": 0.7666666666666667,
+      "false_positive_rate": 0.125,
+      "false_alarms": 10,
+      "missed_falls": 18,
+      "confusion_matrix": [
+        [
+          70,
+          10
+        ],
+        [
+          18,
+          46
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.6,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.8125,
+      "fall_precision": 0.8,
+      "fall_f1": 0.8062015503875969,
+      "false_positive_rate": 0.1625,
+      "false_alarms": 13,
+      "missed_falls": 12,
+      "confusion_matrix": [
+        [
+          67,
+          13
+        ],
+        [
+          12,
+          52
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.65,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6666666666666666,
+      "fall_f1": 0.7792207792207793,
+      "false_positive_rate": 0.375,
+      "false_alarms": 30,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          50,
+          30
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.65,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6521739130434783,
+      "fall_f1": 0.7692307692307693,
+      "false_positive_rate": 0.4,
+      "false_alarms": 32,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          48,
+          32
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.65,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.859375,
+      "fall_precision": 0.7534246575342466,
+      "fall_f1": 0.8029197080291971,
+      "false_positive_rate": 0.225,
+      "false_alarms": 18,
+      "missed_falls": 9,
+      "confusion_matrix": [
+        [
+          62,
+          18
+        ],
+        [
+          9,
+          55
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.65,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.921875,
+      "fall_precision": 0.7468354430379747,
+      "fall_f1": 0.8251748251748252,
+      "false_positive_rate": 0.25,
+      "false_alarms": 20,
+      "missed_falls": 5,
+      "confusion_matrix": [
+        [
+          60,
+          20
+        ],
+        [
+          5,
+          59
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.65,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.71875,
+      "fall_precision": 0.8214285714285714,
+      "fall_f1": 0.7666666666666667,
+      "false_positive_rate": 0.125,
+      "false_alarms": 10,
+      "missed_falls": 18,
+      "confusion_matrix": [
+        [
+          70,
+          10
+        ],
+        [
+          18,
+          46
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.65,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.8125,
+      "fall_precision": 0.8,
+      "fall_f1": 0.8062015503875969,
+      "false_positive_rate": 0.1625,
+      "false_alarms": 13,
+      "missed_falls": 12,
+      "confusion_matrix": [
+        [
+          67,
+          13
+        ],
+        [
+          12,
+          52
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.7,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6818181818181818,
+      "fall_f1": 0.7894736842105263,
+      "false_positive_rate": 0.35,
+      "false_alarms": 28,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          52,
+          28
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.7,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6666666666666666,
+      "fall_f1": 0.7792207792207793,
+      "false_positive_rate": 0.375,
+      "false_alarms": 30,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          50,
+          30
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.7,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.859375,
+      "fall_precision": 0.7638888888888888,
+      "fall_f1": 0.8088235294117647,
+      "false_positive_rate": 0.2125,
+      "false_alarms": 17,
+      "missed_falls": 9,
+      "confusion_matrix": [
+        [
+          63,
+          17
+        ],
+        [
+          9,
+          55
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.7,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.921875,
+      "fall_precision": 0.7564102564102564,
+      "fall_f1": 0.8309859154929577,
+      "false_positive_rate": 0.2375,
+      "false_alarms": 19,
+      "missed_falls": 5,
+      "confusion_matrix": [
+        [
+          61,
+          19
+        ],
+        [
+          5,
+          59
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.7,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.71875,
+      "fall_precision": 0.8363636363636363,
+      "fall_f1": 0.773109243697479,
+      "false_positive_rate": 0.1125,
+      "false_alarms": 9,
+      "missed_falls": 18,
+      "confusion_matrix": [
+        [
+          71,
+          9
+        ],
+        [
+          18,
+          46
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.7,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.8125,
+      "fall_precision": 0.8125,
+      "fall_f1": 0.8125,
+      "false_positive_rate": 0.15,
+      "false_alarms": 12,
+      "missed_falls": 12,
+      "confusion_matrix": [
+        [
+          68,
+          12
+        ],
+        [
+          12,
+          52
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.75,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.90625,
+      "fall_precision": 0.6823529411764706,
+      "fall_f1": 0.7785234899328859,
+      "false_positive_rate": 0.3375,
+      "false_alarms": 27,
+      "missed_falls": 6,
+      "confusion_matrix": [
+        [
+          53,
+          27
+        ],
+        [
+          6,
+          58
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.75,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.9375,
+      "fall_precision": 0.6818181818181818,
+      "fall_f1": 0.7894736842105263,
+      "false_positive_rate": 0.35,
+      "false_alarms": 28,
+      "missed_falls": 4,
+      "confusion_matrix": [
+        [
+          52,
+          28
+        ],
+        [
+          4,
+          60
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.75,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.859375,
+      "fall_precision": 0.7638888888888888,
+      "fall_f1": 0.8088235294117647,
+      "false_positive_rate": 0.2125,
+      "false_alarms": 17,
+      "missed_falls": 9,
+      "confusion_matrix": [
+        [
+          63,
+          17
+        ],
+        [
+          9,
+          55
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.75,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.90625,
+      "fall_precision": 0.7532467532467533,
+      "fall_f1": 0.8226950354609929,
+      "false_positive_rate": 0.2375,
+      "false_alarms": 19,
+      "missed_falls": 6,
+      "confusion_matrix": [
+        [
+          61,
+          19
+        ],
+        [
+          6,
+          58
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.75,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.71875,
+      "fall_precision": 0.8363636363636363,
+      "fall_f1": 0.773109243697479,
+      "false_positive_rate": 0.1125,
+      "false_alarms": 9,
+      "missed_falls": 18,
+      "confusion_matrix": [
+        [
+          71,
+          9
+        ],
+        [
+          18,
+          46
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.75,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.796875,
+      "fall_precision": 0.8095238095238095,
+      "fall_f1": 0.8031496062992126,
+      "false_positive_rate": 0.15,
+      "false_alarms": 12,
+      "missed_falls": 13,
+      "confusion_matrix": [
+        [
+          68,
+          12
+        ],
+        [
+          13,
+          51
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.8,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.7215189873417721,
+      "fall_f1": 0.7972027972027972,
+      "false_positive_rate": 0.275,
+      "false_alarms": 22,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          58,
+          22
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.8,
+      "min_hits": 2,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.890625,
+      "fall_precision": 0.7125,
+      "fall_f1": 0.7916666666666666,
+      "false_positive_rate": 0.2875,
+      "false_alarms": 23,
+      "missed_falls": 7,
+      "confusion_matrix": [
+        [
+          57,
+          23
+        ],
+        [
+          7,
+          57
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.8,
+      "min_hits": 3,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.84375,
+      "fall_precision": 0.8181818181818182,
+      "fall_f1": 0.8307692307692308,
+      "false_positive_rate": 0.15,
+      "false_alarms": 12,
+      "missed_falls": 10,
+      "confusion_matrix": [
+        [
+          68,
+          12
+        ],
+        [
+          10,
+          54
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.8,
+      "min_hits": 3,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.875,
+      "fall_precision": 0.7777777777777778,
+      "fall_f1": 0.8235294117647058,
+      "false_positive_rate": 0.2,
+      "false_alarms": 16,
+      "missed_falls": 8,
+      "confusion_matrix": [
+        [
+          64,
+          16
+        ],
+        [
+          8,
+          56
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.8,
+      "min_hits": 4,
+      "max_gap_samples": 30,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.703125,
+      "fall_precision": 0.8653846153846154,
+      "fall_f1": 0.7758620689655172,
+      "false_positive_rate": 0.0875,
+      "false_alarms": 7,
+      "missed_falls": 19,
+      "confusion_matrix": [
+        [
+          73,
+          7
+        ],
+        [
+          19,
+          45
+        ]
+      ]
+    },
+    {
+      "hit_threshold": 0.65,
+      "peak_threshold": 0.8,
+      "min_hits": 4,
+      "max_gap_samples": 60,
+      "recordings": 144,
+      "fall_events": 64,
+      "nonfall_recordings": 80,
+      "fall_recall": 0.78125,
+      "fall_precision": 0.8333333333333334,
+      "fall_f1": 0.8064516129032258,
+      "false_positive_rate": 0.125,
+      "false_alarms": 10,
+      "missed_falls": 14,
+      "confusion_matrix": [
+        [
+          70,
+          10
+        ],
+        [
+          14,
+          50
+        ]
+      ]
+    }
+  ]
+}

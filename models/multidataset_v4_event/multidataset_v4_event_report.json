@@ -1,0 +1,427 @@
+{
+  "version": "multidataset_v4_temporal_event",
+  "seed": 42,
+  "model": "rf",
+  "schema": {
+    "feature_count": 84,
+    "window_contract": "60 samples @ 20Hz, step 30",
+    "split_unit": "subject",
+    "features": [
+      "ax_mean",
+      "ax_std",
+      "ax_min",
+      "ax_max",
+      "ax_rms",
+      "ay_mean",
+      "ay_std",
+      "ay_min",
+      "ay_max",
+      "ay_rms",
+      "az_mean",
+      "az_std",
+      "az_min",
+      "az_max",
+      "az_rms",
+      "mag_mean",
+      "mag_std",
+      "mag_min",
+      "mag_max",
+      "mag_rms",
+      "mag_p10",
+      "mag_p25",
+      "mag_p50",
+      "mag_p75",
+      "mag_p90",
+      "mag_sma",
+      "mag_range",
+      "jerk_mean",
+      "jerk_std",
+      "jerk_max",
+      "diff_energy",
+      "mag_zero_crossings",
+      "xy_corr",
+      "xz_corr",
+      "yz_corr",
+      "fft_low",
+      "fft_mid",
+      "fft_high",
+      "pre_peak_mean",
+      "peak_magnitude",
+      "post_peak_mean",
+      "peak_to_baseline",
+      "peak_index_ratio",
+      "pre_post_change",
+      "post_peak_std",
+      "peak_width",
+      "high_energy_fraction",
+      "recovery_ratio",
+      "v6_mag_mean",
+      "v6_mag_std",
+      "v6_mag_min",
+      "v6_mag_max",
+      "v6_mag_rms",
+      "v6_mag_p10",
+      "v6_mag_p25",
+      "v6_mag_p50",
+      "v6_mag_p75",
+      "v6_mag_p90",
+      "v6_peak_prominence",
+      "v6_peak_to_rms",
+      "v6_peak_to_median",
+      "v6_peak_index_ratio",
+      "v6_peak_width_half",
+      "v6_high_fraction",
+      "v6_pre_mean",
+      "v6_post_mean",
+      "v6_pre_std",
+      "v6_post_std",
+      "v6_pre_post_ratio",
+      "v6_pre_post_delta",
+      "v6_post_quiet_ratio",
+      "v6_pre_energy",
+      "v6_post_energy",
+      "v6_post_energy_ratio",
+      "v6_jerk_abs_mean",
+      "v6_jerk_abs_max",
+      "v6_jerk_std",
+      "v6_jerk_sign_changes",
+      "v6_diff_energy",
+      "v6_impulse_area",
+      "v6_axis_peak_ratio",
+      "v6_axis_std_ratio",
+      "v6_tilt_change",
+      "v6_spectral_entropy"
+    ]
+  },
+  "selection": {
+    "validation_only": true,
+    "selection_rule": "minimize macro FPR subject to >=90% recall on both datasets",
+    "candidate_count": 260,
+    "thresholds": [
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8
+    ],
+    "min_hits": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "max_gaps": [
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  "splits": {
+    "BITS2": {
+      "train_subjects": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "14",
+        "16",
+        "19",
+        "2",
+        "22",
+        "24",
+        "26",
+        "28",
+        "29",
+        "3",
+        "30",
+        "34",
+        "35",
+        "37",
+        "38",
+        "4",
+        "40",
+        "41",
+        "5",
+        "6",
+        "7"
+      ],
+      "val_subjects": [
+        "15",
+        "18",
+        "20",
+        "23",
+        "25",
+        "33",
+        "36",
+        "39"
+      ],
+      "test_subjects": [
+        "13",
+        "17",
+        "21",
+        "27",
+        "31",
+        "32",
+        "8",
+        "9"
+      ],
+      "rows": {
+        "train": 9613,
+        "val": 2162,
+        "test": 2913
+      }
+    },
+    "SisFall": {
+      "train_subjects": [
+        "SA01",
+        "SA04",
+        "SA07",
+        "SA08",
+        "SA09",
+        "SA10",
+        "SA12",
+        "SA13",
+        "SA16",
+        "SA17",
+        "SA18",
+        "SA20",
+        "SA22",
+        "SA23",
+        "SE03",
+        "SE04",
+        "SE05",
+        "SE09",
+        "SE11",
+        "SE12",
+        "SE13",
+        "SE14"
+      ],
+      "val_subjects": [
+        "SA05",
+        "SA11",
+        "SA14",
+        "SA19",
+        "SE06",
+        "SE07",
+        "SE08",
+        "SE15"
+      ],
+      "test_subjects": [
+        "SA02",
+        "SA03",
+        "SA06",
+        "SA15",
+        "SA21",
+        "SE01",
+        "SE02",
+        "SE10"
+      ],
+      "rows": {
+        "train": 27674,
+        "val": 10028,
+        "test": 9981
+      }
+    }
+  },
+  "validation_selected_operating_point": {
+    "threshold": 0.75,
+    "min_hits": 2,
+    "max_gap_samples": 90,
+    "pooled": {
+      "threshold": 0.75,
+      "min_hits": 2,
+      "max_gap_samples": 90,
+      "recordings": 1095,
+      "fall_events": 439,
+      "nonfall_recordings": 656,
+      "accuracy": 0.9579908675799087,
+      "balanced_accuracy": 0.9596644258014334,
+      "precision": 0.9299781181619255,
+      "recall": 0.9681093394077449,
+      "f1": 0.9486607142857143,
+      "false_positive_rate": 0.04878048780487805,
+      "false_alarms": 32,
+      "missed_falls": 14,
+      "confusion_matrix": [
+        [
+          624,
+          32
+        ],
+        [
+          14,
+          425
+        ]
+      ]
+    },
+    "datasets": {
+      "BITS2": {
+        "recordings": 144,
+        "fall_events": 64,
+        "nonfall_recordings": 80,
+        "accuracy": 0.8402777777777778,
+        "balanced_accuracy": 0.846875,
+        "precision": 0.7733333333333333,
+        "recall": 0.90625,
+        "f1": 0.8345323741007195,
+        "false_positive_rate": 0.2125,
+        "false_alarms": 17,
+        "missed_falls": 6,
+        "confusion_matrix": [
+          [
+            63,
+            17
+          ],
+          [
+            6,
+            58
+          ]
+        ]
+      },
+      "SisFall": {
+        "recordings": 951,
+        "fall_events": 375,
+        "nonfall_recordings": 576,
+        "accuracy": 0.9758149316508938,
+        "balanced_accuracy": 0.9763125,
+        "precision": 0.9607329842931938,
+        "recall": 0.9786666666666667,
+        "f1": 0.9696169088507266,
+        "false_positive_rate": 0.026041666666666668,
+        "false_alarms": 15,
+        "missed_falls": 8,
+        "confusion_matrix": [
+          [
+            561,
+            15
+          ],
+          [
+            8,
+            367
+          ]
+        ]
+      },
+      "macro": {
+        "accuracy": 0.9080463547143358,
+        "balanced_accuracy": 0.91159375,
+        "precision": 0.8670331588132636,
+        "recall": 0.9424583333333334,
+        "f1": 0.902074641475723,
+        "false_positive_rate": 0.11927083333333333
+      }
+    },
+    "selection_rule": "minimize macro FPR subject to >=90% recall on both datasets",
+    "validation_min_dataset_recall": 0.90625,
+    "validation_macro_recall": 0.9424583333333334,
+    "validation_macro_f1": 0.902074641475723,
+    "validation_macro_fpr": 0.11927083333333333
+  },
+  "test": {
+    "operating_point": {
+      "threshold": 0.75,
+      "min_hits": 2,
+      "max_gap_samples": 90
+    },
+    "datasets": {
+      "BITS2": {
+        "recordings": 144,
+        "fall_events": 64,
+        "nonfall_recordings": 80,
+        "accuracy": 0.8263888888888888,
+        "balanced_accuracy": 0.8328125,
+        "precision": 0.76,
+        "recall": 0.890625,
+        "f1": 0.8201438848920863,
+        "false_positive_rate": 0.225,
+        "false_alarms": 18,
+        "missed_falls": 7,
+        "confusion_matrix": [
+          [
+            62,
+            18
+          ],
+          [
+            7,
+            57
+          ]
+        ]
+      },
+      "SisFall": {
+        "recordings": 931,
+        "fall_events": 375,
+        "nonfall_recordings": 556,
+        "accuracy": 0.9881847475832438,
+        "balanced_accuracy": 0.9879376498800959,
+        "precision": 0.9840425531914894,
+        "recall": 0.9866666666666667,
+        "f1": 0.9853528628495339,
+        "false_positive_rate": 0.01079136690647482,
+        "false_alarms": 6,
+        "missed_falls": 5,
+        "confusion_matrix": [
+          [
+            550,
+            6
+          ],
+          [
+            5,
+            370
+          ]
+        ]
+      },
+      "macro": {
+        "accuracy": 0.9072868182360663,
+        "balanced_accuracy": 0.9103750749400479,
+        "precision": 0.8720212765957447,
+        "recall": 0.9386458333333334,
+        "f1": 0.9027483738708102,
+        "false_positive_rate": 0.11789568345323741
+      }
+    },
+    "pooled": {
+      "threshold": 0.75,
+      "min_hits": 2,
+      "max_gap_samples": 90,
+      "recordings": 1075,
+      "fall_events": 439,
+      "nonfall_recordings": 636,
+      "accuracy": 0.9665116279069768,
+      "balanced_accuracy": 0.9674646495035888,
+      "precision": 0.9467849223946785,
+      "recall": 0.9726651480637813,
+      "f1": 0.9595505617977528,
+      "false_positive_rate": 0.03773584905660377,
+      "false_alarms": 24,
+      "missed_falls": 12,
+      "confusion_matrix": [
+        [
+          612,
+          24
+        ],
+        [
+          12,
+          427
+        ]
+      ]
+    }
+  },
+  "timing": {
+    "train_only_window_fit_seconds": 17.617391899999348,
+    "final_train_validation_fit_seconds": 33.7694654000079
+  },
+  "notes": [
+    "Validation probabilities were generated by a model trained on TRAIN subjects only.",
+    "The selected event operating point was never chosen using held-out TEST subjects.",
+    "The final window model was refit on TRAIN+VALIDATION before the single TEST evaluation.",
+    "Event metrics are recording-level; pooled window metrics are intentionally not the primary V4 metric."
+  ]
+}

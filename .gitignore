@@ -31,6 +31,22 @@ datasets/processed/
 models/*.joblib
 models/*.pkl
 models/*.pickle
+# ML artifacts
+models/*.joblib
+models/*.pkl
+models/*.pickle
+
+# Large generated ML caches
+models/multidataset_v3/cache/
+models/multidataset_v3_smoke/
+# ML artifacts
+**/*.joblib
+**/*.pkl
+**/*.pickle
+
+# Large generated ML caches
+models/multidataset_v3/cache/
+models/multidataset_v3_smoke/
 
 # Logs
 *.log

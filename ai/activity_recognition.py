@@ -211,6 +211,10 @@ class ActivityRecognizer:
             "User appears stationary and seated."
         ),
 
+        "RESTING": (
+            "User appears to be resting or lying down."
+        ),
+
         "STANDING": (
             "User is upright with low movement."
         ),
@@ -705,37 +709,47 @@ class ActivityRecognizer:
         if (
             AI_MODEL_ENABLED
             and len(window) >= AI_MIN_WINDOW_SAMPLES
-            and self.ml_model.available
         ):
             try:
-                activity, confidence, _ = self.ml_model.predict(window)
+                # Fall is handled by its dedicated binary detector. This
+                # prevents the ordinary activity model from swallowing a
+                # genuine fall into RUNNING/WALKING.
+                if self.ml_model.fall_available:
+                    fall_probability, _ = self.ml_model.predict_fall(window)
+                    if fall_probability >= AI_FALL_EMERGENCY_CONFIDENCE_THRESHOLD:
+                        result = self._result(
+                            activity="FALL",
+                            confidence=fall_probability,
+                            emergency=True,
+                            source="ML",
+                            model_name=self.ml_model.fall_model_name,
+                            model_version=self.ml_model.fall_model_version,
+                            window_samples=len(window),
+                        )
+                        self._store_result(result)
+                        return result
 
-                if (
-                    activity in AI_ACTIVITY_LABELS
-                    and confidence >= AI_ACTIVITY_CONFIDENCE_THRESHOLD
-                ):
-                    emergency = (
-                        activity == "FALL"
-                        and confidence
-                        >= AI_FALL_EMERGENCY_CONFIDENCE_THRESHOLD
-                    )
-
-                    result = self._result(
-                        activity=activity,
-                        confidence=confidence,
-                        emergency=emergency,
-                        source="ML",
-                        model_name=self.ml_model.model_name or AI_MODEL_NAME,
-                        model_version=self.ml_model.model_version or AI_MODEL_VERSION,
-                        window_samples=len(window),
-                    )
-
-                    self._store_result(result)
-                    return result
+                if self.ml_model.available:
+                    activity, confidence, _ = self.ml_model.predict(window)
+                    if (
+                        activity in AI_ACTIVITY_LABELS
+                        and confidence >= AI_ACTIVITY_CONFIDENCE_THRESHOLD
+                    ):
+                        result = self._result(
+                            activity=activity,
+                            confidence=confidence,
+                            emergency=False,
+                            source="ML",
+                            model_name=self.ml_model.model_name or AI_MODEL_NAME,
+                            model_version=self.ml_model.model_version or AI_MODEL_VERSION,
+                            window_samples=len(window),
+                        )
+                        self._store_result(result)
+                        return result
 
             except Exception:
                 # A failed/unvalidated model must never break the safety
-                # pipeline. Fall back to the existing deterministic path.
+                # pipeline. Fall back to the deterministic recognizer.
                 pass
 
         # ----------------------------------------------------

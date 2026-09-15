@@ -1,0 +1,233 @@
+{
+  "version": "v7",
+  "method": "validation_locked_event_level_model_on_v6_probability_trajectories",
+  "seed": 42,
+  "input": "datasets/processed/bits2/fall_windows_v6.csv",
+  "base_model": "models/fall_detector_v6.joblib",
+  "feature_count": 30,
+  "features": [
+    "p_max",
+    "p_mean",
+    "p_std",
+    "p_median",
+    "p_p90",
+    "p_top3_mean",
+    "p_top5_mean",
+    "p_above_50",
+    "p_above_60",
+    "p_above_70",
+    "max_run_50",
+    "max_run_60",
+    "max_run_70",
+    "evidence_sum_50",
+    "evidence_sum_60",
+    "evidence_sum_70",
+    "trajectory_range",
+    "rise_to_peak",
+    "fall_from_peak",
+    "peak_index_ratio",
+    "pre_peak_mean",
+    "post_peak_mean",
+    "pre_post_delta",
+    "peak_width_50",
+    "peak_width_70",
+    "active_span_samples",
+    "num_candidate_runs_50",
+    "num_candidate_runs_70",
+    "trajectory_slope",
+    "trajectory_abs_change_mean"
+  ],
+  "subjects": {
+    "train": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "7",
+      "9",
+      "10",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "18",
+      "20",
+      "23",
+      "24",
+      "27",
+      "30",
+      "31",
+      "32",
+      "34",
+      "35",
+      "37",
+      "38",
+      "40"
+    ],
+    "validation": [
+      "11",
+      "21",
+      "22",
+      "25",
+      "26",
+      "28",
+      "29",
+      "36"
+    ],
+    "test": [
+      "5",
+      "6",
+      "8",
+      "17",
+      "19",
+      "33",
+      "39",
+      "41"
+    ]
+  },
+  "recordings": {
+    "train": 441,
+    "validation": 144,
+    "test": 144
+  },
+  "fall_recordings": {
+    "train": 197,
+    "validation": 64,
+    "test": 64
+  },
+  "models_compared": [
+    "logistic_regression",
+    "extra_trees",
+    "random_forest",
+    "hist_gradient_boosting"
+  ],
+  "validation_model_scores": {
+    "logistic_regression": {
+      "best_validation": {
+        "fall_recall": 0.984375,
+        "fall_precision": 0.7241379310344828,
+        "fall_f1": 0.8344370860927153,
+        "false_positive_rate": 0.3,
+        "false_alarms": 24,
+        "missed_falls": 1,
+        "confusion_matrix": [
+          [
+            63,
+            1
+          ],
+          [
+            24,
+            56
+          ]
+        ],
+        "roc_auc": 0.955078125,
+        "threshold": 0.26
+      },
+      "selection_reason": "no_threshold_meets_both_targets; recall_target_met"
+    },
+    "extra_trees": {
+      "best_validation": {
+        "fall_recall": 0.96875,
+        "fall_precision": 0.7209302325581395,
+        "fall_f1": 0.8266666666666667,
+        "false_positive_rate": 0.3,
+        "false_alarms": 24,
+        "missed_falls": 2,
+        "confusion_matrix": [
+          [
+            62,
+            2
+          ],
+          [
+            24,
+            56
+          ]
+        ],
+        "roc_auc": 0.96552734375,
+        "threshold": 0.22
+      },
+      "selection_reason": "no_threshold_meets_both_targets; recall_target_met"
+    },
+    "random_forest": {
+      "best_validation": {
+        "fall_recall": 0.96875,
+        "fall_precision": 0.7294117647058823,
+        "fall_f1": 0.8322147651006712,
+        "false_positive_rate": 0.2875,
+        "false_alarms": 23,
+        "missed_falls": 2,
+        "confusion_matrix": [
+          [
+            62,
+            2
+          ],
+          [
+            23,
+            57
+          ]
+        ],
+        "roc_auc": 0.96240234375,
+        "threshold": 0.2
+      },
+      "selection_reason": "no_threshold_meets_both_targets; recall_target_met"
+    },
+    "hist_gradient_boosting": {
+      "best_validation": {
+        "fall_recall": 0.921875,
+        "fall_precision": 0.8805970149253731,
+        "fall_f1": 0.9007633587786259,
+        "false_positive_rate": 0.1,
+        "false_alarms": 8,
+        "missed_falls": 5,
+        "confusion_matrix": [
+          [
+            59,
+            5
+          ],
+          [
+            8,
+            72
+          ]
+        ],
+        "roc_auc": 0.9611328125,
+        "threshold": 0.4
+      },
+      "selection_reason": "no_threshold_meets_recall_target"
+    }
+  },
+  "selected_model": "logistic_regression",
+  "locked_threshold": 0.26,
+  "selection_reason": "no_threshold_meets_both_targets; recall_target_met",
+  "targets": {
+    "fall_recall": 0.95,
+    "false_positive_rate": 0.05
+  },
+  "test": {
+    "fall_recall": 0.921875,
+    "fall_precision": 0.7195121951219512,
+    "fall_f1": 0.8082191780821918,
+    "false_positive_rate": 0.2875,
+    "false_alarms": 23,
+    "missed_falls": 5,
+    "confusion_matrix": [
+      [
+        59,
+        5
+      ],
+      [
+        23,
+        57
+      ]
+    ],
+    "roc_auc": 0.9291015625
+  },
+  "training_seconds": 6.72,
+  "leakage_controls": [
+    "Fixed 25/8/8 subject split from prior stages.",
+    "Base classifier probabilities for validation/test come from a TRAIN-only base model.",
+    "Event-model training uses subject-grouped 5-fold OOF base probabilities.",
+    "Event threshold is selected on validation only and locked before test evaluation.",
+    "Test subjects are never used for model or threshold selection."
+  ]
+}

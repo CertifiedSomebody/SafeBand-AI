@@ -1,0 +1,310 @@
+{
+  "dataset": "datasets\\processed\\bits2\\activity_windows.csv",
+  "feature_columns": [
+    "ax_mean",
+    "ax_std",
+    "ax_min",
+    "ax_max",
+    "ax_rms",
+    "ay_mean",
+    "ay_std",
+    "ay_min",
+    "ay_max",
+    "ay_rms",
+    "az_mean",
+    "az_std",
+    "az_min",
+    "az_max",
+    "az_rms",
+    "acc_mag_mean",
+    "acc_mag_std",
+    "acc_mag_min",
+    "acc_mag_max",
+    "acc_mag_rms",
+    "acc_mag_p10",
+    "acc_mag_p25",
+    "acc_mag_p50",
+    "acc_mag_p75",
+    "acc_mag_p90",
+    "acc_sma",
+    "acc_range",
+    "acc_jerk_mean",
+    "acc_jerk_std",
+    "acc_jerk_max",
+    "acc_diff_energy",
+    "acc_zero_crossings",
+    "acc_x_y_corr",
+    "acc_x_z_corr",
+    "acc_y_z_corr",
+    "acc_fft_low",
+    "acc_fft_mid",
+    "acc_fft_high"
+  ],
+  "window_samples": 40,
+  "assumed_sample_rate_hz": 20,
+  "subject_count": 41,
+  "activity_window_counts": {
+    "RESTING": 1562,
+    "RUNNING": 2439,
+    "SITTING": 1680,
+    "WALKING": 2596
+  },
+  "fall_window_counts": {
+    "FALL": 10543,
+    "NON_FALL": 8277
+  },
+  "activity": {
+    "selected_model": "random_forest",
+    "validation": {
+      "extra_trees": {
+        "accuracy": 0.8438271604938271,
+        "balanced_accuracy": 0.8023564179140443,
+        "macro_f1": 0.805263759969051
+      },
+      "random_forest": {
+        "accuracy": 0.8395061728395061,
+        "balanced_accuracy": 0.8090463819433553,
+        "macro_f1": 0.8075971906262721
+      },
+      "logistic_regression": {
+        "accuracy": 0.7876543209876543,
+        "balanced_accuracy": 0.7483529172317006,
+        "macro_f1": 0.7367640313039725
+      }
+    },
+    "test": {
+      "accuracy": 0.8190201729106629,
+      "balanced_accuracy": 0.7971599995977164,
+      "macro_f1": 0.7981532334330075
+    },
+    "classification_report": {
+      "RESTING": {
+        "precision": 0.7405857740585774,
+        "recall": 0.7137096774193549,
+        "f1-score": 0.7268993839835729,
+        "support": 248.0
+      },
+      "RUNNING": {
+        "precision": 0.9652650822669104,
+        "recall": 0.9182608695652174,
+        "f1-score": 0.9411764705882353,
+        "support": 575.0
+      },
+      "SITTING": {
+        "precision": 0.6583143507972665,
+        "recall": 0.7243107769423559,
+        "f1-score": 0.6897374701670644,
+        "support": 399.0
+      },
+      "WALKING": {
+        "precision": 0.8372549019607843,
+        "recall": 0.8323586744639376,
+        "f1-score": 0.8347996089931574,
+        "support": 513.0
+      },
+      "accuracy": 0.8190201729106629,
+      "macro avg": {
+        "precision": 0.8003550272708847,
+        "recall": 0.7971599995977164,
+        "f1-score": 0.7981532334330075,
+        "support": 1735.0
+      },
+      "weighted avg": {
+        "precision": 0.8247100201406297,
+        "recall": 0.8190201729106629,
+        "f1-score": 0.8212708748278442,
+        "support": 1735.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        177,
+        0,
+        71,
+        0
+      ],
+      [
+        0,
+        528,
+        13,
+        34
+      ],
+      [
+        61,
+        0,
+        289,
+        49
+      ],
+      [
+        1,
+        19,
+        66,
+        427
+      ]
+    ],
+    "split": {
+      "train_subjects": [
+        "1",
+        "11",
+        "12",
+        "14",
+        "15",
+        "16",
+        "18",
+        "19",
+        "2",
+        "23",
+        "24",
+        "26",
+        "28",
+        "29",
+        "30",
+        "33",
+        "34",
+        "35",
+        "39",
+        "4",
+        "40",
+        "5",
+        "6",
+        "7"
+      ],
+      "validation_subjects": [
+        "10",
+        "20",
+        "22",
+        "25",
+        "3",
+        "37",
+        "38",
+        "41"
+      ],
+      "test_subjects": [
+        "13",
+        "17",
+        "21",
+        "27",
+        "31",
+        "32",
+        "36",
+        "8",
+        "9"
+      ]
+    }
+  },
+  "fall_detector": {
+    "selected_model": "extra_trees",
+    "validation": {
+      "extra_trees": {
+        "accuracy": 0.8350282485875706,
+        "balanced_accuracy": 0.8272762345679012,
+        "macro_f1": 0.8306055775221035,
+        "fall_recall": 0.91875
+      },
+      "random_forest": {
+        "accuracy": 0.8350282485875706,
+        "balanced_accuracy": 0.8283371913580246,
+        "macro_f1": 0.8312747045250659,
+        "fall_recall": 0.9072916666666667
+      },
+      "logistic_regression": {
+        "accuracy": 0.8070621468926553,
+        "balanced_accuracy": 0.8009162808641975,
+        "macro_f1": 0.803182702623148,
+        "fall_recall": 0.8734375
+      }
+    },
+    "test": {
+      "accuracy": 0.7844497607655503,
+      "balanced_accuracy": 0.7763305693557987,
+      "macro_f1": 0.7772598103463255,
+      "fall_recall": 0.8241308793456033
+    },
+    "classification_report": {
+      "FALL": {
+        "precision": 0.8105390185036203,
+        "recall": 0.8241308793456033,
+        "f1-score": 0.817278442506591,
+        "support": 2445.0
+      },
+      "NON_FALL": {
+        "precision": 0.7461629279811098,
+        "recall": 0.7285302593659942,
+        "f1-score": 0.73724117818606,
+        "support": 1735.0
+      },
+      "accuracy": 0.7844497607655503,
+      "macro avg": {
+        "precision": 0.778350973242365,
+        "recall": 0.7763305693557987,
+        "f1-score": 0.7772598103463255,
+        "support": 4180.0
+      },
+      "weighted avg": {
+        "precision": 0.7838183206432003,
+        "recall": 0.7844497607655503,
+        "f1-score": 0.7840572335123036,
+        "support": 4180.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        2015,
+        430
+      ],
+      [
+        471,
+        1264
+      ]
+    ],
+    "split": {
+      "train_subjects": [
+        "1",
+        "11",
+        "12",
+        "14",
+        "15",
+        "16",
+        "18",
+        "19",
+        "2",
+        "23",
+        "24",
+        "26",
+        "28",
+        "29",
+        "30",
+        "33",
+        "34",
+        "35",
+        "39",
+        "4",
+        "40",
+        "5",
+        "6",
+        "7"
+      ],
+      "validation_subjects": [
+        "10",
+        "20",
+        "22",
+        "25",
+        "3",
+        "37",
+        "38",
+        "41"
+      ],
+      "test_subjects": [
+        "13",
+        "17",
+        "21",
+        "27",
+        "31",
+        "32",
+        "36",
+        "8",
+        "9"
+      ]
+    }
+  }
+}

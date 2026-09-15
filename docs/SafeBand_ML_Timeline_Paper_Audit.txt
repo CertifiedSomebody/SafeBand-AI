@@ -1,0 +1,124 @@
+SafeBand-AI ML TIMELINE — PAPER AUDIT LOG
+
+NOTE ON TIMESTAMPS
+Exact wall-clock timestamps for the older V2–V8 experiments are not preserved in the currently available project record. They are intentionally not fabricated. The latest Multi-Dataset V4 run is documented from the generated report. Future experiments must record an exact timestamp and Git commit.
+
+CHRONOLOGY
+
+1. INITIAL BASELINE
+Stage: Initial combined activity/fall baseline
+Classes: FALL, RESTING, RUNNING, SITTING, WALKING
+Result: ~75% test accuracy; ~0.63 macro-F1
+Decision: Rejected; moved to hierarchical activity + fall architecture.
+
+2. BITS-2 HIERARCHICAL WINDOW STUDY
+Windows: 40 / 60 / 80 samples at 20 Hz
+40 samples: activity macro-F1 ~75.8%
+60 samples: activity macro-F1 ~77.1%; fall recall ~91.1%
+80 samples: activity macro-F1 ~78.8%; fall recall ~87.4%
+Decision: 60 samples selected for fall detection.
+
+3. BITS-2 V2
+Purpose: subject-independent baseline
+Activity RF: 80.41% accuracy; 81.10% balanced accuracy; 79.82% macro-F1
+Fall RF @ 0.40: 87.66% recall; 65.02% precision; 75.32% F1; 33.08% FPR; 0.872 ROC-AUC
+Decision: temporal confirmation needed.
+
+4. BITS-2 V3
+Activity RF: 81.39% accuracy; 81.82% balanced accuracy; 80.77% macro-F1
+Fall @ 0.41: 88.46% recall; 65.43% precision; 33.08% FPR; 0.872 ROC-AUC
+Threshold trade-off demonstrated.
+Decision: threshold-only tuning insufficient.
+
+5. BITS-2 V4 TEMPORAL CONFIRMATION
+Rule: threshold 0.65; min_hits 3; max_gap 30
+Historical event result: 93.54% recall; 93.54% precision; 93.54% F1; 5.20% FPR
+Decision: temporal event confirmation is promising.
+
+6. BITS-2 V5
+Validation-locked temporal tuning.
+Validation: 95.31% recall; 67.78% precision; 79.22% F1; 36.25% FPR
+Test: 85.94% recall; 62.50% precision; 72.37% F1; 41.25% FPR
+Decision: validation overfitting/generalization problem; stop threshold hunting.
+
+7. BITS-2 V6
+84 engineered features; richer fall morphology
+Selected HGB
+Validation: 90.63% recall; 89.92% F1; 8.75% FPR
+Test temporal result: 90.63% recall; 63.04% precision; 74.36% F1; 42.50% FPR; 0.923 ROC-AUC
+Decision: feature representation improved, event FPR still high.
+
+8. BITS-2 V7
+30 event-trajectory features; subject-grouped OOF training
+Selected Logistic Regression @ 0.26
+Validation: 98.44% recall; 72.41% precision; 83.44% F1; 30.0% FPR
+Test: 92.19% recall; 71.95% precision; 80.82% F1; 28.75% FPR; 0.929 ROC-AUC
+Decision: improved but target unmet.
+
+9. BITS-2 V8
+Final single-dataset benchmark
+Selected HGB; threshold 0.12; pmax floor 0.675
+Test: 90.63% recall; 77.33% precision; 83.45% F1; 21.25% FPR; 0.936 ROC-AUC
+Decision: freeze BITS-2-only benchmark; add second dataset.
+
+10. BITS-2 → SISFALL CROSS-DATASET TEST
+Corrected fall-probability class indexing and SisFall unit conversion.
+Recording result: 0.278% recall; 0.575 ROC-AUC
+Decision: severe domain/sensor shift demonstrated.
+
+11. MULTI-DATASET V1
+Selected RF
+BITS-2: 81.37% recall; 77.07% F1; 0.834 ROC-AUC
+SisFall: 79.06% recall; 83.05% F1; 0.944 ROC-AUC
+Decision: combined training improves cross-domain robustness.
+
+12. MULTI-DATASET V2
+Selected equal-dataset weighting + RF
+BITS-2: 77.14% recall; 76.31% F1; 26.09% FPR
+SisFall: 77.68% recall; 82.71% F1; 5.24% FPR
+Dataset macro: 77.41% recall; 79.51% F1; 80.87% balanced accuracy
+Decision: balanced training helps modestly; augmentation next.
+
+13. MULTI-DATASET V3
+Tested orientation, scale/noise, temporal jitter and combined raw-signal augmentation.
+Selected baseline RF because augmentation did not improve validation.
+Held-out result remained V2 baseline.
+Decision: freeze augmentation benchmark; move to temporal event engine.
+
+14. MULTI-DATASET V4 TEMPORAL EVENT ENGINE — CURRENT
+Report model: RF
+84 features; 60 samples @ 20 Hz; step 30; subject split
+Validation-selected rule:
+threshold 0.75; min_hits 2; max_gap 90 samples
+Validation pooled: 96.81% recall; 4.88% FPR; 94.87% F1
+TEST BITS-2:
+89.06% recall; 76.00% precision; 82.01% F1; 22.50% FPR
+TEST SisFall:
+98.67% recall; 98.40% precision; 98.54% F1; 1.08% FPR
+TEST dataset-macro:
+93.86% recall; 87.20% precision; 90.27% F1; 11.79% FPR
+TEST pooled:
+97.27% recall; 94.68% precision; 95.96% F1; 3.77% FPR
+False alarms: 24
+Missed falls: 12
+Decision: freeze as current benchmark and move to SafeBand-specific hardware/multimodal data.
+
+CURRENT RESEARCH STATUS
+Achieved:
+- reproducible 84-feature fall representation
+- subject-independent evaluation
+- two-dataset training/evaluation
+- quantified domain shift
+- dataset balancing study
+- augmentation study
+- leakage-safe temporal event engine
+- strong pooled held-out event performance
+
+Not achieved:
+- >=95% recall AND <=5% FPR on every dataset
+- deployment-ready validation
+- clinical validation
+- SafeBand-specific real-world validation
+
+NEXT EXPERIMENTAL PHASE
+SafeBand hardware data -> synchronization -> multimodal dataset -> sensor fusion -> safety engine -> GPS/SMS integration.

@@ -106,6 +106,7 @@ AI_MODEL_ENABLED = False
 # falls back to the existing rule-based recognizer if the model is
 # unavailable or the input window is insufficient.
 AI_MODEL_PATH = BASE_DIR / "models" / "activity_model.joblib"
+AI_FALL_MODEL_PATH = BASE_DIR / "models" / "fall_detector.joblib"
 AI_MODEL_NAME = "SafeBand Activity Model"
 AI_MODEL_VERSION = "untrained"
 AI_MODEL_TYPE = "sklearn"
@@ -356,10 +357,9 @@ SUPPORTED_ACTIVITIES = [
 # compatibility analysis.
 AI_ACTIVITY_LABELS = [
     "SITTING",
-    "STANDING",
+    "RESTING",
     "WALKING",
     "RUNNING",
-    "FALL",
 ]
 
 
