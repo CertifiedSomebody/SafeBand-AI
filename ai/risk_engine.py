@@ -149,6 +149,12 @@ class RiskConfig:
     HIGH_RISK_ACTIVITY_SCORE = 30.0
     UNKNOWN_ACTIVITY_SCORE = 3.0
 
+    # Sensor-fusion confirmation is used as a warning-stage
+    # consistency check. It does not suppress an explicit SOS or
+    # a confirmed emergency/fall condition.
+    FUSION_CONFIRMATION_MIN_SCORE = 30.0
+    FUSION_CONFIRMATION_MIN_GROUPS = 2
+
 
 # ============================================================
 # RISK RESULT
@@ -171,6 +177,9 @@ class RiskResult:
         default_factory=list
     )
 
+    fusion_score: float = 0.0
+    fusion_confirmed: bool = False
+
     def as_dict(self) -> Dict[str, Any]:
         """Return the result in application-friendly format."""
 
@@ -182,6 +191,8 @@ class RiskResult:
             "emergency": self.emergency,
             "alert_required": self.alert_required,
             "reasons": list(self.reasons),
+            "fusion_score": self.fusion_score,
+            "fusion_confirmed": self.fusion_confirmed,
         }
 
 
@@ -545,6 +556,7 @@ class RiskEngine:
         self,
         sensor_data: Dict[str, Any],
         activity_result: Dict[str, Any],
+        fusion_result: Dict[str, Any] | None = None,
     ) -> RiskResult:
         """
         Calculate overall SAFEBAND safety risk.
@@ -576,6 +588,24 @@ class RiskEngine:
         ):
 
             activity_result = {}
+
+        if not isinstance(fusion_result, dict):
+            fusion_result = {}
+
+        fusion_score = self._number(
+            fusion_result,
+            "fusion_score",
+            0.0,
+        )
+        fusion_groups = self._number(
+            fusion_result.get("evidence", {}) if isinstance(fusion_result.get("evidence", {}), dict) else {},
+            "abnormal_sensor_groups",
+            0.0,
+        )
+        fusion_confirmed = (
+            fusion_score >= RiskConfig.FUSION_CONFIRMATION_MIN_SCORE
+            and fusion_groups >= RiskConfig.FUSION_CONFIRMATION_MIN_GROUPS
+        )
 
         score = 0.0
 
@@ -785,6 +815,16 @@ class RiskEngine:
             )
 
         # ====================================================
+        # SENSOR-FUSION CONSISTENCY
+        # ====================================================
+
+        # Fusion is deliberately used as a confirmation signal rather
+        # than as another full copy of the sensor score. This avoids
+        # double-counting every raw sensor contribution.
+        if fusion_confirmed and not fall_detected:
+            reasons.append("Multiple sensor groups corroborate the abnormal condition")
+
+        # ====================================================
         # EMERGENCY DECISION
         # ====================================================
 
@@ -835,10 +875,22 @@ class RiskEngine:
         # ALERT DECISION
         # ====================================================
 
-        alert_required = (
-            emergency
-            or score >= RiskConfig.HIGH_THRESHOLD
-        )
+        # Warning-stage alerts require either an emergency or
+        # multi-sensor corroboration when fusion data is available.
+        # Explicit SOS/fall/critical conditions remain unaffected.
+        if fusion_result:
+            alert_required = (
+                emergency
+                or (
+                    score >= RiskConfig.HIGH_THRESHOLD
+                    and fusion_confirmed
+                )
+            )
+        else:
+            alert_required = (
+                emergency
+                or score >= RiskConfig.HIGH_THRESHOLD
+            )
 
         # ====================================================
         # REASON
@@ -872,6 +924,8 @@ class RiskEngine:
             emergency=emergency,
             alert_required=alert_required,
             reasons=reasons,
+            fusion_score=round(fusion_score, 1),
+            fusion_confirmed=fusion_confirmed,
         )
 
         self.last_result = result
@@ -911,6 +965,7 @@ _risk_engine = RiskEngine()
 def assess_risk(
     sensor_data: Dict[str, Any],
     activity_result: Dict[str, Any],
+    fusion_result: Dict[str, Any] | None = None,
 ) -> Dict[str, Any]:
     """
     Assess SAFEBAND risk using the shared risk engine.
@@ -936,6 +991,7 @@ def assess_risk(
     result = _risk_engine.calculate_risk(
         sensor_data,
         activity_result,
+        fusion_result,
     )
 
     return result.as_dict()

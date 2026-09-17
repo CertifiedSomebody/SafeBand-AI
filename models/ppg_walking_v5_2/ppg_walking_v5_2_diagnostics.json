@@ -1,0 +1,50 @@
+{
+  "version": "PPG WALKING V5.2 INDEPENDENT EVALUATION",
+  "overall": {
+    "n": 107,
+    "mae_bpm": 22.61361617914866,
+    "rmse_bpm": 22.922013942215592,
+    "r2": -80.15553044778783,
+    "within_3_bpm_pct": 0.0,
+    "within_5_bpm_pct": 0.0,
+    "within_10_bpm_pct": 0.0,
+    "bias_bpm": -22.61361617914866,
+    "median_abs_error_bpm": 22.8825040641551,
+    "p90_abs_error_bpm": 26.696931324370137,
+    "p95_abs_error_bpm": 28.41531572805837,
+    "max_abs_error_bpm": 37.89525855322967
+  },
+  "by_subject": {
+    "s9": {
+      "n": 107,
+      "mae_bpm": 22.61361617914866,
+      "rmse_bpm": 22.922013942215592,
+      "r2": -80.15553044778783,
+      "within_3_bpm_pct": 0.0,
+      "within_5_bpm_pct": 0.0,
+      "within_10_bpm_pct": 0.0,
+      "bias_bpm": -22.61361617914866,
+      "median_abs_error_bpm": 22.8825040641551,
+      "p90_abs_error_bpm": 26.696931324370137,
+      "p95_abs_error_bpm": 28.41531572805837,
+      "max_abs_error_bpm": 37.89525855322967
+    }
+  },
+  "by_record": {
+    "s9_walk": {
+      "n": 107,
+      "mae_bpm": 22.61361617914866,
+      "rmse_bpm": 22.922013942215592,
+      "r2": -80.15553044778783,
+      "within_3_bpm_pct": 0.0,
+      "within_5_bpm_pct": 0.0,
+      "within_10_bpm_pct": 0.0,
+      "bias_bpm": -22.61361617914866,
+      "median_abs_error_bpm": 22.8825040641551,
+      "p90_abs_error_bpm": 26.696931324370137,
+      "p95_abs_error_bpm": 28.41531572805837,
+      "max_abs_error_bpm": 37.89525855322967
+    }
+  },
+  "worst_record": "s9_walk"
+}

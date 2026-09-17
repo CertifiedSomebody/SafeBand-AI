@@ -1,0 +1,51 @@
+{
+  "package": "SafeBand AI Phase-1 Integration V1",
+  "purpose": "Integrate final benchmark code, harden hardware-facing interfaces, add audio intelligence infrastructure, and connect fusion to risk without starting final multimodal fusion training.",
+  "replace": [
+    "README.md",
+    "requirements.txt",
+    "config/settings.py",
+    "app.py",
+    "data/simulated_data.py",
+    "sensors/bme680.py",
+    "sensors/inmp441.py",
+    "ai/activity_recognition.py",
+    "ai/sensor_fusion.py",
+    "ai/risk_engine.py",
+    "ai/feature_extraction.py",
+    "ai/ml_activity_model.py",
+    "ai/window_buffer.py",
+    "tools/train_activity_models.py",
+    "tools/audit_airwise.py",
+    "tools/prepare_airwise_bme680.py",
+    "tools/train_airwise_bme680.py",
+    "tools/predict_airwise_bme680.py",
+    "tools/prepare_ptt_hr_v4.py",
+    "tools/train_ppg_v4_3_final.py",
+    "tools/evaluate_ppg_v4_3_final.py",
+    "tools/prepare_walking_v5_3_final.py",
+    "tools/train_walking_v5_3_final.py",
+    "tools/evaluate_wrist_walking_v5_3_final.py"
+  ],
+  "new": [
+    "ai/audio_features.py",
+    "ai/ml_audio_model.py",
+    "ai/audio_event_recognition.py",
+    "ai/ml_bme680_model.py",
+    "tools/repo_utils.py",
+    "tools/preflight_phase1.py",
+    "tools/train_audio_model.py",
+    "tools/evaluate_audio_model.py",
+    "docs/PHASE1_GAP_AUDIT.md",
+    "docs/PHASE1_MASTER_ROADMAP.md",
+    "docs/AUDIO_INMP441_V1_REQUIREMENTS.md",
+    "APPLY.md"
+  ],
+  "notes": [
+    "Do not enable AI model switches merely because artifacts exist; review validation/hardware-domain evidence first.",
+    "Audio dataset selection is intentionally not invented. Train only after choosing and auditing a real labeled dataset.",
+    "BME680 AIRWISE and PPG reference experiments remain benchmark/reference work, not hardware validation.",
+    "Walking PPG V5.3 remains frozen as a stress experiment.",
+    "Final multimodal sensor-fusion model training is deferred until synchronized SafeBand recordings exist."
+  ]
+}

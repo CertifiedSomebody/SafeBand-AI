@@ -77,6 +77,14 @@ from ai.activity_recognition import (
     recognize_activity,
 )
 
+from ai.audio_event_recognition import (
+    recognize_audio,
+)
+
+from config.settings import (
+    AI_AUDIO_SAMPLE_RATE_HZ,
+)
+
 from ai.sensor_fusion import (
     fuse_sensor_data,
 )
@@ -453,6 +461,59 @@ except Exception as error:
 
 
 # ============================================================
+# AUDIO EVENT RECOGNITION
+# ============================================================
+
+# Real hardware can provide an optional `audio_samples` frame.
+# Raw audio is consumed by the AI layer and is never sent to the
+# cloud/cellular payload by default.
+audio_samples = sensor_data.pop("audio_samples", None)
+
+try:
+    audio_result = recognize_audio(
+        audio_samples,
+        sample_rate_hz=float(
+            sensor_data.get(
+                "audio_sample_rate_hz",
+                AI_AUDIO_SAMPLE_RATE_HZ,
+            )
+        ),
+        fallback_level=sensor_data.get(
+            "audio_level",
+            0.0,
+        ),
+    )
+
+    sensor_data["audio_event"] = audio_result.get(
+        "event",
+        "UNKNOWN",
+    )
+    sensor_data["audio_event_confidence"] = audio_result.get(
+        "confidence",
+        0.0,
+    )
+
+    log_ai_event(
+        "Audio Event Recognition",
+        (
+            f"Event={audio_result.get('event', 'UNKNOWN')} | "
+            f"Confidence={float(audio_result.get('confidence', 0.0)):.2f} | "
+            f"Source={audio_result.get('source', 'UNKNOWN')}"
+        ),
+    )
+
+except Exception as error:
+    log_error(f"Audio recognition failed: {error}")
+    audio_result = {
+        "event": "UNKNOWN",
+        "confidence": 0.0,
+        "source": "ERROR",
+    }
+    sensor_data["audio_event"] = "UNKNOWN"
+    sensor_data["audio_event_confidence"] = 0.0
+
+
+# ============================================================
 # SENSOR FUSION
 # ============================================================
 
@@ -509,6 +570,7 @@ try:
     risk_result = assess_risk(
         sensor_data,
         activity_result,
+        fusion_result,
     )
 
     risk_score = float(

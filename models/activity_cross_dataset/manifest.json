@@ -1,0 +1,13 @@
+{
+  "shared_classes": [
+    "SITTING",
+    "WALKING"
+  ],
+  "forbidden_mappings": [
+    "RESTING->STANDING",
+    "RUNNING->STAIRS"
+  ],
+  "feature_contract": "ACC-only, 37 features, common 20 Hz / 40-sample windows; FORTH source resampled from 51.2 Hz using ~2 s raw windows",
+  "source_selection": "5-fold StratifiedGroupKFold on source only",
+  "seed": 42
+}

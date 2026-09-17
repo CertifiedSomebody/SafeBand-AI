@@ -588,7 +588,23 @@ class ActivityRecognizer:
             )
 
         # ====================================================
-        # 5. SITTING
+        # 5. RESTING / LYING
+        # ====================================================
+
+        # The first public activity benchmark uses RESTING as its
+        # low-motion class. Orientation helps distinguish a
+        # lying/resting posture from upright sitting.
+        if (
+            motion_intensity < ActivityConfig.SITTING_MOTION
+            and orientation_abs >= ActivityConfig.SITTING_ORIENTATION_MAX
+        ):
+            return self._result(
+                activity="RESTING",
+                confidence=0.86,
+            )
+
+        # ====================================================
+        # 6. SITTING
         # ====================================================
 
         if (

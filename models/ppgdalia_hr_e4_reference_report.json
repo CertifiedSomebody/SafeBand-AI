@@ -1,0 +1,87 @@
+{
+  "dataset": {
+    "windows": 64697,
+    "subjects": 15,
+    "bvp_shape": [
+      64697,
+      512
+    ],
+    "acc_shape": [
+      64697,
+      256,
+      3
+    ],
+    "bvp_fs_hz": 64.0,
+    "acc_fs_hz": 32.0
+  },
+  "split": {
+    "method": "deterministic_subject_level_60_20_20",
+    "train_subjects": [
+      "S1",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S2",
+      "S3"
+    ],
+    "validation_subjects": [
+      "S4",
+      "S5",
+      "S6"
+    ],
+    "test_subjects": [
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "train_windows": 39872,
+    "validation_windows": 11843,
+    "test_windows": 12982,
+    "subject_overlap": false
+  },
+  "validation_frozen_model": {
+    "n": 11843,
+    "mae_bpm": 15.18364981135947,
+    "rmse_bpm": 22.43028236434082,
+    "r2": 0.20454653521383992,
+    "within_5_bpm_pct": 35.362661487798704,
+    "within_10_bpm_pct": 54.682090686481466
+  },
+  "held_out_test": {
+    "bvp_fft": {
+      "n": 12982,
+      "mae_bpm": 13.428558289371127,
+      "rmse_bpm": 21.33073600907734,
+      "r2": -0.3653915001729846,
+      "within_5_bpm_pct": 47.296256354953016,
+      "within_10_bpm_pct": 61.76244030195656
+    },
+    "bvp_peaks": {
+      "n": 12982,
+      "mae_bpm": 13.622438808839192,
+      "rmse_bpm": 20.09725443004243,
+      "r2": -0.2120456425975299,
+      "within_5_bpm_pct": 40.679402249268215,
+      "within_10_bpm_pct": 56.16237867816978
+    },
+    "random_forest": {
+      "n": 12982,
+      "mae_bpm": 8.86269064377966,
+      "rmse_bpm": 13.668106560210454,
+      "r2": 0.4393882122687598,
+      "within_5_bpm_pct": 50.32352488060391,
+      "within_10_bpm_pct": 69.96610691727007
+    }
+  },
+  "model_artifact": "models\\ppgdalia_hr_e4_reference.joblib",
+  "notes": [
+    "Random forest selected from the validated Stage-1 benchmark.",
+    "Final artifact is refit on train+validation after test-blind validation.",
+    "Metrics are HR regression metrics; classification accuracy is not appropriate.",
+    "PPG-DaLiA uses Empatica E4 BVP, not MAX30102.",
+    "This artifact is a research/reference model and must not be presented as MAX30102 validated."
+  ]
+}

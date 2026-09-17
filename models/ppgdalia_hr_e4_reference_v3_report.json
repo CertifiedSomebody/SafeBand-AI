@@ -1,0 +1,128 @@
+{
+  "dataset": {
+    "windows": 64697,
+    "subjects": 15
+  },
+  "split": {
+    "method": "deterministic_subject_level_60_20_20",
+    "train_subjects": [
+      "S1",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S2",
+      "S3"
+    ],
+    "validation_subjects": [
+      "S4",
+      "S5",
+      "S6"
+    ],
+    "test_subjects": [
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "train_windows": 39872,
+    "validation_windows": 11843,
+    "test_windows": 12982,
+    "subject_overlap": false
+  },
+  "validation": {
+    "ridge": {
+      "n": 11843,
+      "mae_bpm": 14.729474615348128,
+      "rmse_bpm": 20.393855603219333,
+      "r2": 0.34242699452444203,
+      "within_3_bpm_pct": 13.577640800472853,
+      "within_5_bpm_pct": 24.453263531199866,
+      "within_10_bpm_pct": 47.94393312505277,
+      "bias_bpm": -12.260927098693049
+    },
+    "rf": {
+      "n": 11843,
+      "mae_bpm": 11.861485168082547,
+      "rmse_bpm": 19.439899431154988,
+      "r2": 0.4025063087582297,
+      "within_3_bpm_pct": 37.786033944102,
+      "within_5_bpm_pct": 49.64958203157984,
+      "within_10_bpm_pct": 65.34661825550958,
+      "bias_bpm": -9.730710152267031
+    },
+    "extra_trees": {
+      "n": 11843,
+      "mae_bpm": 11.770644276413822,
+      "rmse_bpm": 19.350890755117657,
+      "r2": 0.40796522290299964,
+      "within_3_bpm_pct": 37.65937684708266,
+      "within_5_bpm_pct": 49.64958203157984,
+      "within_10_bpm_pct": 65.0595288355991,
+      "bias_bpm": -9.77461398486451
+    },
+    "hgb": {
+      "n": 11843,
+      "mae_bpm": 12.325302511525214,
+      "rmse_bpm": 19.8043890747874,
+      "r2": 0.3798907694252137,
+      "within_3_bpm_pct": 34.24807903402854,
+      "within_5_bpm_pct": 46.381828928480964,
+      "within_10_bpm_pct": 63.34543612260407,
+      "bias_bpm": -10.10875532694121
+    }
+  },
+  "selected_model": "extra_trees",
+  "validation_calibration": {
+    "enabled": false,
+    "slope": 1.005351668356223,
+    "intercept": 9.239380807470736,
+    "validation_raw_mae": 11.770644276413822,
+    "validation_calibrated_mae": 12.237821901671813
+  },
+  "held_out_test": {
+    "n": 12982,
+    "mae_bpm": 7.707172220226944,
+    "rmse_bpm": 12.469300524592239,
+    "r2": 0.5334161554002006,
+    "within_3_bpm_pct": 43.7605915883531,
+    "within_5_bpm_pct": 56.7478046525959,
+    "within_10_bpm_pct": 74.44153443229087,
+    "bias_bpm": 3.98233701388765
+  },
+  "model_artifact": "models\\ppgdalia_hr_e4_reference_v3.joblib",
+  "feature_names": [
+    "autocorr_hr",
+    "autocorr_quality",
+    "candidate_agreement",
+    "candidate_median",
+    "candidate_spread",
+    "ibi_std",
+    "motion_diff_abs_mean",
+    "motion_diff_rms",
+    "motion_fs",
+    "motion_range",
+    "motion_rms",
+    "motion_std",
+    "peak_hr",
+    "peak_prominence",
+    "peak_regularity",
+    "ppg_diff_rms",
+    "ppg_kurt",
+    "ppg_ptp",
+    "ppg_rms",
+    "ppg_skew",
+    "ppg_std",
+    "spectral_fraction",
+    "spectral_hr",
+    "spectral_quality"
+  ],
+  "notes": [
+    "V3 adds conservative temporal/physiological continuity support for deployment.",
+    "Affine calibration is validation-selected only.",
+    "Final estimator is refit on train+validation.",
+    "Held-out test subjects are never used for selection.",
+    "E4 BVP is a reference sensor; MAX30102 transfer is not claimed."
+  ]
+}

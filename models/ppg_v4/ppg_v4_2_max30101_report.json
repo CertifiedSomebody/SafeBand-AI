@@ -1,0 +1,160 @@
+{
+  "version": "PPG V4.2",
+  "dataset": {
+    "windows": 15982,
+    "subjects": 22,
+    "features": 159,
+    "activities": [
+      "run",
+      "sit",
+      "walk"
+    ]
+  },
+  "split": {
+    "method": "numeric_subject_60_20_20",
+    "train_subjects": [
+      "s1",
+      "s2",
+      "s3",
+      "s4",
+      "s5",
+      "s6",
+      "s7",
+      "s8",
+      "s9",
+      "s10",
+      "s11",
+      "s12",
+      "s13"
+    ],
+    "validation_subjects": [
+      "s14",
+      "s15",
+      "s16",
+      "s17"
+    ],
+    "test_subjects": [
+      "s18",
+      "s19",
+      "s20",
+      "s21",
+      "s22"
+    ],
+    "subject_overlap": false,
+    "train_windows": 9483,
+    "validation_windows": 2887,
+    "test_windows": 3612
+  },
+  "baseline": {
+    "train_mean_bpm": 86.69840101692016,
+    "validation": {
+      "n": 2887,
+      "mae_bpm": 15.21971980906411,
+      "rmse_bpm": 17.114787474129145,
+      "r2": -0.17720398301031426,
+      "within_3_bpm_pct": 4.121925874610322,
+      "within_5_bpm_pct": 7.308624870107377,
+      "within_10_bpm_pct": 23.588500173190162,
+      "bias_bpm": 6.640218782906332,
+      "median_abs_error_bpm": 14.147010448600923,
+      "p90_abs_error_bpm": 24.778896372957306,
+      "max_abs_error_bpm": 39.37978902953846
+    },
+    "test": {
+      "n": 3612,
+      "mae_bpm": 8.047947706500878,
+      "rmse_bpm": 9.585048282291575,
+      "r2": -0.06073441122287426,
+      "within_3_bpm_pct": 20.071982281284605,
+      "within_5_bpm_pct": 32.668881506090806,
+      "within_10_bpm_pct": 65.80841638981174,
+      "bias_bpm": -2.2935509315630687,
+      "median_abs_error_bpm": 7.542728193701166,
+      "p90_abs_error_bpm": 15.342415309610459,
+      "max_abs_error_bpm": 27.370040047718618
+    }
+  },
+  "validation": {
+    "ridge": {
+      "n": 2887,
+      "mae_bpm": 10.7314072469251,
+      "rmse_bpm": 12.789734691148531,
+      "r2": 0.3425968617964601,
+      "within_3_bpm_pct": 11.915483200554208,
+      "within_5_bpm_pct": 22.583997228957394,
+      "within_10_bpm_pct": 52.23415310010392,
+      "bias_bpm": 0.15836988486376785,
+      "median_abs_error_bpm": 9.576002974501684,
+      "p90_abs_error_bpm": 20.13305535100037,
+      "max_abs_error_bpm": 56.25421278908118
+    },
+    "rf": {
+      "n": 2887,
+      "mae_bpm": 5.695544309759449,
+      "rmse_bpm": 8.58342054816889,
+      "r2": 0.7039060834238431,
+      "within_3_bpm_pct": 51.3335642535504,
+      "within_5_bpm_pct": 64.39210252857637,
+      "within_10_bpm_pct": 78.42050571527537,
+      "bias_bpm": 3.371859039371196,
+      "median_abs_error_bpm": 2.856439834341998,
+      "p90_abs_error_bpm": 16.44330053974526,
+      "max_abs_error_bpm": 29.342466871590304
+    },
+    "extra_trees": {
+      "n": 2887,
+      "mae_bpm": 6.24036553371982,
+      "rmse_bpm": 8.536906638067832,
+      "r2": 0.7071064786288939,
+      "within_3_bpm_pct": 38.51749220644267,
+      "within_5_bpm_pct": 55.62868029095947,
+      "within_10_bpm_pct": 79.18254243158988,
+      "bias_bpm": 3.1752969404343756,
+      "median_abs_error_bpm": 4.204577112002738,
+      "p90_abs_error_bpm": 15.024835277307373,
+      "max_abs_error_bpm": 29.854956403714908
+    },
+    "hgb": {
+      "n": 2887,
+      "mae_bpm": 5.456204055093048,
+      "rmse_bpm": 7.790991628704022,
+      "r2": 0.756053732768681,
+      "within_3_bpm_pct": 43.47073086248701,
+      "within_5_bpm_pct": 61.066851402840314,
+      "within_10_bpm_pct": 85.07100796674749,
+      "bias_bpm": 3.165072271041773,
+      "median_abs_error_bpm": 3.701850734665584,
+      "p90_abs_error_bpm": 13.343666133993631,
+      "max_abs_error_bpm": 27.138312482050935
+    }
+  },
+  "selected_model": "hgb",
+  "validation_calibration": {
+    "enabled": true,
+    "slope": 1.1446567122915479,
+    "intercept": -15.203874653945828,
+    "raw_mae_bpm": 5.456204055093048,
+    "calibrated_mae_bpm": 4.896092523474573
+  },
+  "held_out_test": {
+    "n": 3612,
+    "mae_bpm": 4.575737121220084,
+    "rmse_bpm": 5.954784212901987,
+    "r2": 0.5905978633545723,
+    "within_3_bpm_pct": 37.15393133997785,
+    "within_5_bpm_pct": 69.57364341085271,
+    "within_10_bpm_pct": 92.46954595791806,
+    "bias_bpm": -4.4072259521630395,
+    "median_abs_error_bpm": 3.7901955717920472,
+    "p90_abs_error_bpm": 8.919383703559584,
+    "max_abs_error_bpm": 34.91355914318477
+  },
+  "artifact": "models/ppg_v4/ppg_v4_2_max30101.joblib",
+  "predictions": "models/ppg_v4/ppg_v4_2_test_predictions.csv",
+  "notes": [
+    "Regression task: classification accuracy is not the primary metric.",
+    "ECG waveform is not a feature; ECG peaks provide HR target.",
+    "SpO2 is not used as a continuous training target.",
+    "Model selection uses validation MAE only; test remains untouched."
+  ]
+}

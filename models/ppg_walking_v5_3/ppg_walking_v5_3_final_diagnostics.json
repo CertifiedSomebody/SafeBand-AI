@@ -1,0 +1,17 @@
+{
+  "version": "PPG WALKING V5.3 FINAL INDEPENDENT EVALUATION",
+  "overall": {
+    "n": 107,
+    "mae_bpm": 11.275756665759154,
+    "rmse_bpm": 12.161665552984497,
+    "r2": -36.82926584072861,
+    "within_3_bpm_pct": 1.8691588785046727,
+    "within_5_bpm_pct": 1.8691588785046727,
+    "within_10_bpm_pct": 45.794392523364486,
+    "bias_bpm": -11.275756665759154,
+    "median_abs_error_bpm": 10.370349534610511,
+    "p90_abs_error_bpm": 16.950181297886843,
+    "p95_abs_error_bpm": 20.281965137609795,
+    "max_abs_error_bpm": 27.205383108505444
+  }
+}

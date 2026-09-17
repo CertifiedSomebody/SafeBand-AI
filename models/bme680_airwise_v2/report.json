@@ -1,0 +1,588 @@
+{
+  "version": "SafeBand BME680 AIRWISE V2.1",
+  "source": "D:\\Admin\\Downloads\\SafeBand-AI-main\\SafeBand-AI-main\\datasets\\processed\\airwise_bme680\\airwise_bme680_features.csv",
+  "rows": 146538,
+  "features": 91,
+  "feature_columns": [
+    "temperature_c",
+    "pressure_hpa",
+    "humidity_rh",
+    "gas_resistance_ohms",
+    "heat_stable",
+    "gas_log10",
+    "temp_humidity_product",
+    "temp_humidity_gap",
+    "temperature_c_diff_1",
+    "temperature_c_pct_1",
+    "temperature_c_roll_mean_5",
+    "temperature_c_roll_std_5",
+    "pressure_hpa_diff_1",
+    "pressure_hpa_pct_1",
+    "pressure_hpa_roll_mean_5",
+    "pressure_hpa_roll_std_5",
+    "humidity_rh_diff_1",
+    "humidity_rh_pct_1",
+    "humidity_rh_roll_mean_5",
+    "humidity_rh_roll_std_5",
+    "gas_resistance_ohms_diff_1",
+    "gas_resistance_ohms_pct_1",
+    "gas_resistance_ohms_roll_mean_5",
+    "gas_resistance_ohms_roll_std_5",
+    "gas_inv_log",
+    "pressure_temp_ratio",
+    "gas_temp_ratio",
+    "tod_sin",
+    "tod_cos",
+    "dow_sin",
+    "dow_cos",
+    "temperature_c_diff1",
+    "temperature_c_diff5",
+    "temperature_c_pct5",
+    "temperature_c_roll5_mean",
+    "temperature_c_roll5_std",
+    "temperature_c_roll5_min",
+    "temperature_c_roll5_max",
+    "temperature_c_roll15_mean",
+    "temperature_c_roll15_std",
+    "temperature_c_roll15_min",
+    "temperature_c_roll15_max",
+    "temperature_c_roll30_mean",
+    "temperature_c_roll30_std",
+    "temperature_c_roll30_min",
+    "temperature_c_roll30_max",
+    "pressure_hpa_diff1",
+    "pressure_hpa_diff5",
+    "pressure_hpa_pct5",
+    "pressure_hpa_roll5_mean",
+    "pressure_hpa_roll5_std",
+    "pressure_hpa_roll5_min",
+    "pressure_hpa_roll5_max",
+    "pressure_hpa_roll15_mean",
+    "pressure_hpa_roll15_std",
+    "pressure_hpa_roll15_min",
+    "pressure_hpa_roll15_max",
+    "pressure_hpa_roll30_mean",
+    "pressure_hpa_roll30_std",
+    "pressure_hpa_roll30_min",
+    "pressure_hpa_roll30_max",
+    "humidity_rh_diff1",
+    "humidity_rh_diff5",
+    "humidity_rh_pct5",
+    "humidity_rh_roll5_mean",
+    "humidity_rh_roll5_std",
+    "humidity_rh_roll5_min",
+    "humidity_rh_roll5_max",
+    "humidity_rh_roll15_mean",
+    "humidity_rh_roll15_std",
+    "humidity_rh_roll15_min",
+    "humidity_rh_roll15_max",
+    "humidity_rh_roll30_mean",
+    "humidity_rh_roll30_std",
+    "humidity_rh_roll30_min",
+    "humidity_rh_roll30_max",
+    "gas_resistance_ohms_diff1",
+    "gas_resistance_ohms_diff5",
+    "gas_resistance_ohms_pct5",
+    "gas_resistance_ohms_roll5_mean",
+    "gas_resistance_ohms_roll5_std",
+    "gas_resistance_ohms_roll5_min",
+    "gas_resistance_ohms_roll5_max",
+    "gas_resistance_ohms_roll15_mean",
+    "gas_resistance_ohms_roll15_std",
+    "gas_resistance_ohms_roll15_min",
+    "gas_resistance_ohms_roll15_max",
+    "gas_resistance_ohms_roll30_mean",
+    "gas_resistance_ohms_roll30_std",
+    "gas_resistance_ohms_roll30_min",
+    "gas_resistance_ohms_roll30_max"
+  ],
+  "excluded_from_primary": [
+    "Date",
+    "IAQ_class",
+    "IAQ_proxy",
+    "IAQ_proxy_zscore",
+    "Z-score",
+    "gas_resistance_ohms_zscore",
+    "humidity_rh_zscore",
+    "location",
+    "pressure_hpa_zscore",
+    "samples_per_hour",
+    "temperature_c_zscore"
+  ],
+  "class_names": [
+    "Excellent",
+    "Extremely polluted",
+    "Good",
+    "Heavily polluted",
+    "Lightly polluted",
+    "Moderately polluted",
+    "Severely polluted"
+  ],
+  "split_sizes": {
+    "train": 87922,
+    "validation": 29307,
+    "test": 29309
+  },
+  "split_by_location": {
+    "hallway": {
+      "train": 29311,
+      "validation": 9770,
+      "test": 9771
+    },
+    "kitchen": {
+      "train": 29295,
+      "validation": 9765,
+      "test": 9766
+    },
+    "office": {
+      "train": 29316,
+      "validation": 9772,
+      "test": 9772
+    }
+  },
+  "validation_candidates": {
+    "hgb": {
+      "accuracy": 0.987920974511209,
+      "balanced_accuracy": 0.9651658419227275,
+      "macro_precision": 0.39931941785395164,
+      "macro_recall": 0.41364250368116895,
+      "macro_f1": 0.406175921840218,
+      "per_class": {
+        "0": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "1": {
+          "precision": 0.9978118161925602,
+          "recall": 0.9862408540794257,
+          "f1": 0.9919925943068734
+        },
+        "2": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "3": {
+          "precision": 0.8351648351648352,
+          "recall": 0.9156626506024096,
+          "f1": 0.8735632183908046
+        },
+        "4": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "5": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "6": {
+          "precision": 0.9622592736202662,
+          "recall": 0.9935940210863473,
+          "f1": 0.9776756401838477
+        }
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          21432,
+          0,
+          14,
+          0,
+          0,
+          285
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          76,
+          0,
+          0,
+          7
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          47,
+          0,
+          1,
+          0,
+          0,
+          7445
+        ]
+      ]
+    },
+    "extra_trees": {
+      "accuracy": 0.9727368887978981,
+      "balanced_accuracy": 0.9545153675374086,
+      "macro_precision": 0.4105683821876268,
+      "macro_recall": 0.4090780146588894,
+      "macro_f1": 0.4096989173223607,
+      "per_class": {
+        "0": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "1": {
+          "precision": 0.9734117115080262,
+          "recall": 0.9906124890709125,
+          "f1": 0.9819367787255394
+        },
+        "2": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "3": {
+          "precision": 0.9294117647058824,
+          "recall": 0.9518072289156626,
+          "f1": 0.9404761904761905
+        },
+        "4": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "5": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "6": {
+          "precision": 0.9711551990994793,
+          "recall": 0.9211263846256507,
+          "f1": 0.9454794520547946
+        }
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          21527,
+          0,
+          3,
+          0,
+          0,
+          201
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          79,
+          0,
+          0,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          588,
+          0,
+          3,
+          0,
+          0,
+          6902
+        ]
+      ]
+    },
+    "random_forest": {
+      "accuracy": 0.9875115160200635,
+      "balanced_accuracy": 0.9917043860297253,
+      "macro_precision": 0.39331406410739567,
+      "macro_recall": 0.4250161654413108,
+      "macro_f1": 0.40739546921387243,
+      "per_class": {
+        "0": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "1": {
+          "precision": 0.9957768702431781,
+          "recall": 0.9873912843403433,
+          "f1": 0.9915663485755216
+        },
+        "2": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "3": {
+          "precision": 0.7904761904761904,
+          "recall": 1.0,
+          "f1": 0.8829787234042553
+        },
+        "4": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "5": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "6": {
+          "precision": 0.9669453880324014,
+          "recall": 0.9877218737488322,
+          "f1": 0.9772232125173301
+        }
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          21457,
+          0,
+          21,
+          0,
+          0,
+          253
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          83,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          91,
+          0,
+          1,
+          0,
+          0,
+          7401
+        ]
+      ]
+    }
+  },
+  "selected_model": "extra_trees",
+  "test_metrics": {
+    "accuracy": 0.9047050394076904,
+    "balanced_accuracy": 0.7764364001958353,
+    "macro_precision": 0.7451017549976511,
+    "macro_recall": 0.7764364001958353,
+    "macro_f1": 0.7584648534241306,
+    "per_class": {
+      "0": {
+        "precision": 0.9821784499941376,
+        "recall": 0.9399685816876122,
+        "f1": 0.9606100567628003
+      },
+      "1": {
+        "precision": 0.9713648463918267,
+        "recall": 0.9650464617583988,
+        "f1": 0.9681953458352756
+      },
+      "2": {
+        "precision": 0.7994579945799458,
+        "recall": 0.7908847184986595,
+        "f1": 0.7951482479784366
+      },
+      "3": {
+        "precision": 0.6374501992031872,
+        "recall": 0.7804878048780488,
+        "f1": 0.7017543859649122
+      },
+      "4": {
+        "precision": 0.5889046941678521,
+        "recall": 0.5855728429985856,
+        "f1": 0.5872340425531914
+      },
+      "5": {
+        "precision": 0.48471926083866385,
+        "recall": 0.6211293260473588,
+        "f1": 0.5445109780439121
+      },
+      "6": {
+        "precision": 0.7516368398079442,
+        "recall": 0.7519650655021834,
+        "f1": 0.7518009168303864
+      }
+    },
+    "confusion_matrix": [
+      [
+        8377,
+        0,
+        249,
+        1,
+        142,
+        143,
+        0
+      ],
+      [
+        0,
+        13501,
+        0,
+        315,
+        0,
+        5,
+        169
+      ],
+      [
+        89,
+        0,
+        1180,
+        0,
+        8,
+        215,
+        0
+      ],
+      [
+        4,
+        110,
+        30,
+        640,
+        8,
+        12,
+        16
+      ],
+      [
+        9,
+        0,
+        13,
+        0,
+        414,
+        195,
+        76
+      ],
+      [
+        50,
+        3,
+        0,
+        24,
+        31,
+        682,
+        308
+      ],
+      [
+        0,
+        285,
+        4,
+        24,
+        100,
+        155,
+        1722
+      ]
+    ]
+  },
+  "research_guardrails": {
+    "test_used_for_selection": false,
+    "iaQ_proxy_used_as_input": false,
+    "future_temporal_values_used": false,
+    "label_column_used_as_input": false
+  }
+}

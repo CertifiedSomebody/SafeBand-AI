@@ -897,6 +897,16 @@ class SensorFusion:
             )
         )
 
+        # Optional semantic audio-event evidence. A future trained
+        # INMP441 model can provide this without changing the fusion API.
+        audio_event = str(sensor_data.get("audio_event", "UNKNOWN")).upper()
+        audio_event_confidence = self._normalize_confidence(
+            self._number(sensor_data, "audio_event_confidence", 0.0)
+        )
+        distress_events = {"SCREAM", "SHOUT", "DISTRESS", "HELP", "CRY"}
+        if audio_event in distress_events and audio_event_confidence >= 0.75:
+            audio_evidence = min(20.0, audio_evidence + 15.0)
+
         # ====================================================
         # FALL REINFORCEMENT
         # ====================================================
@@ -1070,6 +1080,8 @@ class SensorFusion:
                 "motion_intensity": motion_intensity,
                 "orientation": orientation,
                 "audio_level": audio_level,
+                "audio_event": audio_event,
+                "audio_event_confidence": round(audio_event_confidence, 2),
             },
         }
 

@@ -1,0 +1,626 @@
+{
+  "experiment": "pamap2_stationary_v3_subject5_diagnostic",
+  "model": "same_76_feature_rbf_svm_as_v2",
+  "seed": 42,
+  "data": "D:\\Admin\\Downloads\\SafeBand-AI-main\\SafeBand-AI-main\\datasets\\processed\\pamap2\\stationary_accgyro_windows.npz",
+  "feature_count": 76,
+  "validation_control": "Exact V2 5-fold StratifiedGroupKFold benchmark on all subjects",
+  "canonical_all_subjects": {
+    "label": "ALL SUBJECTS CONTROL",
+    "subjects": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "samples": 5640,
+    "folds": [
+      {
+        "accuracy": 0.8117647058823529,
+        "balanced_accuracy": 0.8188743970802901,
+        "macro_f1": 0.7994124168575532,
+        "per_class_f1": [
+          0.7013333333333334,
+          0.7489270386266095,
+          0.9479768786127167
+        ],
+        "confusion_matrix": [
+          [
+            263,
+            199,
+            22
+          ],
+          [
+            3,
+            349,
+            22
+          ],
+          [
+            0,
+            10,
+            492
+          ]
+        ],
+        "per_class_precision": [
+          0.9887218045112782,
+          0.6254480286738351,
+          0.917910447761194
+        ],
+        "per_class_recall": [
+          0.5433884297520661,
+          0.9331550802139037,
+          0.9800796812749004
+        ],
+        "fold": 1,
+        "selected_C": 1.0,
+        "selected_gamma": "scale",
+        "inner_best_macro_f1": 0.7035868893499042,
+        "test_samples": 1360,
+        "test_subjects": [
+          "4",
+          "7"
+        ]
+      },
+      {
+        "accuracy": 0.771509167842031,
+        "balanced_accuracy": 0.7826190060275474,
+        "macro_f1": 0.778240520526869,
+        "per_class_f1": [
+          0.7764705882352941,
+          0.7169811320754716,
+          0.8412698412698413
+        ],
+        "confusion_matrix": [
+          [
+            198,
+            15,
+            6
+          ],
+          [
+            87,
+            190,
+            9
+          ],
+          [
+            6,
+            39,
+            159
+          ]
+        ],
+        "per_class_precision": [
+          0.6804123711340206,
+          0.7786885245901639,
+          0.9137931034482759
+        ],
+        "per_class_recall": [
+          0.9041095890410958,
+          0.6643356643356644,
+          0.7794117647058824
+        ],
+        "fold": 2,
+        "selected_C": 2.0,
+        "selected_gamma": 0.01,
+        "inner_best_macro_f1": 0.7453927211442986,
+        "test_samples": 709,
+        "test_subjects": [
+          "3"
+        ]
+      },
+      {
+        "accuracy": 0.7165963431786216,
+        "balanced_accuracy": 0.7140004353682392,
+        "macro_f1": 0.7143679476029261,
+        "per_class_f1": [
+          0.7625354777672658,
+          0.6623235613463626,
+          0.7182448036951501
+        ],
+        "confusion_matrix": [
+          [
+            403,
+            78,
+            21
+          ],
+          [
+            81,
+            305,
+            76
+          ],
+          [
+            71,
+            76,
+            311
+          ]
+        ],
+        "per_class_precision": [
+          0.7261261261261261,
+          0.664488017429194,
+          0.7622549019607843
+        ],
+        "per_class_recall": [
+          0.8027888446215139,
+          0.6601731601731602,
+          0.6790393013100436
+        ],
+        "fold": 3,
+        "selected_C": 4.0,
+        "selected_gamma": 0.01,
+        "inner_best_macro_f1": 0.7663740631086421,
+        "test_samples": 1422,
+        "test_subjects": [
+          "1",
+          "6"
+        ]
+      },
+      {
+        "accuracy": 0.4916897506925208,
+        "balanced_accuracy": 0.4970718420156623,
+        "macro_f1": 0.39831378784867155,
+        "per_class_f1": [
+          0.0,
+          0.4722222222222222,
+          0.7227191413237924
+        ],
+        "confusion_matrix": [
+          [
+            0,
+            212,
+            23
+          ],
+          [
+            0,
+            153,
+            114
+          ],
+          [
+            2,
+            16,
+            202
+          ]
+        ],
+        "per_class_precision": [
+          0.0,
+          0.4015748031496063,
+          0.5958702064896755
+        ],
+        "per_class_recall": [
+          0.0,
+          0.5730337078651685,
+          0.9181818181818182
+        ],
+        "fold": 4,
+        "selected_C": 2.0,
+        "selected_gamma": 0.1,
+        "inner_best_macro_f1": 0.7544218102923885,
+        "test_samples": 722,
+        "test_subjects": [
+          "5"
+        ]
+      },
+      {
+        "accuracy": 0.8857743517869656,
+        "balanced_accuracy": 0.8850583912211819,
+        "macro_f1": 0.8856330144734709,
+        "per_class_f1": [
+          0.9275970619097587,
+          0.8627002288329519,
+          0.866601752677702
+        ],
+        "confusion_matrix": [
+          [
+            442,
+            0,
+            31
+          ],
+          [
+            26,
+            377,
+            47
+          ],
+          [
+            12,
+            47,
+            445
+          ]
+        ],
+        "per_class_precision": [
+          0.9208333333333333,
+          0.8891509433962265,
+          0.8508604206500956
+        ],
+        "per_class_recall": [
+          0.9344608879492601,
+          0.8377777777777777,
+          0.8829365079365079
+        ],
+        "fold": 5,
+        "selected_C": 2.0,
+        "selected_gamma": "scale",
+        "inner_best_macro_f1": 0.6978424454595211,
+        "test_samples": 1427,
+        "test_subjects": [
+          "2",
+          "8"
+        ]
+      }
+    ],
+    "pooled": {
+      "accuracy": 0.7604609929078014,
+      "balanced_accuracy": 0.7606890326344876,
+      "macro_f1": 0.7601546029035574,
+      "per_class_f1": [
+        0.744796122041631,
+        0.7037131882202304,
+        0.8319544984488108
+      ],
+      "confusion_matrix": [
+        [
+          1306,
+          504,
+          103
+        ],
+        [
+          197,
+          1374,
+          268
+        ],
+        [
+          91,
+          188,
+          1609
+        ]
+      ],
+      "per_class_precision": [
+        0.8193224592220828,
+        0.665053242981607,
+        0.8126262626262626
+      ],
+      "per_class_recall": [
+        0.6826973340303188,
+        0.7471451876019576,
+        0.8522245762711864
+      ]
+    }
+  },
+  "isolated_test_subject": {
+    "accuracy": 0.4916897506925208,
+    "balanced_accuracy": 0.4970718420156623,
+    "macro_f1": 0.39831378784867155,
+    "per_class_f1": [
+      0.0,
+      0.4722222222222222,
+      0.7227191413237924
+    ],
+    "confusion_matrix": [
+      [
+        0,
+        212,
+        23
+      ],
+      [
+        0,
+        153,
+        114
+      ],
+      [
+        2,
+        16,
+        202
+      ]
+    ],
+    "per_class_precision": [
+      0.0,
+      0.4015748031496063,
+      0.5958702064896755
+    ],
+    "per_class_recall": [
+      0.0,
+      0.5730337078651685,
+      0.9181818181818182
+    ],
+    "test_subject": "5",
+    "train_subjects": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "6",
+      "7",
+      "8"
+    ],
+    "train_samples": 4918,
+    "test_samples": 722,
+    "selected_C": 2.0,
+    "selected_gamma": 0.1,
+    "inner_best_macro_f1": 0.7544218102923885
+  },
+  "sensitivity_without_test_subject": {
+    "label": "EXCLUDING SUBJECT 5",
+    "subjects": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "6",
+      "7",
+      "8"
+    ],
+    "samples": 4918,
+    "folds": [
+      {
+        "accuracy": 0.5992592592592593,
+        "balanced_accuracy": 0.569243659551371,
+        "macro_f1": 0.5703153774061533,
+        "per_class_f1": [
+          0.47023208879919276,
+          0.3153409090909091,
+          0.9253731343283582
+        ],
+        "confusion_matrix": [
+          [
+            233,
+            242,
+            20
+          ],
+          [
+            224,
+            111,
+            14
+          ],
+          [
+            39,
+            2,
+            465
+          ]
+        ],
+        "per_class_precision": [
+          0.46975806451612906,
+          0.3126760563380282,
+          0.9318637274549099
+        ],
+        "per_class_recall": [
+          0.4707070707070707,
+          0.31805157593123207,
+          0.9189723320158103
+        ],
+        "fold": 1,
+        "selected_C": 1.0,
+        "selected_gamma": 0.01,
+        "inner_best_macro_f1": 0.8341735243139298,
+        "test_samples": 1350,
+        "test_subjects": [
+          "7",
+          "8"
+        ]
+      },
+      {
+        "accuracy": 0.7122708039492243,
+        "balanced_accuracy": 0.7344227309980734,
+        "macro_f1": 0.717725033158561,
+        "per_class_f1": [
+          0.7234782608695652,
+          0.6180257510729614,
+          0.8116710875331565
+        ],
+        "confusion_matrix": [
+          [
+            208,
+            4,
+            7
+          ],
+          [
+            129,
+            144,
+            13
+          ],
+          [
+            19,
+            32,
+            153
+          ]
+        ],
+        "per_class_precision": [
+          0.5842696629213483,
+          0.8,
+          0.884393063583815
+        ],
+        "per_class_recall": [
+          0.9497716894977168,
+          0.5034965034965035,
+          0.75
+        ],
+        "fold": 2,
+        "selected_C": 2.0,
+        "selected_gamma": 0.01,
+        "inner_best_macro_f1": 0.8172979001003401,
+        "test_samples": 709,
+        "test_subjects": [
+          "3"
+        ]
+      },
+      {
+        "accuracy": 0.6606397774687065,
+        "balanced_accuracy": 0.6586446245959837,
+        "macro_f1": 0.6625658689667753,
+        "per_class_f1": [
+          0.7679671457905544,
+          0.5670498084291188,
+          0.6526806526806527
+        ],
+        "confusion_matrix": [
+          [
+            187,
+            71,
+            12
+          ],
+          [
+            24,
+            148,
+            61
+          ],
+          [
+            6,
+            70,
+            140
+          ]
+        ],
+        "per_class_precision": [
+          0.8617511520737328,
+          0.5121107266435986,
+          0.6572769953051644
+        ],
+        "per_class_recall": [
+          0.6925925925925925,
+          0.6351931330472103,
+          0.6481481481481481
+        ],
+        "fold": 3,
+        "selected_C": 1.0,
+        "selected_gamma": 0.01,
+        "inner_best_macro_f1": 0.7835126295524839,
+        "test_samples": 719,
+        "test_subjects": [
+          "1"
+        ]
+      },
+      {
+        "accuracy": 0.9114730878186968,
+        "balanced_accuracy": 0.9105153621184305,
+        "macro_f1": 0.9123868240950775,
+        "per_class_f1": [
+          0.9393939393939394,
+          0.9090909090909091,
+          0.8886756238003839
+        ],
+        "confusion_matrix": [
+          [
+            434,
+            1,
+            30
+          ],
+          [
+            8,
+            390,
+            53
+          ],
+          [
+            17,
+            16,
+            463
+          ]
+        ],
+        "per_class_precision": [
+          0.9455337690631809,
+          0.9582309582309583,
+          0.847985347985348
+        ],
+        "per_class_recall": [
+          0.9333333333333333,
+          0.8647450110864745,
+          0.9334677419354839
+        ],
+        "fold": 4,
+        "selected_C": 2.0,
+        "selected_gamma": "scale",
+        "inner_best_macro_f1": 0.7208336664691047,
+        "test_samples": 1412,
+        "test_subjects": [
+          "2",
+          "6"
+        ]
+      },
+      {
+        "accuracy": 0.9313186813186813,
+        "balanced_accuracy": 0.9302713072179655,
+        "macro_f1": 0.930848757317564,
+        "per_class_f1": [
+          0.9206349206349206,
+          0.9309664694280079,
+          0.9409448818897638
+        ],
+        "confusion_matrix": [
+          [
+            203,
+            15,
+            11
+          ],
+          [
+            5,
+            236,
+            12
+          ],
+          [
+            4,
+            3,
+            239
+          ]
+        ],
+        "per_class_precision": [
+          0.9575471698113207,
+          0.9291338582677166,
+          0.9122137404580153
+        ],
+        "per_class_recall": [
+          0.8864628820960698,
+          0.932806324110672,
+          0.9715447154471545
+        ],
+        "fold": 5,
+        "selected_C": 2.0,
+        "selected_gamma": 0.01,
+        "inner_best_macro_f1": 0.7320817974598682,
+        "test_samples": 728,
+        "test_subjects": [
+          "4"
+        ]
+      }
+    ],
+    "pooled": {
+      "accuracy": 0.7633184221228142,
+      "balanced_accuracy": 0.7612511906605333,
+      "macro_f1": 0.7607323420298252,
+      "per_class_f1": [
+        0.7401989467524869,
+        0.6732090284592738,
+        0.868789050877715
+      ],
+      "confusion_matrix": [
+        [
+          1265,
+          333,
+          80
+        ],
+        [
+          390,
+          1029,
+          153
+        ],
+        [
+          85,
+          123,
+          1460
+        ]
+      ],
+      "per_class_precision": [
+        0.7270114942528736,
+        0.692929292929293,
+        0.8623744831659775
+      ],
+      "per_class_recall": [
+        0.7538736591179976,
+        0.6545801526717557,
+        0.8752997601918465
+      ]
+    }
+  },
+  "delta_without_subject_vs_all": {
+    "accuracy_pp": 0.2857429215012752,
+    "balanced_accuracy_pp": 0.05621580260456449,
+    "macro_f1_pp": 0.057773912626779556
+  },
+  "interpretation_guardrail": "Subject 5 remains part of the canonical dataset. Excluding it is a sensitivity analysis. It may only become a formal exclusion if independent data-quality evidence justifies that decision."
+}

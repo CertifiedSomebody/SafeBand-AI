@@ -1,0 +1,719 @@
+{
+  "version": "multidataset_v5_dataset_balanced_hard_negative",
+  "seed": 42,
+  "model": "hgb",
+  "schema": {
+    "feature_count": 84,
+    "window_contract": "60 samples @ 20Hz, step 30",
+    "split_unit": "subject",
+    "features": [
+      "ax_mean",
+      "ax_std",
+      "ax_min",
+      "ax_max",
+      "ax_rms",
+      "ay_mean",
+      "ay_std",
+      "ay_min",
+      "ay_max",
+      "ay_rms",
+      "az_mean",
+      "az_std",
+      "az_min",
+      "az_max",
+      "az_rms",
+      "mag_mean",
+      "mag_std",
+      "mag_min",
+      "mag_max",
+      "mag_rms",
+      "mag_p10",
+      "mag_p25",
+      "mag_p50",
+      "mag_p75",
+      "mag_p90",
+      "mag_sma",
+      "mag_range",
+      "jerk_mean",
+      "jerk_std",
+      "jerk_max",
+      "diff_energy",
+      "mag_zero_crossings",
+      "xy_corr",
+      "xz_corr",
+      "yz_corr",
+      "fft_low",
+      "fft_mid",
+      "fft_high",
+      "pre_peak_mean",
+      "peak_magnitude",
+      "post_peak_mean",
+      "peak_to_baseline",
+      "peak_index_ratio",
+      "pre_post_change",
+      "post_peak_std",
+      "peak_width",
+      "high_energy_fraction",
+      "recovery_ratio",
+      "v6_mag_mean",
+      "v6_mag_std",
+      "v6_mag_min",
+      "v6_mag_max",
+      "v6_mag_rms",
+      "v6_mag_p10",
+      "v6_mag_p25",
+      "v6_mag_p50",
+      "v6_mag_p75",
+      "v6_mag_p90",
+      "v6_peak_prominence",
+      "v6_peak_to_rms",
+      "v6_peak_to_median",
+      "v6_peak_index_ratio",
+      "v6_peak_width_half",
+      "v6_high_fraction",
+      "v6_pre_mean",
+      "v6_post_mean",
+      "v6_pre_std",
+      "v6_post_std",
+      "v6_pre_post_ratio",
+      "v6_pre_post_delta",
+      "v6_post_quiet_ratio",
+      "v6_pre_energy",
+      "v6_post_energy",
+      "v6_post_energy_ratio",
+      "v6_jerk_abs_mean",
+      "v6_jerk_abs_max",
+      "v6_jerk_std",
+      "v6_jerk_sign_changes",
+      "v6_diff_energy",
+      "v6_impulse_area",
+      "v6_axis_peak_ratio",
+      "v6_axis_std_ratio",
+      "v6_tilt_change",
+      "v6_spectral_entropy"
+    ]
+  },
+  "training_change": {
+    "dataset_total_weight": "equal",
+    "class_total_weight_within_dataset": "equal",
+    "hard_negative_mining": true,
+    "hard_negative_quantile": 0.9,
+    "hard_negative_weight": 3.0,
+    "train_only_oof": true
+  },
+  "candidate_validation": {
+    "rf": {
+      "validation_selected": {
+        "threshold": 0.7,
+        "min_hits": 2,
+        "max_gap_samples": 120,
+        "pooled": {
+          "threshold": 0.7,
+          "min_hits": 2,
+          "max_gap_samples": 120,
+          "recordings": 1095,
+          "fall_events": 439,
+          "nonfall_recordings": 656,
+          "accuracy": 0.960730593607306,
+          "balanced_accuracy": 0.9615742541252292,
+          "precision": 0.9380530973451328,
+          "recall": 0.9658314350797267,
+          "f1": 0.9517396184062851,
+          "false_positive_rate": 0.042682926829268296,
+          "false_alarms": 28,
+          "missed_falls": 15,
+          "confusion_matrix": [
+            [
+              628,
+              28
+            ],
+            [
+              15,
+              424
+            ]
+          ]
+        },
+        "datasets": {
+          "BITS2": {
+            "recordings": 144,
+            "fall_events": 64,
+            "nonfall_recordings": 80,
+            "accuracy": 0.875,
+            "balanced_accuracy": 0.878125,
+            "precision": 0.8285714285714286,
+            "recall": 0.90625,
+            "f1": 0.8656716417910447,
+            "false_positive_rate": 0.15,
+            "false_alarms": 12,
+            "missed_falls": 6,
+            "confusion_matrix": [
+              [
+                68,
+                12
+              ],
+              [
+                6,
+                58
+              ]
+            ]
+          },
+          "SisFall": {
+            "recordings": 951,
+            "fall_events": 375,
+            "nonfall_recordings": 576,
+            "accuracy": 0.9737118822292324,
+            "balanced_accuracy": 0.9741111111111111,
+            "precision": 0.9581151832460733,
+            "recall": 0.976,
+            "f1": 0.9669749009247027,
+            "false_positive_rate": 0.027777777777777776,
+            "false_alarms": 16,
+            "missed_falls": 9,
+            "confusion_matrix": [
+              [
+                560,
+                16
+              ],
+              [
+                9,
+                366
+              ]
+            ]
+          },
+          "macro": {
+            "accuracy": 0.9243559411146163,
+            "balanced_accuracy": 0.9261180555555556,
+            "precision": 0.893343305908751,
+            "recall": 0.941125,
+            "f1": 0.9163232713578737,
+            "false_positive_rate": 0.08888888888888888
+          }
+        },
+        "selection_rule": "minimize macro FPR subject to >=90% recall on both datasets",
+        "validation_min_dataset_recall": 0.90625,
+        "validation_macro_recall": 0.941125,
+        "validation_macro_f1": 0.9163232713578737,
+        "validation_macro_fpr": 0.08888888888888888
+      },
+      "fit_seconds": 59.08308730000135,
+      "hard_negative": {
+        "enabled": true,
+        "folds": 5,
+        "quantile": 0.9,
+        "cutoff_probability": 0.5435066666666667,
+        "hard_negative_windows": 2359,
+        "hard_negative_fraction_of_nonfalls": 0.10000423926406375,
+        "weight_multiplier": 3.0,
+        "oof_auc": 0.9192359104400781
+      }
+    },
+    "et": {
+      "validation_selected": {
+        "threshold": 0.6,
+        "min_hits": 3,
+        "max_gap_samples": 60,
+        "pooled": {
+          "threshold": 0.6,
+          "min_hits": 3,
+          "max_gap_samples": 60,
+          "recordings": 1095,
+          "fall_events": 439,
+          "nonfall_recordings": 656,
+          "accuracy": 0.9497716894977168,
+          "balanced_accuracy": 0.9460230429468304,
+          "precision": 0.9465116279069767,
+          "recall": 0.9271070615034168,
+          "f1": 0.9367088607594937,
+          "false_positive_rate": 0.0350609756097561,
+          "false_alarms": 23,
+          "missed_falls": 32,
+          "confusion_matrix": [
+            [
+              633,
+              23
+            ],
+            [
+              32,
+              407
+            ]
+          ]
+        },
+        "datasets": {
+          "BITS2": {
+            "recordings": 144,
+            "fall_events": 64,
+            "nonfall_recordings": 80,
+            "accuracy": 0.8541666666666666,
+            "balanced_accuracy": 0.859375,
+            "precision": 0.7945205479452054,
+            "recall": 0.90625,
+            "f1": 0.8467153284671532,
+            "false_positive_rate": 0.1875,
+            "false_alarms": 15,
+            "missed_falls": 6,
+            "confusion_matrix": [
+              [
+                65,
+                15
+              ],
+              [
+                6,
+                58
+              ]
+            ]
+          },
+          "SisFall": {
+            "recordings": 951,
+            "fall_events": 375,
+            "nonfall_recordings": 576,
+            "accuracy": 0.964248159831756,
+            "balanced_accuracy": 0.958388888888889,
+            "precision": 0.9775910364145658,
+            "recall": 0.9306666666666666,
+            "f1": 0.953551912568306,
+            "false_positive_rate": 0.013888888888888888,
+            "false_alarms": 8,
+            "missed_falls": 26,
+            "confusion_matrix": [
+              [
+                568,
+                8
+              ],
+              [
+                26,
+                349
+              ]
+            ]
+          },
+          "macro": {
+            "accuracy": 0.9092074132492114,
+            "balanced_accuracy": 0.9088819444444445,
+            "precision": 0.8860557921798856,
+            "recall": 0.9184583333333334,
+            "f1": 0.9001336205177296,
+            "false_positive_rate": 0.10069444444444445
+          }
+        },
+        "selection_rule": "minimize macro FPR subject to >=90% recall on both datasets",
+        "validation_min_dataset_recall": 0.90625,
+        "validation_macro_recall": 0.9184583333333334,
+        "validation_macro_f1": 0.9001336205177296,
+        "validation_macro_fpr": 0.10069444444444445
+      },
+      "fit_seconds": 17.56504319999658,
+      "hard_negative": {
+        "enabled": true,
+        "folds": 5,
+        "quantile": 0.9,
+        "cutoff_probability": 0.5127781343090807,
+        "hard_negative_windows": 2359,
+        "hard_negative_fraction_of_nonfalls": 0.10000423926406375,
+        "weight_multiplier": 3.0,
+        "oof_auc": 0.9215752426879642
+      }
+    },
+    "hgb": {
+      "validation_selected": {
+        "threshold": 0.8,
+        "min_hits": 2,
+        "max_gap_samples": 30,
+        "pooled": {
+          "threshold": 0.8,
+          "min_hits": 2,
+          "max_gap_samples": 30,
+          "recordings": 1095,
+          "fall_events": 439,
+          "nonfall_recordings": 656,
+          "accuracy": 0.9625570776255707,
+          "balanced_accuracy": 0.9612148591588422,
+          "precision": 0.9522727272727273,
+          "recall": 0.9544419134396356,
+          "f1": 0.9533560864618885,
+          "false_positive_rate": 0.03201219512195122,
+          "false_alarms": 21,
+          "missed_falls": 20,
+          "confusion_matrix": [
+            [
+              635,
+              21
+            ],
+            [
+              20,
+              419
+            ]
+          ]
+        },
+        "datasets": {
+          "BITS2": {
+            "recordings": 144,
+            "fall_events": 64,
+            "nonfall_recordings": 80,
+            "accuracy": 0.9097222222222222,
+            "balanced_accuracy": 0.909375,
+            "precision": 0.8923076923076924,
+            "recall": 0.90625,
+            "f1": 0.8992248062015504,
+            "false_positive_rate": 0.0875,
+            "false_alarms": 7,
+            "missed_falls": 6,
+            "confusion_matrix": [
+              [
+                73,
+                7
+              ],
+              [
+                6,
+                58
+              ]
+            ]
+          },
+          "SisFall": {
+            "recordings": 951,
+            "fall_events": 375,
+            "nonfall_recordings": 576,
+            "accuracy": 0.9705573080967402,
+            "balanced_accuracy": 0.9691805555555555,
+            "precision": 0.9626666666666667,
+            "recall": 0.9626666666666667,
+            "f1": 0.9626666666666667,
+            "false_positive_rate": 0.024305555555555556,
+            "false_alarms": 14,
+            "missed_falls": 14,
+            "confusion_matrix": [
+              [
+                562,
+                14
+              ],
+              [
+                14,
+                361
+              ]
+            ]
+          },
+          "macro": {
+            "accuracy": 0.9401397651594812,
+            "balanced_accuracy": 0.9392777777777778,
+            "precision": 0.9274871794871795,
+            "recall": 0.9344583333333334,
+            "f1": 0.9309457364341085,
+            "false_positive_rate": 0.05590277777777777
+          }
+        },
+        "selection_rule": "minimize macro FPR subject to >=90% recall on both datasets",
+        "validation_min_dataset_recall": 0.90625,
+        "validation_macro_recall": 0.9344583333333334,
+        "validation_macro_f1": 0.9309457364341085,
+        "validation_macro_fpr": 0.05590277777777777
+      },
+      "fit_seconds": 28.441469600002165,
+      "hard_negative": {
+        "enabled": true,
+        "folds": 5,
+        "quantile": 0.9,
+        "cutoff_probability": 0.5926769454029907,
+        "hard_negative_windows": 2359,
+        "hard_negative_fraction_of_nonfalls": 0.10000423926406375,
+        "weight_multiplier": 3.0,
+        "oof_auc": 0.9192346446647811
+      }
+    }
+  },
+  "selected_model": "hgb",
+  "validation_operating_point": {
+    "threshold": 0.8,
+    "min_hits": 2,
+    "max_gap_samples": 30,
+    "pooled": {
+      "threshold": 0.8,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 1095,
+      "fall_events": 439,
+      "nonfall_recordings": 656,
+      "accuracy": 0.9625570776255707,
+      "balanced_accuracy": 0.9612148591588422,
+      "precision": 0.9522727272727273,
+      "recall": 0.9544419134396356,
+      "f1": 0.9533560864618885,
+      "false_positive_rate": 0.03201219512195122,
+      "false_alarms": 21,
+      "missed_falls": 20,
+      "confusion_matrix": [
+        [
+          635,
+          21
+        ],
+        [
+          20,
+          419
+        ]
+      ]
+    },
+    "datasets": {
+      "BITS2": {
+        "recordings": 144,
+        "fall_events": 64,
+        "nonfall_recordings": 80,
+        "accuracy": 0.9097222222222222,
+        "balanced_accuracy": 0.909375,
+        "precision": 0.8923076923076924,
+        "recall": 0.90625,
+        "f1": 0.8992248062015504,
+        "false_positive_rate": 0.0875,
+        "false_alarms": 7,
+        "missed_falls": 6,
+        "confusion_matrix": [
+          [
+            73,
+            7
+          ],
+          [
+            6,
+            58
+          ]
+        ]
+      },
+      "SisFall": {
+        "recordings": 951,
+        "fall_events": 375,
+        "nonfall_recordings": 576,
+        "accuracy": 0.9705573080967402,
+        "balanced_accuracy": 0.9691805555555555,
+        "precision": 0.9626666666666667,
+        "recall": 0.9626666666666667,
+        "f1": 0.9626666666666667,
+        "false_positive_rate": 0.024305555555555556,
+        "false_alarms": 14,
+        "missed_falls": 14,
+        "confusion_matrix": [
+          [
+            562,
+            14
+          ],
+          [
+            14,
+            361
+          ]
+        ]
+      },
+      "macro": {
+        "accuracy": 0.9401397651594812,
+        "balanced_accuracy": 0.9392777777777778,
+        "precision": 0.9274871794871795,
+        "recall": 0.9344583333333334,
+        "f1": 0.9309457364341085,
+        "false_positive_rate": 0.05590277777777777
+      }
+    },
+    "selection_rule": "minimize macro FPR subject to >=90% recall on both datasets",
+    "validation_min_dataset_recall": 0.90625,
+    "validation_macro_recall": 0.9344583333333334,
+    "validation_macro_f1": 0.9309457364341085,
+    "validation_macro_fpr": 0.05590277777777777
+  },
+  "splits": {
+    "BITS2": {
+      "train_subjects": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "14",
+        "16",
+        "19",
+        "2",
+        "22",
+        "24",
+        "26",
+        "28",
+        "29",
+        "3",
+        "30",
+        "34",
+        "35",
+        "37",
+        "38",
+        "4",
+        "40",
+        "41",
+        "5",
+        "6",
+        "7"
+      ],
+      "val_subjects": [
+        "15",
+        "18",
+        "20",
+        "23",
+        "25",
+        "33",
+        "36",
+        "39"
+      ],
+      "test_subjects": [
+        "13",
+        "17",
+        "21",
+        "27",
+        "31",
+        "32",
+        "8",
+        "9"
+      ],
+      "rows": {
+        "train": 9613,
+        "val": 2162,
+        "test": 2913
+      }
+    },
+    "SisFall": {
+      "train_subjects": [
+        "SA01",
+        "SA04",
+        "SA07",
+        "SA08",
+        "SA09",
+        "SA10",
+        "SA12",
+        "SA13",
+        "SA16",
+        "SA17",
+        "SA18",
+        "SA20",
+        "SA22",
+        "SA23",
+        "SE03",
+        "SE04",
+        "SE05",
+        "SE09",
+        "SE11",
+        "SE12",
+        "SE13",
+        "SE14"
+      ],
+      "val_subjects": [
+        "SA05",
+        "SA11",
+        "SA14",
+        "SA19",
+        "SE06",
+        "SE07",
+        "SE08",
+        "SE15"
+      ],
+      "test_subjects": [
+        "SA02",
+        "SA03",
+        "SA06",
+        "SA15",
+        "SA21",
+        "SE01",
+        "SE02",
+        "SE10"
+      ],
+      "rows": {
+        "train": 27674,
+        "val": 10028,
+        "test": 9981
+      }
+    }
+  },
+  "test": {
+    "operating_point": {
+      "threshold": 0.8,
+      "min_hits": 2,
+      "max_gap_samples": 30
+    },
+    "datasets": {
+      "BITS2": {
+        "recordings": 144,
+        "fall_events": 64,
+        "nonfall_recordings": 80,
+        "accuracy": 0.875,
+        "balanced_accuracy": 0.875,
+        "precision": 0.8484848484848485,
+        "recall": 0.875,
+        "f1": 0.8615384615384616,
+        "false_positive_rate": 0.125,
+        "false_alarms": 10,
+        "missed_falls": 8,
+        "confusion_matrix": [
+          [
+            70,
+            10
+          ],
+          [
+            8,
+            56
+          ]
+        ]
+      },
+      "SisFall": {
+        "recordings": 931,
+        "fall_events": 375,
+        "nonfall_recordings": 556,
+        "accuracy": 0.9860365198711063,
+        "balanced_accuracy": 0.9848369304556355,
+        "precision": 0.9865591397849462,
+        "recall": 0.9786666666666667,
+        "f1": 0.9825970548862115,
+        "false_positive_rate": 0.008992805755395683,
+        "false_alarms": 5,
+        "missed_falls": 8,
+        "confusion_matrix": [
+          [
+            551,
+            5
+          ],
+          [
+            8,
+            367
+          ]
+        ]
+      },
+      "macro": {
+        "accuracy": 0.9305182599355531,
+        "balanced_accuracy": 0.9299184652278177,
+        "precision": 0.9175219941348973,
+        "recall": 0.9268333333333334,
+        "f1": 0.9220677582123366,
+        "false_positive_rate": 0.06699640287769784
+      }
+    },
+    "pooled": {
+      "threshold": 0.8,
+      "min_hits": 2,
+      "max_gap_samples": 30,
+      "recordings": 1075,
+      "fall_events": 439,
+      "nonfall_recordings": 636,
+      "accuracy": 0.9711627906976744,
+      "balanced_accuracy": 0.9699843125456655,
+      "precision": 0.9657534246575342,
+      "recall": 0.9635535307517085,
+      "f1": 0.9646522234891676,
+      "false_positive_rate": 0.02358490566037736,
+      "false_alarms": 15,
+      "missed_falls": 16,
+      "confusion_matrix": [
+        [
+          621,
+          15
+        ],
+        [
+          16,
+          423
+        ]
+      ]
+    }
+  },
+  "timing": {
+    "final_fit_seconds": 30.11957899999834
+  },
+  "notes": [
+    "V5 changes training weighting while preserving the V4 subject split and 84-feature contract.",
+    "Hard-negative mining, when enabled, uses GroupKFold OOF predictions over TRAIN subjects only.",
+    "Validation selects the operating point; TEST is held out until the final evaluation.",
+    "V5 is a research benchmark and is not deployment-ready without SafeBand hardware validation."
+  ]
+}

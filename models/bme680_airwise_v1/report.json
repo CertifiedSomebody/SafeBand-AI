@@ -1,0 +1,265 @@
+{
+  "version": "SafeBand BME680 AIRWISE V1",
+  "features": [
+    "temperature_c",
+    "pressure_hpa",
+    "humidity_rh",
+    "gas_resistance_ohms",
+    "heat_stable",
+    "gas_log10",
+    "temp_humidity_product",
+    "temp_humidity_gap",
+    "temperature_c_diff_1",
+    "temperature_c_pct_1",
+    "temperature_c_roll_mean_5",
+    "temperature_c_roll_std_5",
+    "pressure_hpa_diff_1",
+    "pressure_hpa_pct_1",
+    "pressure_hpa_roll_mean_5",
+    "pressure_hpa_roll_std_5",
+    "humidity_rh_diff_1",
+    "humidity_rh_pct_1",
+    "humidity_rh_roll_mean_5",
+    "humidity_rh_roll_std_5",
+    "gas_resistance_ohms_diff_1",
+    "gas_resistance_ohms_pct_1",
+    "gas_resistance_ohms_roll_mean_5",
+    "gas_resistance_ohms_roll_std_5"
+  ],
+  "feature_count": 24,
+  "split": "60/20/20 chronological within each location",
+  "rows": {
+    "train": 87922,
+    "val": 29307,
+    "test": 29309
+  },
+  "validation": {
+    "logistic": {
+      "accuracy": 0.8435527348415054,
+      "balanced_accuracy": 0.6849595153559247,
+      "macro_precision": 0.4185194280558296,
+      "macro_recall": 0.5137196365169435,
+      "macro_f1": 0.43229158853595934,
+      "confusion_matrix": [
+        [
+          18865,
+          32,
+          0,
+          2834
+        ],
+        [
+          0,
+          34,
+          38,
+          11
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1159,
+          499,
+          12,
+          5823
+        ]
+      ]
+    },
+    "rf": {
+      "accuracy": 0.9868973282833453,
+      "balanced_accuracy": 0.987085395481751,
+      "macro_precision": 0.5708129637634445,
+      "macro_recall": 0.5922512372890506,
+      "macro_f1": 0.5807936322224769,
+      "confusion_matrix": [
+        [
+          21588,
+          10,
+          0,
+          0,
+          133
+        ],
+        [
+          0,
+          83,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          238,
+          1,
+          1,
+          1,
+          7252
+        ]
+      ]
+    },
+    "extra_trees": {
+      "accuracy": 0.9509332241444024,
+      "balanced_accuracy": 0.8926472361449984,
+      "macro_precision": 0.647334050747667,
+      "macro_recall": 0.6694854271087488,
+      "macro_f1": 0.6552405657171747,
+      "confusion_matrix": [
+        [
+          21448,
+          33,
+          0,
+          250
+        ],
+        [
+          0,
+          70,
+          0,
+          13
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1141,
+          0,
+          1,
+          6351
+        ]
+      ]
+    },
+    "hgb": {
+      "accuracy": 0.9905142116217969,
+      "balanced_accuracy": 0.9898696120625647,
+      "macro_precision": 0.553586562714806,
+      "macro_recall": 0.5939217672375389,
+      "macro_f1": 0.5716743655777773,
+      "confusion_matrix": [
+        [
+          21518,
+          20,
+          0,
+          0,
+          193
+        ],
+        [
+          0,
+          82,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          59,
+          1,
+          1,
+          3,
+          7429
+        ]
+      ]
+    }
+  },
+  "selected_model": "hgb",
+  "held_out_test": {
+    "accuracy": 0.9139854652154629,
+    "balanced_accuracy": 0.7946512289982232,
+    "macro_precision": 0.7736767920005436,
+    "macro_recall": 0.7946512289982232,
+    "macro_f1": 0.7824401134078073,
+    "confusion_matrix": [
+      [
+        8472,
+        0,
+        215,
+        0,
+        140,
+        85,
+        0
+      ],
+      [
+        0,
+        13516,
+        0,
+        280,
+        0,
+        6,
+        188
+      ],
+      [
+        329,
+        0,
+        1157,
+        0,
+        2,
+        4,
+        0
+      ],
+      [
+        0,
+        110,
+        19,
+        664,
+        1,
+        25,
+        1
+      ],
+      [
+        51,
+        0,
+        13,
+        0,
+        473,
+        94,
+        76
+      ],
+      [
+        21,
+        4,
+        0,
+        67,
+        64,
+        627,
+        315
+      ],
+      [
+        0,
+        129,
+        0,
+        27,
+        40,
+        215,
+        1879
+      ]
+    ]
+  }
+}

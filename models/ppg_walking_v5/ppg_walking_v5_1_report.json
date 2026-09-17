@@ -1,0 +1,280 @@
+{
+  "version": "PPG WALKING V5.1",
+  "dataset": {
+    "windows": 1097,
+    "subjects": 6,
+    "features_total": 70,
+    "activity": "walk"
+  },
+  "split": {
+    "method": "numeric_subject_60_20_20",
+    "train_subjects": [
+      "s1",
+      "s2",
+      "s3",
+      "s6"
+    ],
+    "validation_subjects": [
+      "s8"
+    ],
+    "test_subjects": [
+      "s9"
+    ],
+    "subject_overlap": false,
+    "train_windows": 792,
+    "validation_windows": 198,
+    "test_windows": 107
+  },
+  "validation_variants": {
+    "ppg_only": {
+      "feature_count": 14,
+      "models": {
+        "ridge": {
+          "n": 198,
+          "mae_bpm": 19.25174178655362,
+          "rmse_bpm": 20.291455771740985,
+          "r2": -16.132737824957,
+          "within_3_bpm_pct": 2.525252525252525,
+          "within_5_bpm_pct": 2.525252525252525,
+          "within_10_bpm_pct": 6.0606060606060606,
+          "bias_bpm": 19.09692221521279,
+          "median_abs_error_bpm": 19.49136928427439,
+          "p90_abs_error_bpm": 28.069128637007683,
+          "p95_abs_error_bpm": 30.11430836592767,
+          "max_abs_error_bpm": 34.58872045023665
+        },
+        "rf": {
+          "n": 198,
+          "mae_bpm": 15.367763105056051,
+          "rmse_bpm": 16.12503892534245,
+          "r2": -9.819368203769308,
+          "within_3_bpm_pct": 2.525252525252525,
+          "within_5_bpm_pct": 4.040404040404041,
+          "within_10_bpm_pct": 14.646464646464647,
+          "bias_bpm": 15.03752080010785,
+          "median_abs_error_bpm": 16.035208156354763,
+          "p90_abs_error_bpm": 21.28772622269615,
+          "p95_abs_error_bpm": 22.435506588082283,
+          "max_abs_error_bpm": 25.085358908381664
+        },
+        "extra_trees": {
+          "n": 198,
+          "mae_bpm": 15.579092924950734,
+          "rmse_bpm": 16.15462979998011,
+          "r2": -9.859113636404176,
+          "within_3_bpm_pct": 1.5151515151515151,
+          "within_5_bpm_pct": 2.0202020202020203,
+          "within_10_bpm_pct": 11.616161616161616,
+          "bias_bpm": 15.296642805935477,
+          "median_abs_error_bpm": 16.253057412847397,
+          "p90_abs_error_bpm": 20.577108201982092,
+          "p95_abs_error_bpm": 21.799650596381994,
+          "max_abs_error_bpm": 23.162598311172047
+        },
+        "hgb": {
+          "n": 198,
+          "mae_bpm": 15.847852696236343,
+          "rmse_bpm": 16.93097873892106,
+          "r2": -10.927913644201091,
+          "within_3_bpm_pct": 4.040404040404041,
+          "within_5_bpm_pct": 6.565656565656567,
+          "within_10_bpm_pct": 18.181818181818183,
+          "bias_bpm": 15.489176453395357,
+          "median_abs_error_bpm": 16.945997206639383,
+          "p90_abs_error_bpm": 22.422925734580538,
+          "p95_abs_error_bpm": 24.448806237103987,
+          "max_abs_error_bpm": 27.05003619494377
+        }
+      },
+      "selected_model": "rf"
+    },
+    "ppg_plus_gyro": {
+      "feature_count": 42,
+      "models": {
+        "ridge": {
+          "n": 198,
+          "mae_bpm": 14.27800233455728,
+          "rmse_bpm": 15.220373295249383,
+          "r2": -8.639421383913184,
+          "within_3_bpm_pct": 2.525252525252525,
+          "within_5_bpm_pct": 3.535353535353535,
+          "within_10_bpm_pct": 22.22222222222222,
+          "bias_bpm": 13.769409655304342,
+          "median_abs_error_bpm": 13.979414386236847,
+          "p90_abs_error_bpm": 21.14392330541944,
+          "p95_abs_error_bpm": 22.85178423392635,
+          "max_abs_error_bpm": 30.80854046006681
+        },
+        "rf": {
+          "n": 198,
+          "mae_bpm": 14.302728729847196,
+          "rmse_bpm": 15.133441363100975,
+          "r2": -8.529623753409279,
+          "within_3_bpm_pct": 3.0303030303030303,
+          "within_5_bpm_pct": 5.555555555555555,
+          "within_10_bpm_pct": 17.17171717171717,
+          "bias_bpm": 13.649672496908266,
+          "median_abs_error_bpm": 14.784278634833804,
+          "p90_abs_error_bpm": 19.661536810760534,
+          "p95_abs_error_bpm": 21.071217363980015,
+          "max_abs_error_bpm": 23.95252953349238
+        },
+        "extra_trees": {
+          "n": 198,
+          "mae_bpm": 14.303259556999553,
+          "rmse_bpm": 14.929642927468247,
+          "r2": -8.274685657335501,
+          "within_3_bpm_pct": 1.5151515151515151,
+          "within_5_bpm_pct": 2.525252525252525,
+          "within_10_bpm_pct": 13.131313131313133,
+          "bias_bpm": 13.908751173435668,
+          "median_abs_error_bpm": 14.544596091454721,
+          "p90_abs_error_bpm": 19.414279095958886,
+          "p95_abs_error_bpm": 20.296207092111658,
+          "max_abs_error_bpm": 23.79513740595206
+        },
+        "hgb": {
+          "n": 198,
+          "mae_bpm": 13.630301675069145,
+          "rmse_bpm": 14.710244642621797,
+          "r2": -8.004096657346258,
+          "within_3_bpm_pct": 3.535353535353535,
+          "within_5_bpm_pct": 6.565656565656567,
+          "within_10_bpm_pct": 29.292929292929294,
+          "bias_bpm": 12.331105109628368,
+          "median_abs_error_bpm": 14.004139671428184,
+          "p90_abs_error_bpm": 20.68620221411742,
+          "p95_abs_error_bpm": 22.19018730802328,
+          "max_abs_error_bpm": 24.946825655433017
+        }
+      },
+      "selected_model": "hgb"
+    },
+    "ppg_plus_acc_gyro": {
+      "feature_count": 70,
+      "models": {
+        "ridge": {
+          "n": 198,
+          "mae_bpm": 12.150375432057148,
+          "rmse_bpm": 13.15300630384005,
+          "r2": -6.19863931691813,
+          "within_3_bpm_pct": 7.07070707070707,
+          "within_5_bpm_pct": 9.595959595959595,
+          "within_10_bpm_pct": 35.35353535353536,
+          "bias_bpm": 11.672073913885045,
+          "median_abs_error_bpm": 12.330321986102724,
+          "p90_abs_error_bpm": 18.76603697743637,
+          "p95_abs_error_bpm": 19.80547917354062,
+          "max_abs_error_bpm": 23.77382336241044
+        },
+        "rf": {
+          "n": 198,
+          "mae_bpm": 7.330476914011728,
+          "rmse_bpm": 8.46073669005946,
+          "r2": -1.9786310773209368,
+          "within_3_bpm_pct": 18.181818181818183,
+          "within_5_bpm_pct": 32.82828282828283,
+          "within_10_bpm_pct": 73.23232323232324,
+          "bias_bpm": 6.155950298625143,
+          "median_abs_error_bpm": 7.383164350838726,
+          "p90_abs_error_bpm": 12.653553074795783,
+          "p95_abs_error_bpm": 14.195054947875084,
+          "max_abs_error_bpm": 19.55745235743389
+        },
+        "extra_trees": {
+          "n": 198,
+          "mae_bpm": 10.254060249196675,
+          "rmse_bpm": 10.902721288844509,
+          "r2": -3.9461829707283798,
+          "within_3_bpm_pct": 3.535353535353535,
+          "within_5_bpm_pct": 7.575757575757576,
+          "within_10_bpm_pct": 42.92929292929293,
+          "bias_bpm": 9.524696552508244,
+          "median_abs_error_bpm": 10.558117013481294,
+          "p90_abs_error_bpm": 14.895307770818004,
+          "p95_abs_error_bpm": 16.072071071345434,
+          "max_abs_error_bpm": 18.675727932357418
+        },
+        "hgb": {
+          "n": 198,
+          "mae_bpm": 12.578144315358383,
+          "rmse_bpm": 13.23832598516382,
+          "r2": -6.292333126366003,
+          "within_3_bpm_pct": 3.535353535353535,
+          "within_5_bpm_pct": 4.545454545454546,
+          "within_10_bpm_pct": 24.747474747474747,
+          "bias_bpm": 12.031639030583383,
+          "median_abs_error_bpm": 12.8713968767212,
+          "p90_abs_error_bpm": 18.05080800920785,
+          "p95_abs_error_bpm": 18.761376174047886,
+          "max_abs_error_bpm": 22.155960094773633
+        }
+      },
+      "selected_model": "rf"
+    }
+  },
+  "selected_variant": "ppg_plus_acc_gyro",
+  "selected_model": "rf",
+  "selected_feature_count": 70,
+  "validation_calibration": {
+    "enabled": true,
+    "slope": -0.06186064635170647,
+    "intercept": 80.29919275777672,
+    "raw_mae_bpm": 7.330476914011726,
+    "calibrated_mae_bpm": 3.197315573847904
+  },
+  "held_out_test": {
+    "n": 107,
+    "mae_bpm": 27.220072937090517,
+    "rmse_bpm": 27.339198406557376,
+    "r2": -114.4473928198231,
+    "within_3_bpm_pct": 0.0,
+    "within_5_bpm_pct": 0.0,
+    "within_10_bpm_pct": 0.0,
+    "bias_bpm": -27.220072937090517,
+    "median_abs_error_bpm": 27.380725790953292,
+    "p90_abs_error_bpm": 30.00336868499956,
+    "p95_abs_error_bpm": 30.288382680086777,
+    "max_abs_error_bpm": 31.15206529465297
+  },
+  "held_out_test_by_subject": {
+    "s9": {
+      "n": 107,
+      "mae_bpm": 27.220072937090517,
+      "rmse_bpm": 27.339198406557376,
+      "r2": -114.4473928198231,
+      "within_3_bpm_pct": 0.0,
+      "within_5_bpm_pct": 0.0,
+      "within_10_bpm_pct": 0.0,
+      "bias_bpm": -27.220072937090517,
+      "median_abs_error_bpm": 27.380725790953292,
+      "p90_abs_error_bpm": 30.00336868499956,
+      "p95_abs_error_bpm": 30.288382680086777,
+      "max_abs_error_bpm": 31.15206529465297
+    }
+  },
+  "held_out_test_by_record": {
+    "s9_walk": {
+      "n": 107,
+      "mae_bpm": 27.220072937090517,
+      "rmse_bpm": 27.339198406557376,
+      "r2": -114.4473928198231,
+      "within_3_bpm_pct": 0.0,
+      "within_5_bpm_pct": 0.0,
+      "within_10_bpm_pct": 0.0,
+      "bias_bpm": -27.220072937090517,
+      "median_abs_error_bpm": 27.380725790953292,
+      "p90_abs_error_bpm": 30.00336868499956,
+      "p95_abs_error_bpm": 30.288382680086777,
+      "max_abs_error_bpm": 31.15206529465297
+    }
+  },
+  "notes": [
+    "Walking-focused external dataset; not a replacement for the frozen V4.3 benchmark.",
+    "8 s windows and 2 s shift retained from SafeBand PPG protocol.",
+    "ECG R-peak annotations provide HR target; ECG waveform is never a feature.",
+    "Feature representation and model are selected using validation MAE only.",
+    "Held-out test subject remains untouched until final evaluation.",
+    "Because only six walking subjects exist, the 60/20/20 split yields 4 train / 1 validation / 1 test subject; results should be interpreted as an external stress experiment, not a definitive population estimate."
+  ]
+}

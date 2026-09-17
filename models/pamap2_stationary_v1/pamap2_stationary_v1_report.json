@@ -1,0 +1,210 @@
+{
+  "experiment": "pamap2_stationary_accgyro_v1",
+  "model": "tiny_cnn",
+  "data": "D:\\Admin\\Downloads\\SafeBand-AI-main\\SafeBand-AI-main\\datasets\\processed\\pamap2\\stationary_accgyro_windows.npz",
+  "window_shape": [
+    6,
+    200
+  ],
+  "samples": 5640,
+  "subjects": 8,
+  "classes": [
+    "LYING",
+    "SITTING",
+    "STANDING"
+  ],
+  "channels": [
+    "ax",
+    "ay",
+    "az",
+    "gx",
+    "gy",
+    "gz"
+  ],
+  "method": {
+    "outer": "5-fold StratifiedGroupKFold by subject",
+    "normalization": "training-only per-channel",
+    "early_stopping": "inner grouped validation",
+    "outer_test_used_for_selection": false
+  },
+  "outer_fold_metrics": [
+    {
+      "accuracy": 0.9323529411764706,
+      "balanced_accuracy": 0.9318170519994241,
+      "macro_f1": 0.9316852871503608,
+      "per_class_f1": [
+        0.9306296691568837,
+        0.925531914893617,
+        0.938894277400582
+      ],
+      "confusion_matrix": [
+        [
+          436,
+          24,
+          24
+        ],
+        [
+          5,
+          348,
+          21
+        ],
+        [
+          12,
+          6,
+          484
+        ]
+      ],
+      "fold": 1,
+      "best_epoch": 1,
+      "inner_best_macro_f1": 0.855529912904347
+    },
+    {
+      "accuracy": 0.7165021156558533,
+      "balanced_accuracy": 0.7143648723020197,
+      "macro_f1": 0.7115438798441639,
+      "per_class_f1": [
+        0.6650602409638554,
+        0.7588652482269503,
+        0.7107061503416856
+      ],
+      "confusion_matrix": [
+        [
+          138,
+          24,
+          57
+        ],
+        [
+          50,
+          214,
+          22
+        ],
+        [
+          8,
+          40,
+          156
+        ]
+      ],
+      "fold": 2,
+      "best_epoch": 17,
+      "inner_best_macro_f1": 0.9358816238038017
+    },
+    {
+      "accuracy": 0.6997187060478199,
+      "balanced_accuracy": 0.6960591065481548,
+      "macro_f1": 0.6962084191694315,
+      "per_class_f1": [
+        0.7454873646209387,
+        0.6276715410573678,
+        0.7154663518299882
+      ],
+      "confusion_matrix": [
+        [
+          413,
+          74,
+          15
+        ],
+        [
+          112,
+          279,
+          71
+        ],
+        [
+          81,
+          74,
+          303
+        ]
+      ],
+      "fold": 3,
+      "best_epoch": 1,
+      "inner_best_macro_f1": 0.7874502350419371
+    },
+    {
+      "accuracy": 0.4986149584487535,
+      "balanced_accuracy": 0.49984678243105213,
+      "macro_f1": 0.4244515162635128,
+      "per_class_f1": [
+        0.0,
+        0.5081723625557206,
+        0.7651821862348178
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          216,
+          19
+        ],
+        [
+          30,
+          171,
+          66
+        ],
+        [
+          12,
+          19,
+          189
+        ]
+      ],
+      "fold": 4,
+      "best_epoch": 9,
+      "inner_best_macro_f1": 0.7637733800055498
+    },
+    {
+      "accuracy": 0.7806587245970568,
+      "balanced_accuracy": 0.7700510643533899,
+      "macro_f1": 0.7509999114346075,
+      "per_class_f1": [
+        0.8602150537634409,
+        0.5691573926868044,
+        0.8236272878535774
+      ],
+      "confusion_matrix": [
+        [
+          440,
+          0,
+          33
+        ],
+        [
+          101,
+          179,
+          170
+        ],
+        [
+          9,
+          0,
+          495
+        ]
+      ],
+      "fold": 5,
+      "best_epoch": 1,
+      "inner_best_macro_f1": 0.9376101984361216
+    }
+  ],
+  "pooled_outer_metrics": {
+    "accuracy": 0.7526595744680851,
+    "balanced_accuracy": 0.7517806100507706,
+    "macro_f1": 0.749706748505357,
+    "per_class_f1": [
+      0.7590425531914894,
+      0.679213002566296,
+      0.8108646897582855
+    ],
+    "confusion_matrix": [
+      [
+        1427,
+        338,
+        148
+      ],
+      [
+        298,
+        1191,
+        350
+      ],
+      [
+        122,
+        139,
+        1627
+      ]
+    ]
+  },
+  "seed": 42
+}

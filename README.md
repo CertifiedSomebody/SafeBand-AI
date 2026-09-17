@@ -1,633 +1,458 @@
 # SAFEBAND AI 🛡️
 
-## Intelligent AI-Based Safety Monitoring System
+## Intelligent AI-Based Safety Monitoring Wearable
 
-SAFEBAND AI is a prototype wearable safety-monitoring platform designed to continuously monitor a user's activity, physiological condition, environmental parameters, and location, then use AI-based processing and multi-sensor fusion to identify abnormal or emergency situations.
+SAFEBAND AI is a final-year engineering project for a wearable safety-monitoring system that combines **motion, physiological, environmental and acoustic sensing**, AI-based interpretation, sensor fusion and emergency communication.
 
-> **Prototype status:** Software demonstration using simulated sensor data.  
-> **Purpose:** Demonstrate the proposed system architecture and capabilities before real hardware and real-world datasets are integrated.
+The project proposal defines the final system around an ESP32-S3, BNO055, MAX30102, BME680, INMP441, GPS/GNSS and EC200U cellular communication. The software is deliberately modular so Phase 1 AI work can be completed before the physical hardware is ready.
 
 ---
 
-## 1. What This Prototype Demonstrates
+## 1. The Actual System Goal
 
-The prototype demonstrates the complete intended processing flow:
+The project is **not** a collection of independent sensor classifiers.
+
+The intended pipeline is:
 
 ```text
-Simulated Sensor Data
-        ↓
-Activity Recognition
-        ↓
-Sensor Fusion
-        ↓
-Risk Assessment
-        ↓
-Emergency / Safety Alert
-        ↓
-Cellular + Cloud Communication
-        ↓
-Real-Time Dashboard
+REAL SENSORS
+    │
+    ├── BNO055 ──→ Activity / Fall Intelligence
+    ├── MAX30102 → Physiological Intelligence
+    ├── BME680 ──→ Environmental Intelligence
+    ├── INMP441 ─→ Acoustic Intelligence
+    └── GPS ─────→ Location
+                     │
+                     ↓
+              SENSOR FUSION
+                     ↓
+                RISK ENGINE
+                     ↓
+          SAFE / WARNING / EMERGENCY
+                     │
+                     ↓
+              GPS + EC200U
+                     │
+                     ↓
+             Caregiver / Cloud
 ```
 
-The software is therefore more than a static dashboard: the modules form an end-to-end demonstrator of how the final SAFEBAND AI system is intended to operate.
+### Phase 1 — Current software/AI responsibility
+
+Build and validate the individual intelligence modules and make their interfaces hardware-ready.
+
+### Phase 2 — Hardware/domain integration
+
+When the hardware stack is available:
+
+- collect synchronized SafeBand data
+- validate each model on the actual sensors
+- calibrate sensor-specific preprocessing
+- develop and validate multimodal fusion
+- deploy suitable models on the ESP32-S3
+- validate the complete emergency/communication pipeline
 
 ---
 
-## 2. Main Capabilities
+## 2. Phase 1 Status
 
-- ❤️ Heart-rate monitoring
-- 🫁 SpO₂ monitoring
-- 🧭 Motion and orientation monitoring
-- 🌡️ Environmental monitoring
-- 🎙️ Acoustic activity monitoring
-- 📍 GPS location tracking
-- 🤖 Activity recognition
-- 🔗 Multi-sensor fusion
-- ⚠️ Risk scoring
-- 🚨 Fall/emergency detection
-- 🆘 Manual SOS scenario
-- 📡 Cellular communication simulation
-- ☁️ Cloud synchronization simulation
-- 📊 Real-time monitoring dashboard
-- 📜 Alert/event history
-- 📈 Sensor and risk trends
-
----
-
-## 3. Sensors Represented
-
-| Sensor | Parameters / Purpose |
+| Branch | Status |
 |---|---|
-| **MAX30102** | Heart rate and SpO₂ |
-| **BNO055** | Acceleration, motion and orientation |
-| **BME680** | Temperature, humidity and pressure |
-| **INMP441** | Audio/acoustic level |
-| **GPS** | Latitude and longitude |
-| **EC200U** | Cellular communication interface |
-
-At the current stage, these sensors are represented through software simulation. The sensor modules are separated from the AI and dashboard layers so that real hardware drivers can be integrated later.
+| BITS-2/SisFall fall detection | ✅ Benchmark established |
+| PPG-DaLiA E4 HR reference | ✅ Frozen reference |
+| PTT/MAX30101 HR reference | ✅ V4.3 frozen |
+| Walking PPG stress experiment | ✅ V5.3 frozen |
+| BME680/AIRWISE IAQ | ✅ V1 frozen |
+| Activity recognition | 🟡 Benchmark pipeline ready; model training pending/optional |
+| INMP441 audio intelligence | 🟡 Feature/training/runtime pipeline ready |
+| Common sensor contracts | 🟡 Being hardened for hardware integration |
+| Sensor fusion | 🟡 Software prototype exists; final fusion requires synchronized SafeBand data |
+| Risk engine | 🟡 Prototype; hardware validation required |
+| ESP32-S3 TinyML deployment | ⏳ Phase 2 |
+| Real MAX30102 validation | ⏳ Phase 2 |
+| Real BME680 validation | ⏳ Phase 2 |
+| Real INMP441 validation | ⏳ Phase 2 |
 
 ---
 
-## 4. AI Processing
+## 3. Important Research Positioning
 
-### Activity Recognition
+### BME680
 
-The activity-recognition layer classifies the user's current state, including:
+AIRWISE is a **BME680-native indoor environmental benchmark**. V1 uses 24 engineered features and a chronological 60/20/20 split within location.
+
+The frozen held-out test result is:
+
+- Accuracy: **91.40%**
+- Balanced accuracy: **79.47%**
+- Macro precision: **77.37%**
+- Macro recall: **79.47%**
+- Macro F1: **78.24%**
+
+This is an IAQ classification benchmark, not a clinical or personal emergency classifier.
+
+### PPG
+
+The PPG branches deliberately distinguish sensor domains:
+
+- PPG-DaLiA = Empatica E4 BVP reference
+- PTT = MAX30101-domain reference
+- SafeBand target = MAX30102 hardware
+
+Neither E4 nor MAX30101 results are presented as MAX30102 validation.
+
+### Walking PPG
+
+The Wrist PPG During Exercise experiment is retained as a cross-subject stress test. Its poor generalization is treated as evidence of domain/subject shift rather than hidden through repeated benchmark tuning.
+
+---
+
+## 4. Activity Recognition
+
+The first learned activity benchmark is motion-first because the BITS-2 dataset provides suitable wrist accelerometer data without requiring artificial cross-sensor synchronization.
+
+The current learned activity set is:
 
 ```text
+RESTING
 SITTING
-STANDING
 WALKING
 RUNNING
-FALL
-UNKNOWN
 ```
 
-It also provides a confidence value for the detected activity.
+`FALL` is maintained as a separate binary detector.
 
-### Sensor Fusion
+`STANDING` is part of the runtime activity vocabulary, but BITS-2 does not provide a clean standing class. It must therefore be learned/validated from an appropriate dataset or SafeBand hardware recordings rather than fabricated by relabeling unrelated data.
 
-Sensor fusion combines evidence from multiple sources rather than depending on one sensor alone:
+Run:
 
-```text
-Motion
-   +
-Physiological Data
-   +
-Environmental Data
-   +
-Audio
-   +
-Activity Recognition
-        ↓
-  Fused Condition
+```powershell
+python tools\prepare_bits2.py --zip datasets/raw/BITS-2/full_dataset.zip --out datasets/processed/bits2
+python tools\create_activity_windows.py --input datasets/processed/bits2/bits2_canonical_long.csv --out datasets/processed/bits2/activity_windows.csv
+python tools\train_activity_models.py --input datasets/processed/bits2/activity_windows.csv
 ```
 
-### Risk Engine
-
-The risk engine converts the available evidence into a **0–100 safety risk score**.
-
-| Score | Risk Level | System Status |
-|---:|---|---|
-| 0–29 | LOW | SAFE |
-| 30–59 | MODERATE | WARNING |
-| 60–79 | HIGH | WARNING |
-| 80–100 | CRITICAL | EMERGENCY |
+The resulting model is a **reference model**, not the final SafeBand hardware model.
 
 ---
 
-## 5. Demonstration Scenarios
+## 5. Audio / INMP441
 
-The dashboard includes predefined scenarios so the system can be demonstrated reliably without physical hardware.
+The INMP441 is treated as a genuine sensing modality rather than a simple loudness threshold.
 
-### `NORMAL`
-
-Normal user condition.
+The Phase-1 audio pipeline provides:
 
 ```text
-Normal sensors
-      ↓
-LOW RISK
-      ↓
-SAFE
+PCM audio
+   ↓
+Windowing
+   ↓
+Signal + spectral features
+   ↓
+Audio event classifier
+   ↓
+event + confidence
+   ↓
+sensor fusion
 ```
 
-### `WALKING`
+The runtime interface does **not** equate loudness with a scream, distress event or emergency.
 
-Normal walking activity with corresponding movement and physiological changes.
+Audio training is intentionally dataset-driven. No synthetic scenario is accepted as training data.
 
-### `RUNNING`
-
-Higher-intensity activity with increased motion and heart rate.
-
-### `FALL`
-
-Simulates a sudden abnormal motion/orientation event.
+Expected training layout:
 
 ```text
-Sudden Motion
-      +
-Abnormal Orientation
-      +
-Sensor Evidence
-      ↓
-Fall Detection
-      ↓
-Emergency Processing
+datasets/raw/audio/
+├── CLASS_A/
+│   ├── subject01/
+│   │   └── *.wav
+│   └── subject02/
+│       └── *.wav
+├── CLASS_B/
+│   └── ...
+└── ...
 ```
 
-### `HIGH_RISK`
+Run:
 
-Simulates multiple abnormal sensor conditions occurring together.
+```powershell
+python tools\train_audio_model.py --input datasets/raw/audio
+```
 
-### `SOS`
+The training script enforces subject-disjoint train/validation/test evaluation.
 
-Simulates a manual emergency activation by the user.
+---
+
+## 6. BME680 AIRWISE
+
+Audit:
+
+```powershell
+python tools\audit_airwise.py
+```
+
+Preparation:
+
+```powershell
+python tools\prepare_airwise_bme680.py
+```
+
+Training:
+
+```powershell
+python tools\train_airwise_bme680.py
+```
+
+Prediction:
+
+```powershell
+python tools\predict_airwise_bme680.py --csv <input.csv>
+```
+
+AIRWISE extraction depth is auto-discovered, so the scripts do not assume:
 
 ```text
-SOS
- ↓
-Emergency Alert
- ↓
-Location
- ↓
-Cellular Transmission
- ↓
-Cloud Synchronization
+datasets/raw/AIRWISE/data/...
+```
+
+They can also accept:
+
+```powershell
+python tools\audit_airwise.py --data-dir <actual_sensor_1min_directory>
 ```
 
 ---
 
-## 6. Project Structure
+## 7. PPG Reference Experiments
+
+### PTT / MAX30101 V4.3
+
+Preparation:
+
+```powershell
+python tools\prepare_ptt_hr_v4.py --ptt-root datasets/raw/PTT --out datasets/processed/ptt_hr_v4.csv --summary-out datasets/processed/ptt_hr_v4_summary.json
+```
+
+Training/evaluation:
+
+```powershell
+python tools\train_ppg_v4_3_final.py --input datasets/processed/ptt_hr_v4.csv --model-out models/ppg_v4_3/ppg_v4_3_max30101.joblib --report-out models/ppg_v4_3/report.json --predictions-out models/ppg_v4_3/test_predictions.csv
+```
+
+The experiment is a MAX30101-domain reference and must not be described as MAX30102 validation.
+
+### Walking stress experiment
+
+```powershell
+python tools\prepare_walking_v5_3_final.py --root datasets/raw/WristPPGExercise --out datasets/processed/wrist_walking_v5_3.csv --summary-out datasets/processed/wrist_walking_v5_3_summary.json
+```
+
+The V5.3 walking experiment is frozen as a stress/generalization result.
+
+---
+
+## 8. Sensor Fusion
+
+The current fusion layer is intentionally a **software prototype**.
+
+It combines evidence from:
+
+- motion
+- physiological measurements
+- body temperature
+- environmental measurements
+- acoustic information
+- activity context
+
+GPS is retained as location information and is not itself treated as a safety evidence source.
+
+The final fusion model should be trained/validated only after synchronized SafeBand data exists.
+
+---
+
+## 9. Risk Engine
+
+The risk engine produces:
 
 ```text
-SAFEBAND_AI/
-│
-├── app.py
-├── README.md
-│
+0–29   LOW       → SAFE
+30–59  MODERATE  → WARNING
+60–79  HIGH      → WARNING
+80–100 CRITICAL  → EMERGENCY
+```
+
+Manual SOS remains an explicit user action and is not an ML class.
+
+Automatic fall/emergency decisions must be validated using real hardware recordings before being treated as production safety behavior.
+
+---
+
+## 10. Hardware-Ready Interfaces
+
+Current Python sensor modules expose stable application-level interfaces for:
+
+- `sensors/bno055.py`
+- `sensors/max30102.py`
+- `sensors/bme680.py`
+- `sensors/inmp441.py`
+- `sensors/gps.py`
+
+The Python prototype may simulate hardware, but it does not pretend that desktop Python is connected to the physical ESP32-S3 peripherals.
+
+The intended hardware target is:
+
+```text
+ESP32-S3
+├── I²C
+│   ├── BNO055
+│   ├── MAX30102
+│   └── BME680
+├── I²S
+│   └── INMP441
+├── UART
+│   ├── GPS/GNSS
+│   └── EC200U
+└── Display / Power
+```
+
+---
+
+## 11. Repository Structure
+
+```text
+SafeBand-AI/
 ├── ai/
-│   ├── __init__.py
 │   ├── activity_recognition.py
+│   ├── feature_extraction.py
+│   ├── ml_activity_model.py
+│   ├── audio_features.py
+│   ├── ml_audio_model.py
+│   ├── audio_event_recognition.py
+│   ├── bme680_features.py
+│   ├── ml_bme680_model.py
+│   ├── ppg_v4_features.py
+│   ├── walking_features_v5_3.py
 │   ├── sensor_fusion.py
 │   └── risk_engine.py
 │
-├── communication/
-│   ├── __init__.py
-│   ├── cellular.py
-│   └── cloud.py
-│
-├── config/
-│   ├── __init__.py
-│   └── settings.py
-│
-├── dashboard/
-│   ├── __init__.py
-│   ├── alerts.py
-│   ├── charts.py
-│   └── ui.py
-│
-├── data/
-│   ├── __init__.py
-│   ├── demo_scenarios.py
-│   └── simulated_data.py
+├── tools/
+│   ├── repo_utils.py
+│   ├── preflight_phase1.py
+│   ├── audit_airwise.py
+│   ├── prepare_airwise_bme680.py
+│   ├── train_airwise_bme680.py
+│   ├── prepare_ptt_hr_v4.py
+│   ├── train_ppg_v4_3_final.py
+│   ├── evaluate_ppg_v4_3_final.py
+│   ├── prepare_walking_v5_3_final.py
+│   ├── train_walking_v5_3_final.py
+│   ├── evaluate_wrist_walking_v5_3_final.py
+│   ├── train_activity_models.py
+│   ├── train_audio_model.py
+│   └── evaluate_audio_model.py
 │
 ├── sensors/
-│   ├── __init__.py
-│   ├── bme680.py
-│   ├── bno055.py
-│   ├── gps.py
-│   ├── inmp441.py
-│   └── max30102.py
-│
-├── utils/
-│   ├── __init__.py
-│   ├── helpers.py
-│   └── loggers.py
-│
-├── assets/
-│   └── logo/
-│       └── safeband_logo.png
-│
-└── logs/
-    └── safeband_ai.log
+├── communication/
+├── dashboard/
+├── config/
+├── data/
+├── models/
+├── datasets/
+└── docs/
 ```
 
 ---
 
-## 7. Module Responsibilities
+## 12. Engineering Rules
 
-### `ai/`
-
-Contains the intelligence layer.
-
-- `activity_recognition.py` — activity classification
-- `sensor_fusion.py` — combines multi-sensor evidence
-- `risk_engine.py` — calculates overall safety risk
-
-### `communication/`
-
-Handles external communication interfaces.
-
-- `cellular.py` — EC200U communication simulation
-- `cloud.py` — cloud synchronization simulation
-
-### `config/`
-
-Central project configuration.
-
-- `settings.py` — thresholds, sensor configuration, dashboard settings, demo settings and system configuration
-
-### `dashboard/`
-
-Contains the Streamlit presentation layer.
-
-- `ui.py` — dashboard components
-- `charts.py` — Plotly visualizations
-- `alerts.py` — safety and emergency alert management
-
-### `data/`
-
-Provides demonstration data.
-
-- `demo_scenarios.py` — predefined scenarios
-- `simulated_data.py` — continuously varying simulated sensor readings
-
-### `sensors/`
-
-Provides sensor interfaces.
-
-- `max30102.py`
-- `bno055.py`
-- `bme680.py`
-- `inmp441.py`
-- `gps.py`
-
-### `utils/`
-
-Shared utilities.
-
-- `helpers.py`
-- `loggers.py`
+1. Never use simulation scenario names as ML inputs.
+2. Never train on deterministic demo profiles.
+3. Never report a regression problem using classification accuracy as the primary metric.
+4. Never call E4 or MAX30101 results MAX30102 validation.
+5. Never use ECG waveform as a PPG feature when ECG is only the reference target.
+6. Never turn AIRWISE IAQ classes into medical/emergency labels.
+7. Keep test subjects/records untouched during model selection.
+8. Keep raw datasets immutable; derived data belongs under `datasets/processed/`.
+9. Every tool must run from the repository root.
+10. Every new `tools/*.py` script must be tested by actual invocation, not only syntax compilation.
+11. Dataset archive extraction depth must not be assumed when robust discovery is possible.
+12. Sensor acquisition, feature extraction, ML inference, fusion and risk assessment remain separate layers.
+13. Final emergency behavior requires real SafeBand hardware validation.
 
 ---
 
-## 8. Software Stack
+## 13. Phase-1 Preflight
 
-### Core
+Run:
 
-- Python 3
-- Streamlit
-- Plotly
-- Pandas
+```powershell
+python tools\preflight_phase1.py
+```
 
-### Intended Embedded Platform
+This verifies:
 
-- ESP32-S3
+- required AI modules import
+- sensor modules import
+- reference feature modules import
+- configured model artifacts are visible
+- known raw dataset roots are visible
 
-### Intended Hardware
-
-- MAX30102
-- BNO055
-- BME680
-- INMP441
-- GPS/GNSS receiver
-- Quectel EC200U
+A missing dataset/model is reported as an informational `--` state rather than being mistaken for an import failure.
 
 ---
 
-## 9. Installation
+## 14. Running the Software Prototype
 
-Open a terminal in the project root.
+Install:
 
-### Optional: create a virtual environment
-
-#### Windows
-
-```bash
-python -m venv .venv
-.venv\Scripts\activate
+```powershell
+pip install -r requirements.txt
 ```
 
-#### Linux / macOS
+Run:
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-### Install dependencies
-
-```bash
-pip install streamlit plotly pandas
-```
-
----
-
-## 10. Run the Prototype
-
-From the project root:
-
-```bash
+```powershell
 streamlit run app.py
 ```
 
-The Streamlit dashboard will open in the browser.
+The current dashboard remains a prototype/demo layer using simulated sensor data unless real hardware integration is explicitly implemented.
 
 ---
 
-## 11. Recommended Demo Flow
+## 15. Phase 2 Direction
 
-For a project/proposal presentation, use this sequence.
-
-### 1. Start with `NORMAL`
-
-Show:
-
-- Live sensor readings
-- SAFE status
-- Low risk score
-- Normal activity
-
-### 2. Select `WALKING`
-
-Show:
-
-- Activity recognition changing to walking
-- Sensor values changing
-- Dashboard updating in real time
-
-### 3. Select `RUNNING`
-
-Show:
-
-- Increased motion
-- Increased heart rate
-- Activity recognition
-- Sensor-fusion response
-
-### 4. Select `FALL`
-
-This is the main emergency demonstration.
-
-Show:
+When the physical SafeBand stack is ready, the next major dataset becomes our own synchronized multimodal recording:
 
 ```text
-FALL
- ↓
-Abnormal Motion
- ↓
-Abnormal Orientation
- ↓
-Sensor Fusion
- ↓
-Risk Engine
- ↓
-EMERGENCY
+timestamp
+├── BNO055
+├── MAX30102
+├── BME680
+├── INMP441
+└── GPS
 ```
 
-Then show the alert, location, cellular status and cloud synchronization.
-
-### 5. Select `SOS`
-
-Demonstrate the independent manual emergency path:
+Those recordings will allow us to study:
 
 ```text
-Manual SOS
- ↓
-Emergency Alert
- ↓
-Location Information
- ↓
-EC200U Transmission
- ↓
-Cloud Event
-```
-
-### 6. Show Charts and History
-
-Scroll down to demonstrate:
-
-- Heart-rate trend
-- SpO₂ trend
-- Temperature trend
-- Motion trend
-- Risk-score trend
-- Alert/event history
-
----
-
-## 12. Prototype Architecture vs Final System
-
-### Current prototype
-
-```text
-Simulated Sensors
-       ↓
-Rule-Based Processing
-       ↓
-Sensor Fusion
-       ↓
-Risk Engine
-       ↓
-Simulated Communication
-       ↓
-Streamlit Dashboard
-```
-
-### Intended final system
-
-```text
-Real Sensors
-       ↓
-ESP32-S3
-       ↓
-AI / TinyML Models
-       ↓
-Multi-Sensor Fusion
-       ↓
-Risk Assessment
-       ↓
-EC200U / Network
-       ↓
-Cloud Backend
-       ↓
-Caregiver / Emergency Response
-```
-
-The prototype intentionally keeps these layers modular so that simulation components can be replaced progressively with real sensor drivers, trained AI models and production communication services.
-
----
-
-## 13. Development Roadmap
-
-### Phase 1 — Software Prototype
-
-- [x] Project architecture
-- [x] Simulated sensor interfaces
-- [x] Demonstration scenarios
-- [x] Activity recognition
-- [x] Sensor fusion
-- [x] Risk engine
-- [x] Alert manager
-- [x] GPS simulation
-- [x] Cellular simulation
-- [x] Cloud simulation
-- [x] Real-time dashboard
-- [x] Charts and event history
-
-### Phase 2 — Hardware Integration
-
-- [ ] ESP32-S3
-- [ ] MAX30102
-- [ ] BNO055
-- [ ] BME680
-- [ ] INMP441
-- [ ] GPS/GNSS
-- [ ] EC200U
-- [ ] Battery/power subsystem
-
-### Phase 3 — Real Data & AI
-
-- [ ] Collect real sensor data
-- [ ] Build labeled activity dataset
-- [ ] Collect fall/emergency-event data
-- [ ] Train activity-recognition model
-- [ ] Train/validate fall-detection model
-- [ ] Evaluate sensor-fusion strategy
-- [ ] Optimize models for TinyML/edge execution
-
-### Phase 4 — Communication & Cloud
-
-- [ ] Real cellular communication
-- [ ] Production cloud backend
-- [ ] Real-time event synchronization
-- [ ] Caregiver notification service
-- [ ] Emergency location sharing
-- [ ] Persistent event database
-
-### Phase 5 — Validation
-
-- [ ] Sensor calibration
-- [ ] Hardware testing
-- [ ] Battery testing
-- [ ] Wearability testing
-- [ ] False-positive evaluation
-- [ ] False-negative evaluation
-- [ ] Field testing
-- [ ] End-to-end validation
-
----
-
-## 14. Prototype Limitations
-
-This version is a **demonstration prototype**, not a production safety or medical device.
-
-The current system uses:
-
-- Simulated sensor readings
-- Predefined demonstration scenarios
-- Rule-based AI/risk logic
-- Simulated cellular communication
-- Simulated cloud storage
-
-Before real-world deployment, the system will require real sensor data, hardware validation, model training, calibration, reliability testing, false-alert analysis, power optimization and field validation.
-
----
-
-## 15. Future Integration Concept
-
-The important design principle is that the application is **hardware-agnostic at the processing layer**.
-
-For example:
-
-```text
-Current:
-MAX30102 Interface
+Activity
+   +
+Motion event
+   +
+Physiological state
+   +
+Environmental state
+   +
+Acoustic event
+   +
+Temporal context
         ↓
-Simulated Reading
+   SENSOR FUSION
         ↓
-AI Pipeline
+    RISK ENGINE
+        ↓
+ SAFE / WARNING / EMERGENCY
 ```
 
-can later become:
-
-```text
-Real MAX30102
-        ↓
-ESP32-S3
-        ↓
-Real Sensor Reading
-        ↓
-Same AI Pipeline
-```
-
-The same principle applies to the BNO055, BME680, INMP441, GPS and EC200U modules.
-
----
-
-## 16. Project Vision
-
-SAFEBAND AI is intended to evolve from this prototype into an intelligent wearable safety platform capable of:
-
-```text
-SENSE
-  ↓
-UNDERSTAND
-  ↓
-FUSE
-  ↓
-ASSESS
-  ↓
-ALERT
-  ↓
-RESPOND
-```
-
-The long-term goal is to move from simple threshold-based monitoring toward an adaptive AI-driven safety system using real-world data and edge intelligence.
-
----
-
-## 17. Prototype Status
-
-```text
-┌─────────────────────────────────────────┐
-│          SAFEBAND AI PROTOTYPE          │
-├─────────────────────────────────────────┤
-│ Sensor Simulation          ✓            │
-│ Activity Recognition       ✓            │
-│ Sensor Fusion              ✓            │
-│ Risk Assessment            ✓            │
-│ Emergency Detection        ✓            │
-│ GPS Simulation             ✓            │
-│ Cellular Simulation        ✓            │
-│ Cloud Simulation           ✓            │
-│ Dashboard                  ✓            │
-│ Real Hardware              → Next Phase │
-│ Real Dataset               → Next Phase │
-│ Trained TinyML Model       → Next Phase │
-└─────────────────────────────────────────┘
-```
-
-**SAFEBAND AI — Intelligent Safety Monitoring, Anywhere.**
+That is the point at which SafeBand AI moves from independent sensor benchmarks to its actual research objective: **multimodal safety-event detection with false-alarm reduction.**

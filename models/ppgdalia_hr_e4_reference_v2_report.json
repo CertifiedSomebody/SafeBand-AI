@@ -1,0 +1,139 @@
+{
+  "dataset": {
+    "windows": 64697,
+    "subjects": 15,
+    "bvp_shape": [
+      64697,
+      512
+    ],
+    "acc_shape": [
+      64697,
+      256,
+      3
+    ],
+    "bvp_fs_hz": 64.0,
+    "acc_fs_hz": 32.0
+  },
+  "split": {
+    "method": "deterministic_subject_level_60_20_20",
+    "train_subjects": [
+      "S1",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S2",
+      "S3"
+    ],
+    "validation_subjects": [
+      "S4",
+      "S5",
+      "S6"
+    ],
+    "test_subjects": [
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "train_windows": 39872,
+    "validation_windows": 11843,
+    "test_windows": 12982,
+    "subject_overlap": false
+  },
+  "validation": {
+    "ridge": {
+      "n": 11843,
+      "mae_bpm": 14.661002288846705,
+      "rmse_bpm": 20.321254312947183,
+      "r2": 0.3471005268075359,
+      "within_3_bpm_pct": 16.86228151650764,
+      "within_5_bpm_pct": 27.433927214388248,
+      "within_10_bpm_pct": 48.36612344845056,
+      "bias_bpm": -12.392166247211234
+    },
+    "rf": {
+      "n": 11843,
+      "mae_bpm": 12.001073209689858,
+      "rmse_bpm": 19.710852989028375,
+      "r2": 0.3857344858761479,
+      "within_3_bpm_pct": 37.61715781474288,
+      "within_5_bpm_pct": 49.26961074052183,
+      "within_10_bpm_pct": 64.62889470573334,
+      "bias_bpm": -9.516529130383207
+    },
+    "extra_trees": {
+      "n": 11843,
+      "mae_bpm": 11.9131593537276,
+      "rmse_bpm": 19.616508839134145,
+      "r2": 0.39160066183595654,
+      "within_3_bpm_pct": 37.84514058937769,
+      "within_5_bpm_pct": 49.970446677362155,
+      "within_10_bpm_pct": 64.91598412564385,
+      "bias_bpm": -9.565924418931091
+    },
+    "hgb": {
+      "n": 11843,
+      "mae_bpm": 12.397112093972147,
+      "rmse_bpm": 19.923126213251365,
+      "r2": 0.37243275398508324,
+      "within_3_bpm_pct": 34.80537026091362,
+      "within_5_bpm_pct": 46.80401925187875,
+      "within_10_bpm_pct": 62.973908638014024,
+      "bias_bpm": -9.595300312738432
+    }
+  },
+  "selected_model": "extra_trees",
+  "held_out_test": {
+    "n": 12982,
+    "mae_bpm": 7.631162147099823,
+    "rmse_bpm": 12.330143537346371,
+    "r2": 0.5437721657569315,
+    "within_3_bpm_pct": 43.00570020027731,
+    "within_5_bpm_pct": 57.22538900015406,
+    "within_10_bpm_pct": 74.81127715298105,
+    "bias_bpm": 3.8600761176641774
+  },
+  "model_artifact": "models\\ppgdalia_hr_e4_reference_v2.joblib",
+  "feature_names": [
+    "acc_diff_abs_mean",
+    "acc_diff_std",
+    "acc_dynamic_energy",
+    "acc_dynamic_std",
+    "acc_fs",
+    "acc_mag_mean",
+    "acc_mag_range",
+    "acc_mag_rms",
+    "acc_mag_std",
+    "autocorr_hr",
+    "autocorr_strength",
+    "candidate_hr_median",
+    "candidate_hr_spread",
+    "dom_bpm",
+    "fund_power_frac",
+    "harmonic_ratio",
+    "ibi_median",
+    "ibi_std",
+    "low_high_ratio",
+    "peak_count",
+    "peak_hr",
+    "peak_prom_median",
+    "peak_regularity",
+    "ppg_diff_abs_mean",
+    "ppg_diff_std",
+    "ppg_iqr",
+    "ppg_kurt_proxy",
+    "ppg_ptp",
+    "ppg_rms",
+    "ppg_skew_proxy",
+    "spec_entropy"
+  ],
+  "notes": [
+    "Enhanced representation uses normalized PPG morphology, zero-padded spectral localization, autocorrelation, peak/IBI quality, and wrist-ACC motion features.",
+    "Feature imputation is fit inside the training pipeline only.",
+    "Final model is refit on train+validation after selection.",
+    "Test subjects are never used for model selection.",
+    "PPG-DaLiA is Empatica E4 BVP; this is not a MAX30102 deployment claim."
+  ]
+}

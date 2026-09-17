@@ -106,6 +106,7 @@ MAX_BODY_TEMPERATURE = 45.0
 
 MIN_ENVIRONMENTAL_TEMPERATURE = -40.0
 MAX_ENVIRONMENTAL_TEMPERATURE = 85.0
+DEFAULT_GAS_RESISTANCE_OHMS = 500000.0
 
 MIN_ORIENTATION = -180.0
 MAX_ORIENTATION = 180.0
@@ -719,6 +720,23 @@ class SimulatedSensorData:
         )
 
     # ========================================================
+    # BME680 - GAS RESISTANCE
+    # ========================================================
+
+    def _simulate_gas_resistance(self) -> float:
+        """Generate simulated BME680 gas resistance for the common contract."""
+        base = self._base_value("gas_resistance_ohms", DEFAULT_GAS_RESISTANCE_OHMS)
+        variation = {
+            "NORMAL": 12000.0,
+            "WALKING": 14000.0,
+            "RUNNING": 16000.0,
+            "FALL": 18000.0,
+            "HIGH_RISK": 22000.0,
+            "SOS": 12000.0,
+        }.get(self.current_scenario, 14000.0)
+        return round(max(1000.0, self._noise(base, variation)), 2)
+
+    # ========================================================
     # GPS
     # ========================================================
 
@@ -902,6 +920,12 @@ class SimulatedSensorData:
             "pressure": (
                 self._simulate_pressure()
             ),
+
+            "gas_resistance_ohms": (
+                self._simulate_gas_resistance()
+            ),
+
+            "heat_stable": True,
 
             # ------------------------------------------------
             # INMP441

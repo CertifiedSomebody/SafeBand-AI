@@ -105,8 +105,19 @@ AI_MODEL_ENABLED = False
 # When enabled, activity_recognition.py attempts ML inference and
 # falls back to the existing rule-based recognizer if the model is
 # unavailable or the input window is insufficient.
-AI_MODEL_PATH = BASE_DIR / "models" / "activity_model.joblib"
-AI_FALL_MODEL_PATH = BASE_DIR / "models" / "fall_detector.joblib"
+AI_MODEL_PATH = BASE_DIR / "models" / "activity_bits2_v2" / "activity_model.joblib"
+AI_FALL_MODEL_PATH = BASE_DIR / "models" / "activity_bits2_v2" / "fall_detector.joblib"
+AI_AUDIO_MODEL_ENABLED = False
+AI_AUDIO_MODEL_PATH = BASE_DIR / "models" / "audio_event_v1" / "audio_event_model.joblib"
+AI_AUDIO_MODEL_VERSION = "untrained"
+AI_AUDIO_CONFIDENCE_THRESHOLD = 0.75
+AI_AUDIO_SAMPLE_RATE_HZ = 16000
+AI_AUDIO_WINDOW_SECONDS = 2.0
+AI_AUDIO_MIN_WINDOW_SAMPLES = 16000
+
+AI_BME680_MODEL_ENABLED = False
+AI_BME680_MODEL_PATH = BASE_DIR / "models" / "bme680_airwise_v1" / "bme680_airwise_v1.joblib"
+AI_BME680_MODEL_VERSION = "bme680_airwise_v1"
 AI_MODEL_NAME = "SafeBand Activity Model"
 AI_MODEL_VERSION = "untrained"
 AI_MODEL_TYPE = "sklearn"
@@ -343,6 +354,7 @@ RISK_LEVELS: Dict[str, Dict[str, Any]] = {
 # ============================================================
 
 SUPPORTED_ACTIVITIES = [
+    "RESTING",
     "SITTING",
     "STANDING",
     "WALKING",

@@ -1,0 +1,163 @@
+{
+  "dataset": "datasets/processed/forth_trace/transition_aware_features.csv",
+  "sensor": "dev1 left wrist",
+  "sample_rate_hz": 51.2,
+  "subjects": [
+    "0",
+    "1",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "feature_count": 279,
+  "validation_models": {
+    "extra_trees": {
+      "accuracy": 0.9598958333333333,
+      "balanced_accuracy": 0.8656963076856632,
+      "macro_f1": 0.8964327261809277
+    },
+    "random_forest": {
+      "accuracy": 0.9588541666666667,
+      "balanced_accuracy": 0.8706549192798191,
+      "macro_f1": 0.9027267392117821
+    },
+    "hist_gradient_boosting": {
+      "accuracy": 0.9645833333333333,
+      "balanced_accuracy": 0.8750460917091137,
+      "macro_f1": 0.8994890098088526
+    },
+    "rbf_svm": {
+      "accuracy": 0.9598958333333333,
+      "balanced_accuracy": 0.874825787399067,
+      "macro_f1": 0.8873868475038446
+    }
+  },
+  "selected_model": "random_forest",
+  "test": {
+    "accuracy": 0.9715173485240808,
+    "balanced_accuracy": 0.908174052763256,
+    "macro_f1": 0.9320578907644
+  },
+  "classification_report": {
+    "SITTING": {
+      "precision": 0.9819819819819819,
+      "recall": 1.0,
+      "f1-score": 0.990909090909091,
+      "support": 436.0
+    },
+    "STAIRS": {
+      "precision": 0.9425287356321839,
+      "recall": 0.973293768545994,
+      "f1-score": 0.9576642335766423,
+      "support": 337.0
+    },
+    "STANDING": {
+      "precision": 0.9665871121718377,
+      "recall": 0.9902200488997555,
+      "f1-score": 0.9782608695652174,
+      "support": 409.0
+    },
+    "TRANSITION": {
+      "precision": 1.0,
+      "recall": 0.6153846153846154,
+      "f1-score": 0.7619047619047619,
+      "support": 39.0
+    },
+    "WALKING": {
+      "precision": 0.9813218390804598,
+      "recall": 0.9619718309859155,
+      "f1-score": 0.9715504978662873,
+      "support": 710.0
+    },
+    "accuracy": 0.9715173485240808,
+    "macro avg": {
+      "precision": 0.9744839337732927,
+      "recall": 0.908174052763256,
+      "f1-score": 0.9320578907644,
+      "support": 1931.0
+    },
+    "weighted avg": {
+      "precision": 0.9719569977615734,
+      "recall": 0.9715173485240808,
+      "f1-score": 0.9706851606438196,
+      "support": 1931.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      436,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      328,
+      0,
+      0,
+      9
+    ],
+    [
+      0,
+      0,
+      405,
+      0,
+      4
+    ],
+    [
+      8,
+      1,
+      6,
+      24,
+      0
+    ],
+    [
+      0,
+      19,
+      8,
+      0,
+      683
+    ]
+  ],
+  "labels": [
+    "SITTING",
+    "STAIRS",
+    "STANDING",
+    "TRANSITION",
+    "WALKING"
+  ],
+  "split": {
+    "train_subjects": [
+      "1",
+      "10",
+      "13",
+      "14",
+      "2",
+      "3",
+      "7",
+      "8",
+      "9"
+    ],
+    "validation_subjects": [
+      "11",
+      "12",
+      "5"
+    ],
+    "test_subjects": [
+      "0",
+      "4",
+      "6"
+    ]
+  }
+}

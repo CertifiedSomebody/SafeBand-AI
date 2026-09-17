@@ -1,0 +1,152 @@
+{
+  "schema": {
+    "original_windows": 64697,
+    "evaluated_windows": 3000,
+    "original_subjects": [
+      "S1",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "evaluated_subjects": [
+      "S1",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "bvp_shape": [
+      3000,
+      512
+    ],
+    "acc_shape": [
+      3000,
+      256,
+      3
+    ],
+    "bvp_fs_hz": 64.0,
+    "acc_fs_hz": 32.0,
+    "window_sec": 8.0,
+    "shift_sec": 2.0,
+    "target": "ECG-derived HR label"
+  },
+  "smoke_sampling": {
+    "enabled": true,
+    "requested_windows": 3000,
+    "method": "approximately equal windows per subject, evenly spaced within subject"
+  },
+  "split": {
+    "method": "subject_level_deterministic_60_20_20",
+    "train_subjects": [
+      "S1",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S2",
+      "S3"
+    ],
+    "validation_subjects": [
+      "S4",
+      "S5",
+      "S6"
+    ],
+    "test_subjects": [
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "train_windows": 1800,
+    "validation_windows": 600,
+    "test_windows": 600,
+    "subject_overlap": false
+  },
+  "validation_model_selection": {
+    "ridge": {
+      "n": 600,
+      "mae_bpm": 16.691860898335776,
+      "rmse_bpm": 21.742785962499493,
+      "r2": 0.24824412816980745
+    },
+    "rf": {
+      "n": 600,
+      "mae_bpm": 15.875367124150044,
+      "rmse_bpm": 22.632129916000896,
+      "r2": 0.1854883459568597
+    },
+    "extra_trees": {
+      "n": 600,
+      "mae_bpm": 16.595847583685277,
+      "rmse_bpm": 23.00732507220697,
+      "r2": 0.15825856672799976
+    }
+  },
+  "selected_model": "rf",
+  "test": {
+    "bvp_fft": {
+      "n": 600,
+      "mae_bpm": 13.44234676361084,
+      "rmse_bpm": 21.492945068247664,
+      "r2": -0.41056289884969854
+    },
+    "bvp_peaks": {
+      "n": 600,
+      "mae_bpm": 14.208588217064165,
+      "rmse_bpm": 20.746041325359602,
+      "r2": -0.3142290919598101
+    },
+    "ml_selected": {
+      "n": 600,
+      "mae_bpm": 10.080787464790868,
+      "rmse_bpm": 15.125334323008344,
+      "r2": 0.3014289802104413
+    }
+  },
+  "feature_names": [
+    "acc_diff_abs_mean",
+    "acc_diff_std",
+    "acc_energy",
+    "acc_fs",
+    "acc_mag_mean",
+    "acc_mag_range",
+    "acc_mag_rms",
+    "acc_mag_std",
+    "ppg_abs_diff_mean",
+    "ppg_iqr",
+    "ppg_p90_p10",
+    "ppg_range",
+    "ppg_std",
+    "fft_bpm",
+    "peaks_bpm"
+  ],
+  "notes": [
+    "PPG-DaLiA wrist optical data is Empatica E4 BVP, not MAX30102 raw optical data.",
+    "This is a methodology benchmark, not a MAX30102 performance claim.",
+    "Smoke-test metrics must not be used as research results.",
+    "The final full benchmark uses all available windows with subject-level splitting.",
+    "The held-out test subjects are never used for model selection."
+  ]
+}

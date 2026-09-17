@@ -1,0 +1,114 @@
+{
+  "experiment": "SafeBand HR Temporal V4 Optimized",
+  "dataset": {
+    "windows": 64697,
+    "subjects": 15,
+    "bvp_fs_hz": 64.0,
+    "acc_fs_hz": 32.0,
+    "window_sec": 8.0,
+    "shift_sec": 2.0
+  },
+  "split": {
+    "method": "deterministic_subject_level_60_20_20",
+    "train_subjects": [
+      "S1",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S2",
+      "S3"
+    ],
+    "validation_subjects": [
+      "S4",
+      "S5",
+      "S6"
+    ],
+    "test_subjects": [
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "train_windows": 39872,
+    "validation_windows": 11843,
+    "test_windows": 12982,
+    "subject_overlap": false
+  },
+  "feature_contract": {
+    "source": "loaded V2 model artifact",
+    "count": 31,
+    "verified": true,
+    "cache": "datasets\\processed\\ppgdalia_windows_v2features.npz"
+  },
+  "validation_selection": {
+    "selector_model": "V2-compatible TRAIN-only model, max 150 trees",
+    "raw_ml": {
+      "n": 11843,
+      "mae_bpm": 12.031167766325598,
+      "rmse_bpm": 19.72424819715643,
+      "r2": 0.3848993104223618,
+      "accuracy_within_1_bpm_pct": 16.456978806045765,
+      "accuracy_within_3_bpm_pct": 37.43139407244786,
+      "accuracy_within_5_bpm_pct": 49.30338596639365,
+      "accuracy_within_10_bpm_pct": 64.45157476990627,
+      "bias_bpm": -9.644454474066414
+    },
+    "temporal_fused": {
+      "n": 11843,
+      "mae_bpm": 12.077496927035854,
+      "rmse_bpm": 18.998075710294057,
+      "r2": 0.42935696019042513,
+      "accuracy_within_1_bpm_pct": 12.294182217343579,
+      "accuracy_within_3_bpm_pct": 31.486954319007012,
+      "accuracy_within_5_bpm_pct": 44.26243350502406,
+      "accuracy_within_10_bpm_pct": 62.737482056911254,
+      "bias_bpm": -9.76910316857161
+    },
+    "history": 5,
+    "max_change_bpm_per_sec": 8.0
+  },
+  "held_out_test": {
+    "raw_v2": {
+      "n": 12982,
+      "mae_bpm": 8.143645311589369,
+      "rmse_bpm": 12.950513414075434,
+      "r2": 0.4967086279548176,
+      "accuracy_within_1_bpm_pct": 18.31767062085965,
+      "accuracy_within_3_bpm_pct": 41.1723925435218,
+      "accuracy_within_5_bpm_pct": 54.9221999691881,
+      "accuracy_within_10_bpm_pct": 72.43876136188568,
+      "bias_bpm": 4.729882146790623
+    },
+    "temporal_fused": {
+      "n": 12982,
+      "mae_bpm": 7.730448226731648,
+      "rmse_bpm": 11.405598793981962,
+      "r2": 0.6096252720782769,
+      "accuracy_within_1_bpm_pct": 13.672777692189186,
+      "accuracy_within_3_bpm_pct": 35.98829148051148,
+      "accuracy_within_5_bpm_pct": 50.27730704051764,
+      "accuracy_within_10_bpm_pct": 73.43244492374056,
+      "bias_bpm": 3.905659376428787
+    }
+  },
+  "improvement_vs_raw": {
+    "mae_delta_bpm": -0.4131970848577211,
+    "rmse_delta_bpm": -1.544914620093472,
+    "accuracy_within_5_delta_pp": -4.644892928670458
+  },
+  "notes": [
+    "Feature extraction is cached.",
+    "Candidate extraction is cached.",
+    "Only one TRAIN-only selector model is fitted.",
+    "Temporal configurations reuse the same validation predictions.",
+    "Temporal parameters are selected using validation subjects only.",
+    "The supplied V2 artifact is used unchanged for held-out test.",
+    "Subject state resets independently.",
+    "Accuracy is reported as tolerance accuracy within BPM.",
+    "MAE, RMSE and R2 are also reported.",
+    "PPG-DaLiA is Empatica E4 BVP.",
+    "This is not a MAX30102 performance claim."
+  ]
+}

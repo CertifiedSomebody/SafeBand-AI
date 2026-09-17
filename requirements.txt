@@ -5,3 +5,5 @@ numpy
 scikit-learn
 joblib
 smbus2
+scipy
+wfdb

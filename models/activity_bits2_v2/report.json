@@ -1,0 +1,466 @@
+{
+  "version": "SafeBand BITS-2 Motion V2",
+  "input": "datasets\\processed\\bits2\\activity_windows.csv",
+  "feature_count": 38,
+  "features": [
+    "ax_mean",
+    "ax_std",
+    "ax_min",
+    "ax_max",
+    "ax_rms",
+    "ay_mean",
+    "ay_std",
+    "ay_min",
+    "ay_max",
+    "ay_rms",
+    "az_mean",
+    "az_std",
+    "az_min",
+    "az_max",
+    "az_rms",
+    "acc_mag_mean",
+    "acc_mag_std",
+    "acc_mag_min",
+    "acc_mag_max",
+    "acc_mag_rms",
+    "acc_mag_p10",
+    "acc_mag_p25",
+    "acc_mag_p50",
+    "acc_mag_p75",
+    "acc_mag_p90",
+    "acc_sma",
+    "acc_range",
+    "acc_jerk_mean",
+    "acc_jerk_std",
+    "acc_jerk_max",
+    "acc_diff_energy",
+    "acc_zero_crossings",
+    "acc_x_y_corr",
+    "acc_x_z_corr",
+    "acc_y_z_corr",
+    "acc_fft_low",
+    "acc_fft_mid",
+    "acc_fft_high"
+  ],
+  "window_samples": 40,
+  "assumed_sample_rate_hz": 20,
+  "notes": [
+    "BITS-2 has no clean STANDING class.",
+    "Activity and fall tasks are trained separately."
+  ],
+  "activity": {
+    "selected_model": "extra_trees",
+    "validation": {
+      "logistic": {
+        "accuracy": 0.7876543209876543,
+        "balanced_accuracy": 0.7483529172317006,
+        "macro_precision": 0.7292848381473602,
+        "macro_recall": 0.7483529172317006,
+        "macro_f1": 0.7367640313039725,
+        "confusion_matrix": [
+          [
+            143,
+            0,
+            44,
+            11
+          ],
+          [
+            0,
+            417,
+            2,
+            31
+          ],
+          [
+            89,
+            0,
+            141,
+            36
+          ],
+          [
+            7,
+            21,
+            103,
+            575
+          ]
+        ]
+      },
+      "rf": {
+        "accuracy": 0.8407407407407408,
+        "balanced_accuracy": 0.8033729529420598,
+        "macro_precision": 0.8159072573220633,
+        "macro_recall": 0.8033729529420598,
+        "macro_f1": 0.8050057324358,
+        "confusion_matrix": [
+          [
+            129,
+            0,
+            59,
+            10
+          ],
+          [
+            0,
+            416,
+            1,
+            33
+          ],
+          [
+            25,
+            0,
+            205,
+            36
+          ],
+          [
+            6,
+            15,
+            73,
+            612
+          ]
+        ]
+      },
+      "extra_trees": {
+        "accuracy": 0.845679012345679,
+        "balanced_accuracy": 0.807780193896192,
+        "macro_precision": 0.8233624986605127,
+        "macro_recall": 0.807780193896192,
+        "macro_f1": 0.8102328327372867,
+        "confusion_matrix": [
+          [
+            129,
+            0,
+            60,
+            9
+          ],
+          [
+            0,
+            418,
+            1,
+            31
+          ],
+          [
+            21,
+            0,
+            207,
+            38
+          ],
+          [
+            7,
+            9,
+            74,
+            616
+          ]
+        ]
+      },
+      "hgb": {
+        "accuracy": 0.8277777777777777,
+        "balanced_accuracy": 0.8078664630930921,
+        "macro_precision": 0.7938339905072178,
+        "macro_recall": 0.8078664630930921,
+        "macro_f1": 0.7972913207262033,
+        "confusion_matrix": [
+          [
+            138,
+            0,
+            53,
+            7
+          ],
+          [
+            1,
+            423,
+            1,
+            25
+          ],
+          [
+            28,
+            1,
+            209,
+            28
+          ],
+          [
+            19,
+            38,
+            78,
+            571
+          ]
+        ]
+      }
+    },
+    "held_out_test": {
+      "accuracy": 0.8282420749279539,
+      "balanced_accuracy": 0.8073691621526935,
+      "macro_precision": 0.8111885740546732,
+      "macro_recall": 0.8073691621526935,
+      "macro_f1": 0.8087559841922258,
+      "confusion_matrix": [
+        [
+          182,
+          0,
+          66,
+          0
+        ],
+        [
+          0,
+          529,
+          11,
+          35
+        ],
+        [
+          55,
+          0,
+          288,
+          56
+        ],
+        [
+          1,
+          13,
+          61,
+          438
+        ]
+      ]
+    },
+    "labels": [
+      "RESTING",
+      "RUNNING",
+      "SITTING",
+      "WALKING"
+    ],
+    "confusion_matrix": [
+      [
+        182,
+        0,
+        66,
+        0
+      ],
+      [
+        0,
+        529,
+        11,
+        35
+      ],
+      [
+        55,
+        0,
+        288,
+        56
+      ],
+      [
+        1,
+        13,
+        61,
+        438
+      ]
+    ],
+    "split": {
+      "train_subjects": [
+        "1",
+        "11",
+        "12",
+        "14",
+        "15",
+        "16",
+        "18",
+        "19",
+        "2",
+        "23",
+        "24",
+        "26",
+        "28",
+        "29",
+        "30",
+        "33",
+        "34",
+        "35",
+        "39",
+        "4",
+        "40",
+        "5",
+        "6",
+        "7"
+      ],
+      "validation_subjects": [
+        "10",
+        "20",
+        "22",
+        "25",
+        "3",
+        "37",
+        "38",
+        "41"
+      ],
+      "test_subjects": [
+        "13",
+        "17",
+        "21",
+        "27",
+        "31",
+        "32",
+        "36",
+        "8",
+        "9"
+      ],
+      "train_windows": 4922,
+      "validation_windows": 1620,
+      "test_windows": 1735
+    }
+  },
+  "fall_detector": {
+    "selected_model": "extra_trees",
+    "validation": {
+      "logistic": {
+        "accuracy": 0.8070621468926553,
+        "balanced_accuracy": 0.8009162808641975,
+        "macro_precision": 0.8106963639061494,
+        "macro_recall": 0.8009162808641975,
+        "macro_f1": 0.803182702623148,
+        "confusion_matrix": [
+          [
+            1677,
+            243
+          ],
+          [
+            440,
+            1180
+          ]
+        ],
+        "fall_recall": 0.8734375
+      },
+      "rf": {
+        "accuracy": 0.8333333333333334,
+        "balanced_accuracy": 0.8255690586419753,
+        "macro_precision": 0.8427116950767831,
+        "macro_recall": 0.8255690586419753,
+        "macro_f1": 0.8288652238665086,
+        "confusion_matrix": [
+          [
+            1761,
+            159
+          ],
+          [
+            431,
+            1189
+          ]
+        ],
+        "fall_recall": 0.9171875
+      },
+      "extra_trees": {
+        "accuracy": 0.8355932203389831,
+        "balanced_accuracy": 0.8277970679012345,
+        "macro_precision": 0.8452547200862544,
+        "macro_recall": 0.8277970679012345,
+        "macro_f1": 0.8311539859781789,
+        "confusion_matrix": [
+          [
+            1766,
+            154
+          ],
+          [
+            428,
+            1192
+          ]
+        ],
+        "fall_recall": 0.9197916666666667
+      },
+      "hgb": {
+        "accuracy": 0.8288135593220339,
+        "balanced_accuracy": 0.8217399691358025,
+        "macro_precision": 0.8359049098493707,
+        "macro_recall": 0.8217399691358025,
+        "macro_f1": 0.8247043022965825,
+        "confusion_matrix": [
+          [
+            1738,
+            182
+          ],
+          [
+            424,
+            1196
+          ]
+        ],
+        "fall_recall": 0.9052083333333333
+      }
+    },
+    "held_out_test": {
+      "accuracy": 0.7842105263157895,
+      "balanced_accuracy": 0.7758750139966879,
+      "macro_precision": 0.7781552963076787,
+      "macro_recall": 0.7758750139966879,
+      "macro_f1": 0.7769131802965813,
+      "confusion_matrix": [
+        [
+          2017,
+          428
+        ],
+        [
+          474,
+          1261
+        ]
+      ],
+      "fall_recall": 0.8249488752556238
+    },
+    "labels": [
+      "FALL",
+      "NON_FALL"
+    ],
+    "confusion_matrix": [
+      [
+        2017,
+        428
+      ],
+      [
+        474,
+        1261
+      ]
+    ],
+    "split": {
+      "train_subjects": [
+        "1",
+        "11",
+        "12",
+        "14",
+        "15",
+        "16",
+        "18",
+        "19",
+        "2",
+        "23",
+        "24",
+        "26",
+        "28",
+        "29",
+        "30",
+        "33",
+        "34",
+        "35",
+        "39",
+        "4",
+        "40",
+        "5",
+        "6",
+        "7"
+      ],
+      "validation_subjects": [
+        "10",
+        "20",
+        "22",
+        "25",
+        "3",
+        "37",
+        "38",
+        "41"
+      ],
+      "test_subjects": [
+        "13",
+        "17",
+        "21",
+        "27",
+        "31",
+        "32",
+        "36",
+        "8",
+        "9"
+      ],
+      "train_windows": 11100,
+      "validation_windows": 3540,
+      "test_windows": 4180
+    }
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "direction": "FORTH_TRACE_TO_BITS2",
+  "source_rows": 8744,
+  "target_rows": 4276,
+  "source_subjects": [
+    "0",
+    "1",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "target_subjects": [
+    "1",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "2",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "3",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "4",
+    "40",
+    "41",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "classes": [
+    "SITTING",
+    "WALKING"
+  ],
+  "source_model_selection": [
+    {
+      "model": "extra_trees",
+      "accuracy_mean": 0.999886169607285,
+      "balanced_accuracy_mean": 0.9998493975903614,
+      "macro_f1_mean": 0.9998789173126535
+    },
+    {
+      "model": "random_forest",
+      "accuracy_mean": 0.9995381471770995,
+      "balanced_accuracy_mean": 0.9995161467788964,
+      "macro_f1_mean": 0.9995034886314045
+    },
+    {
+      "model": "rbf_svm",
+      "accuracy_mean": 0.999183593494873,
+      "balanced_accuracy_mean": 0.9988706047681755,
+      "macro_f1_mean": 0.9991138899902492
+    }
+  ],
+  "selected_model": "extra_trees",
+  "target_metrics": {
+    "accuracy": 0.4303086997193639,
+    "balanced_accuracy": 0.5195800315503706,
+    "macro_f1": 0.3716976283798211,
+    "confusion_matrix": [
+      [
+        1573,
+        107
+      ],
+      [
+        2329,
+        267
+      ]
+    ],
+    "classification_report": {
+      "SITTING": {
+        "precision": 0.40312660174269604,
+        "recall": 0.9363095238095238,
+        "f1-score": 0.5635972769616625,
+        "support": 1680.0
+      },
+      "WALKING": {
+        "precision": 0.713903743315508,
+        "recall": 0.10285053929121726,
+        "f1-score": 0.1797979797979798,
+        "support": 2596.0
+      },
+      "accuracy": 0.4303086997193639,
+      "macro avg": {
+        "precision": 0.558515172529102,
+        "recall": 0.5195800315503706,
+        "f1-score": 0.3716976283798211,
+        "support": 4276.0
+      },
+      "weighted avg": {
+        "precision": 0.5918023406395668,
+        "recall": 0.4303086997193639,
+        "f1-score": 0.33058909748623677,
+        "support": 4276.0
+      }
+    },
+    "majority_class": "WALKING",
+    "majority_baseline_accuracy": 0.6071094480823199,
+    "accuracy_delta_vs_majority_baseline": -0.176800748362956,
+    "chance_balanced_accuracy": 0.5,
+    "degenerate_single_class_prediction": false,
+    "predicted_class_counts": {
+      "SITTING": 3902,
+      "WALKING": 374
+    }
+  },
+  "interpretation_note": "Cross-domain metrics are evaluated on untouched target data. Accuracy must be read with balanced accuracy and macro-F1; majority-class and degenerate-prediction diagnostics are included to expose domain-shift collapse."
+}

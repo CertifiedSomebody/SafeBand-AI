@@ -1,0 +1,94 @@
+{
+  "csv": "D:\\Admin\\Downloads\\SafeBand-AI-main\\SafeBand-AI-main\\datasets\\raw\\PAMAP2\\dataset2.csv",
+  "columns": [
+    "activityID",
+    "heart_rate",
+    "hand temperature (\u00b0C)",
+    "hand acceleration X \u00b116g",
+    "hand acceleration Y \u00b116g",
+    "hand acceleration Z \u00b116g",
+    "hand gyroscope X",
+    "hand gyroscope Y",
+    "hand gyroscope Z",
+    "hand magnetometer X",
+    "hand magnetometer Y",
+    "hand magnetometer Z",
+    "chest temperature (\u00b0C)",
+    "chest acceleration X \u00b116g",
+    "chest acceleration Y \u00b116g",
+    "chest acceleration Z \u00b116g",
+    "chest gyroscope X",
+    "chest gyroscope Y",
+    "chest gyroscope Z",
+    "chest magnetometer X",
+    "chest magnetometer Y",
+    "chest magnetometer Z",
+    "ankle temperature (\u00b0C)",
+    "ankle acceleration X \u00b116g",
+    "ankle acceleration Y \u00b116g",
+    "ankle acceleration Z \u00b116g",
+    "ankle gyroscope X",
+    "ankle gyroscope Y",
+    "ankle gyroscope Z",
+    "ankle magnetometer X",
+    "ankle magnetometer Y",
+    "ankle magnetometer Z",
+    "PeopleId"
+  ],
+  "detected": {
+    "activity": "activityID",
+    "people": "PeopleId",
+    "hand_acc": [
+      "hand acceleration X \u00b116g",
+      "hand acceleration Y \u00b116g",
+      "hand acceleration Z \u00b116g"
+    ],
+    "hand_gyro": [
+      "hand gyroscope X",
+      "hand gyroscope Y",
+      "hand gyroscope Z"
+    ],
+    "hand_mag": [
+      "hand magnetometer X",
+      "hand magnetometer Y",
+      "hand magnetometer Z"
+    ]
+  },
+  "chunk_rows": 100000,
+  "people": {
+    "1": 376417,
+    "2": 447000,
+    "3": 252833,
+    "4": 329576,
+    "5": 374783,
+    "6": 361817,
+    "7": 313599,
+    "8": 408031
+  },
+  "activity_counts": {
+    "lying": 192523,
+    "sitting": 185188,
+    "standing": 189931,
+    "ironing": 238690,
+    "transient activities": 927575,
+    "vacuum cleaning": 175353,
+    "ascending stairs": 117216,
+    "descending stairs": 104944,
+    "walking": 238761,
+    "Nordic walking": 188107,
+    "cycling": 164600,
+    "running": 98199,
+    "rope jumping": 42969
+  },
+  "missing_required": {
+    "activityID": 0,
+    "PeopleId": 0,
+    "hand acceleration X \u00b116g": 0,
+    "hand acceleration Y \u00b116g": 0,
+    "hand acceleration Z \u00b116g": 0,
+    "hand gyroscope X": 0,
+    "hand gyroscope Y": 0,
+    "hand gyroscope Z": 0
+  },
+  "rows": 2864056
+}
