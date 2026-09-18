@@ -66,7 +66,7 @@ When the hardware stack is available:
 | Activity recognition | ✅ BITS2/FORTH/PAMAP2 + BNO055 synthetic benchmarks established |
 | BNO055 synthetic dataset | ✅ V2.1 frozen and audited |
 | BNO055 ML benchmark | ✅ RF + ACC/GYRO baseline; classical ML/DL comparison complete |
-| INMP441 audio intelligence | 🟡 Pipeline ready; dataset/training still pending |
+| INMP441 audio intelligence | ✅ Nonspeech7k V1/V2 benchmark + CNN benchmark + best-fit HGB model frozen |
 | Common sensor contracts | 🟡 Being hardened for hardware integration |
 | Sensor fusion | 🟡 Software prototype; multimodal validation requires synchronized SafeBand data |
 | Risk engine | 🟡 Prototype; final validation requires real hardware |
@@ -251,49 +251,137 @@ The next meaningful activity validation is **real BNO055 data**, not further syn
 
 The INMP441 is treated as a genuine sensing modality rather than a simple loudness threshold.
 
-The Phase-1 audio pipeline provides:
+### Phase-1 reference dataset
+
+**Nonspeech7k** is the current human non-speech/acoustic reference dataset.
+
+It provides seven event classes:
 
 ```text
+BREATH
+COUGH
+CRYING
+LAUGH
+SCREAMING
+SNEEZE
+YAWN
+```
+
+The approved clean training set contains:
+
+- **6,283 recordings**
+- **1,899 unique File-ID groups**
+- official **725-recording test set kept untouched**
+- train/test File-ID overlap quarantined before benchmarking
+
+The dataset is treated as a **reference acoustic-event benchmark**, not as a complete SafeBand emergency-audio dataset. Environmental events such as glass breaking, alarms, sirens and impacts still require additional data/domain validation.
+
+### Audio benchmark progression
+
+The audio branch was evaluated progressively rather than selecting a model from a single run.
+
+**V1 handcrafted features**
+
+Initial signal/statistical features established the baseline. The best completed V1 HGB result was approximately **67.29% accuracy**.
+
+**V2 time-frequency representation**
+
+The representation was expanded to:
+
+```text
+16 kHz mono
+    ↓
+64-bin log-mel
+    ↓
+20 MFCC
+    ↓
+MFCC delta
+    ↓
+MFCC delta²
+    ↓
+statistical summaries + RMS/ZCR
+```
+
+Leakage-safe evaluation used **5-fold StratifiedGroupKFold grouped by File ID**.
+
+The V2 HistGradientBoosting reference reached:
+
+- Accuracy: **83.40% pooled**
+- Balanced accuracy: **75.33% pooled**
+- Macro-F1: **77.19% pooled**
+
+### CNN benchmark
+
+A small log-mel CNN was also evaluated using the same grouped protocol.
+
+The corrected V3.1 result was:
+
+- Mean accuracy: **71.57% ± 5.22 pp**
+- Mean balanced accuracy: **70.47% ± 1.75 pp**
+- Mean Macro-F1: **64.97% ± 2.09 pp**
+
+The CNN was therefore retained as a documented deep-learning benchmark, but not selected as the primary reference model.
+
+### Best-fit model selection
+
+A final model-selection experiment compared multiple classical learners on the frozen V2 representation:
+
+```text
+V2 time-frequency features
+        ↓
+5-fold StratifiedGroupKFold
+grouped by File ID
+        ↓
+HGB / RBF-SVM / RF / Logistic Regression / Extra Trees
+        ↓
+select highest mean Macro-F1
+tie-break: balanced accuracy
+tie-break: accuracy
+```
+
+The selected model was **HistGradientBoosting**.
+
+Best-fit grouped-CV result:
+
+- Mean accuracy: **82.87% ± 3.35 pp**
+- Mean balanced accuracy: **74.56% ± 3.68 pp**
+- Mean Macro-F1: **76.62% ± 3.26 pp**
+- Pooled accuracy: **83.30%**
+- Pooled balanced accuracy: **74.97%**
+- Pooled Macro-F1: **77.17%**
+
+The selected HGB model was then refit on all **6,283 approved training recordings** and saved as:
+
+```text
+models/nonspeech7k_audio_bestfit_v1/
+└── nonspeech7k_audio_bestfit_model.joblib
+```
+
+The official 725-recording test set remains untouched.
+
+### Research positioning
+
+The final audio model is an **acoustic evidence source** for sensor fusion. It is not itself the final emergency decision-maker.
+
+Runtime concept:
+
+```text
+INMP441
+   ↓
 PCM audio
    ↓
-Windowing
+Frozen V2 feature extraction
    ↓
-Signal + spectral features
+Best-fit HGB
    ↓
-Audio event classifier
-   ↓
-event + confidence
+audio event + confidence
    ↓
 sensor fusion
 ```
 
 The runtime interface does **not** equate loudness with a scream, distress event or emergency.
 
-Audio training is intentionally dataset-driven. No synthetic scenario is accepted as training data.
-
-Expected training layout:
-
-```text
-datasets/raw/audio/
-├── CLASS_A/
-│   ├── subject01/
-│   │   └── *.wav
-│   └── subject02/
-│       └── *.wav
-├── CLASS_B/
-│   └── ...
-└── ...
-```
-
-Run:
-
-```powershell
-python tools\train_audio_model.py --input datasets/raw/audio
-```
-
-The training script enforces subject-disjoint train/validation/test evaluation.
-
----
+The next meaningful audio validation is **real INMP441 hardware/domain validation and expansion to environmental safety sounds**, rather than repeated optimization on Nonspeech7k.
 
 ## 6. BME680 AIRWISE
 
@@ -489,6 +577,7 @@ SafeBand-AI/
 │   ├── audio_features.py
 │   ├── ml_audio_model.py
 │   ├── audio_event_recognition.py
+│   ├── nonspeech7k_audio_bestfit.py
 │   ├── bme680_features.py
 │   ├── ml_bme680_model.py
 │   ├── ppg_v4_features.py
@@ -539,6 +628,7 @@ SafeBand-AI/
 11. Dataset archive extraction depth must not be assumed when robust discovery is possible.
 12. Sensor acquisition, feature extraction, ML inference, fusion and risk assessment remain separate layers.
 13. Final emergency behavior requires real SafeBand hardware validation.
+14. The frozen Nonspeech7k best-fit HGB artifact is a reference acoustic model; it is not a complete emergency classifier.
 
 ---
 

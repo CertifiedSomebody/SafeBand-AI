@@ -1,0 +1,82 @@
+{
+  "model_file": "models\\nonspeech7k_audio_final_v1\\nonspeech7k_audio_model.pt",
+  "training_samples": 6283,
+  "groups": 1899,
+  "epochs": 16,
+  "normalization_mean": -50.70343060645204,
+  "normalization_std": 18.37072462309731,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.508147221623045
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.2657174678763958
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.1743435793452792
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.0488231380780537
+    },
+    {
+      "epoch": 5,
+      "train_loss": 1.0104942803431038
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.9609239685415017
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.9323278280219647
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.8846410356386744
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.8577754274763242
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.8192698925432532
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.8141080261480929
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.7846276790204675
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.7701411891465235
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.7345885080520553
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.7341742160344364
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.6967424720224707
+    }
+  ],
+  "locked_v3_1_cv": {
+    "mean_accuracy": 0.715743246979729,
+    "mean_balanced_accuracy": 0.7046669739595138,
+    "mean_macro_f1": 0.6496588095637443,
+    "pooled_accuracy": 0.7252904663377368,
+    "pooled_balanced_accuracy": 0.7175890499177379,
+    "pooled_macro_f1": 0.6591197556329655
+  }
+}

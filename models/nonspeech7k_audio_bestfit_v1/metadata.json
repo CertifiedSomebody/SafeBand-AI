@@ -1,0 +1,82 @@
+{
+  "model_file": "models\\nonspeech7k_audio_bestfit_v1\\nonspeech7k_audio_bestfit_model.joblib",
+  "representation": "Nonspeech7k V2 time-frequency handcrafted features",
+  "training_samples": 6283,
+  "file_id_groups": 1899,
+  "labels": [
+    "breath",
+    "cough",
+    "crying",
+    "laugh",
+    "screaming",
+    "sneeze",
+    "yawn"
+  ],
+  "cv": "5-fold StratifiedGroupKFold grouped by file_id",
+  "selection_rule": "highest mean Macro-F1; tie-break balanced accuracy; tie-break accuracy",
+  "selected_model": "hgb",
+  "candidate_summary": [
+    {
+      "model": "hgb",
+      "mean_accuracy": 0.8287475847540449,
+      "std_accuracy": 0.03346585465449471,
+      "mean_balanced_accuracy": 0.7456238764993306,
+      "std_balanced_accuracy": 0.03681523874866854,
+      "mean_macro_f1": 0.7661687109505562,
+      "std_macro_f1": 0.03257532170743667,
+      "pooled_accuracy": 0.8330415406652872,
+      "pooled_balanced_accuracy": 0.7496812563958297,
+      "pooled_macro_f1": 0.7716972544502599
+    },
+    {
+      "model": "rbf_svm",
+      "mean_accuracy": 0.8118573025328637,
+      "std_accuracy": 0.03529028129199503,
+      "mean_balanced_accuracy": 0.742771222429784,
+      "std_balanced_accuracy": 0.04382323319672242,
+      "mean_macro_f1": 0.7487350900719882,
+      "std_macro_f1": 0.037571142919911336,
+      "pooled_accuracy": 0.8161706191309884,
+      "pooled_balanced_accuracy": 0.7481150797087962,
+      "pooled_macro_f1": 0.7541402697329761
+    },
+    {
+      "model": "rf",
+      "mean_accuracy": 0.7822783868480084,
+      "std_accuracy": 0.0454977439105635,
+      "mean_balanced_accuracy": 0.7104505015331586,
+      "std_balanced_accuracy": 0.048698346789589585,
+      "mean_macro_f1": 0.7164429045642978,
+      "std_macro_f1": 0.04730061182076682,
+      "pooled_accuracy": 0.7883176826356836,
+      "pooled_balanced_accuracy": 0.7156767731354706,
+      "pooled_macro_f1": 0.7228145451741101
+    },
+    {
+      "model": "logreg",
+      "mean_accuracy": 0.7586730098159287,
+      "std_accuracy": 0.04323364994276684,
+      "mean_balanced_accuracy": 0.7063704577219054,
+      "std_balanced_accuracy": 0.027499307465985973,
+      "mean_macro_f1": 0.6882920491082359,
+      "std_macro_f1": 0.025043536991314248,
+      "pooled_accuracy": 0.7652395352538596,
+      "pooled_balanced_accuracy": 0.7122286397210219,
+      "pooled_macro_f1": 0.6925118763541219
+    },
+    {
+      "model": "extratrees",
+      "mean_accuracy": 0.7741375410189851,
+      "std_accuracy": 0.0515887604543004,
+      "mean_balanced_accuracy": 0.6353563122084018,
+      "std_balanced_accuracy": 0.057989421039991364,
+      "mean_macro_f1": 0.6657218444820814,
+      "std_macro_f1": 0.062470355582523535,
+      "pooled_accuracy": 0.7802005411427662,
+      "pooled_balanced_accuracy": 0.6392367290822476,
+      "pooled_macro_f1": 0.6764464402030137
+    }
+  ],
+  "official_test_used": false,
+  "note": "Best-fit selection is an internal cross-validation model-selection result. The official 725-recording test set remains untouched."
+}

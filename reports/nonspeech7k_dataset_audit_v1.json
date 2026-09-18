@@ -1,0 +1,82 @@
+{
+  "dataset_root": "D:\\Admin\\Downloads\\SafeBand-AI-main\\SafeBand-AI-main\\datasets\\raw\\Nonspeech7k",
+  "train_metadata_rows": 6289,
+  "test_metadata_rows": 725,
+  "train_wav_files": 6289,
+  "test_wav_files": 725,
+  "errors": [],
+  "warnings": [
+    "Train/test share source+File ID groups; these groups must be excluded from training when preserving the official test set."
+  ],
+  "train_missing_wavs": [],
+  "train_extra_wavs": [],
+  "train_unknown_labels": [],
+  "train_class_counts": {
+    "breath": 1690,
+    "cough": 632,
+    "crying": 1791,
+    "laugh": 1133,
+    "screaming": 593,
+    "sneeze": 236,
+    "yawn": 214
+  },
+  "train_sources": {
+    "https://freesound.org/": 2935,
+    "https://aigei.com/": 1739,
+    "https://youtube.com/": 1615
+  },
+  "train_augmentation_ids": [
+    0
+  ],
+  "test_missing_wavs": [],
+  "test_extra_wavs": [],
+  "test_unknown_labels": [],
+  "test_class_counts": {
+    "breath": 160,
+    "cough": 70,
+    "crying": 205,
+    "laugh": 140,
+    "screaming": 70,
+    "sneeze": 30,
+    "yawn": 50
+  },
+  "test_sources": {
+    "https://freesound.org/": 725
+  },
+  "test_augmentation_ids": [
+    0
+  ],
+  "source_file_id_overlap_count": 4,
+  "source_file_id_overlaps": [
+    {
+      "source": "https://freesound.org/",
+      "file_id": "26219"
+    },
+    {
+      "source": "https://freesound.org/",
+      "file_id": "28100"
+    },
+    {
+      "source": "https://freesound.org/",
+      "file_id": "398551"
+    },
+    {
+      "source": "https://freesound.org/",
+      "file_id": "71691"
+    }
+  ],
+  "exact_filename_overlap_count": 0,
+  "train_duration_ms": {
+    "min": 510.0,
+    "median": 3990.0,
+    "max": 4000.0,
+    "nonfinite": 0
+  },
+  "test_duration_ms": {
+    "min": 520.0,
+    "median": 2968.0,
+    "max": 4000.0,
+    "nonfinite": 0
+  },
+  "status": "PASS"
+}
