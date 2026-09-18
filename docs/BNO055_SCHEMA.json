@@ -1,0 +1,35 @@
+{
+  "sensor": "Bosch BNO055",
+  "datasheet": "BST-BNO055-DS000-18, revision 1.8, October 2021",
+  "synthetic_stream_rate_hz": 100,
+  "engineering_units": {
+    "accelerometer": "m/s^2",
+    "gyroscope": "deg/s",
+    "magnetometer": "uT",
+    "euler": "deg",
+    "quaternion": "unitless",
+    "linear_acceleration": "m/s^2",
+    "gravity": "m/s^2",
+    "temperature": "degC"
+  },
+  "columns": {
+    "metadata": ["subject_id", "session_id", "timestamp_s", "activity_label"],
+    "raw_sensor": [
+      "accel_x_mps2", "accel_y_mps2", "accel_z_mps2",
+      "gyro_x_dps", "gyro_y_dps", "gyro_z_dps",
+      "mag_x_uT", "mag_y_uT", "mag_z_uT"
+    ],
+    "fusion": [
+      "euler_heading_deg", "euler_roll_deg", "euler_pitch_deg",
+      "quat_w", "quat_x", "quat_y", "quat_z",
+      "linear_accel_x_mps2", "linear_accel_y_mps2", "linear_accel_z_mps2",
+      "gravity_x_mps2", "gravity_y_mps2", "gravity_z_mps2"
+    ],
+    "temperature": ["temperature_c"]
+  },
+  "notes": [
+    "The CSV stores engineering-unit values, not raw register LSB values.",
+    "The simulator is intended for software integration and pipeline testing.",
+    "Synthetic distributions are scenario models and are not a replacement for measured BNO055 data."
+  ]
+}

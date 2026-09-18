@@ -1,0 +1,30 @@
+{
+  "version": "2.0",
+  "synthetic": true,
+  "sampling_hz": 100,
+  "raw_channels": [
+    "accel_x_mps2",
+    "accel_y_mps2",
+    "accel_z_mps2",
+    "gyro_x_dps",
+    "gyro_y_dps",
+    "gyro_z_dps",
+    "mag_x_uT",
+    "mag_y_uT",
+    "mag_z_uT"
+  ],
+  "activities": [
+    "FALL",
+    "LYING",
+    "RUNNING",
+    "SITTING",
+    "SIT_TO_STAND",
+    "STAIRS",
+    "STANDING",
+    "STAND_TO_SIT",
+    "WALKING"
+  ],
+  "window_shape": "(N, 9, 200)",
+  "label_column": "activity_label",
+  "group_column": "subject_id"
+}

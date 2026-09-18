@@ -55,3 +55,7 @@ logs/
 # OS
 .DS_Store
 Thumbs.db
+# Large generated BNO055 synthetic CSVs
+datasets/synthetic/bno055/bno055_synthetic_v1.csv
+datasets/synthetic/bno055/bno055_synthetic_v2.csv
+datasets/synthetic/bno055/bno055_synthetic_v2_1.csv
