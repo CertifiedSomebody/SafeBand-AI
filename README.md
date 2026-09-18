@@ -58,20 +58,25 @@ When the hardware stack is available:
 
 | Branch | Status |
 |---|---|
-| BITS-2/SisFall fall detection | ✅ Benchmark established |
+| BITS-2/SisFall fall detection | ✅ Multidataset benchmark + hard-negative/event pipeline |
 | PPG-DaLiA E4 HR reference | ✅ Frozen reference |
 | PTT/MAX30101 HR reference | ✅ V4.3 frozen |
 | Walking PPG stress experiment | ✅ V5.3 frozen |
-| BME680/AIRWISE IAQ | ✅ V1 frozen |
-| Activity recognition | 🟡 Benchmark pipeline ready; model training pending/optional |
-| INMP441 audio intelligence | 🟡 Feature/training/runtime pipeline ready |
+| BME680/AIRWISE IAQ | ✅ V1 frozen; V2.1 not retained as improvement |
+| Activity recognition | ✅ BITS2/FORTH/PAMAP2 + BNO055 synthetic benchmarks established |
+| BNO055 synthetic dataset | ✅ V2.1 frozen and audited |
+| BNO055 ML benchmark | ✅ RF + ACC/GYRO baseline; classical ML/DL comparison complete |
+| INMP441 audio intelligence | 🟡 Pipeline ready; dataset/training still pending |
 | Common sensor contracts | 🟡 Being hardened for hardware integration |
-| Sensor fusion | 🟡 Software prototype exists; final fusion requires synchronized SafeBand data |
-| Risk engine | 🟡 Prototype; hardware validation required |
-| ESP32-S3 TinyML deployment | ⏳ Phase 2 |
+| Sensor fusion | 🟡 Software prototype; multimodal validation requires synchronized SafeBand data |
+| Risk engine | 🟡 Prototype; final validation requires real hardware |
+| ESP32-S3 deployment | ⏳ Phase 2 |
+| Real BNO055 validation | ⏳ Phase 2 |
 | Real MAX30102 validation | ⏳ Phase 2 |
 | Real BME680 validation | ⏳ Phase 2 |
 | Real INMP441 validation | ⏳ Phase 2 |
+| GPS + EC200U integration | ⏳ Phase 2 |
+| MAX30205 body-temperature sensor | ❌ Removed from final PCB due to reliability/measurement concerns |
 
 ---
 
@@ -109,9 +114,11 @@ The Wrist PPG During Exercise experiment is retained as a cross-subject stress t
 
 ## 4. Activity Recognition
 
-The first learned activity benchmark is motion-first because the BITS-2 dataset provides suitable wrist accelerometer data without requiring artificial cross-sensor synchronization.
+Activity recognition has now been investigated across multiple public and synthetic datasets. It is treated as a **sensor-specific evidence source**, not the final SafeBand safety decision.
 
-The current learned activity set is:
+### BITS-2
+
+Reference activity set:
 
 ```text
 RESTING
@@ -120,21 +127,125 @@ WALKING
 RUNNING
 ```
 
-`FALL` is maintained as a separate binary detector.
+Strongest tested raw-window Tiny CNN result:
 
-`STANDING` is part of the runtime activity vocabulary, but BITS-2 does not provide a clean standing class. It must therefore be learned/validated from an appropriate dataset or SafeBand hardware recordings rather than fabricated by relabeling unrelated data.
+- Accuracy: **83.02%**
+- Balanced accuracy: **81.09%**
+- Macro-F1: **80.97%**
 
-Run:
+The recurring weakness is stationary-state ambiguity. `FALL` remains a separate binary emergency detector.
 
-```powershell
-python tools\prepare_bits2.py --zip datasets/raw/BITS-2/full_dataset.zip --out datasets/processed/bits2
-python tools\create_activity_windows.py --input datasets/processed/bits2/bits2_canonical_long.csv --out datasets/processed/bits2/activity_windows.csv
-python tools\train_activity_models.py --input datasets/processed/bits2/activity_windows.csv
+### FORTH-TRACE
+
+Locked four-class benchmark:
+
+```text
+SITTING
+STAIRS
+STANDING
+WALKING
 ```
 
-The resulting model is a **reference model**, not the final SafeBand hardware model.
+RBF-SVM result:
 
----
+- Accuracy: **98.20%**
+- Balanced accuracy: **98.31%**
+- Macro-F1: **98.19%**
+
+Cross-domain BITS-2 ↔ FORTH-TRACE testing demonstrated substantial domain shift, so within-dataset accuracy is not treated as universal deployment performance.
+
+### PAMAP2 stationary benchmark
+
+Hand/wrist ACC+GYRO benchmark for:
+
+```text
+LYING
+SITTING
+STANDING
+```
+
+Best completed pooled result:
+
+- Accuracy: **76.05%**
+- Balanced accuracy: **76.07%**
+- Macro-F1: **76.02%**
+
+Large subject variability reinforced the need for subject-independent evaluation and real SafeBand data.
+
+### BNO055 synthetic benchmark
+
+Frozen V2.1 benchmark:
+
+```text
+20 subjects
+40 sessions
+9 classes
+100 Hz
+5040 windows
+9 × 200 representation
+```
+
+Classes:
+
+```text
+FALL
+LYING
+RUNNING
+SITTING
+SIT_TO_STAND
+STAIRS
+STANDING
+STAND_TO_SIT
+WALKING
+```
+
+Random Forest sensor ablation:
+
+| Input | Accuracy | Macro-F1 |
+|---|---:|---:|
+| ACC | 69.38% | 69.27% |
+| **ACC + GYRO** | **72.54%** | **72.51%** |
+| ACC + GYRO + MAG | 72.10% | 71.87% |
+
+Classical ML on ACC+GYRO:
+
+| Model | Accuracy | Macro-F1 |
+|---|---:|---:|
+| Random Forest | **72.54%** | 72.51% |
+| HistGradientBoosting | 72.50% | **72.54%** |
+| Extra Trees | 71.53% | 71.40% |
+| Logistic Regression | 71.13% | 70.85% |
+| RBF SVM | 71.07% | 71.02% |
+| Linear SVM | 70.08% | 69.54% |
+| Decision Tree | 67.02% | 67.11% |
+| TCN | 63.27% | 62.99% |
+| CNN | 61.03% | 60.76% |
+| k-NN | 59.74% | 60.01% |
+
+Current synthetic BNO055 baseline: **ACC + GYRO → engineered features → Random Forest**. HistGradientBoosting is retained as a near-tied reference.
+
+The result is not a claim of 72.54% real-hardware accuracy. It establishes that GYRO adds useful information in the synthetic benchmark, while MAG did not improve this tested activity classifier.
+
+### Current direction
+
+The intended SafeBand vocabulary is hierarchical:
+
+```text
+ACTIVITY STATE
+├── STATIONARY
+│   ├── SITTING
+│   ├── STANDING
+│   └── LYING / SLEEPING
+├── DYNAMIC
+│   ├── WALKING
+│   ├── RUNNING
+│   └── STAIRS
+└── OTHER / UNKNOWN
+```
+
+`FALL` remains a separate emergency branch.
+
+The next meaningful activity validation is **real BNO055 data**, not further synthetic classifier tuning.
 
 ## 5. Audio / INMP441
 
@@ -254,22 +365,49 @@ The V5.3 walking experiment is frozen as a stress/generalization result.
 
 ## 8. Sensor Fusion
 
-The current fusion layer is intentionally a **software prototype**.
+Sensor fusion is the **central research objective** of SafeBand AI.
 
-It combines evidence from:
+Individual models provide evidence; the fusion layer combines heterogeneous evidence over time.
 
-- motion
-- physiological measurements
-- body temperature
-- environmental measurements
-- acoustic information
-- activity context
+```text
+BNO055
+├── activity evidence
+├── motion/posture evidence
+└── fall/emergency evidence
 
-GPS is retained as location information and is not itself treated as a safety evidence source.
+MAX30102
+├── heart rate
+├── SpO₂
+├── PPG-derived features
+└── physiological evidence
 
-The final fusion model should be trained/validated only after synchronized SafeBand data exists.
+BME680
+└── environmental evidence
 
----
+INMP441
+└── acoustic event evidence
+
+GPS
+└── location context
+        ↓
+  SENSOR EVIDENCE VECTOR
+        ↓
+   TEMPORAL FUSION
+        ↓
+     RISK ENGINE
+        ↓
+ SAFE / WARNING / EMERGENCY
+```
+
+A sensor does **not** need to independently solve the complete safety problem. For example, BNO055 can contribute posture and motion evidence while MAX30102 contributes physiological context.
+
+HR and SpO₂ are therefore supporting physiological evidence, not direct activity labels.
+
+The final fusion model should be trained/validated only after synchronized SafeBand recordings exist.
+
+### Removed sensor
+
+The **MAX30205 body-temperature sensor is removed from the final PCB design** because of the identified measurement/reliability concerns. Body temperature is therefore not a final SafeBand input.
 
 ## 9. Risk Engine
 
@@ -318,7 +456,29 @@ ESP32-S3
 
 ---
 
-## 11. Repository Structure
+## 11. Hardware Stack
+
+Current final hardware direction:
+
+```text
+ESP32-S3
+├── I²C
+│   ├── BNO055
+│   ├── MAX30102
+│   └── BME680
+├── I²S
+│   └── INMP441
+├── UART
+│   ├── GPS/GNSS
+│   └── EC200U
+└── Display / Power
+```
+
+**MAX30205 is not part of the final PCB stack.**
+
+---
+
+## 13. Repository Structure
 
 ```text
 SafeBand-AI/
@@ -364,7 +524,7 @@ SafeBand-AI/
 
 ---
 
-## 12. Engineering Rules
+## 13. Engineering Rules
 
 1. Never use simulation scenario names as ML inputs.
 2. Never train on deterministic demo profiles.
@@ -382,7 +542,7 @@ SafeBand-AI/
 
 ---
 
-## 13. Phase-1 Preflight
+## 14. Phase-1 Preflight
 
 Run:
 
@@ -402,7 +562,7 @@ A missing dataset/model is reported as an informational `--` state rather than b
 
 ---
 
-## 14. Running the Software Prototype
+## 15. Running the Software Prototype
 
 Install:
 
@@ -420,7 +580,7 @@ The current dashboard remains a prototype/demo layer using simulated sensor data
 
 ---
 
-## 15. Phase 2 Direction
+## 16. Phase 2 Direction
 
 When the physical SafeBand stack is ready, the next major dataset becomes our own synchronized multimodal recording:
 
