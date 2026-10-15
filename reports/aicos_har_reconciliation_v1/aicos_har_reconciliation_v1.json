@@ -1,0 +1,35 @@
+{
+  "dataset": "AICOS-HAR",
+  "protocol": "reconciliation_v1",
+  "metadata_rows": 5231,
+  "metadata_unique_acquisitions": 5231,
+  "inventory_rows": 5231,
+  "inventory_unique_acquisitions": 5231,
+  "exact_match_count": 5231,
+  "exact_metadata_missing_count": 0,
+  "exact_raw_only_count": 0,
+  "normalized_resolved_count": 0,
+  "ambiguous_normalized_count": 0,
+  "unresolved_metadata_count": 0,
+  "raw_only_after_resolution_count": 0,
+  "normalized_match_rate_of_exact_missing": 1.0,
+  "activity_diagnostics": {
+    "unresolved_metadata": {},
+    "raw_only_after_resolution": {}
+  },
+  "participant_diagnostics": {
+    "unresolved_metadata": {},
+    "raw_only_after_resolution": {}
+  },
+  "duplicate_normalized_metadata_keys": {},
+  "duplicate_normalized_raw_keys": {},
+  "ambiguous_matches": [],
+  "unresolved_metadata_sample": [],
+  "raw_only_after_resolution_sample": [],
+  "raw_data_scanned": false,
+  "raw_filename_acquisition_count": 5231,
+  "inventory_vs_raw_filename_set_difference": {
+    "inventory_not_in_raw_filename_scan": 774,
+    "raw_filename_not_in_inventory": 774
+  }
+}

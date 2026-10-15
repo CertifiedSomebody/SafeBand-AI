@@ -1,0 +1,215 @@
+{
+  "metadata_acquisitions": 5231,
+  "manifest_acquisitions": 5205,
+  "zero_window_acquisitions": 26,
+  "zero_window_details": [
+    {
+      "acquisition_id": "S23/LiftDown_3/SamsungGalaxyS9_Hand",
+      "participant_id": "",
+      "activity": "LiftDown",
+      "position": "Texting",
+      "fold": "3",
+      "raw_alias_id": "S23/ElevatorDown_3/SamsungGalaxyS9_Hand"
+    },
+    {
+      "acquisition_id": "S29/Downstairs_13/SamsungGalaxyS9_Hand",
+      "participant_id": "",
+      "activity": "Downstairs",
+      "position": "Hand",
+      "fold": "3",
+      "raw_alias_id": "S29/Downstairs_13/SamsungGalaxyS9_Hand"
+    },
+    {
+      "acquisition_id": "S29/Upstairs_5/GooglePixelXL_Hand",
+      "participant_id": "",
+      "activity": "Upstairs",
+      "position": "Hand",
+      "fold": "3",
+      "raw_alias_id": "S29/Upstairs_5/GooglePixelXL_Hand"
+    },
+    {
+      "acquisition_id": "S75/Downstairs_29/SamsungGalaxyS6Edge_Hand",
+      "participant_id": "",
+      "activity": "Downstairs",
+      "position": "Texting",
+      "fold": "test",
+      "raw_alias_id": "S75/Downstairs_29/SamsungGalaxyS6Edge_Hand"
+    },
+    {
+      "acquisition_id": "S75/Downstairs_32/SamsungGalaxyS6Edge_Hand",
+      "participant_id": "",
+      "activity": "Downstairs",
+      "position": "Texting",
+      "fold": "test",
+      "raw_alias_id": "S75/Downstairs_32/SamsungGalaxyS6Edge_Hand"
+    },
+    {
+      "acquisition_id": "S75/Downstairs_34/SamsungGalaxyS6Edge_Hand",
+      "participant_id": "",
+      "activity": "Downstairs",
+      "position": "Texting",
+      "fold": "test",
+      "raw_alias_id": "S75/Downstairs_34/SamsungGalaxyS6Edge_Hand"
+    },
+    {
+      "acquisition_id": "S75/Downstairs_35/SamsungGalaxyS6Edge_Hand",
+      "participant_id": "",
+      "activity": "Downstairs",
+      "position": "Texting",
+      "fold": "test",
+      "raw_alias_id": "S75/Downstairs_35/SamsungGalaxyS6Edge_Hand"
+    },
+    {
+      "acquisition_id": "S75/Downstairs_37/SamsungGalaxyS6Edge_Hand",
+      "participant_id": "",
+      "activity": "Downstairs",
+      "position": "Texting",
+      "fold": "test",
+      "raw_alias_id": "S75/Downstairs_37/SamsungGalaxyS6Edge_Hand"
+    },
+    {
+      "acquisition_id": "S75/Downstairs_47/SamsungGalaxyS6Edge_Hand",
+      "participant_id": "",
+      "activity": "Downstairs",
+      "position": "Texting",
+      "fold": "test",
+      "raw_alias_id": "S75/Downstairs_47/SamsungGalaxyS6Edge_Hand"
+    },
+    {
+      "acquisition_id": "S75/Downstairs_49/SamsungGalaxyS6Edge_Hand",
+      "participant_id": "",
+      "activity": "Downstairs",
+      "position": "Texting",
+      "fold": "test",
+      "raw_alias_id": "S75/Downstairs_49/SamsungGalaxyS6Edge_Hand"
+    },
+    {
+      "acquisition_id": "S75/Downstairs_57/SamsungGalaxyS6Edge_Hand",
+      "participant_id": "",
+      "activity": "Downstairs",
+      "position": "LeftPocket",
+      "fold": "test",
+      "raw_alias_id": "S75/Downstairs_57/SamsungGalaxyS6Edge_Hand"
+    },
+    {
+      "acquisition_id": "S75/Downstairs_61/SamsungGalaxyS6Edge_Hand",
+      "participant_id": "",
+      "activity": "Downstairs",
+      "position": "LeftPocket",
+      "fold": "test",
+      "raw_alias_id": "S75/Downstairs_61/SamsungGalaxyS6Edge_Hand"
+    },
+    {
+      "acquisition_id": "S75/Downstairs_69/SamsungGalaxyS6Edge_Hand",
+      "participant_id": "",
+      "activity": "Downstairs",
+      "position": "LeftPocket",
+      "fold": "test",
+      "raw_alias_id": "S75/Downstairs_69/SamsungGalaxyS6Edge_Hand"
+    },
+    {
+      "acquisition_id": "S75/Downstairs_70/SamsungGalaxyS6Edge_Hand",
+      "participant_id": "",
+      "activity": "Downstairs",
+      "position": "LeftPocket",
+      "fold": "test",
+      "raw_alias_id": "S75/Downstairs_70/SamsungGalaxyS6Edge_Hand"
+    },
+    {
+      "acquisition_id": "S75/Upstairs_17/SamsungGalaxyS6Edge_Hand",
+      "participant_id": "",
+      "activity": "Upstairs",
+      "position": "Texting",
+      "fold": "test",
+      "raw_alias_id": "S75/Upstairs_17/SamsungGalaxyS6Edge_Hand"
+    },
+    {
+      "acquisition_id": "S75/Upstairs_40/SamsungGalaxyS6Edge_Hand",
+      "participant_id": "",
+      "activity": "Upstairs",
+      "position": "Texting",
+      "fold": "test",
+      "raw_alias_id": "S75/Upstairs_40/SamsungGalaxyS6Edge_Hand"
+    },
+    {
+      "acquisition_id": "S75/Upstairs_67/SamsungGalaxyS6Edge_Hand",
+      "participant_id": "",
+      "activity": "Upstairs",
+      "position": "Belt",
+      "fold": "test",
+      "raw_alias_id": "S75/Upstairs_67/SamsungGalaxyS6Edge_Hand"
+    },
+    {
+      "acquisition_id": "S75/Upstairs_81/SamsungGalaxyS6Edge_Hand",
+      "participant_id": "",
+      "activity": "Upstairs",
+      "position": "Belt",
+      "fold": "test",
+      "raw_alias_id": "S75/Upstairs_81/SamsungGalaxyS6Edge_Hand"
+    },
+    {
+      "acquisition_id": "S75/Upstairs_88/SamsungGalaxyS6Edge_Hand",
+      "participant_id": "",
+      "activity": "Upstairs",
+      "position": "Belt",
+      "fold": "test",
+      "raw_alias_id": "S75/Upstairs_88/SamsungGalaxyS6Edge_Hand"
+    },
+    {
+      "acquisition_id": "S8/LiftDown_49/SamsungGalaxyS6-5_Hand",
+      "participant_id": "",
+      "activity": "LiftDown",
+      "position": "Texting",
+      "fold": "4",
+      "raw_alias_id": "S8/ElevatorDown_49/SamsungGalaxyS6-5_Hand"
+    },
+    {
+      "acquisition_id": "S8/LiftUp_11/SamsungGalaxyS7_Hand",
+      "participant_id": "",
+      "activity": "LiftUp",
+      "position": "Texting",
+      "fold": "4",
+      "raw_alias_id": "S8/ElevatorUp_11/SamsungGalaxyS7_Hand"
+    },
+    {
+      "acquisition_id": "S8/RampDown_7/SamsungGalaxyS7_Hand",
+      "participant_id": "",
+      "activity": "RampDown",
+      "position": "Texting",
+      "fold": "4",
+      "raw_alias_id": "S8/RampDown_7/SamsungGalaxyS7_Hand"
+    },
+    {
+      "acquisition_id": "S8/Upstairs_29/SamsungGalaxyS7_Hand",
+      "participant_id": "",
+      "activity": "Upstairs",
+      "position": "Texting",
+      "fold": "4",
+      "raw_alias_id": "S8/Upstairs_29/SamsungGalaxyS7_Hand"
+    },
+    {
+      "acquisition_id": "S8/Upstairs_84/SamsungGalaxyS6-5_Hand",
+      "participant_id": "",
+      "activity": "Upstairs",
+      "position": "Texting",
+      "fold": "4",
+      "raw_alias_id": "S8/Upstairs_84/SamsungGalaxyS6-5_Hand"
+    },
+    {
+      "acquisition_id": "S82/LiftDown_1/SamsungGalaxyA9_Hand",
+      "participant_id": "",
+      "activity": "LiftDown",
+      "position": "Texting",
+      "fold": "2",
+      "raw_alias_id": "S82/ElevatorDown_1/SamsungGalaxyA9_Hand"
+    },
+    {
+      "acquisition_id": "S93/Downstairs_5/LGG7ThinQ-2_Hand",
+      "participant_id": "",
+      "activity": "Downstairs",
+      "position": "Holding",
+      "fold": "test",
+      "raw_alias_id": "S93/Downstairs_5/LGG7ThinQ-2_Hand"
+    }
+  ]
+}

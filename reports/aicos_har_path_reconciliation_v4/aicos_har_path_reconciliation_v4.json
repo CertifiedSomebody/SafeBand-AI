@@ -1,0 +1,18 @@
+{
+  "metadata_unique": 5231,
+  "raw_unique_acquisitions": 5231,
+  "raw_sensor_files": 18587,
+  "exact_metadata_to_raw_matches": 5231,
+  "metadata_without_raw_after_alias": 0,
+  "raw_only_after_alias": 0,
+  "sensor_file_counts": {
+    "acc": 5231,
+    "baro": 3713,
+    "gyro": 4899,
+    "mag": 4744
+  },
+  "alias_expected_raw_unique": 5231,
+  "missing_examples": [],
+  "raw_only_examples": [],
+  "lift_elevator_aliases_verified": true
+}

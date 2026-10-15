@@ -1,0 +1,46 @@
+{
+  "windows_file": "datasets\\processed\\aicos_har\\aicos_har_acc_windows_v4.csv.npz",
+  "manifest_file": "datasets\\processed\\aicos_har\\aicos_acc_50hz_2s_manifest.csv",
+  "shape": [
+    346788,
+    3,
+    100
+  ],
+  "manifest_rows": 346788,
+  "finite": true,
+  "dtype": "float32",
+  "unique_acquisitions": 5205,
+  "unique_participants": 106,
+  "activity_counts": {
+    "Downstairs": 8312,
+    "LiftDown": 6180,
+    "LiftUp": 5979,
+    "LyingDown": 9100,
+    "RampDown": 7734,
+    "RampUp": 8838,
+    "Running": 52994,
+    "Sitting": 78724,
+    "Standing": 58874,
+    "Upstairs": 9437,
+    "Walking": 100616
+  },
+  "fold_counts": {
+    "1": 29192,
+    "2": 43332,
+    "3": 25943,
+    "4": 86770,
+    "5": 64126,
+    "test": 97425
+  },
+  "participants_by_fold": {
+    "1": 17,
+    "2": 17,
+    "3": 17,
+    "4": 17,
+    "5": 16,
+    "test": 22
+  },
+  "participants_in_multiple_folds": {},
+  "status": "PASS",
+  "errors": []
+}

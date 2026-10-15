@@ -1,0 +1,67 @@
+{
+  "npz_keys": {
+    "X": {
+      "shape": [
+        346788,
+        3,
+        100
+      ],
+      "dtype": "float32",
+      "nan": 0,
+      "inf": 0
+    }
+  },
+  "window_array_key": "X",
+  "window_shape": [
+    346788,
+    3,
+    100
+  ],
+  "window_nan_values": 0,
+  "window_inf_values": 0,
+  "windows_with_nonfinite": 0,
+  "channel_zero_std_windows": {
+    "0": 0,
+    "1": 0,
+    "2": 0
+  },
+  "manifest_rows": 346788,
+  "manifest_columns": [
+    "acquisition_id",
+    "participant_id",
+    "activity",
+    "fold",
+    "position"
+  ],
+  "resolved_columns": {
+    "label": "activity",
+    "acquisition": "acquisition_id",
+    "participant": "participant_id",
+    "fold": "fold"
+  },
+  "corrcoef_undefined_windows": 0,
+  "corrcoef_undefined_fraction": 0.0,
+  "class_counts": {
+    "Walking": 100616,
+    "Sitting": 78724,
+    "Standing": 58874,
+    "Running": 52994,
+    "Upstairs": 9437,
+    "LyingDown": 9100,
+    "RampUp": 8838,
+    "Downstairs": 8312,
+    "RampDown": 7734,
+    "LiftDown": 6180,
+    "LiftUp": 5979
+  },
+  "fold_counts": {
+    "test": 97425,
+    "4": 86770,
+    "5": 64126,
+    "2": 43332,
+    "1": 29192,
+    "3": 25943
+  },
+  "unique_participants": 106,
+  "unique_acquisitions": 5205
+}
