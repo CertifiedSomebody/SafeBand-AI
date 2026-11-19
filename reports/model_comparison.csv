@@ -1,0 +1,5 @@
+Benchmark,Dataset,AccuracyPct,BalancedAccuracyPct,MacroF1Pct,Notes
+INDEPENDENT_EXTERNAL,AICOS-HAR,96.97,93.30,93.98,subject-disjoint coarse activity
+REAL_SAFEBAND_REPLAY,stationary.csv,0.0000,0.0000,0.0000,40-row replay; not independent final validation
+REAL_SAFEBAND_REPLAY,stationary_2.csv,0.0000,0.0000,0.0000,40-row replay; not independent final validation
+REAL_SAFEBAND_REPLAY,walking.csv,23.5294,23.5294,19.0476,40-row replay; not independent final validation

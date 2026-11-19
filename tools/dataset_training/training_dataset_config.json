@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "seed": 20261118,
+  "split_ratios": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "minimum_independent_source_sessions": 3,
+  "acceptance_report": "reports/dataset_expansion/acceptance/dataset_expansion_acceptance_2.11.9.json",
+  "inventory_report": "reports/dataset_expansion/acceptance/dataset_inventory_2.11.1.json",
+  "session_manifest": "reports/dataset_expansion/provenance/dataset_expansion_session_2.10.8.json",
+  "real_source_directory": "datasets/real sensor data",
+  "generated_directory": "datasets/generated",
+  "lineage_manifest": "datasets/training/lineage_manifest.json",
+  "acceptance_output": "reports/dataset_training/training_dataset_acceptance_2.12.json"
+}

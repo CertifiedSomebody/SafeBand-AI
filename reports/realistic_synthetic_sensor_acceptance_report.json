@@ -1,0 +1,1344 @@
+{
+  "generator_version": "realistic_sensor_generator_v2",
+  "datasets_generated": 24,
+  "independent_session_count": 24,
+  "source_session_ids": [
+    "SYNTH_SOURCE_20261119_001",
+    "SYNTH_SOURCE_20261119_002",
+    "SYNTH_SOURCE_20261119_003",
+    "SYNTH_SOURCE_20261119_004",
+    "SYNTH_SOURCE_20261119_005",
+    "SYNTH_SOURCE_20261119_006",
+    "SYNTH_SOURCE_20261119_007",
+    "SYNTH_SOURCE_20261119_008",
+    "SYNTH_SOURCE_20261119_009",
+    "SYNTH_SOURCE_20261119_010",
+    "SYNTH_SOURCE_20261119_011",
+    "SYNTH_SOURCE_20261119_012",
+    "SYNTH_SOURCE_20261119_013",
+    "SYNTH_SOURCE_20261119_014",
+    "SYNTH_SOURCE_20261119_015",
+    "SYNTH_SOURCE_20261119_016",
+    "SYNTH_SOURCE_20261119_017",
+    "SYNTH_SOURCE_20261119_018",
+    "SYNTH_SOURCE_20261119_019",
+    "SYNTH_SOURCE_20261119_020",
+    "SYNTH_SOURCE_20261119_021",
+    "SYNTH_SOURCE_20261119_022",
+    "SYNTH_SOURCE_20261119_023",
+    "SYNTH_SOURCE_20261119_024"
+  ],
+  "seeds": {
+    "master_seed": 20261119,
+    "session_seeds": [
+      2224856145673533861,
+      4767309868921102168,
+      4413905540720699618,
+      6720159734711653537,
+      16456105652846766517,
+      16265770164329365331,
+      2370377955447852687,
+      7812934693053008225,
+      456186174159557405,
+      7876767086240993259,
+      8837274173188773444,
+      3299050506848734922,
+      4590554256508680492,
+      11675248738452170167,
+      17042527602768628992,
+      3373237429997099147,
+      1365315079461171594,
+      775650482168035014,
+      3702379648272245741,
+      2722753850012610243,
+      9454362742847117123,
+      7588844949402355234,
+      3992584563338041880,
+      1197826648321059418
+    ],
+    "hierarchical_architecture": "master_seed + generator_version + session_number",
+    "all_session_seeds_unique": true
+  },
+  "schema_validation": {
+    "status": "PASS",
+    "standard_column_count": 36,
+    "hazard_column_count": 40
+  },
+  "physical_validation": {
+    "status": "PASS",
+    "sessions": [
+      {
+        "dataset": "motion_realistic_v2_001.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_001",
+        "subject_id": "SYNTH-001",
+        "rows": 337,
+        "activity_counts": {
+          "STATIC": 167,
+          "WALKING": 156,
+          "TRANSITION": 14
+        },
+        "activity_transition_count": 4,
+        "timing": {
+          "median_dt_ms": 398.5,
+          "mean_dt_ms": 716.639880952381,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5222.5,
+          "p99_dt_ms": 5292.2,
+          "max_dt_ms": 5310.0,
+          "stall_count": 22,
+          "stall_percentage": 0.06547619047619048,
+          "coefficient_of_variation": 1.6764482817585302,
+          "autocorrelation": -0.0704082605525424
+        },
+        "accel_magnitude_range_m_s2": [
+          8.77569940232686,
+          10.936960272397446
+        ],
+        "gyro_magnitude_max_rad_s": 0.6373774391990981,
+        "accel_gyro_correlation": 0.727612398734422,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_002.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_002",
+        "subject_id": "SYNTH-002",
+        "rows": 327,
+        "activity_counts": {
+          "STATIC": 114,
+          "WALKING": 106,
+          "TRANSITION": 60,
+          "RUNNING": 47
+        },
+        "activity_transition_count": 16,
+        "timing": {
+          "median_dt_ms": 390.0,
+          "mean_dt_ms": 763.4355828220858,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5371.0,
+          "p99_dt_ms": 5418.25,
+          "max_dt_ms": 5442.0,
+          "stall_count": 24,
+          "stall_percentage": 0.0736196319018405,
+          "coefficient_of_variation": 1.7051395413063881,
+          "autocorrelation": 0.05928903884178052
+        },
+        "accel_magnitude_range_m_s2": [
+          9.08771698502985,
+          12.04461705493371
+        ],
+        "gyro_magnitude_max_rad_s": 0.852386356061616,
+        "accel_gyro_correlation": 0.7017348520384974,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_003.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_003",
+        "subject_id": "SYNTH-003",
+        "rows": 450,
+        "activity_counts": {
+          "TRANSITION": 208,
+          "WALKING": 142,
+          "STATIC": 100
+        },
+        "activity_transition_count": 10,
+        "timing": {
+          "median_dt_ms": 400.0,
+          "mean_dt_ms": 692.532293986637,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5177.6,
+          "p99_dt_ms": 5246.04,
+          "max_dt_ms": 5287.0,
+          "stall_count": 27,
+          "stall_percentage": 0.060133630289532294,
+          "coefficient_of_variation": 1.6518729738182067,
+          "autocorrelation": 0.014902970927559567
+        },
+        "accel_magnitude_range_m_s2": [
+          9.096884081926076,
+          11.410788754507728
+        ],
+        "gyro_magnitude_max_rad_s": 0.8926785535678563,
+        "accel_gyro_correlation": 0.2850209798746435,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_004.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_004",
+        "subject_id": "SYNTH-004",
+        "rows": 437,
+        "activity_counts": {
+          "STATIC": 255,
+          "WALKING": 97,
+          "TRANSITION": 85
+        },
+        "activity_transition_count": 8,
+        "timing": {
+          "median_dt_ms": 401.0,
+          "mean_dt_ms": 734.6238532110092,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5555.0,
+          "p99_dt_ms": 5609.65,
+          "max_dt_ms": 5644.0,
+          "stall_count": 28,
+          "stall_percentage": 0.06422018348623854,
+          "coefficient_of_variation": 1.7274538830708757,
+          "autocorrelation": 0.08422713890754278
+        },
+        "accel_magnitude_range_m_s2": [
+          9.39959041660859,
+          11.191340402293195
+        ],
+        "gyro_magnitude_max_rad_s": 0.8838834764831844,
+        "accel_gyro_correlation": 0.37090798638526973,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_005.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_005",
+        "subject_id": "SYNTH-005",
+        "rows": 459,
+        "activity_counts": {
+          "STATIC": 289,
+          "TRANSITION": 139,
+          "WALKING": 31
+        },
+        "activity_transition_count": 4,
+        "timing": {
+          "median_dt_ms": 396.0,
+          "mean_dt_ms": 764.0851528384279,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5585.099999999999,
+          "p99_dt_ms": 5642.72,
+          "max_dt_ms": 5678.0,
+          "stall_count": 32,
+          "stall_percentage": 0.06986899563318777,
+          "coefficient_of_variation": 1.737731083980351,
+          "autocorrelation": -0.07562324129247489
+        },
+        "accel_magnitude_range_m_s2": [
+          9.535544032723042,
+          11.309646325150934
+        ],
+        "gyro_magnitude_max_rad_s": 0.5590169943749475,
+        "accel_gyro_correlation": 0.6325487036646776,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_006.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_006",
+        "subject_id": "SYNTH-006",
+        "rows": 444,
+        "activity_counts": {
+          "TRANSITION": 344,
+          "STATIC": 61,
+          "WALKING": 30,
+          "RUNNING": 9
+        },
+        "activity_transition_count": 6,
+        "timing": {
+          "median_dt_ms": 401.0,
+          "mean_dt_ms": 887.8893905191874,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5518.6,
+          "p99_dt_ms": 5549.58,
+          "max_dt_ms": 5573.0,
+          "stall_count": 42,
+          "stall_percentage": 0.09480812641083522,
+          "coefficient_of_variation": 1.6867821703583634,
+          "autocorrelation": -0.07644829015477853
+        },
+        "accel_magnitude_range_m_s2": [
+          8.878947009640276,
+          11.092957225194732
+        ],
+        "gyro_magnitude_max_rad_s": 0.9540210951546092,
+        "accel_gyro_correlation": 0.32519080316539917,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_007.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_007",
+        "subject_id": "SYNTH-007",
+        "rows": 327,
+        "activity_counts": {
+          "TRANSITION": 134,
+          "WALKING": 130,
+          "STATIC": 37,
+          "RUNNING": 26
+        },
+        "activity_transition_count": 14,
+        "timing": {
+          "median_dt_ms": 394.0,
+          "mean_dt_ms": 884.1196319018405,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5532.25,
+          "p99_dt_ms": 5583.75,
+          "max_dt_ms": 5619.0,
+          "stall_count": 31,
+          "stall_percentage": 0.0950920245398773,
+          "coefficient_of_variation": 1.7066723212461217,
+          "autocorrelation": 0.03674254991894607
+        },
+        "accel_magnitude_range_m_s2": [
+          8.86634648544709,
+          11.815616784577944
+        ],
+        "gyro_magnitude_max_rad_s": 0.90355201842506,
+        "accel_gyro_correlation": 0.4270930997701106,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_008.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_008",
+        "subject_id": "SYNTH-008",
+        "rows": 355,
+        "activity_counts": {
+          "TRANSITION": 175,
+          "STATIC": 162,
+          "HIGH_MOTION": 18
+        },
+        "activity_transition_count": 8,
+        "timing": {
+          "median_dt_ms": 395.0,
+          "mean_dt_ms": 855.0932203389831,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5299.05,
+          "p99_dt_ms": 5353.76,
+          "max_dt_ms": 5381.0,
+          "stall_count": 33,
+          "stall_percentage": 0.09322033898305085,
+          "coefficient_of_variation": 1.668081966025666,
+          "autocorrelation": -0.0019691373948621253
+        },
+        "accel_magnitude_range_m_s2": [
+          9.214797881668376,
+          12.205183325128713
+        ],
+        "gyro_magnitude_max_rad_s": 1.118033988749895,
+        "accel_gyro_correlation": 0.7978007138243387,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "hazard_realistic_v2_009.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_009",
+        "subject_id": "SYNTH-009",
+        "rows": 399,
+        "activity_counts": {
+          "TRANSITION": 253,
+          "STATIC": 91,
+          "WALKING": 39,
+          "FALL_OR_HAZARD": 16
+        },
+        "activity_transition_count": 9,
+        "timing": {
+          "median_dt_ms": 396.0,
+          "mean_dt_ms": 956.7763819095477,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5453.9,
+          "p99_dt_ms": 5514.21,
+          "max_dt_ms": 5572.0,
+          "stall_count": 44,
+          "stall_percentage": 0.11055276381909548,
+          "coefficient_of_variation": 1.657777229272259,
+          "autocorrelation": -0.07351113810574118
+        },
+        "accel_magnitude_range_m_s2": [
+          9.38422612685777,
+          13.78860399025224
+        ],
+        "gyro_magnitude_max_rad_s": 1.2839149115108837,
+        "accel_gyro_correlation": 0.4931012943108041,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_010.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_010",
+        "subject_id": "SYNTH-010",
+        "rows": 427,
+        "activity_counts": {
+          "TRANSITION": 330,
+          "WALKING": 70,
+          "HIGH_MOTION": 27
+        },
+        "activity_transition_count": 5,
+        "timing": {
+          "median_dt_ms": 393.0,
+          "mean_dt_ms": 746.7652582159625,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5197.75,
+          "p99_dt_ms": 5253.75,
+          "max_dt_ms": 5298.0,
+          "stall_count": 31,
+          "stall_percentage": 0.07276995305164319,
+          "coefficient_of_variation": 1.6772520693737059,
+          "autocorrelation": -0.07785384792924253
+        },
+        "accel_magnitude_range_m_s2": [
+          8.600430221797046,
+          12.808633806928825
+        ],
+        "gyro_magnitude_max_rad_s": 1.202211503854459,
+        "accel_gyro_correlation": 0.688812600614019,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_011.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_011",
+        "subject_id": "SYNTH-011",
+        "rows": 367,
+        "activity_counts": {
+          "STATIC": 203,
+          "TRANSITION": 143,
+          "RUNNING": 21
+        },
+        "activity_transition_count": 4,
+        "timing": {
+          "median_dt_ms": 401.0,
+          "mean_dt_ms": 690.5901639344262,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5403.5,
+          "p99_dt_ms": 5460.4,
+          "max_dt_ms": 5533.0,
+          "stall_count": 21,
+          "stall_percentage": 0.05737704918032787,
+          "coefficient_of_variation": 1.6970896767631423,
+          "autocorrelation": -0.06198188262661443
+        },
+        "accel_magnitude_range_m_s2": [
+          9.32757203134878,
+          11.861475456282832
+        ],
+        "gyro_magnitude_max_rad_s": 0.90355201842506,
+        "accel_gyro_correlation": 0.6748796431562527,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_012.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_012",
+        "subject_id": "SYNTH-012",
+        "rows": 366,
+        "activity_counts": {
+          "WALKING": 187,
+          "STATIC": 121,
+          "TRANSITION": 58
+        },
+        "activity_transition_count": 18,
+        "timing": {
+          "median_dt_ms": 389.0,
+          "mean_dt_ms": 757.5095890410959,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5468.8,
+          "p99_dt_ms": 5513.32,
+          "max_dt_ms": 5538.0,
+          "stall_count": 26,
+          "stall_percentage": 0.07123287671232877,
+          "coefficient_of_variation": 1.7287675831413811,
+          "autocorrelation": 0.04733383398803089
+        },
+        "accel_magnitude_range_m_s2": [
+          8.985510558671667,
+          11.33003530444632
+        ],
+        "gyro_magnitude_max_rad_s": 0.8003905296791061,
+        "accel_gyro_correlation": 0.4055250659967766,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_013.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_013",
+        "subject_id": "SYNTH-013",
+        "rows": 475,
+        "activity_counts": {
+          "WALKING": 236,
+          "STATIC": 229,
+          "TRANSITION": 10
+        },
+        "activity_transition_count": 4,
+        "timing": {
+          "median_dt_ms": 403.0,
+          "mean_dt_ms": 730.9050632911392,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5230.0,
+          "p99_dt_ms": 5284.35,
+          "max_dt_ms": 5308.0,
+          "stall_count": 32,
+          "stall_percentage": 0.06751054852320675,
+          "coefficient_of_variation": 1.6653577180848536,
+          "autocorrelation": -0.039597267141638096
+        },
+        "accel_magnitude_range_m_s2": [
+          8.828380372412598,
+          10.720610990050893
+        ],
+        "gyro_magnitude_max_rad_s": 0.6789237807000135,
+        "accel_gyro_correlation": 0.5107708842573511,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_014.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_014",
+        "subject_id": "SYNTH-014",
+        "rows": 341,
+        "activity_counts": {
+          "WALKING": 122,
+          "STATIC": 110,
+          "RUNNING": 61,
+          "TRANSITION": 48
+        },
+        "activity_transition_count": 16,
+        "timing": {
+          "median_dt_ms": 390.0,
+          "mean_dt_ms": 779.2264705882353,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5587.2,
+          "p99_dt_ms": 5639.0,
+          "max_dt_ms": 5668.0,
+          "stall_count": 25,
+          "stall_percentage": 0.07352941176470588,
+          "coefficient_of_variation": 1.745025376135869,
+          "autocorrelation": 0.050443815176752164
+        },
+        "accel_magnitude_range_m_s2": [
+          9.176873105802434,
+          11.7513658780586
+        ],
+        "gyro_magnitude_max_rad_s": 1.1075028216668343,
+        "accel_gyro_correlation": 0.6483559441860732,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_015.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_015",
+        "subject_id": "SYNTH-015",
+        "rows": 379,
+        "activity_counts": {
+          "WALKING": 235,
+          "TRANSITION": 86,
+          "STATIC": 58
+        },
+        "activity_transition_count": 9,
+        "timing": {
+          "median_dt_ms": 392.5,
+          "mean_dt_ms": 778.9074074074074,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5515.9,
+          "p99_dt_ms": 5577.6900000000005,
+          "max_dt_ms": 5612.0,
+          "stall_count": 28,
+          "stall_percentage": 0.07407407407407407,
+          "coefficient_of_variation": 1.7296785088142568,
+          "autocorrelation": 0.03856376629806542
+        },
+        "accel_magnitude_range_m_s2": [
+          9.105987041501871,
+          11.552908724645928
+        ],
+        "gyro_magnitude_max_rad_s": 0.6281172263200556,
+        "accel_gyro_correlation": 0.615830020412084,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_016.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_016",
+        "subject_id": "SYNTH-016",
+        "rows": 459,
+        "activity_counts": {
+          "STATIC": 264,
+          "WALKING": 163,
+          "TRANSITION": 32
+        },
+        "activity_transition_count": 10,
+        "timing": {
+          "median_dt_ms": 401.0,
+          "mean_dt_ms": 706.7860262008734,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5357.45,
+          "p99_dt_ms": 5421.58,
+          "max_dt_ms": 5437.0,
+          "stall_count": 28,
+          "stall_percentage": 0.0611353711790393,
+          "coefficient_of_variation": 1.6908033812361003,
+          "autocorrelation": 0.08615654807801099
+        },
+        "accel_magnitude_range_m_s2": [
+          9.620322239925232,
+          11.369736144695707
+        ],
+        "gyro_magnitude_max_rad_s": 0.7342087577794206,
+        "accel_gyro_correlation": 0.5495461983012343,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_017.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_017",
+        "subject_id": "SYNTH-017",
+        "rows": 471,
+        "activity_counts": {
+          "STATIC": 220,
+          "TRANSITION": 201,
+          "WALKING": 50
+        },
+        "activity_transition_count": 4,
+        "timing": {
+          "median_dt_ms": 399.0,
+          "mean_dt_ms": 707.0255319148936,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5543.849999999999,
+          "p99_dt_ms": 5597.62,
+          "max_dt_ms": 5624.0,
+          "stall_count": 28,
+          "stall_percentage": 0.059574468085106386,
+          "coefficient_of_variation": 1.7312588565379463,
+          "autocorrelation": 0.012728885620157813
+        },
+        "accel_magnitude_range_m_s2": [
+          9.553119909223375,
+          11.759770405922048
+        ],
+        "gyro_magnitude_max_rad_s": 0.5625,
+        "accel_gyro_correlation": 0.49435805645960507,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_018.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_018",
+        "subject_id": "SYNTH-018",
+        "rows": 375,
+        "activity_counts": {
+          "TRANSITION": 205,
+          "STATIC": 89,
+          "WALKING": 55,
+          "RUNNING": 26
+        },
+        "activity_transition_count": 9,
+        "timing": {
+          "median_dt_ms": 398.5,
+          "mean_dt_ms": 836.2459893048128,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5328.45,
+          "p99_dt_ms": 5372.16,
+          "max_dt_ms": 5394.0,
+          "stall_count": 33,
+          "stall_percentage": 0.08823529411764706,
+          "coefficient_of_variation": 1.6736765026013247,
+          "autocorrelation": -0.028140903739132982
+        },
+        "accel_magnitude_range_m_s2": [
+          9.466451288629758,
+          11.611726831096226
+        ],
+        "gyro_magnitude_max_rad_s": 0.9249155366842964,
+        "accel_gyro_correlation": 0.67426812610714,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_019.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_019",
+        "subject_id": "SYNTH-019",
+        "rows": 478,
+        "activity_counts": {
+          "TRANSITION": 234,
+          "WALKING": 101,
+          "RUNNING": 95,
+          "STATIC": 48
+        },
+        "activity_transition_count": 7,
+        "timing": {
+          "median_dt_ms": 394.0,
+          "mean_dt_ms": 697.1509433962265,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5480.8,
+          "p99_dt_ms": 5555.88,
+          "max_dt_ms": 5623.0,
+          "stall_count": 28,
+          "stall_percentage": 0.05870020964360587,
+          "coefficient_of_variation": 1.730876885118188,
+          "autocorrelation": -0.06141967483648461
+        },
+        "accel_magnitude_range_m_s2": [
+          9.025713268213211,
+          12.587906895111674
+        ],
+        "gyro_magnitude_max_rad_s": 1.0551214385083834,
+        "accel_gyro_correlation": 0.6057737577851217,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_020.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_020",
+        "subject_id": "SYNTH-020",
+        "rows": 442,
+        "activity_counts": {
+          "STATIC": 214,
+          "TRANSITION": 193,
+          "HIGH_MOTION": 35
+        },
+        "activity_transition_count": 8,
+        "timing": {
+          "median_dt_ms": 394.0,
+          "mean_dt_ms": 740.2380952380952,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5219.0,
+          "p99_dt_ms": 5297.6,
+          "max_dt_ms": 5317.0,
+          "stall_count": 31,
+          "stall_percentage": 0.07029478458049887,
+          "coefficient_of_variation": 1.6754977157461615,
+          "autocorrelation": -0.0411724526083513
+        },
+        "accel_magnitude_range_m_s2": [
+          9.383890451193471,
+          13.435490314834066
+        ],
+        "gyro_magnitude_max_rad_s": 1.2279301690242812,
+        "accel_gyro_correlation": 0.5614185205162673,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "hazard_realistic_v2_021.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_021",
+        "subject_id": "SYNTH-021",
+        "rows": 399,
+        "activity_counts": {
+          "TRANSITION": 149,
+          "STATIC": 134,
+          "WALKING": 64,
+          "FALL_OR_HAZARD": 52
+        },
+        "activity_transition_count": 7,
+        "timing": {
+          "median_dt_ms": 400.0,
+          "mean_dt_ms": 785.1231155778894,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5495.15,
+          "p99_dt_ms": 5539.18,
+          "max_dt_ms": 5609.0,
+          "stall_count": 30,
+          "stall_percentage": 0.07537688442211055,
+          "coefficient_of_variation": 1.719452427601575,
+          "autocorrelation": 0.06284880356354076
+        },
+        "accel_magnitude_range_m_s2": [
+          9.408804387381002,
+          12.920576612520048
+        ],
+        "gyro_magnitude_max_rad_s": 1.4908575552345704,
+        "accel_gyro_correlation": 0.829277475866059,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_022.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_022",
+        "subject_id": "SYNTH-022",
+        "rows": 340,
+        "activity_counts": {
+          "TRANSITION": 191,
+          "WALKING": 106,
+          "HIGH_MOTION": 43
+        },
+        "activity_transition_count": 5,
+        "timing": {
+          "median_dt_ms": 401.0,
+          "mean_dt_ms": 833.6194690265487,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5470.3,
+          "p99_dt_ms": 5502.86,
+          "max_dt_ms": 5522.0,
+          "stall_count": 29,
+          "stall_percentage": 0.0855457227138643,
+          "coefficient_of_variation": 1.7025179816215374,
+          "autocorrelation": 0.01966809644115926
+        },
+        "accel_magnitude_range_m_s2": [
+          9.183000598932791,
+          12.142524449223894
+        ],
+        "gyro_magnitude_max_rad_s": 1.2899854650343934,
+        "accel_gyro_correlation": 0.5053751300578012,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_023.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_023",
+        "subject_id": "SYNTH-023",
+        "rows": 439,
+        "activity_counts": {
+          "STATIC": 288,
+          "TRANSITION": 93,
+          "RUNNING": 58
+        },
+        "activity_transition_count": 8,
+        "timing": {
+          "median_dt_ms": 401.0,
+          "mean_dt_ms": 857.2100456621005,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5520.0,
+          "p99_dt_ms": 5553.63,
+          "max_dt_ms": 5599.0,
+          "stall_count": 39,
+          "stall_percentage": 0.08904109589041095,
+          "coefficient_of_variation": 1.701788827032854,
+          "autocorrelation": -0.013749918155278198
+        },
+        "accel_magnitude_range_m_s2": [
+          9.149234940693129,
+          11.966093765302025
+        ],
+        "gyro_magnitude_max_rad_s": 0.8882919002219934,
+        "accel_gyro_correlation": 0.6775167982732591,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      },
+      {
+        "dataset": "motion_realistic_v2_024.csv",
+        "source_session_id": "SYNTH_SOURCE_20261119_024",
+        "subject_id": "SYNTH-024",
+        "rows": 405,
+        "activity_counts": {
+          "STATIC": 261,
+          "WALKING": 104,
+          "TRANSITION": 40
+        },
+        "activity_transition_count": 14,
+        "timing": {
+          "median_dt_ms": 400.0,
+          "mean_dt_ms": 693.6410891089109,
+          "p05_dt_ms": 387.0,
+          "p95_dt_ms": 5494.849999999999,
+          "p99_dt_ms": 5587.58,
+          "max_dt_ms": 5626.0,
+          "stall_count": 23,
+          "stall_percentage": 0.05693069306930693,
+          "coefficient_of_variation": 1.7198389971366086,
+          "autocorrelation": -0.06105528765293085
+        },
+        "accel_magnitude_range_m_s2": [
+          9.721388789674036,
+          11.683026149076275
+        ],
+        "gyro_magnitude_max_rad_s": 0.5412658773652742,
+        "accel_gyro_correlation": 0.6982313719997799,
+        "physical_validation_status": "PASS",
+        "physical_errors": []
+      }
+    ]
+  },
+  "timing_validation": {
+    "real_calibration_median_dt_ms": 394.0,
+    "synthetic_median_dt_ms": 398.5,
+    "real_calibration_p95_dt_ms": 5430.0,
+    "synthetic_p95_dt_ms": 5381.0,
+    "real_calibration_max_dt_ms": 5442.0,
+    "synthetic_mean_stall_percentage": 0.07451334677282188,
+    "real_calibration_stall_probability": 0.07562277580071175,
+    "status": "PASS"
+  },
+  "distribution_validation": {
+    "acceleration": {
+      "count": 9698,
+      "mean": 0.21938131573520314,
+      "std": 0.9191314419260503,
+      "median": 0.25,
+      "mad": 0.66,
+      "p01": -1.9503,
+      "p05": -1.21,
+      "p25": -0.46,
+      "p75": 0.8775,
+      "p95": 1.61,
+      "p99": 2.38,
+      "min": -4.19,
+      "max": 5.3
+    },
+    "acceleration_magnitude": {
+      "count": 9698,
+      "mean": 10.02339757976046,
+      "std": 0.4685369358973119,
+      "median": 9.960185741219728,
+      "mad": 0.27270670899294736,
+      "p01": 9.22988976001577,
+      "p05": 9.411530693775081,
+      "p25": 9.702766358093758,
+      "p75": 10.255893427675598,
+      "p95": 10.867184085914388,
+      "p99": 11.570535659705113,
+      "min": 8.600430221797046,
+      "max": 13.78860399025224
+    },
+    "gyro_magnitude": {
+      "count": 9698,
+      "mean": 0.2827328809536941,
+      "std": 0.18991639529456314,
+      "median": 0.2576941016011038,
+      "mad": 0.11793985300736692,
+      "p01": 0.0,
+      "p05": 0.0625,
+      "p25": 0.13975424859373686,
+      "p75": 0.375,
+      "p95": 0.6281172263200556,
+      "p99": 0.9057110466368399,
+      "min": 0.0,
+      "max": 1.4908575552345704
+    },
+    "heart_rate": {
+      "count": 9698,
+      "mean": -97.777170550629,
+      "std": 403.6651195158061,
+      "median": 80.0,
+      "mad": 7.0,
+      "p01": -999.0,
+      "p05": -999.0,
+      "p25": 73.0,
+      "p75": 87.0,
+      "p95": 97.0,
+      "p99": 108.0,
+      "min": -999.0,
+      "max": 124.0
+    },
+    "spo2": {
+      "count": 9698,
+      "mean": -107.26562177768612,
+      "std": 427.7415263201102,
+      "median": 98.0,
+      "mad": 1.0,
+      "p01": -999.0,
+      "p05": -999.0,
+      "p25": 97.0,
+      "p75": 98.0,
+      "p95": 99.0,
+      "p99": 99.0,
+      "min": -999.0,
+      "max": 100.0
+    },
+    "battery_percent": {
+      "count": 9698,
+      "mean": 59.567230356774594,
+      "std": 24.744624030623896,
+      "median": 62.0,
+      "mad": 22.0,
+      "p01": 17.0,
+      "p05": 20.0,
+      "p25": 37.0,
+      "p75": 83.0,
+      "p95": 96.0,
+      "p99": 98.0,
+      "min": 16.0,
+      "max": 100.0
+    }
+  },
+  "temporal_validation": {
+    "sessions": [
+      {
+        "median_dt_ms": 398.5,
+        "mean_dt_ms": 716.639880952381,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5222.5,
+        "p99_dt_ms": 5292.2,
+        "max_dt_ms": 5310.0,
+        "stall_count": 22,
+        "stall_percentage": 0.06547619047619048,
+        "coefficient_of_variation": 1.6764482817585302,
+        "autocorrelation": -0.0704082605525424
+      },
+      {
+        "median_dt_ms": 390.0,
+        "mean_dt_ms": 763.4355828220858,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5371.0,
+        "p99_dt_ms": 5418.25,
+        "max_dt_ms": 5442.0,
+        "stall_count": 24,
+        "stall_percentage": 0.0736196319018405,
+        "coefficient_of_variation": 1.7051395413063881,
+        "autocorrelation": 0.05928903884178052
+      },
+      {
+        "median_dt_ms": 400.0,
+        "mean_dt_ms": 692.532293986637,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5177.6,
+        "p99_dt_ms": 5246.04,
+        "max_dt_ms": 5287.0,
+        "stall_count": 27,
+        "stall_percentage": 0.060133630289532294,
+        "coefficient_of_variation": 1.6518729738182067,
+        "autocorrelation": 0.014902970927559567
+      },
+      {
+        "median_dt_ms": 401.0,
+        "mean_dt_ms": 734.6238532110092,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5555.0,
+        "p99_dt_ms": 5609.65,
+        "max_dt_ms": 5644.0,
+        "stall_count": 28,
+        "stall_percentage": 0.06422018348623854,
+        "coefficient_of_variation": 1.7274538830708757,
+        "autocorrelation": 0.08422713890754278
+      },
+      {
+        "median_dt_ms": 396.0,
+        "mean_dt_ms": 764.0851528384279,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5585.099999999999,
+        "p99_dt_ms": 5642.72,
+        "max_dt_ms": 5678.0,
+        "stall_count": 32,
+        "stall_percentage": 0.06986899563318777,
+        "coefficient_of_variation": 1.737731083980351,
+        "autocorrelation": -0.07562324129247489
+      },
+      {
+        "median_dt_ms": 401.0,
+        "mean_dt_ms": 887.8893905191874,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5518.6,
+        "p99_dt_ms": 5549.58,
+        "max_dt_ms": 5573.0,
+        "stall_count": 42,
+        "stall_percentage": 0.09480812641083522,
+        "coefficient_of_variation": 1.6867821703583634,
+        "autocorrelation": -0.07644829015477853
+      },
+      {
+        "median_dt_ms": 394.0,
+        "mean_dt_ms": 884.1196319018405,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5532.25,
+        "p99_dt_ms": 5583.75,
+        "max_dt_ms": 5619.0,
+        "stall_count": 31,
+        "stall_percentage": 0.0950920245398773,
+        "coefficient_of_variation": 1.7066723212461217,
+        "autocorrelation": 0.03674254991894607
+      },
+      {
+        "median_dt_ms": 395.0,
+        "mean_dt_ms": 855.0932203389831,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5299.05,
+        "p99_dt_ms": 5353.76,
+        "max_dt_ms": 5381.0,
+        "stall_count": 33,
+        "stall_percentage": 0.09322033898305085,
+        "coefficient_of_variation": 1.668081966025666,
+        "autocorrelation": -0.0019691373948621253
+      },
+      {
+        "median_dt_ms": 396.0,
+        "mean_dt_ms": 956.7763819095477,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5453.9,
+        "p99_dt_ms": 5514.21,
+        "max_dt_ms": 5572.0,
+        "stall_count": 44,
+        "stall_percentage": 0.11055276381909548,
+        "coefficient_of_variation": 1.657777229272259,
+        "autocorrelation": -0.07351113810574118
+      },
+      {
+        "median_dt_ms": 393.0,
+        "mean_dt_ms": 746.7652582159625,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5197.75,
+        "p99_dt_ms": 5253.75,
+        "max_dt_ms": 5298.0,
+        "stall_count": 31,
+        "stall_percentage": 0.07276995305164319,
+        "coefficient_of_variation": 1.6772520693737059,
+        "autocorrelation": -0.07785384792924253
+      },
+      {
+        "median_dt_ms": 401.0,
+        "mean_dt_ms": 690.5901639344262,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5403.5,
+        "p99_dt_ms": 5460.4,
+        "max_dt_ms": 5533.0,
+        "stall_count": 21,
+        "stall_percentage": 0.05737704918032787,
+        "coefficient_of_variation": 1.6970896767631423,
+        "autocorrelation": -0.06198188262661443
+      },
+      {
+        "median_dt_ms": 389.0,
+        "mean_dt_ms": 757.5095890410959,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5468.8,
+        "p99_dt_ms": 5513.32,
+        "max_dt_ms": 5538.0,
+        "stall_count": 26,
+        "stall_percentage": 0.07123287671232877,
+        "coefficient_of_variation": 1.7287675831413811,
+        "autocorrelation": 0.04733383398803089
+      },
+      {
+        "median_dt_ms": 403.0,
+        "mean_dt_ms": 730.9050632911392,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5230.0,
+        "p99_dt_ms": 5284.35,
+        "max_dt_ms": 5308.0,
+        "stall_count": 32,
+        "stall_percentage": 0.06751054852320675,
+        "coefficient_of_variation": 1.6653577180848536,
+        "autocorrelation": -0.039597267141638096
+      },
+      {
+        "median_dt_ms": 390.0,
+        "mean_dt_ms": 779.2264705882353,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5587.2,
+        "p99_dt_ms": 5639.0,
+        "max_dt_ms": 5668.0,
+        "stall_count": 25,
+        "stall_percentage": 0.07352941176470588,
+        "coefficient_of_variation": 1.745025376135869,
+        "autocorrelation": 0.050443815176752164
+      },
+      {
+        "median_dt_ms": 392.5,
+        "mean_dt_ms": 778.9074074074074,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5515.9,
+        "p99_dt_ms": 5577.6900000000005,
+        "max_dt_ms": 5612.0,
+        "stall_count": 28,
+        "stall_percentage": 0.07407407407407407,
+        "coefficient_of_variation": 1.7296785088142568,
+        "autocorrelation": 0.03856376629806542
+      },
+      {
+        "median_dt_ms": 401.0,
+        "mean_dt_ms": 706.7860262008734,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5357.45,
+        "p99_dt_ms": 5421.58,
+        "max_dt_ms": 5437.0,
+        "stall_count": 28,
+        "stall_percentage": 0.0611353711790393,
+        "coefficient_of_variation": 1.6908033812361003,
+        "autocorrelation": 0.08615654807801099
+      },
+      {
+        "median_dt_ms": 399.0,
+        "mean_dt_ms": 707.0255319148936,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5543.849999999999,
+        "p99_dt_ms": 5597.62,
+        "max_dt_ms": 5624.0,
+        "stall_count": 28,
+        "stall_percentage": 0.059574468085106386,
+        "coefficient_of_variation": 1.7312588565379463,
+        "autocorrelation": 0.012728885620157813
+      },
+      {
+        "median_dt_ms": 398.5,
+        "mean_dt_ms": 836.2459893048128,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5328.45,
+        "p99_dt_ms": 5372.16,
+        "max_dt_ms": 5394.0,
+        "stall_count": 33,
+        "stall_percentage": 0.08823529411764706,
+        "coefficient_of_variation": 1.6736765026013247,
+        "autocorrelation": -0.028140903739132982
+      },
+      {
+        "median_dt_ms": 394.0,
+        "mean_dt_ms": 697.1509433962265,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5480.8,
+        "p99_dt_ms": 5555.88,
+        "max_dt_ms": 5623.0,
+        "stall_count": 28,
+        "stall_percentage": 0.05870020964360587,
+        "coefficient_of_variation": 1.730876885118188,
+        "autocorrelation": -0.06141967483648461
+      },
+      {
+        "median_dt_ms": 394.0,
+        "mean_dt_ms": 740.2380952380952,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5219.0,
+        "p99_dt_ms": 5297.6,
+        "max_dt_ms": 5317.0,
+        "stall_count": 31,
+        "stall_percentage": 0.07029478458049887,
+        "coefficient_of_variation": 1.6754977157461615,
+        "autocorrelation": -0.0411724526083513
+      },
+      {
+        "median_dt_ms": 400.0,
+        "mean_dt_ms": 785.1231155778894,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5495.15,
+        "p99_dt_ms": 5539.18,
+        "max_dt_ms": 5609.0,
+        "stall_count": 30,
+        "stall_percentage": 0.07537688442211055,
+        "coefficient_of_variation": 1.719452427601575,
+        "autocorrelation": 0.06284880356354076
+      },
+      {
+        "median_dt_ms": 401.0,
+        "mean_dt_ms": 833.6194690265487,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5470.3,
+        "p99_dt_ms": 5502.86,
+        "max_dt_ms": 5522.0,
+        "stall_count": 29,
+        "stall_percentage": 0.0855457227138643,
+        "coefficient_of_variation": 1.7025179816215374,
+        "autocorrelation": 0.01966809644115926
+      },
+      {
+        "median_dt_ms": 401.0,
+        "mean_dt_ms": 857.2100456621005,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5520.0,
+        "p99_dt_ms": 5553.63,
+        "max_dt_ms": 5599.0,
+        "stall_count": 39,
+        "stall_percentage": 0.08904109589041095,
+        "coefficient_of_variation": 1.701788827032854,
+        "autocorrelation": -0.013749918155278198
+      },
+      {
+        "median_dt_ms": 400.0,
+        "mean_dt_ms": 693.6410891089109,
+        "p05_dt_ms": 387.0,
+        "p95_dt_ms": 5494.849999999999,
+        "p99_dt_ms": 5587.58,
+        "max_dt_ms": 5626.0,
+        "stall_count": 23,
+        "stall_percentage": 0.05693069306930693,
+        "coefficient_of_variation": 1.7198389971366086,
+        "autocorrelation": -0.06105528765293085
+      }
+    ],
+    "status": "PASS"
+  },
+  "missingness_validation": {
+    "bme_invalid_percentage": 0.026912765518663617,
+    "raw_hr_invalid_percentage": 0.16704475149515363,
+    "raw_spo2_invalid_percentage": 0.187048876056919,
+    "finger_absent_percentage": 0.06516807589193652
+  },
+  "correlation_validation": {
+    "status": "PASS",
+    "correlations": {
+      "accel_magnitude_gyro_magnitude": 0.5041815979978388,
+      "activity_accel_magnitude": 0.42353960950674613,
+      "motion_microphone_rms": 0.9532946025688691,
+      "motion_ppg_validity": -0.1497917575944451,
+      "battery_voltage_percent": 0.963862490412437,
+      "temperature_humidity": 0.09988784031593752
+    }
+  },
+  "independence_validation": {
+    "status": "PASS",
+    "unique_source_sessions": 24,
+    "required_independent_source_sessions": 3,
+    "session_parameter_profiles_checked": [
+      "subject_id",
+      "motion_style",
+      "timing_profile",
+      "sensor_profile",
+      "environment",
+      "physiology",
+      "battery",
+      "activity_schedule"
+    ]
+  },
+  "contamination_validation": {
+    "status": "PASS",
+    "real_recordings_used": [
+      "stationary.csv",
+      "stationary_2.csv",
+      "walking.csv"
+    ],
+    "real_row_reuse": false,
+    "real_recordings_used_for_training": false,
+    "real_recordings_used_as_calibration_only": true,
+    "generator_training_performed": false
+  },
+  "synthetic_vs_real_comparison": {
+    "observed_from_real_safeband": {
+      "median_dt_ms": 394.0,
+      "p95_dt_ms": 5430.0,
+      "p99_dt_ms": 5437.0,
+      "max_dt_ms": 5442.0,
+      "stall_probability": 0.07562277580071175,
+      "recordings": [
+        "stationary.csv",
+        "stationary_2.csv",
+        "walking.csv"
+      ]
+    },
+    "calibrated_assumptions": {
+      "base_interval_ms": 394,
+      "stall_recovery_ms": 5429,
+      "limited_real_ppg": "SpO2 and PPG distributions are model assumptions",
+      "limited_real_environment": "Environment is physically plausible and not measured broadly"
+    },
+    "physics_based_synthetic_model": {
+      "gravity": "body-fixed acceleration derived from roll/pitch",
+      "gyro": "derived from orientation changes divided by actual elapsed seconds",
+      "physiology": "delayed first-order HR and stateful PPG contact",
+      "battery": "voltage/percent correlated latent state"
+    },
+    "trajectory_similarity_diagnostic": {
+      "status": "PASS",
+      "method": "No real row signatures, timestamps, or trajectories are used in generation.",
+      "suspicious_copy_flag": false
+    }
+  },
+  "gate_status": {
+    "milestone": "2.12",
+    "status": "STILL_BLOCKED_NO_GROUP_SPLIT",
+    "independent_synthetic_source_sessions": 24,
+    "required_independent_source_sessions": 3,
+    "independent_session_requirement": "ELIGIBLE",
+    "group_split_exists": false,
+    "training_splits_created": false,
+    "lineage_gate_unchanged": true,
+    "reason": "New synthetic sessions have independent identities, but existing lineage/split gate remains blocked until independently recorded or accepted source sessions and group partitions exist."
+  },
+  "acceptance_status": "PASS",
+  "audit": {
+    "existing_generator": "42 derivative datasets remain under datasets/generated",
+    "existing_generator_classification": "derivative-based, with resolved lineage to walking.csv",
+    "real_schema_audit": "36-column standard SafeBand schema and 40-column hazard schema preserved",
+    "corrected_replay_audit": "elapsed_ms-based replay report used for 394 ms timing calibration",
+    "existing_real_recording_usage": "bounded calibration statistics only",
+    "no_real_row_bootstrap": true
+  },
+  "recommendations": [
+    "Integrate the 24 independent synthetic sessions into provenance and lineage inventory only after reviewing acceptance.",
+    "Use these sessions for future feature/timing compatibility development, never for final independent validation.",
+    "Collect independent hardware recordings from users for the 2.12 group split."
+  ],
+  "final_conclusion": "This version 2 generator creates 24 independent latent-state synthetic sessions with irregular elapsed timestamps, cross-sensor motion relationships, delayed physiology, stateful PPG validity, stateful environment and battery behavior. Real recordings are used only as bounded calibration targets; no real row is copied or resampled. The acceptance status is PASS."
+}

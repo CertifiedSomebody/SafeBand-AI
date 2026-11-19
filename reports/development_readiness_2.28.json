@@ -1,0 +1,283 @@
+{
+  "milestone": "2.28",
+  "name": "Development Readiness and Final Status",
+  "status": "DEVELOPMENT_PACKAGE_COMPLETE_WITH_BLOCKED_VALIDATION_GATES",
+  "generated_at": "2026-11-18T15:10:43.269365+00:00",
+  "submission_scope": "Development-only implementation and reproducible evidence; not a validated fall-detection product.",
+  "dataset_acceptance": {
+    "milestone": "2.11.9",
+    "status": "PASS",
+    "accepted_dataset_count": 42,
+    "resolved_dataset_count": 42
+  },
+  "source_lineage_gate": {
+    "milestone": "2.12",
+    "status": "BLOCKED",
+    "independent_source_session_count": 1,
+    "required_independent_source_session_count": 3,
+    "source_sessions": [
+      "SESSION_SHA256_D119FF0A17D4B62B"
+    ],
+    "train_validation_test_created": false,
+    "leakage_rule_weakened": false,
+    "reason": "Insufficient independent source sessions. The accepted corpus contains derivatives sharing a recording lineage. No split was created and the no-leakage rule was not weakened."
+  },
+  "stage_statuses": [
+    {
+      "milestones": "2.11.1-2.11.9",
+      "work": "Dataset expansion acceptance",
+      "status": "PASS",
+      "evidence": "Freshly rerun inventory, schema, provenance, validity, timing, hazard, and coverage checks."
+    },
+    {
+      "milestones": "2.12",
+      "work": "Source-session lineage audit and split eligibility",
+      "status": "BLOCKED",
+      "evidence": "42 accepted derivatives resolve to one source session; no partitions created."
+    },
+    {
+      "milestones": "2.13",
+      "work": "Development feature engineering",
+      "status": "DEVELOPMENT ONLY",
+      "evidence": "16416 rows, 58 deterministic causal features, sensor availability masks; no scaling."
+    },
+    {
+      "milestones": "2.14-2.16",
+      "work": "Final partitions, held-out model metrics, and generalization",
+      "status": "BLOCKED",
+      "evidence": "Requires independent source sessions; no test metrics generated."
+    },
+    {
+      "milestones": "2.17",
+      "work": "Physiological error/clinical validation",
+      "status": "BLOCKED",
+      "evidence": "No aligned independent reference ground truth."
+    },
+    {
+      "milestones": "2.18-2.20",
+      "work": "Model release contract, runtime input quality, and temporal fall logic",
+      "status": "DEVELOPMENT ONLY",
+      "evidence": ".NET version/lineage gate and temporal state machine are implemented and tested; no trained model is approved by this work."
+    },
+    {
+      "milestones": "2.21",
+      "work": "Validated model inference integration",
+      "status": "BLOCKED",
+      "evidence": "Existing model artifacts were not loaded or scored; compatibility with this feature schema and independent training lineage is unverified."
+    },
+    {
+      "milestones": "2.22",
+      "work": "Offline feature-pipeline replay",
+      "status": "DEVELOPMENT ONLY",
+      "evidence": "42 datasets / 16416 rows; no model inference or label-based prediction."
+    },
+    {
+      "milestones": "2.23",
+      "work": "Software robustness tests",
+      "status": "DEVELOPMENT ONLY",
+      "evidence": "9 Python feature tests and 28 .NET tests."
+    },
+    {
+      "milestones": "2.24",
+      "work": "Host feature-extraction performance",
+      "status": "DEVELOPMENT ONLY",
+      "evidence": "1951.7673302941032 rows/s on the current development host; not wearable or end-to-end inference latency."
+    },
+    {
+      "milestones": "2.25",
+      "work": "Wearable/hardware and field verification",
+      "status": "BLOCKED",
+      "evidence": "Hardware is unavailable; no live-device or field test claimed."
+    },
+    {
+      "milestones": "2.26-2.28",
+      "work": "Reproducibility, limitations, and final status package",
+      "status": "DEVELOPMENT ONLY",
+      "evidence": "This report preserves blocked gates and distinguishes development from validation."
+    }
+  ],
+  "model_artifacts": {
+    "discovered_count": 55,
+    "discovered_paths": [
+      "models/activity_bits2_v2/activity_model.joblib",
+      "models/activity_bits2_v2/fall_detector.joblib",
+      "models/activity_dl_v1/activity_dl_model.pt",
+      "models/activity_dl_v2/activity_dl_v2_model.pt",
+      "models/activity_model.joblib",
+      "models/activity_model_v3.joblib",
+      "models/activity_strong_v4/activity_model.joblib",
+      "models/aicos_har/classical_v4/extra_trees.joblib",
+      "models/aicos_har/classical_v4/hist_gradient_boosting.joblib",
+      "models/aicos_har/classical_v4/random_forest.joblib",
+      "models/aicos_har/classical_v4/rbf_svm.joblib",
+      "models/aicos_har/classical_v5/decision_tree.joblib",
+      "models/aicos_har/classical_v5/extra_trees.joblib",
+      "models/aicos_har/classical_v5/hist_gradient_boosting.joblib",
+      "models/aicos_har/classical_v5/linear_svm.joblib",
+      "models/aicos_har/classical_v5/logistic_regression.joblib",
+      "models/aicos_har/classical_v5/random_forest.joblib",
+      "models/aicos_har/classical_v5/rbf_svm.joblib",
+      "models/aicos_har/dae_v1/aicos_har_supervised_dae_v1.pt",
+      "models/aicos_har/tinycnn_v4/model.pt",
+      "models/bme680_airwise_v1/bme680_airwise_v1.joblib",
+      "models/bme680_airwise_v1/extra_trees_val.joblib",
+      "models/bme680_airwise_v1/hgb_val.joblib",
+      "models/bme680_airwise_v1/logistic_val.joblib",
+      "models/bme680_airwise_v1/rf_val.joblib",
+      "models/bme680_airwise_v2/bme680_airwise_v2.joblib",
+      "models/fall_detector.joblib",
+      "models/fall_detector_v3.joblib",
+      "models/fall_detector_v6.joblib",
+      "models/fall_event_confirmator_v7.joblib",
+      "models/fall_event_confirmator_v8.joblib",
+      "models/forth_trace_activity_core/activity_model.joblib",
+      "models/forth_trace_activity_transition/activity_model.joblib",
+      "models/multidataset_v1/multidataset_fall_model.joblib",
+      "models/multidataset_v2/multidataset_v2_fall_model.joblib",
+      "models/multidataset_v3/multidataset_v3_augmented_fall_model.joblib",
+      "models/multidataset_v3_smoke/multidataset_v3_augmented_fall_model.joblib",
+      "models/multidataset_v4_event/multidataset_v4_event_model.joblib",
+      "models/multidataset_v5_event/multidataset_v5_event_model.joblib",
+      "models/multidataset_v5_hardneg/multidataset_v5_event_model.joblib",
+      "models/nonspeech7k_audio_bestfit_v1/nonspeech7k_audio_bestfit_model.joblib",
+      "models/nonspeech7k_audio_final_v1/nonspeech7k_audio_model.pt",
+      "models/pamap2_stationary_v2/pamap2_stationary_v2_deployment.joblib",
+      "models/ppg_v4/ppg_v4_1_max30101.joblib",
+      "models/ppg_v4/ppg_v4_2_max30101.joblib",
+      "models/ppg_v4/ppg_v4_3_final_max30101.joblib",
+      "models/ppg_v4/ppg_v4_max30101.joblib",
+      "models/ppg_v6_final/ppg_v6_max30101_reference.joblib",
+      "models/ppg_v6_max30101_reference.joblib",
+      "models/ppg_walking_v5/ppg_walking_v5_1.joblib",
+      "models/ppg_walking_v5_2/ppg_walking_v5_2.joblib",
+      "models/ppg_walking_v5_3/ppg_walking_v5_3_final.joblib",
+      "models/ppgdalia_hr_e4_reference.joblib",
+      "models/ppgdalia_hr_e4_reference_v2.joblib",
+      "models/ppgdalia_hr_e4_reference_v3.joblib"
+    ],
+    "loaded_by_this_work": false,
+    "compatibility_with_development_feature_schema": "NOT_ASSESSED",
+    "production_approval": false
+  },
+  "performance_claims": {
+    "feature_extraction_rows_per_second_current_host": 1951.7673302941032,
+    "wearable_latency_measured": false,
+    "fall_detection_accuracy_claimed": false,
+    "clinical_claimed": false
+  },
+  "validation_commands": [
+    {
+      "name": "2.11.1-2.11.9 dataset acceptance",
+      "command": [
+        "D:\\Admin\\Downloads\\SafeBand-AI-main\\SafeBand-AI-main\\venv\\Scripts\\python.exe",
+        "tools/dataset_expansion/run_dataset_expansion_acceptance.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "PASS",
+      "stdout": "SAFEband MILESTONE 2.11.1 \\ufffd DATASET INVENTORY\n\nDataset directory exists : PASS\nDataset count            : PASS\nExpected categories      : PASS\nUnknown files            : PASS\n\nDatasets                 : 42\naugmentation             : 1\nhard_negative            : 8\nhazard                   : 7\nmotion                   : 9\nmotion_profile           : 7\nppg                      : 1\nsensor_noise             : 2\nsynthetic_running        : 1\ntiming                   : 6\n\nOverall status           : PASS\nReport                   : reports\\dataset_expansion\\acceptance\\dataset_inventory_2.11.1.json\nSAFEband MILESTONE 2.11.2 \\ufffd SCHEMA CONSISTENCY\n\nDatasets checked           : 42\nStandard schema            : 36 columns\nHazard schema              : 40 columns\nDatasets PASS              : 42\nDatasets FAIL              : 0\n\nOverall status             : PASS\nReport                     : reports\\dataset_expansion\\acceptance\\schema_consistency_2.11.2.json\nSAFEband MILESTONE 2.11.3 \\ufffd PROVENANCE COMPLETENESS\n\nDatasets checked           : 42\nManifest entries           : 42\nNative provenance files    : 42\nDatasets PASS              : 42\nDatasets FAIL              : 0\n\nOverall status             : PASS\nReport                     : reports\\dataset_expansion\\acceptance\\provenance_completeness_2.11.3.json\nSAFEband MILESTONE 2.11.4 \\ufffd SYNTHETIC-STATUS INTEGRITY\n\nAllowed statuses           : REAL, SYNTHETIC_DEVELOPMENT_FIXTURE, SYNTHETIC_UNVALIDATED, SYNTHETIC_VALIDATED\nDatasets checked           : 42\nManifest entries           : 42\nDatasets PASS              : 42\nDatasets FAIL              : 0\n\nOverall status             : PASS\nReport                     : reports\\dataset_expansion\\acceptance\\synthetic_status_2.11.4.json\nSAFEband MILESTONE 2.11.5 \\ufffd ACTIVITY/PROFILE COVERAGE\n\nDataset count            : PASS\nDatasets readable        : PASS\nActivities valid         : PASS\nActivity coverage        : PASS\nMotion profiles          : PASS\nTiming profiles          : PASS\nHard-negative profiles   : PASS\nHazard types             : PASS\nPPG profiles             : PASS\nSensor-noise profiles    : PASS\nHazard schema            : PASS\n\nActivities:\n  RUNNING             : 1\n  WALKING             : 41\n\nOverall status           : PASS\nReport                   : reports\\dataset_expansion\\acceptance\\activity_profile_coverage_2.11.5.json\nSAFEband MILESTONE 2.11.6 \\ufffd SENTINEL/VALIDITY INTEGRITY\n\nDataset count            : PASS\nValidity flags           : PASS\nMeasurement sentinels    : PASS\nSource preservation      : PASS\nDatasets PASS            : 42\nDatasets FAIL            : 0\n\nOverall status           : PASS\nReport                   : reports\\dataset_expansion\\acceptance\\sentinel_validity_2.11.6.json\n  timing_bursty_001.csv: PASS\n  timing_jittered_001.csv: PASS\n  timing_normal_001.csv: PASS\n  timing_slow_001.csv: PASS\n  timing_stall_heavy_001.csv: PASS\n  timing_stall_light_001.csv: PASS\nSAFEband MILESTONE 2.11.7 \\ufffd TIMING INTEGRITY\nTiming datasets checked : 6\nExpected profiles       : PASS\nTiming validators       : PASS\nOverall status          : PASS\nReport                  : reports\\dataset_expansion\\acceptance\\timing_integrity_2.11.7.json\n  hardneg_abrupt_acceleration_001.csv: PASS\n  hardneg_abrupt_deceleration_001.csv: PASS\n  hardneg_motion_spike_001.csv: PASS\n  hardneg_near_fall_recovery_001.csv: PASS\n  hardneg_ppg_artifact_001.csv: PASS\n  hardneg_sharp_turn_001.csv: PASS\n  hardneg_stop_start_001.csv: PASS\n  hardneg_timing_stall_001.csv: PASS\n  hazard_fall_backward_001.csv: PASS\n  hazard_fall_forward_001.csv: PASS\n  hazard_fall_side_001.csv: PASS\n  hazard_high_impact_001.csv: PASS\n  hazard_loss_of_balance_001.csv: PASS\n  hazard_sudden_collapse_001.csv: PASS\n  hazard_trip_recovery_001.csv: PASS\nSAFEband MILESTONE 2.11.8 \\ufffd HAZARD/HARD-NEGATIVE COVERAGE\nHard-negative datasets : 8\nHazard datasets        : 7\nProfile coverage       : PASS\nDataset validators     : PASS\nOverall status         : PASS\nReport                 : reports\\dataset_expansion\\acceptance\\hazard_hard_negative_coverage_2.11.8.json\nSAFEband MILESTONE 2.11.9 \ufffd FINAL DATASET ACCEPTANCE\nStages passed : 9/9\nOverall status: PASS\nReport        : reports\\dataset_expansion\\acceptance\\dataset_expansion_acceptance_2.11.9.json",
+      "stderr": ""
+    },
+    {
+      "name": "2.12 lineage audit",
+      "command": [
+        "D:\\Admin\\Downloads\\SafeBand-AI-main\\SafeBand-AI-main\\venv\\Scripts\\python.exe",
+        "tools/dataset_training/build_training_dataset.py"
+      ],
+      "exit_code": 2,
+      "expected_exit_codes": [
+        2
+      ],
+      "status": "PASS",
+      "stdout": "TRAINING DATASET BUILD : BLOCKED\nAccepted datasets             : 42\nIndependent source sessions   : 1\nTrain/validation/test created : NO\nLineage manifest              : datasets\\training\\lineage_manifest.json\nAcceptance report             : reports\\dataset_training\\training_dataset_acceptance_2.12.json",
+      "stderr": ""
+    },
+    {
+      "name": "2.12 partition validation gate",
+      "command": [
+        "D:\\Admin\\Downloads\\SafeBand-AI-main\\SafeBand-AI-main\\venv\\Scripts\\python.exe",
+        "tools/dataset_training/validate_training_dataset.py"
+      ],
+      "exit_code": 2,
+      "expected_exit_codes": [
+        2
+      ],
+      "status": "PASS",
+      "stdout": "TRAINING DATASET VALIDATION : BLOCKED\nReason: no independent group-level partitions exist.\nNo leakage-free train/validation/test package is claimed.",
+      "stderr": ""
+    },
+    {
+      "name": "feature engineering unit tests",
+      "command": [
+        "D:\\Admin\\Downloads\\SafeBand-AI-main\\SafeBand-AI-main\\venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/feature_engineering/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "PASS",
+      "stdout": "",
+      "stderr": "test_feature_contract_is_fixed_and_finite (test_feature_extraction.FeatureExtractionTests.test_feature_contract_is_fixed_and_finite) ... ok\ntest_invalid_environment_is_masked (test_feature_extraction.FeatureExtractionTests.test_invalid_environment_is_masked) ... ok\ntest_invalid_ppg_is_masked_and_valid_ppg_is_preserved (test_feature_extraction.FeatureExtractionTests.test_invalid_ppg_is_masked_and_valid_ppg_is_preserved) ... ok\ntest_missing_optional_sensors_have_clear_masks (test_feature_extraction.FeatureExtractionTests.test_missing_optional_sensors_have_clear_masks) ... ok\ntest_non_monotonic_timestamps_are_rejected (test_feature_extraction.FeatureExtractionTests.test_non_monotonic_timestamps_are_rejected) ... ok\ntest_ppg_signal_is_masked_when_contact_is_absent (test_feature_extraction.FeatureExtractionTests.test_ppg_signal_is_masked_when_contact_is_absent) ... ok\ntest_rolling_features_are_causal_and_timing_aware (test_feature_extraction.FeatureExtractionTests.test_rolling_features_are_causal_and_timing_aware) ... ok\ntest_timing_stall_is_explicit (test_feature_extraction.FeatureExtractionTests.test_timing_stall_is_explicit) ... ok\ntest_valid_sentinel_is_rejected (test_feature_extraction.FeatureExtractionTests.test_valid_sentinel_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.109s\n\nOK"
+    },
+    {
+      "name": "development feature matrix",
+      "command": [
+        "D:\\Admin\\Downloads\\SafeBand-AI-main\\SafeBand-AI-main\\venv\\Scripts\\python.exe",
+        "tools/feature_engineering/build_development_feature_matrix.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "PASS",
+      "stdout": "DEVELOPMENT FEATURE EXTRACTION : COMPLETE\nAccepted datasets : 42\nFeature rows      : 16416\nFeatures per row  : 58\nScaling/model/evaluation: NOT RUN\nMatrix            : datasets\\features\\development_feature_matrix_development_only.csv\nReport            : reports\\dataset_training\\development_feature_matrix_2.13.json",
+      "stderr": ""
+    },
+    {
+      "name": "offline development replay",
+      "command": [
+        "D:\\Admin\\Downloads\\SafeBand-AI-main\\SafeBand-AI-main\\venv\\Scripts\\python.exe",
+        "tools/runtime_replay/replay_development_datasets.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "PASS",
+      "stdout": "OFFLINE DEVELOPMENT REPLAY : PASS\nDatasets                : 42\nRows                    : 16416\nFeature extraction rate : 1951.8 rows/s\nModel inference         : NOT RUN\nHardware performance    : NOT MEASURED\nReport                  : reports\\runtime_replay\\development_replay_2.22.json",
+      "stderr": ""
+    },
+    {
+      "name": ".NET AI/core tests",
+      "command": [
+        "dotnet",
+        "test",
+        "software/SafeBand/tests/SafeBand.Core.Tests/SafeBand.Core.Tests.csproj",
+        "--no-restore"
+      ],
+      "exit_code": 0,
+      "expected_exit_codes": [
+        0
+      ],
+      "status": "PASS",
+      "stdout": "SafeBand.Core -> D:\\Admin\\Downloads\\SafeBand-AI-main\\SafeBand-AI-main\\software\\SafeBand\\src\\SafeBand.Core\\bin\\Debug\\net10.0\\SafeBand.Core.dll\n  SafeBand.AI -> D:\\Admin\\Downloads\\SafeBand-AI-main\\SafeBand-AI-main\\software\\SafeBand\\src\\SafeBand.AI\\bin\\Debug\\net10.0\\SafeBand.AI.dll\n  SafeBand.Core.Tests -> D:\\Admin\\Downloads\\SafeBand-AI-main\\SafeBand-AI-main\\software\\SafeBand\\tests\\SafeBand.Core.Tests\\bin\\Debug\\net10.0\\SafeBand.Core.Tests.dll\nTest run for D:\\Admin\\Downloads\\SafeBand-AI-main\\SafeBand-AI-main\\software\\SafeBand\\tests\\SafeBand.Core.Tests\\bin\\Debug\\net10.0\\SafeBand.Core.Tests.dll (.NETCoreApp,Version=v10.0)\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:    28, Skipped:     0, Total:    28, Duration: 104 ms - SafeBand.Core.Tests.dll (net10.0)",
+      "stderr": ""
+    }
+  ],
+  "overall_claim": "Development components and their software tests are complete. Independent model evaluation, clinical validation, and hardware verification remain blocked.",
+  "next_required_evidence": [
+    "Collect at least three independent real source sessions and rerun the group-level split gate.",
+    "Establish aligned reference ground truth before physiological error claims.",
+    "Audit any pre-existing model artifact for exact feature schema and independent training lineage before deployment consideration.",
+    "Restore hardware for live-device latency, sensor-quality, and field tests."
+  ],
+  "all_automation_steps_succeeded": true
+}

@@ -1,0 +1,148 @@
+﻿{
+  "stage": "2.10.6",
+  "name": "hard_negative_generation",
+  "version": "1.0",
+  "profiles": {
+    "ABRUPT_ACCELERATION": {
+      "description": "Short high-energy acceleration burst without fall/posture transition.",
+      "target_columns": [
+        "accel_x_m_s2",
+        "accel_y_m_s2",
+        "accel_z_m_s2"
+      ],
+      "event_count": 5,
+      "min_event_rows": 2,
+      "max_event_rows": 5,
+      "amplitude_scale_min": 1.35,
+      "amplitude_scale_max": 1.75,
+      "ramp_rows": 2
+    },
+
+    "ABRUPT_DECELERATION": {
+      "description": "Abrupt deceleration followed by normal motion, without hazard transition.",
+      "target_columns": [
+        "accel_x_m_s2",
+        "accel_y_m_s2",
+        "accel_z_m_s2"
+      ],
+      "event_count": 5,
+      "min_event_rows": 2,
+      "max_event_rows": 5,
+      "amplitude_scale_min": 0.35,
+      "amplitude_scale_max": 0.65,
+      "ramp_rows": 2
+    },
+
+    "SHARP_TURN": {
+      "description": "Gyroscope-dominant directional perturbation representing a sharp turn.",
+      "target_columns": [
+        "gyro_x_rad_s",
+        "gyro_y_rad_s",
+        "gyro_z_rad_s"
+      ],
+      "event_count": 5,
+      "min_event_rows": 3,
+      "max_event_rows": 7,
+      "amplitude_scale_min": 1.40,
+      "amplitude_scale_max": 2.00,
+      "ramp_rows": 2
+    },
+
+    "MOTION_SPIKE": {
+      "description": "Combined acceleration and gyro spike without fall semantics.",
+      "target_groups": [
+        [
+          "accel_x_m_s2",
+          "accel_y_m_s2",
+          "accel_z_m_s2"
+        ],
+        [
+          "gyro_x_rad_s",
+          "gyro_y_rad_s",
+          "gyro_z_rad_s"
+        ]
+      ],
+      "event_count": 4,
+      "min_event_rows": 2,
+      "max_event_rows": 5,
+      "accel_scale_min": 1.45,
+      "accel_scale_max": 1.90,
+      "gyro_scale_min": 1.45,
+      "gyro_scale_max": 2.10,
+      "ramp_rows": 2
+    },
+
+    "STOP_START": {
+      "description": "Temporary motion suppression followed by rapid return to walking.",
+      "target_groups": [
+        [
+          "accel_x_m_s2",
+          "accel_y_m_s2",
+          "accel_z_m_s2"
+        ],
+        [
+          "gyro_x_rad_s",
+          "gyro_y_rad_s",
+          "gyro_z_rad_s"
+        ]
+      ],
+      "event_count": 4,
+      "min_event_rows": 5,
+      "max_event_rows": 10,
+      "minimum_scale": 0.20,
+      "recovery_scale": 1.25,
+      "ramp_rows": 3
+    },
+
+    "PPG_ARTIFACT": {
+      "description": "Raw optical disturbance while retaining the original contact/validity state.",
+      "target_columns": [
+        "max_ir",
+        "max_red"
+      ],
+      "event_count": 5,
+      "min_event_rows": 3,
+      "max_event_rows": 10,
+      "amplitude_scale_min": 0.55,
+      "amplitude_scale_max": 1.45,
+      "ramp_rows": 2
+    },
+
+    "TIMING_STALL_NO_HAZARD": {
+      "description": "Acquisition stall without any sensor hazard transition.",
+      "target_columns": [
+        "elapsed_ms"
+      ],
+      "event_count": 4,
+      "min_event_rows": 1,
+      "max_event_rows": 1,
+      "stall_interval_min_ms": 5200,
+      "stall_interval_max_ms": 5480
+    },
+
+    "NEAR_FALL_RECOVERY": {
+      "description": "Strong transient motion resembling a near-fall followed by recovery, while preserving source activity.",
+      "target_groups": [
+        [
+          "accel_x_m_s2",
+          "accel_y_m_s2",
+          "accel_z_m_s2"
+        ],
+        [
+          "gyro_x_rad_s",
+          "gyro_y_rad_s",
+          "gyro_z_rad_s"
+        ]
+      ],
+      "event_count": 3,
+      "min_event_rows": 5,
+      "max_event_rows": 9,
+      "accel_scale_min": 1.60,
+      "accel_scale_max": 2.20,
+      "gyro_scale_min": 1.60,
+      "gyro_scale_max": 2.40,
+      "recovery_scale": 0.80,
+      "ramp_rows": 3
+    }
+  }
+}

@@ -1,0 +1,45 @@
+﻿{
+  "stage": "2.10.4",
+  "seed": 20261118,
+  "profiles": {
+    "NOISE_LOW": {
+      "gaussian_fraction": 0.003,
+      "correlated_fraction": 0.001,
+      "spike_probability": 0.001,
+      "spike_fraction": 0.008,
+      "battery_quantization": 0.001
+    },
+
+    "NOISE_MODERATE": {
+      "gaussian_fraction": 0.008,
+      "correlated_fraction": 0.003,
+      "spike_probability": 0.003,
+      "spike_fraction": 0.015,
+      "battery_quantization": 0.002
+    },
+
+    "NOISE_HIGH": {
+      "gaussian_fraction": 0.015,
+      "correlated_fraction": 0.006,
+      "spike_probability": 0.008,
+      "spike_fraction": 0.030,
+      "battery_quantization": 0.004
+    },
+
+    "NOISE_SENSOR_DRIFT": {
+      "gaussian_fraction": 0.006,
+      "correlated_fraction": 0.012,
+      "spike_probability": 0.002,
+      "spike_fraction": 0.012,
+      "battery_quantization": 0.002
+    },
+
+    "NOISE_TRANSIENT": {
+      "gaussian_fraction": 0.006,
+      "correlated_fraction": 0.004,
+      "spike_probability": 0.020,
+      "spike_fraction": 0.040,
+      "battery_quantization": 0.002
+    }
+  }
+}

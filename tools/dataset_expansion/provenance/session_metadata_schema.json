@@ -1,0 +1,29 @@
+﻿{
+  "schema_name": "SafeBand Dataset Expansion Session Metadata",
+  "schema_version": "1.0",
+  "required_fields": [
+    "dataset_id",
+    "source_dataset",
+    "source_path",
+    "generation_stage",
+    "generation_tool",
+    "profile",
+    "seed",
+    "timestamp",
+    "row_count",
+    "column_count",
+    "activity",
+    "synthetic_status",
+    "parent_dataset",
+    "schema_version",
+    "augmentation_parameters",
+    "validation_report",
+    "provenance_file"
+  ],
+  "synthetic_status_values": [
+    "SYNTHETIC_UNVALIDATED",
+    "SYNTHETIC_VALIDATED",
+    "SYNTHETIC_DEVELOPMENT_FIXTURE",
+    "REAL"
+  ]
+}

@@ -1,0 +1,1416 @@
+{
+  "implementation_version": "realistic_sensor_generator_v2.1",
+  "generated_at": "2026-11-19T03:13:49.589406+00:00",
+  "baseline_report_reference": "reports/realistic_synthetic_sensor_acceptance_report.json",
+  "corrected_replay_reference": "reports/real_safeband_corrected_replay_report.json",
+  "changes_made": [
+    "Added per-session nominal interval, jitter scale, stall probability, and bounded stall duration metadata.",
+    "Preserved existing elapsed-time generator, latent motion, provenance, and 36/40-column schemas.",
+    "Added sentinel-aware valid-only physiology distributions."
+  ],
+  "sessions_before": 24,
+  "sessions_after": 24,
+  "independent_session_count": 24,
+  "provenance_validation": {
+    "status": "PASS",
+    "unique_source_session_ids": 24,
+    "unique_session_seeds": 24,
+    "required_provenance_fields_present": true
+  },
+  "timing_validation": {
+    "status": "PASS",
+    "stall_threshold_ms": 1000,
+    "real_calibration": {
+      "median_dt_ms": 394.0,
+      "p95_dt_ms": 5430.0,
+      "p99_dt_ms": 5437.0,
+      "max_dt_ms": 5442.0,
+      "stall_probability": 0.07562277580071175
+    },
+    "synthetic_all_session_dt": {
+      "median_dt": 397.0,
+      "mean_dt": 771.9270208807112,
+      "p05_dt": 387.0,
+      "p95_dt": 5381.0,
+      "p99_dt": 5574.27,
+      "max_dt": 5678.0,
+      "stall_count": 715,
+      "stall_percentage": 0.07390944800496176,
+      "coefficient_of_variation": 1.7089368676619612
+    }
+  },
+  "timing_diversity": {
+    "median_dt_min_ms": 389.0,
+    "median_dt_median_ms": 398.5,
+    "median_dt_max_ms": 403.0,
+    "session_profiles": [
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_009",
+        "timing_profile_id": "TIMING-06",
+        "nominal_interval_ms": 393.65876952652866,
+        "timing_jitter_scale": 16.11136978925924,
+        "stall_probability": 0.09300241679575288,
+        "stall_duration_profile": {
+          "mean_ms": 5456.19272416561,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 396.0,
+        "mean_dt": 956.7763819095477,
+        "p05_dt": 387.0,
+        "p95_dt": 5453.9,
+        "p99_dt": 5514.21,
+        "max_dt": 5572.0,
+        "stall_count": 44,
+        "stall_percentage": 0.11055276381909548,
+        "coefficient_of_variation": 1.657777229272259,
+        "autocorrelation": -0.07351113810574118
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_021",
+        "timing_profile_id": "TIMING-05",
+        "nominal_interval_ms": 397.35714595597267,
+        "timing_jitter_scale": 14.224176006790561,
+        "stall_probability": 0.08355832932089739,
+        "stall_duration_profile": {
+          "mean_ms": 5503.888481306421,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 400.0,
+        "mean_dt": 785.1231155778894,
+        "p05_dt": 387.0,
+        "p95_dt": 5495.15,
+        "p99_dt": 5539.18,
+        "max_dt": 5609.0,
+        "stall_count": 30,
+        "stall_percentage": 0.07537688442211055,
+        "coefficient_of_variation": 1.719452427601575,
+        "autocorrelation": 0.06284880356354076
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_001",
+        "timing_profile_id": "TIMING-04",
+        "nominal_interval_ms": 396.87666673676927,
+        "timing_jitter_scale": 15.308661515001543,
+        "stall_probability": 0.07646352931613631,
+        "stall_duration_profile": {
+          "mean_ms": 5250.677185137898,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 398.5,
+        "mean_dt": 716.639880952381,
+        "p05_dt": 387.0,
+        "p95_dt": 5222.5,
+        "p99_dt": 5292.2,
+        "max_dt": 5310.0,
+        "stall_count": 22,
+        "stall_percentage": 0.06547619047619048,
+        "coefficient_of_variation": 1.6764482817585302,
+        "autocorrelation": -0.0704082605525424
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_002",
+        "timing_profile_id": "TIMING-05",
+        "nominal_interval_ms": 390.0529860158192,
+        "timing_jitter_scale": 20.299887918876465,
+        "stall_probability": 0.0881176874939416,
+        "stall_duration_profile": {
+          "mean_ms": 5380.715163498885,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 390.0,
+        "mean_dt": 763.4355828220858,
+        "p05_dt": 387.0,
+        "p95_dt": 5371.0,
+        "p99_dt": 5418.25,
+        "max_dt": 5442.0,
+        "stall_count": 24,
+        "stall_percentage": 0.0736196319018405,
+        "coefficient_of_variation": 1.7051395413063881,
+        "autocorrelation": 0.05928903884178052
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_003",
+        "timing_profile_id": "TIMING-04",
+        "nominal_interval_ms": 401.1095635182608,
+        "timing_jitter_scale": 21.83496972306512,
+        "stall_probability": 0.07154026509734424,
+        "stall_duration_profile": {
+          "mean_ms": 5213.367982019954,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 400.0,
+        "mean_dt": 692.532293986637,
+        "p05_dt": 387.0,
+        "p95_dt": 5177.6,
+        "p99_dt": 5246.04,
+        "max_dt": 5287.0,
+        "stall_count": 27,
+        "stall_percentage": 0.060133630289532294,
+        "coefficient_of_variation": 1.6518729738182067,
+        "autocorrelation": 0.014902970927559567
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_004",
+        "timing_profile_id": "TIMING-03",
+        "nominal_interval_ms": 399.9029716862977,
+        "timing_jitter_scale": 17.929543975923963,
+        "stall_probability": 0.07057137354157647,
+        "stall_duration_profile": {
+          "mean_ms": 5584.129726807634,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 401.0,
+        "mean_dt": 734.6238532110092,
+        "p05_dt": 387.0,
+        "p95_dt": 5555.0,
+        "p99_dt": 5609.65,
+        "max_dt": 5644.0,
+        "stall_count": 28,
+        "stall_percentage": 0.06422018348623854,
+        "coefficient_of_variation": 1.7274538830708757,
+        "autocorrelation": 0.08422713890754278
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_005",
+        "timing_profile_id": "TIMING-04",
+        "nominal_interval_ms": 392.305159560211,
+        "timing_jitter_scale": 23.392784388497518,
+        "stall_probability": 0.07959024793476852,
+        "stall_duration_profile": {
+          "mean_ms": 5599.305555665886,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 396.0,
+        "mean_dt": 764.0851528384279,
+        "p05_dt": 387.0,
+        "p95_dt": 5585.099999999999,
+        "p99_dt": 5642.72,
+        "max_dt": 5678.0,
+        "stall_count": 32,
+        "stall_percentage": 0.06986899563318777,
+        "coefficient_of_variation": 1.737731083980351,
+        "autocorrelation": -0.07562324129247489
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_006",
+        "timing_profile_id": "TIMING-03",
+        "nominal_interval_ms": 398.28950467192277,
+        "timing_jitter_scale": 23.588554974785332,
+        "stall_probability": 0.09265595021028507,
+        "stall_duration_profile": {
+          "mean_ms": 5508.580612781257,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 401.0,
+        "mean_dt": 887.8893905191874,
+        "p05_dt": 387.0,
+        "p95_dt": 5518.6,
+        "p99_dt": 5549.58,
+        "max_dt": 5573.0,
+        "stall_count": 42,
+        "stall_percentage": 0.09480812641083522,
+        "coefficient_of_variation": 1.6867821703583634,
+        "autocorrelation": -0.07644829015477853
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_007",
+        "timing_profile_id": "TIMING-06",
+        "nominal_interval_ms": 391.0804282103721,
+        "timing_jitter_scale": 15.273776634872517,
+        "stall_probability": 0.07869366689157391,
+        "stall_duration_profile": {
+          "mean_ms": 5529.544010422184,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 394.0,
+        "mean_dt": 884.1196319018405,
+        "p05_dt": 387.0,
+        "p95_dt": 5532.25,
+        "p99_dt": 5583.75,
+        "max_dt": 5619.0,
+        "stall_count": 31,
+        "stall_percentage": 0.0950920245398773,
+        "coefficient_of_variation": 1.7066723212461217,
+        "autocorrelation": 0.03674254991894607
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_008",
+        "timing_profile_id": "TIMING-06",
+        "nominal_interval_ms": 392.1773455829198,
+        "timing_jitter_scale": 21.27192187861252,
+        "stall_probability": 0.07039903657291416,
+        "stall_duration_profile": {
+          "mean_ms": 5309.474350163007,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 395.0,
+        "mean_dt": 855.0932203389831,
+        "p05_dt": 387.0,
+        "p95_dt": 5299.05,
+        "p99_dt": 5353.76,
+        "max_dt": 5381.0,
+        "stall_count": 33,
+        "stall_percentage": 0.09322033898305085,
+        "coefficient_of_variation": 1.668081966025666,
+        "autocorrelation": -0.0019691373948621253
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_010",
+        "timing_profile_id": "TIMING-05",
+        "nominal_interval_ms": 392.67124799836415,
+        "timing_jitter_scale": 16.49467383303519,
+        "stall_probability": 0.09293281377791117,
+        "stall_duration_profile": {
+          "mean_ms": 5224.889104142063,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 393.0,
+        "mean_dt": 746.7652582159625,
+        "p05_dt": 387.0,
+        "p95_dt": 5197.75,
+        "p99_dt": 5253.75,
+        "max_dt": 5298.0,
+        "stall_count": 31,
+        "stall_percentage": 0.07276995305164319,
+        "coefficient_of_variation": 1.6772520693737059,
+        "autocorrelation": -0.07785384792924253
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_011",
+        "timing_profile_id": "TIMING-01",
+        "nominal_interval_ms": 397.38327481158836,
+        "timing_jitter_scale": 15.592095098154534,
+        "stall_probability": 0.06260630389057155,
+        "stall_duration_profile": {
+          "mean_ms": 5428.781759446056,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 401.0,
+        "mean_dt": 690.5901639344262,
+        "p05_dt": 387.0,
+        "p95_dt": 5403.5,
+        "p99_dt": 5460.4,
+        "max_dt": 5533.0,
+        "stall_count": 21,
+        "stall_percentage": 0.05737704918032787,
+        "coefficient_of_variation": 1.6970896767631423,
+        "autocorrelation": -0.06198188262661443
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_012",
+        "timing_profile_id": "TIMING-06",
+        "nominal_interval_ms": 389.5602846620021,
+        "timing_jitter_scale": 17.596191298337015,
+        "stall_probability": 0.08685398086875279,
+        "stall_duration_profile": {
+          "mean_ms": 5480.427485938791,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 389.0,
+        "mean_dt": 757.5095890410959,
+        "p05_dt": 387.0,
+        "p95_dt": 5468.8,
+        "p99_dt": 5513.32,
+        "max_dt": 5538.0,
+        "stall_count": 26,
+        "stall_percentage": 0.07123287671232877,
+        "coefficient_of_variation": 1.7287675831413811,
+        "autocorrelation": 0.04733383398803089
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_013",
+        "timing_profile_id": "TIMING-01",
+        "nominal_interval_ms": 398.5914738134924,
+        "timing_jitter_scale": 22.733411767514923,
+        "stall_probability": 0.07086905460905318,
+        "stall_duration_profile": {
+          "mean_ms": 5251.735014465047,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 403.0,
+        "mean_dt": 730.9050632911392,
+        "p05_dt": 387.0,
+        "p95_dt": 5230.0,
+        "p99_dt": 5284.35,
+        "max_dt": 5308.0,
+        "stall_count": 32,
+        "stall_percentage": 0.06751054852320675,
+        "coefficient_of_variation": 1.6653577180848536,
+        "autocorrelation": -0.039597267141638096
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_014",
+        "timing_profile_id": "TIMING-01",
+        "nominal_interval_ms": 391.1304580277912,
+        "timing_jitter_scale": 22.406378260015053,
+        "stall_probability": 0.0798595738965136,
+        "stall_duration_profile": {
+          "mean_ms": 5589.957471996011,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 390.0,
+        "mean_dt": 779.2264705882353,
+        "p05_dt": 387.0,
+        "p95_dt": 5587.2,
+        "p99_dt": 5639.0,
+        "max_dt": 5668.0,
+        "stall_count": 25,
+        "stall_percentage": 0.07352941176470588,
+        "coefficient_of_variation": 1.745025376135869,
+        "autocorrelation": 0.050443815176752164
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_015",
+        "timing_profile_id": "TIMING-04",
+        "nominal_interval_ms": 392.3406904200149,
+        "timing_jitter_scale": 21.9381654772783,
+        "stall_probability": 0.08100749266546005,
+        "stall_duration_profile": {
+          "mean_ms": 5549.312740451235,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 392.5,
+        "mean_dt": 778.9074074074074,
+        "p05_dt": 387.0,
+        "p95_dt": 5515.9,
+        "p99_dt": 5577.6900000000005,
+        "max_dt": 5612.0,
+        "stall_count": 28,
+        "stall_percentage": 0.07407407407407407,
+        "coefficient_of_variation": 1.7296785088142568,
+        "autocorrelation": 0.03856376629806542
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_016",
+        "timing_profile_id": "TIMING-03",
+        "nominal_interval_ms": 398.3736091792736,
+        "timing_jitter_scale": 18.30553710132933,
+        "stall_probability": 0.07162277812557764,
+        "stall_duration_profile": {
+          "mean_ms": 5386.18458478594,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 401.0,
+        "mean_dt": 706.7860262008734,
+        "p05_dt": 387.0,
+        "p95_dt": 5357.45,
+        "p99_dt": 5421.58,
+        "max_dt": 5437.0,
+        "stall_count": 28,
+        "stall_percentage": 0.0611353711790393,
+        "coefficient_of_variation": 1.6908033812361003,
+        "autocorrelation": 0.08615654807801099
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_017",
+        "timing_profile_id": "TIMING-03",
+        "nominal_interval_ms": 396.40769126558774,
+        "timing_jitter_scale": 14.91853030152371,
+        "stall_probability": 0.0743581873359683,
+        "stall_duration_profile": {
+          "mean_ms": 5570.086879564328,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 399.0,
+        "mean_dt": 707.0255319148936,
+        "p05_dt": 387.0,
+        "p95_dt": 5543.849999999999,
+        "p99_dt": 5597.62,
+        "max_dt": 5624.0,
+        "stall_count": 28,
+        "stall_percentage": 0.059574468085106386,
+        "coefficient_of_variation": 1.7312588565379463,
+        "autocorrelation": 0.012728885620157813
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_018",
+        "timing_profile_id": "TIMING-02",
+        "nominal_interval_ms": 396.27152459620044,
+        "timing_jitter_scale": 21.617548954921954,
+        "stall_probability": 0.07954367610504788,
+        "stall_duration_profile": {
+          "mean_ms": 5334.101011214776,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 398.5,
+        "mean_dt": 836.2459893048128,
+        "p05_dt": 387.0,
+        "p95_dt": 5328.45,
+        "p99_dt": 5372.16,
+        "max_dt": 5394.0,
+        "stall_count": 33,
+        "stall_percentage": 0.08823529411764706,
+        "coefficient_of_variation": 1.6736765026013247,
+        "autocorrelation": -0.028140903739132982
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_019",
+        "timing_profile_id": "TIMING-04",
+        "nominal_interval_ms": 392.5438802004317,
+        "timing_jitter_scale": 14.537248579752394,
+        "stall_probability": 0.08653820353807154,
+        "stall_duration_profile": {
+          "mean_ms": 5534.9269667807575,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 394.0,
+        "mean_dt": 697.1509433962265,
+        "p05_dt": 387.0,
+        "p95_dt": 5480.8,
+        "p99_dt": 5555.88,
+        "max_dt": 5623.0,
+        "stall_count": 28,
+        "stall_percentage": 0.05870020964360587,
+        "coefficient_of_variation": 1.730876885118188,
+        "autocorrelation": -0.06141967483648461
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_020",
+        "timing_profile_id": "TIMING-02",
+        "nominal_interval_ms": 392.8273868834523,
+        "timing_jitter_scale": 23.933859977016155,
+        "stall_probability": 0.0847989274730852,
+        "stall_duration_profile": {
+          "mean_ms": 5243.525091872616,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 394.0,
+        "mean_dt": 740.2380952380952,
+        "p05_dt": 387.0,
+        "p95_dt": 5219.0,
+        "p99_dt": 5297.6,
+        "max_dt": 5317.0,
+        "stall_count": 31,
+        "stall_percentage": 0.07029478458049887,
+        "coefficient_of_variation": 1.6754977157461615,
+        "autocorrelation": -0.0411724526083513
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_022",
+        "timing_profile_id": "TIMING-06",
+        "nominal_interval_ms": 397.8249712253178,
+        "timing_jitter_scale": 14.122801434652612,
+        "stall_probability": 0.07908555342179108,
+        "stall_duration_profile": {
+          "mean_ms": 5474.991317746832,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 401.0,
+        "mean_dt": 833.6194690265487,
+        "p05_dt": 387.0,
+        "p95_dt": 5470.3,
+        "p99_dt": 5502.86,
+        "max_dt": 5522.0,
+        "stall_count": 29,
+        "stall_percentage": 0.0855457227138643,
+        "coefficient_of_variation": 1.7025179816215374,
+        "autocorrelation": 0.01966809644115926
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_023",
+        "timing_profile_id": "TIMING-05",
+        "nominal_interval_ms": 399.4511427730472,
+        "timing_jitter_scale": 17.96446688362689,
+        "stall_probability": 0.08729912944551586,
+        "stall_duration_profile": {
+          "mean_ms": 5538.1304697310325,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 401.0,
+        "mean_dt": 857.2100456621005,
+        "p05_dt": 387.0,
+        "p95_dt": 5520.0,
+        "p99_dt": 5553.63,
+        "max_dt": 5599.0,
+        "stall_count": 39,
+        "stall_percentage": 0.08904109589041095,
+        "coefficient_of_variation": 1.701788827032854,
+        "autocorrelation": -0.013749918155278198
+      },
+      {
+        "source_session_id": "SYNTH_SOURCE_20261119_024",
+        "timing_profile_id": "TIMING-06",
+        "nominal_interval_ms": 397.9855718969292,
+        "timing_jitter_scale": 16.079060493844093,
+        "stall_probability": 0.07471756929085789,
+        "stall_duration_profile": {
+          "mean_ms": 5547.088542948045,
+          "std_ms": 35.0,
+          "minimum_ms": 5200.0,
+          "maximum_ms": 5600.0
+        },
+        "median_dt": 400.0,
+        "mean_dt": 693.6410891089109,
+        "p05_dt": 387.0,
+        "p95_dt": 5494.849999999999,
+        "p99_dt": 5587.58,
+        "max_dt": 5626.0,
+        "stall_count": 23,
+        "stall_percentage": 0.05693069306930693,
+        "coefficient_of_variation": 1.7198389971366086,
+        "autocorrelation": -0.06105528765293085
+      }
+    ]
+  },
+  "stall_validation": {
+    "status": "PASS",
+    "stall_threshold_ms": 1000,
+    "stalls_preserved": true,
+    "no_interpolation": true,
+    "bounded_stall_duration_profiles": true
+  },
+  "distribution_validation": {
+    "status": "PASS",
+    "accel_magnitude": {
+      "count": 9698,
+      "valid_percentage": 100.0,
+      "invalid_percentage": 0.0,
+      "mean": 10.02339757976046,
+      "std": 0.4685369358973119,
+      "median": 9.960185741219728,
+      "MAD": 0.27270670899294736,
+      "p01": 9.22988976001577,
+      "p05": 9.411530693775081,
+      "p25": 9.702766358093758,
+      "p75": 10.255893427675598,
+      "p95": 10.867184085914388,
+      "p99": 11.570535659705113,
+      "min": 8.600430221797046,
+      "max": 13.78860399025224
+    },
+    "gyro_magnitude": {
+      "count": 9698,
+      "valid_percentage": 100.0,
+      "invalid_percentage": 0.0,
+      "mean": 0.28273288095369403,
+      "std": 0.18991639529456314,
+      "median": 0.2576941016011038,
+      "MAD": 0.11793985300736692,
+      "p01": 0.0,
+      "p05": 0.0625,
+      "p25": 0.13975424859373686,
+      "p75": 0.375,
+      "p95": 0.6281172263200556,
+      "p99": 0.9057110466368399,
+      "min": 0.0,
+      "max": 1.4908575552345704
+    }
+  },
+  "sentinel_aware_validation": {
+    "raw_hr": {
+      "count": 8078,
+      "valid_percentage": 83.29552485048464,
+      "invalid_percentage": 16.704475149515364,
+      "mean": 82.95828175290913,
+      "std": 8.670046880951212,
+      "median": 82.0,
+      "MAD": 6.0,
+      "p01": 67.0,
+      "p05": 71.0,
+      "p25": 77.0,
+      "p75": 88.0,
+      "p95": 98.0,
+      "p99": 109.0,
+      "min": 60.0,
+      "max": 124.0,
+      "all_rows": {
+        "count": 9698,
+        "valid_percentage": 100.0,
+        "invalid_percentage": 0.0,
+        "mean": -97.777170550629,
+        "std": 403.6651195158061,
+        "median": 80.0,
+        "MAD": 7.0,
+        "p01": -999.0,
+        "p05": -999.0,
+        "p25": 73.0,
+        "p75": 87.0,
+        "p95": 97.0,
+        "p99": 108.0,
+        "min": -999.0,
+        "max": 124.0
+      },
+      "validity_run_analysis": {
+        "valid_run_length": {
+          "mean": 9.107102593010147,
+          "median": 5.0,
+          "p95": 33.0
+        },
+        "invalid_run_length": {
+          "mean": 1.8284424379232507,
+          "median": 1.0,
+          "p95": 6.0
+        },
+        "valid_to_invalid_transition_rate": 0.09136846447354852,
+        "invalid_to_valid_transition_rate": 0.09136846447354852
+      }
+    },
+    "final_hr": {
+      "count": 7862,
+      "valid_percentage": 81.06826149721591,
+      "invalid_percentage": 18.93173850278408,
+      "mean": 82.94390740269651,
+      "std": 8.5762495217399,
+      "median": 82.0,
+      "MAD": 6.0,
+      "p01": 67.0,
+      "p05": 72.0,
+      "p25": 76.0,
+      "p75": 88.0,
+      "p95": 98.0,
+      "p99": 109.0,
+      "min": 60.0,
+      "max": 124.0,
+      "all_rows": {
+        "count": 9698,
+        "valid_percentage": 100.0,
+        "invalid_percentage": 0.0,
+        "mean": -121.8868838935863,
+        "std": 423.9332506437842,
+        "median": 79.0,
+        "MAD": 7.0,
+        "p01": -999.0,
+        "p05": -999.0,
+        "p25": 73.0,
+        "p75": 87.0,
+        "p95": 97.0,
+        "p99": 107.0,
+        "min": -999.0,
+        "max": 124.0
+      },
+      "validity_run_analysis": {
+        "valid_run_length": {
+          "mean": 7.431001890359168,
+          "median": 4.0,
+          "p95": 24.0
+        },
+        "invalid_run_length": {
+          "mean": 1.7369914853358561,
+          "median": 1.0,
+          "p95": 4.199999999999932
+        },
+        "valid_to_invalid_transition_rate": 0.10900278436629886,
+        "invalid_to_valid_transition_rate": 0.10900278436629886
+      }
+    },
+    "raw_spo2": {
+      "count": 7884,
+      "valid_percentage": 81.2951123943081,
+      "invalid_percentage": 18.704887605691894,
+      "mean": 97.91019786910198,
+      "std": 0.7695053735711472,
+      "median": 98.0,
+      "MAD": 1.0,
+      "p01": 97.0,
+      "p05": 97.0,
+      "p25": 97.0,
+      "p75": 98.0,
+      "p95": 99.0,
+      "p99": 99.0,
+      "min": 96.0,
+      "max": 100.0,
+      "all_rows": {
+        "count": 9698,
+        "valid_percentage": 100.0,
+        "invalid_percentage": 0.0,
+        "mean": -107.26562177768612,
+        "std": 427.7415263201102,
+        "median": 98.0,
+        "MAD": 1.0,
+        "p01": -999.0,
+        "p05": -999.0,
+        "p25": 97.0,
+        "p75": 98.0,
+        "p95": 99.0,
+        "p99": 99.0,
+        "min": -999.0,
+        "max": 100.0
+      },
+      "validity_run_analysis": {
+        "valid_run_length": {
+          "mean": 7.487179487179487,
+          "median": 4.0,
+          "p95": 25.399999999999977
+        },
+        "invalid_run_length": {
+          "mean": 1.7243346007604563,
+          "median": 1.0,
+          "p95": 4.0
+        },
+        "valid_to_invalid_transition_rate": 0.10848716097762194,
+        "invalid_to_valid_transition_rate": 0.10848716097762194
+      }
+    },
+    "final_spo2": {
+      "count": 7559,
+      "valid_percentage": 77.94390595999175,
+      "invalid_percentage": 22.05609404000825,
+      "mean": 97.9087180844027,
+      "std": 0.7656309143112294,
+      "median": 98.0,
+      "MAD": 1.0,
+      "p01": 97.0,
+      "p05": 97.0,
+      "p25": 97.0,
+      "p75": 98.0,
+      "p95": 99.0,
+      "p99": 99.0,
+      "min": 96.0,
+      "max": 100.0,
+      "all_rows": {
+        "count": 9698,
+        "valid_percentage": 100.0,
+        "invalid_percentage": 0.0,
+        "mean": -144.02650030934214,
+        "std": 454.80617549506644,
+        "median": 98.0,
+        "MAD": 1.0,
+        "p01": -999.0,
+        "p05": -999.0,
+        "p25": 97.0,
+        "p75": 98.0,
+        "p95": 99.0,
+        "p99": 99.0,
+        "min": -999.0,
+        "max": 100.0
+      },
+      "validity_run_analysis": {
+        "valid_run_length": {
+          "mean": 5.8687888198757765,
+          "median": 4.0,
+          "p95": 19.0
+        },
+        "invalid_run_length": {
+          "mean": 1.662004662004662,
+          "median": 1.0,
+          "p95": 4.0
+        },
+        "valid_to_invalid_transition_rate": 0.13272146024543674,
+        "invalid_to_valid_transition_rate": 0.13272146024543674
+      }
+    },
+    "max_ir": {
+      "count": 9066,
+      "valid_percentage": 93.48319241080635,
+      "invalid_percentage": 6.5168075891936486,
+      "mean": 93027.98356496802,
+      "std": 14253.380345125177,
+      "median": 92548.0,
+      "MAD": 10823.5,
+      "p01": 65193.6,
+      "p05": 71105.5,
+      "p25": 81884.25,
+      "p75": 103568.75,
+      "p95": 116736.25,
+      "p99": 125241.30000000002,
+      "min": 52112.0,
+      "max": 138334.0,
+      "all_rows": {
+        "count": 9698,
+        "valid_percentage": 100.0,
+        "invalid_percentage": 0.0,
+        "mean": 91352.02000412456,
+        "std": 15422.281147326581,
+        "median": 90950.5,
+        "MAD": 11426.5,
+        "p01": 55247.82,
+        "p05": 67554.65,
+        "p25": 79869.0,
+        "p75": 102755.0,
+        "p95": 116321.3,
+        "p99": 125090.54000000001,
+        "min": 39080.0,
+        "max": 138334.0
+      },
+      "validity_run_analysis": {
+        "valid_run_length": {
+          "mean": 105.4186046511628,
+          "median": 67.0,
+          "p95": 328.0
+        },
+        "invalid_run_length": {
+          "mean": 7.435294117647059,
+          "median": 6.0,
+          "p95": 16.799999999999997
+        },
+        "valid_to_invalid_transition_rate": 0.008765597607507477,
+        "invalid_to_valid_transition_rate": 0.008765597607507477
+      }
+    },
+    "max_red": {
+      "count": 9066,
+      "valid_percentage": 93.48319241080635,
+      "invalid_percentage": 6.5168075891936486,
+      "mean": 69886.08559452901,
+      "std": 12469.831784339076,
+      "median": 68376.0,
+      "MAD": 9805.0,
+      "p01": 46993.85,
+      "p05": 52276.5,
+      "p25": 59612.0,
+      "p75": 79852.5,
+      "p95": 91071.25,
+      "p99": 96931.65000000002,
+      "min": 36449.0,
+      "max": 106248.0,
+      "all_rows": {
+        "count": 9698,
+        "valid_percentage": 100.0,
+        "invalid_percentage": 0.0,
+        "mean": 68557.3541967416,
+        "std": 13302.6856247964,
+        "median": 67006.0,
+        "MAD": 9760.0,
+        "p01": 38908.31,
+        "p05": 48650.85,
+        "p25": 58509.5,
+        "p75": 78952.75,
+        "p95": 90769.0,
+        "p99": 96772.05000000002,
+        "min": 26456.0,
+        "max": 106248.0
+      },
+      "validity_run_analysis": {
+        "valid_run_length": {
+          "mean": 105.4186046511628,
+          "median": 67.0,
+          "p95": 328.0
+        },
+        "invalid_run_length": {
+          "mean": 7.435294117647059,
+          "median": 6.0,
+          "p95": 16.799999999999997
+        },
+        "valid_to_invalid_transition_rate": 0.008765597607507477,
+        "invalid_to_valid_transition_rate": 0.008765597607507477
+      }
+    }
+  },
+  "ppg_validation": {
+    "status": "PASS",
+    "consistency_errors": [],
+    "stateful_validity": true
+  },
+  "motion_validation": {
+    "status": "PASS",
+    "stationary_accel_magnitude_near_gravity": true,
+    "gravity_model_m_s2": 9.81,
+    "gyro_derived_from_orientation_with_actual_elapsed_seconds": true,
+    "fixed_20_hz_derivative_used": false
+  },
+  "cross_sensor_validation": {
+    "status": "PASS",
+    "pearson": {
+      "accel_magnitude_gyro_magnitude_pearson": 0.504181597997839,
+      "activity_accel_magnitude_pearson": 0.42353960950674624,
+      "battery_voltage_percent_pearson": 0.9638624904124363,
+      "temperature_humidity_pearson": 0.09988784031593739
+    }
+  },
+  "environmental_validation": {
+    "status": "PASS",
+    "temperature_slow_latent": true,
+    "humidity_slow_latent": true,
+    "pressure_slow_latent": true,
+    "gas_resistance_temporally_structured": true
+  },
+  "audio_validation": {
+    "status": "PASS",
+    "scale": "Existing firmware-like mic RMS convention",
+    "temporal_structure": "baseline + activity envelope + autocorrelation + transients"
+  },
+  "battery_validation": {
+    "status": "PASS",
+    "voltage_percent_pearson": 0.9638624904124363,
+    "charger_state_not_randomized_independently": true
+  },
+  "activity_composition_validation": {
+    "status": "WARN",
+    "total_rows_by_activity": {
+      "STATIC": 3515,
+      "WALKING": 2224,
+      "RUNNING": 343,
+      "TRANSITION": 3425,
+      "HIGH_MOTION": 123,
+      "FALL_OR_HAZARD": 68,
+      "UNKNOWN": 0
+    },
+    "percentage_by_activity": {
+      "STATIC": 36.24458651268303,
+      "WALKING": 22.932563415137142,
+      "RUNNING": 3.5368117137554136,
+      "TRANSITION": 35.31656011548773,
+      "HIGH_MOTION": 1.268302742833574,
+      "FALL_OR_HAZARD": 0.701175500103114,
+      "UNKNOWN": 0.0
+    },
+    "sessions_containing_activity": {
+      "STATIC": 22,
+      "WALKING": 20,
+      "RUNNING": 8,
+      "TRANSITION": 24,
+      "HIGH_MOTION": 4,
+      "FALL_OR_HAZARD": 2,
+      "UNKNOWN": 0
+    },
+    "per_session_activity_percentage": [
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 22.80701754385965,
+          "WALKING": 9.774436090225564,
+          "RUNNING": 0.0,
+          "TRANSITION": 63.40852130325815,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 4.010025062656641,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 33.583959899749374,
+          "WALKING": 16.040100250626566,
+          "RUNNING": 0.0,
+          "TRANSITION": 37.34335839598997,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 13.032581453634085,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 49.554896142433236,
+          "WALKING": 46.29080118694362,
+          "RUNNING": 0.0,
+          "TRANSITION": 4.154302670623146,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 34.862385321100916,
+          "WALKING": 32.415902140672785,
+          "RUNNING": 14.37308868501529,
+          "TRANSITION": 18.34862385321101,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 22.22222222222222,
+          "WALKING": 31.555555555555557,
+          "RUNNING": 0.0,
+          "TRANSITION": 46.22222222222222,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 58.35240274599543,
+          "WALKING": 22.19679633867277,
+          "RUNNING": 0.0,
+          "TRANSITION": 19.450800915331808,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 62.96296296296296,
+          "WALKING": 6.753812636165577,
+          "RUNNING": 0.0,
+          "TRANSITION": 30.28322440087146,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 13.73873873873874,
+          "WALKING": 6.756756756756757,
+          "RUNNING": 2.027027027027027,
+          "TRANSITION": 77.47747747747748,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 11.314984709480122,
+          "WALKING": 39.75535168195719,
+          "RUNNING": 7.951070336391437,
+          "TRANSITION": 40.97859327217125,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 45.63380281690141,
+          "WALKING": 0.0,
+          "RUNNING": 0.0,
+          "TRANSITION": 49.29577464788732,
+          "HIGH_MOTION": 5.070422535211268,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 0.0,
+          "WALKING": 16.39344262295082,
+          "RUNNING": 0.0,
+          "TRANSITION": 77.28337236533957,
+          "HIGH_MOTION": 6.323185011709602,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 55.3133514986376,
+          "WALKING": 0.0,
+          "RUNNING": 5.722070844686648,
+          "TRANSITION": 38.96457765667575,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 33.060109289617486,
+          "WALKING": 51.09289617486339,
+          "RUNNING": 0.0,
+          "TRANSITION": 15.846994535519126,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 48.21052631578947,
+          "WALKING": 49.68421052631579,
+          "RUNNING": 0.0,
+          "TRANSITION": 2.1052631578947367,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 32.25806451612903,
+          "WALKING": 35.77712609970674,
+          "RUNNING": 17.88856304985337,
+          "TRANSITION": 14.07624633431085,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 15.303430079155673,
+          "WALKING": 62.00527704485488,
+          "RUNNING": 0.0,
+          "TRANSITION": 22.691292875989447,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 57.51633986928105,
+          "WALKING": 35.5119825708061,
+          "RUNNING": 0.0,
+          "TRANSITION": 6.971677559912854,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 46.70912951167728,
+          "WALKING": 10.615711252653927,
+          "RUNNING": 0.0,
+          "TRANSITION": 42.67515923566879,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 23.733333333333334,
+          "WALKING": 14.666666666666666,
+          "RUNNING": 6.933333333333334,
+          "TRANSITION": 54.666666666666664,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 10.0418410041841,
+          "WALKING": 21.12970711297071,
+          "RUNNING": 19.8744769874477,
+          "TRANSITION": 48.95397489539749,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 48.41628959276018,
+          "WALKING": 0.0,
+          "RUNNING": 0.0,
+          "TRANSITION": 43.665158371040725,
+          "HIGH_MOTION": 7.918552036199095,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 0.0,
+          "WALKING": 31.176470588235293,
+          "RUNNING": 0.0,
+          "TRANSITION": 56.1764705882353,
+          "HIGH_MOTION": 12.647058823529411,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 65.60364464692483,
+          "WALKING": 0.0,
+          "RUNNING": 13.211845102505695,
+          "TRANSITION": 21.184510250569478,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      },
+      {
+        "dataset": "",
+        "percentages": {
+          "STATIC": 64.44444444444444,
+          "WALKING": 25.679012345679013,
+          "RUNNING": 0.0,
+          "TRANSITION": 9.876543209876543,
+          "HIGH_MOTION": 0.0,
+          "FALL_OR_HAZARD": 0.0,
+          "UNKNOWN": 0.0
+        }
+      }
+    ],
+    "transition_event_count": 107,
+    "transition_duration_distribution": {
+      "count": 107,
+      "mean": 32.00934579439252,
+      "median": 8.0,
+      "p95": 101.59999999999991
+    }
+  },
+  "transition_validation": {
+    "status": "PASS",
+    "transitions_inserted_at_real_activity_boundaries": true,
+    "natural_motion_interpolation": true
+  },
+  "duplicate_detection": {
+    "status": "PASS",
+    "duplicate_full_row_count": 0,
+    "suspicious_session_pairs": []
+  },
+  "real_row_reuse_check": {
+    "status": "PASS",
+    "exact_signature_match_found": false,
+    "real_rows_copied": false,
+    "real_rows_bootstrapped": false,
+    "real_rows_resampled": false
+  },
+  "training_contamination_check": {
+    "status": "PASS",
+    "real_safeband_used_for_training": false,
+    "real_safeband_used_for_model_selection": false,
+    "real_safeband_used_only_as_calibration_reference": true
+  },
+  "physical_sanity_check": {
+    "status": "PASS",
+    "no_nan": true,
+    "no_infinity": true,
+    "elapsed_monotonic": true,
+    "sample_index_monotonic": true,
+    "schemas_valid": true,
+    "battery_bounds_valid": true,
+    "orientation_bounds_valid": true,
+    "ppg_sentinel_valid": true
+  },
+  "2_12_gate_status": {
+    "milestone": "2.12",
+    "name": "Training-Ready Dataset Packaging",
+    "status": "BLOCKED",
+    "classification": "DELIBERATE_DATA_INTEGRITY_GATE",
+    "timestamp": "2026-11-19T03:13:30.950040+00:00",
+    "checks": {
+      "final_dataset_acceptance": true,
+      "accepted_inventory_read": true,
+      "all_dataset_lineage_resolved": true,
+      "minimum_independent_source_sessions": false,
+      "group_level_split": false,
+      "no_cross_split_lineage": "NOT_APPLICABLE_NO_SPLIT",
+      "training_splits_created": false
+    },
+    "independent_source_session_count": 1,
+    "required_independent_source_session_count": 3,
+    "accepted_dataset_count": 42,
+    "resolved_dataset_count": 42,
+    "unresolved_dataset_count": 0,
+    "unresolved_datasets": [],
+    "source_sessions": [
+      "SESSION_SHA256_D119FF0A17D4B62B"
+    ],
+    "train_validation_test_created": false,
+    "reason": "Insufficient independent source sessions. The accepted corpus contains derivatives sharing a recording lineage. No split was created and the no-leakage rule was not weakened.",
+    "required_next_action": "Collect independently recorded source sessions, then rerun the lineage audit and group-level split."
+  },
+  "issues": [],
+  "parameter_categories": {
+    "OBSERVED_REAL": [
+      "394 ms median elapsed interval",
+      "approximately 5.4 s stall scale",
+      "STATIONARY/WALKING/transition activity labels"
+    ],
+    "CALIBRATED_FROM_REAL": [
+      "nominal interval",
+      "jitter scale",
+      "stall probability",
+      "stall duration profile",
+      "sensor noise broad ranges"
+    ],
+    "PHYSICS_BASED_ASSUMPTION": [
+      "9.81 m/s2 gravity",
+      "orientation-derived gyro",
+      "battery voltage/percentage correlation",
+      "physiological response lag"
+    ],
+    "GENERATOR_ASSUMPTION": [
+      "session schedule templates",
+      "acoustic baseline",
+      "environmental baseline",
+      "body-motion style"
+    ]
+  },
+  "observed_vs_assumed_limitations": [
+    "Three real recordings provide limited coverage of independent sessions and users.",
+    "Real SpO2 continuity and HR ground truth are insufficient for strong physiological calibration.",
+    "Hazard/fall ground truth is synthetic and not established by real hardware."
+  ],
+  "overall_acceptance": "PASS",
+  "questions": {
+    "Q1_independent_sessions": "PASS - 24 unique source IDs and seeds.",
+    "Q2_irregular_timestamps": "PASS - session-specific nominal intervals and stalls.",
+    "Q3_timing_varies": "PASS - bounded session timing metadata and diversity.",
+    "Q4_stalls": "PASS - stalls preserved above 1000 ms.",
+    "Q5_sentinel_excluded": "PASS - valid-only physiological distributions separate from ALL_ROWS.",
+    "Q6_PPG_validity": "PASS - stateful validity and -999 consistency checked.",
+    "Q7_motion_coupling": "PASS - acceleration/gyro share latent orientation/motion.",
+    "Q8_environment_smooth": "PASS - latent slow evolution.",
+    "Q9_microphone_structured": "PASS - baseline, activity, autocorrelation and transients.",
+    "Q10_battery_correlation": "PASS - correlated latent voltage/percentage.",
+    "Q11_transitions": "PASS - boundaries and transition segments represented.",
+    "Q12_transition_dominance": "PASS if transition percentage remains below 30%.",
+    "Q13_suspicious_similarity": "PASS if no pair exceeds threshold.",
+    "Q14_real_reuse": "PASS - no exact signatures detected.",
+    "Q15_training_contamination": "PASS - real recordings are calibration-only.",
+    "Q16_parameters": "Categorized in parameter_categories.",
+    "Q17_limitations": "Limited independent real sessions and lack of validated hazard/clinical truth.",
+    "Q18_2_12_gate": "BLOCKED"
+  },
+  "final_conclusion": "The v2.1 audit uses the existing 24 independent sessions and applies session-level timing diversity plus sentinel-aware validation without changing 2.12 or ML behavior."
+}

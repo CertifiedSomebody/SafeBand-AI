@@ -1,0 +1,77 @@
+﻿{
+  "schema_version": "2.10.7",
+  "status": "SYNTHETIC_UNVALIDATED",
+
+  "profiles": {
+
+    "FALL_FORWARD": {
+      "hazard_type": "FALL_FORWARD",
+      "events": 3,
+      "duration_rows": [5, 9],
+      "acceleration_scale": [2.0, 3.2],
+      "gyro_scale": [1.6, 2.8],
+      "impact_row": true,
+      "recovery": 0.55
+    },
+
+    "FALL_BACKWARD": {
+      "hazard_type": "FALL_BACKWARD",
+      "events": 3,
+      "duration_rows": [5, 9],
+      "acceleration_scale": [2.0, 3.2],
+      "gyro_scale": [1.6, 2.8],
+      "impact_row": true,
+      "recovery": 0.55
+    },
+
+    "FALL_SIDE": {
+      "hazard_type": "FALL_SIDE",
+      "events": 3,
+      "duration_rows": [5, 9],
+      "acceleration_scale": [2.0, 3.2],
+      "gyro_scale": [1.8, 3.0],
+      "impact_row": true,
+      "recovery": 0.55
+    },
+
+    "TRIP_RECOVERY": {
+      "hazard_type": "TRIP_RECOVERY",
+      "events": 4,
+      "duration_rows": [5, 10],
+      "acceleration_scale": [1.5, 2.3],
+      "gyro_scale": [1.3, 2.3],
+      "impact_row": false,
+      "recovery": 0.70
+    },
+
+    "SUDDEN_COLLAPSE": {
+      "hazard_type": "SUDDEN_COLLAPSE",
+      "events": 3,
+      "duration_rows": [6, 11],
+      "acceleration_scale": [1.7, 2.7],
+      "gyro_scale": [1.4, 2.5],
+      "impact_row": true,
+      "recovery": 0.45
+    },
+
+    "HIGH_IMPACT": {
+      "hazard_type": "HIGH_IMPACT",
+      "events": 3,
+      "duration_rows": [3, 6],
+      "acceleration_scale": [2.8, 4.0],
+      "gyro_scale": [2.0, 3.5],
+      "impact_row": true,
+      "recovery": 0.60
+    },
+
+    "LOSS_OF_BALANCE": {
+      "hazard_type": "LOSS_OF_BALANCE",
+      "events": 4,
+      "duration_rows": [6, 12],
+      "acceleration_scale": [1.4, 2.2],
+      "gyro_scale": [1.5, 2.6],
+      "impact_row": false,
+      "recovery": 0.75
+    }
+  }
+}

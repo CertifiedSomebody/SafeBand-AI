@@ -1,0 +1,77 @@
+{
+  "schema": {
+    "required_columns": [
+      "activity",
+      "elapsed_ms",
+      "sample_index",
+      "heading_deg",
+      "roll_deg",
+      "pitch_deg",
+      "accel_x_m_s2",
+      "accel_y_m_s2",
+      "accel_z_m_s2",
+      "gyro_x_rad_s",
+      "gyro_y_rad_s",
+      "gyro_z_rad_s",
+      "temperature_C",
+      "humidity_pct",
+      "pressure_hPa",
+      "gas_kOhm",
+      "bme_valid",
+      "mic_rms",
+      "mic_dc",
+      "mic_average_rms",
+      "mic_max_rms",
+      "mic_blocks",
+      "max_ir",
+      "max_red",
+      "finger_detected",
+      "raw_hr",
+      "raw_hr_valid",
+      "raw_spo2",
+      "raw_spo2_valid",
+      "final_hr",
+      "final_hr_valid",
+      "final_spo2",
+      "final_spo2_valid",
+      "battery_voltage_V",
+      "battery_percent",
+      "charger_connected"
+    ]
+  },
+  "motion": {
+    "acceleration_scale_mean": 1.0,
+    "acceleration_scale_std": 0.04,
+    "gyro_scale_mean": 1.0,
+    "gyro_scale_std": 0.06,
+    "acceleration_noise_std": 0.015,
+    "gyro_noise_std": 0.006,
+    "drift_std": 0.002,
+    "acceleration_drift_scale": 0.15
+  },
+  "orientation": {
+    "noise_std_deg": 0.35
+  },
+  "environment": {
+    "temperature_noise": 0.08,
+    "humidity_noise": 0.35,
+    "pressure_noise": 0.45,
+    "gas_noise": 0.04
+  },
+  "audio": {
+    "gain_mean": 1.0,
+    "gain_std": 0.04,
+    "noise_std": 0.01
+  },
+  "ppg": {
+    "ir_noise_std": 80.0,
+    "red_noise_std": 60.0,
+    "hr_noise_std": 0.6,
+    "spo2_noise_std": 0.25
+  },
+  "timing": {
+    "normal_min_ms": 350,
+    "normal_max_ms": 500,
+    "stall_min_ms": 1000
+  }
+}

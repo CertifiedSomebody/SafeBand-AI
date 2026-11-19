@@ -1,0 +1,33 @@
+{
+  "classification": "DEVELOPMENT_EVIDENCE",
+  "threshold": 0.05,
+  "test_metrics": {
+    "accuracy": 0.9098360655737705,
+    "precision": 0.4,
+    "recall": 0.2,
+    "f1": 0.26666666666666666,
+    "hazard_precision": 0.4,
+    "hazard_recall": 0.2,
+    "hazard_f1": 0.26666666666666666,
+    "specificity": 0.9732142857142857,
+    "sensitivity": 0.2,
+    "false_positive_rate": 0.026785714285714284,
+    "false_negative_rate": 0.8,
+    "roc_auc": 0.7526785714285713,
+    "confusion_matrix": [
+      [
+        109,
+        3
+      ],
+      [
+        8,
+        2
+      ]
+    ],
+    "support": {
+      "NON_HAZARD": 112,
+      "FALL_OR_HAZARD": 10
+    }
+  },
+  "threshold_selection": "validation_safe_recall_threshold; 0.05 validation recall=1.0, F1=0.6923"
+}

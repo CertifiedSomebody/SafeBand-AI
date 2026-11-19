@@ -1,0 +1,91 @@
+﻿{
+  "schema_version": "1.0",
+  "stage": "2.10.5",
+  "description": "Empirical timing and acquisition diversity profiles derived from SafeBand real-session timing behavior.",
+  "empirical_reference": {
+    "normal_interval_ms": {
+      "median": 394.0,
+      "typical_low": 387.0,
+      "typical_high": 430.0
+    },
+    "stall_interval_ms": {
+      "typical": 5429.0,
+      "observed_range": [
+        5422.0,
+        5442.0
+      ]
+    },
+    "real_session_stall_fraction": 0.075
+  },
+  "profiles": {
+    "TIMING_NORMAL": {
+      "description": "Realistic normal acquisition cadence with small correlated timing jitter.",
+      "base_interval_ms": 394.0,
+      "jitter_std_ms": 18.0,
+      "correlation": 0.72,
+      "stall_probability": 0.02,
+      "stall_interval_ms": 5429.0,
+      "stall_jitter_ms": 12.0,
+      "min_interval_ms": 350.0,
+      "max_interval_ms": 470.0
+    },
+    "TIMING_JITTERED": {
+      "description": "Higher acquisition jitter while retaining the empirical normal cadence.",
+      "base_interval_ms": 394.0,
+      "jitter_std_ms": 42.0,
+      "correlation": 0.55,
+      "stall_probability": 0.035,
+      "stall_interval_ms": 5429.0,
+      "stall_jitter_ms": 18.0,
+      "min_interval_ms": 300.0,
+      "max_interval_ms": 520.0
+    },
+    "TIMING_SLOW": {
+      "description": "Slower acquisition session with realistic timing variation.",
+      "base_interval_ms": 455.0,
+      "jitter_std_ms": 25.0,
+      "correlation": 0.68,
+      "stall_probability": 0.035,
+      "stall_interval_ms": 5429.0,
+      "stall_jitter_ms": 15.0,
+      "min_interval_ms": 390.0,
+      "max_interval_ms": 540.0
+    },
+    "TIMING_BURSTY": {
+      "description": "Alternating short acquisition bursts and longer acquisition intervals.",
+      "base_interval_ms": 394.0,
+      "jitter_std_ms": 24.0,
+      "correlation": 0.65,
+      "burst_probability": 0.22,
+      "burst_interval_ms": 250.0,
+      "burst_jitter_ms": 20.0,
+      "stall_probability": 0.045,
+      "stall_interval_ms": 5429.0,
+      "stall_jitter_ms": 15.0,
+      "min_interval_ms": 220.0,
+      "max_interval_ms": 520.0
+    },
+    "TIMING_STALL_LIGHT": {
+      "description": "Mostly normal acquisition with occasional empirical-length stalls.",
+      "base_interval_ms": 394.0,
+      "jitter_std_ms": 18.0,
+      "correlation": 0.72,
+      "stall_probability": 0.045,
+      "stall_interval_ms": 5429.0,
+      "stall_jitter_ms": 12.0,
+      "min_interval_ms": 350.0,
+      "max_interval_ms": 470.0
+    },
+    "TIMING_STALL_HEAVY": {
+      "description": "Acquisition session with frequent empirical-length stalls.",
+      "base_interval_ms": 394.0,
+      "jitter_std_ms": 20.0,
+      "correlation": 0.70,
+      "stall_probability": 0.12,
+      "stall_interval_ms": 5429.0,
+      "stall_jitter_ms": 18.0,
+      "min_interval_ms": 345.0,
+      "max_interval_ms": 475.0
+    }
+  }
+}

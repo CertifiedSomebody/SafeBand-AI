@@ -1,0 +1,50 @@
+﻿{
+  "stage": "2.10.2",
+  "profiles": {
+    "WALKING_SLOW": {
+      "acceleration_scale": 0.88,
+      "gyro_scale": 0.85,
+      "transition_rows": [8, 16]
+    },
+    "WALKING_NORMAL": {
+      "acceleration_scale": 1.00,
+      "gyro_scale": 1.00,
+      "transition_rows": [8, 16]
+    },
+    "WALKING_BRISK": {
+      "acceleration_scale": 1.15,
+      "gyro_scale": 1.20,
+      "transition_rows": [8, 16]
+    },
+    "WALKING_ACCELERATION": {
+      "acceleration_scale": 1.25,
+      "gyro_scale": 1.30,
+      "transition_rows": [10, 20]
+    },
+    "WALKING_DECELERATION": {
+      "acceleration_scale": 0.82,
+      "gyro_scale": 0.85,
+      "transition_rows": [10, 20]
+    },
+    "WALKING_START": {
+      "acceleration_scale": 1.10,
+      "gyro_scale": 1.15,
+      "transition_rows": [8, 18]
+    },
+    "WALKING_STOP": {
+      "acceleration_scale": 0.70,
+      "gyro_scale": 0.72,
+      "transition_rows": [8, 18]
+    },
+    "WALKING_IRREGULAR": {
+      "acceleration_scale": 1.08,
+      "gyro_scale": 1.15,
+      "transition_rows": [8, 16]
+    },
+    "WALKING_TURNING": {
+      "acceleration_scale": 1.05,
+      "gyro_scale": 1.35,
+      "transition_rows": [8, 16]
+    }
+  }
+}

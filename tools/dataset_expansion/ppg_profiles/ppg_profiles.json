@@ -1,0 +1,73 @@
+﻿{
+  "stage": "2.10.3",
+  "seed": 20261118,
+
+  "profiles": {
+
+    "PPG_GOOD_CONTACT": {
+      "finger_valid_probability": 0.97,
+      "hr_valid_given_finger": 0.96,
+      "spo2_valid_given_finger": 0.90,
+      "final_hr_given_raw_hr": 0.98,
+      "final_spo2_given_raw_spo2": 0.96,
+      "min_state_rows": 20,
+      "max_state_rows": 80,
+      "value_noise_fraction": 0.015
+    },
+
+    "PPG_INTERMITTENT_CONTACT": {
+      "finger_valid_probability": 0.70,
+      "hr_valid_given_finger": 0.92,
+      "spo2_valid_given_finger": 0.68,
+      "final_hr_given_raw_hr": 0.96,
+      "final_spo2_given_raw_spo2": 0.90,
+      "min_state_rows": 4,
+      "max_state_rows": 30,
+      "value_noise_fraction": 0.025
+    },
+
+    "PPG_LOOSE_CONTACT": {
+      "finger_valid_probability": 0.82,
+      "hr_valid_given_finger": 0.82,
+      "spo2_valid_given_finger": 0.50,
+      "final_hr_given_raw_hr": 0.93,
+      "final_spo2_given_raw_spo2": 0.82,
+      "min_state_rows": 8,
+      "max_state_rows": 45,
+      "value_noise_fraction": 0.035
+    },
+
+    "PPG_MOTION_DEGRADED": {
+      "finger_valid_probability": 0.95,
+      "hr_valid_given_finger": 0.82,
+      "spo2_valid_given_finger": 0.42,
+      "final_hr_given_raw_hr": 0.92,
+      "final_spo2_given_raw_spo2": 0.78,
+      "min_state_rows": 12,
+      "max_state_rows": 60,
+      "value_noise_fraction": 0.050
+    },
+
+    "PPG_NO_CONTACT": {
+      "finger_valid_probability": 0.02,
+      "hr_valid_given_finger": 0.20,
+      "spo2_valid_given_finger": 0.10,
+      "final_hr_given_raw_hr": 0.50,
+      "final_spo2_given_raw_spo2": 0.40,
+      "min_state_rows": 40,
+      "max_state_rows": 140,
+      "value_noise_fraction": 0.000
+    },
+
+    "PPG_RECOVERY": {
+      "finger_valid_probability": 0.88,
+      "hr_valid_given_finger": 0.90,
+      "spo2_valid_given_finger": 0.62,
+      "final_hr_given_raw_hr": 0.95,
+      "final_spo2_given_raw_spo2": 0.88,
+      "min_state_rows": 6,
+      "max_state_rows": 35,
+      "value_noise_fraction": 0.030
+    }
+  }
+}
