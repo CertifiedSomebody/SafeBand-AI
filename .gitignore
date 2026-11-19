@@ -1,61 +1,111 @@
+# ================================
 # Python
+# ================================
 __pycache__/
 *.py[cod]
 *.pyo
 
-# Virtual environments
 venv/
 .venv/
 env/
 ENV/
 
+# ================================
 # IDE
+# ================================
 .vscode/
 .idea/
 
+# ================================
 # Python tooling
+# ================================
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
 
+# ================================
 # Environment / secrets
+# ================================
 .env
 .env.*
 !.env.example
 
-# Datasets - DO NOT COMMIT
-datasets/raw/
-datasets/processed/
-
-# ML artifacts
-models/*.joblib
-models/*.pkl
-models/*.pickle
-# ML artifacts
-models/*.joblib
-models/*.pkl
-models/*.pickle
-
-# Large generated ML caches
-models/multidataset_v3/cache/
-models/multidataset_v3_smoke/
-# ML artifacts
-**/*.joblib
-**/*.pkl
-**/*.pickle
-
-# Large generated ML caches
-models/multidataset_v3/cache/
-models/multidataset_v3_smoke/
-
-# Logs
+# ================================
+# Logs / OS
+# ================================
 *.log
 logs/
-
-# OS
 .DS_Store
 Thumbs.db
-# Large generated BNO055 synthetic CSVs
-datasets/synthetic/bno055/bno055_synthetic_v1.csv
-datasets/synthetic/bno055/bno055_synthetic_v2.csv
-datasets/synthetic/bno055/bno055_synthetic_v2_1.csv
+
+# ================================
+# ML model artifacts
+# ================================
+*.joblib
+*.pkl
+*.pickle
+*.h5
+*.keras
+*.pt
+*.pth
+*.onnx
+
+# ================================
+# Raw external datasets
+# ================================
+datasets/raw/
+
+# ================================
+# Generated / processed datasets
+# ================================
+datasets/external_processed/
+datasets/features/
+datasets/generated/
+datasets/realistic_synthetic_v2/
+datasets/training/
+
+# ================================
+# Large generated datasets
+# ================================
+datasets/synthetic/
+datasets/processed/
+
+# ================================
+# Generated reports / outputs
+# ================================
+reports/confusion_matrices/
+reports/data_audit/
+reports/dataset_expansion/
+reports/dataset_training/
+reports/error_analysis/
+reports/external_evaluation/
+reports/real_data_characterization/
+reports/runtime_replay/
+models/multidataset_v3/cache/
+models/multidataset_v3_smoke/
+models/multidataset_v3/cache/
+models/multidataset_v3_smoke/
+
+# ================================
+# Temporary / cache files
+# ================================
+*.tmp
+*.temp
+*.cache
+# .NET build output
+**/bin/
+**/obj/
+
+# .NET generated files
+*.dll
+*.pdb
+*.exe
+*.deps.json
+*.runtimeconfig.json
+*.runtimeconfig.dev.json
+*.sourcelink.json
+*.csproj.FileListAbsolute.txt
+*.nuget.dgspec.json
+*.nuget.g.props
+*.nuget.g.targets
+project.assets.json

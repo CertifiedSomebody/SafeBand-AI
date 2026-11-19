@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SafeBand.AI/SafeBand.AI.csproj" />
+    <Project Path="src/SafeBand.App/SafeBand.App.csproj" />
+    <Project Path="src/SafeBand.Application/SafeBand.Application.csproj" />
+    <Project Path="src/SafeBand.Core/SafeBand.Core.csproj" />
+    <Project Path="src/SafeBand.Infrastructure/SafeBand.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SafeBand.Application.Tests/SafeBand.Application.Tests.csproj" />
+    <Project Path="tests/SafeBand.Core.Tests/SafeBand.Core.Tests.csproj" />
+    <Project Path="tests/SafeBand.Infrastructure.Tests/SafeBand.Infrastructure.Tests.csproj" />
+  </Folder>
+</Solution>

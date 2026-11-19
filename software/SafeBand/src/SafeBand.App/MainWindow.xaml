@@ -1,0 +1,21 @@
+﻿<Window x:Class="SafeBand.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SafeBand.App"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock Text="SafeBand AI" FontSize="28" FontWeight="SemiBold"
+                   HorizontalAlignment="Center" Margin="0,60,0,0"/>
+        <TextBlock Text="Development Replay Launcher"
+                   FontSize="16" HorizontalAlignment="Center" Margin="0,110,0,0"/>
+        <Button x:Name="LaunchButton" Content="Launch SafeBand Replay Dashboard"
+                Width="280" Height="44" HorizontalAlignment="Center"
+                VerticalAlignment="Center" Click="LaunchButton_Click"/>
+        <TextBlock x:Name="StatusText" Text="Ready"
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                   Margin="0,0,0,40"/>
+    </Grid>
+</Window>
